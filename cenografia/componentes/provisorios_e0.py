@@ -8,11 +8,19 @@ from cenografia.nucleo.registro import componente
 from cenografia.nucleo import geometria as G, materiais as M, luz as L
 
 
+def _mat(spec, padrao):
+    """spec: None → material padrão; dict {"nome": ..., parâmetros} → material do catálogo (E1)."""
+    if not spec:
+        return padrao()
+    spec = dict(spec); return M.por_nome(spec.pop("nome"), **spec)
+
+
 @componente("rua_reta")
 def rua_reta(ctx, p, rng, col):
     """Rua ao longo de y: pista de asfalto, faixa central tracejada, meio-fios chanfrados e calçadas em placas."""
     y0, y1 = p.get("y0", -2.0), p.get("y1", 80.0); larg = p.get("largura_pista", 7.0); calc = p.get("largura_calcada", 3.2)
-    G.caixa("pista", (-larg / 2, y0, -0.05), (larg / 2, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55)), col)
+    um = p.get("umidade", 0.0)
+    G.caixa("pista", (-larg / 2, y0, -0.05), (larg / 2, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55), umidade=um), col)
     tinta = M.pintura("#e9e2cf", rug=0.7, desgaste=0.6)
     y = y0 + 1.0; i = 0
     while y < y1 - 3:
@@ -22,7 +30,8 @@ def rua_reta(ctx, p, rng, col):
         G.caixa(f"meiofio{s}", (xm if s > 0 else xm - 0.18, y0, -0.05), (xm + 0.18 if s > 0 else xm, y1, 0.15),
                 M.concreto("#b9b2a4", placa_m=(1.2, 0.18), desgaste=0.5, sujeira=0.6), col, chanfro=0.03)
         xc0, xc1 = (xm + 0.18, xm + 0.18 + calc) if s > 0 else (xm - 0.18 - calc, xm - 0.18)
-        G.caixa(f"calcada{s}", (xc0, y0, -0.05), (xc1, y1, 0.13), M.concreto("#aaa294", placa_m=(1.0, 1.0)), col)
+        mat_calc = _mat(dict(p["calcada"], umidade=um) if p.get("calcada") else None, lambda: M.concreto("#aaa294", placa_m=(1.0, 1.0), umidade=um))
+        G.caixa(f"calcada{s}", (xc0, y0, -0.05), (xc1, y1, 0.13), mat_calc, col)
 
 
 @componente("predio_bloco")
@@ -30,7 +39,10 @@ def predio_bloco(ctx, p, rng, col):
     """Prédio provisório: volume com fachada voltada para a rua (lado ±1), janelas recuadas com moldura e peitoril,
     algumas acesas (grupo 'artificial'), térreo comercial com porta e vitrine, platibanda no topo."""
     x0, x1, y0, y1, alt = p["x0"], p["x1"], p["y0"], p["y1"], p["altura"]; lado = p.get("lado", 1)   # lado: fachada em x0 (+1) ou x1 (−1)
-    mat = M.tijolo(p.get("cor", "#9c4f35")) if p.get("material") == "tijolo" else M.reboco(p.get("cor", "#e2c9a4"), desgaste=p.get("desgaste", 0.4))
+    if p.get("mat"):
+        mat = _mat(p["mat"], None)
+    else:
+        mat = M.tijolo(p.get("cor", "#9c4f35")) if p.get("material") == "tijolo" else M.reboco(p.get("cor", "#e2c9a4"), desgaste=p.get("desgaste", 0.4))
     nome = p.get("nome", f"predio_{int(x0)}_{int(y0)}")
     G.caixa(nome, (x0, y0, 0), (x1, y1, alt), mat, col, chanfro=0.02)
     fx = x0 if lado > 0 else x1; dx = -lado

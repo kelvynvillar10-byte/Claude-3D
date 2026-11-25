@@ -54,7 +54,8 @@ def construir(caminho_ou_receita, forcar=False, destino=None):
     for c in r["camadas"]:
         tempos[c] = RD.render_camada(cena, cols, c, pasta / c, R.GRUPOS_LUZ)
     meta = {"receita": r, "versao_nucleo": R.VERSAO_NUCLEO, "resolucao": [W, H], "camadas": r["camadas"], "grupos_luz": R.GRUPOS_LUZ,
-            "pesos_padrao": P["pesos"], "intrinsecos": CAM.intrinsecos(cam, W, H), "ancoras": ancoras,
+            "pesos_padrao": P["pesos"], "preset_luz": r["luz"]["preset"], "sol_dir": P["sol_dir"], "noite": bool(P.get("noite")),
+            "intrinsecos": CAM.intrinsecos(cam, W, H), "ancoras": ancoras,
             "tempo_montagem_s": round(t_mont, 2), "tempo_render_s": tempos, "tempo_total_s": round(time.time() - t0, 2),
             "objetos": len(cena.objects), "amostras": r["saida"]["amostras"], "blender": bpy.app.version_string}
     if destino:

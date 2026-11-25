@@ -111,7 +111,7 @@ class Placa:
         cache[chave] = L
         return L
 
-    def _pilha(self, cams, pesos, cam, nevoa, oclusao_ate_m=None):
+    def _pilha(self, cams, pesos, cam, nevoa, oclusao_ate_m=None, ceu_extra=None):
         """Compõe (linear, pré-multiplicado) as camadas dadas, do fundo para a frente. Retorna (rgb, alfa, oclusao):
         oclusao = cobertura (0–1) do que está MAIS PERTO da câmera que 'oclusao_ate_m' (profundidade após o movimento),
         usada para o teste de profundidade do personagem."""
@@ -121,6 +121,8 @@ class Placa:
             L = self._iluminada(c, pesos, nevoa); a = self.camadas[c]["alfa"]
             mx, my = self.mapa_paralaxe(c, **cam)
             L = cv2.remap(L, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+            if c == "ceu" and ceu_extra is not None:      # nuvens, lua, estrelas: entram no céu, atrás de tudo
+                L = ceu_extra(L)
             if c != "ceu":
                 a = cv2.remap(a, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
                 if oclusao_ate_m is not None:
@@ -130,7 +132,7 @@ class Placa:
         return acc, alfa, 1 - livre
 
     def compor(self, pesos=None, cam=None, nevoa=None, personagem=None, profundidade_personagem=None, grade=None, semente_grao=0,
-               saida=(1080, 1920), camadas=None, espessura_m=0.25):
+               saida=(1080, 1920), camadas=None, espessura_m=0.25, ceu_extra=None, frente_extra=None):
         """Retorna o quadro final RGB uint8 (recorte central do tamanho 'saida').
         personagem: função(canvas_skia, projecao) que desenha em RGBA na resolução da placa;
         projecao(x, y, z) → (x', y', escala) aplica o mesmo movimento de câmera ao plano do personagem.
@@ -140,10 +142,12 @@ class Placa:
         exp = 2.0 ** grade.get("exposicao", 0.0)
         ordem = [c for c in self.m["camadas"] if camadas is None or c in camadas]
         if personagem is None:
-            acc, _, _ = self._pilha(ordem, pesos, cam, nevoa)
+            acc, _, _ = self._pilha(ordem, pesos, cam, nevoa, ceu_extra=ceu_extra)
             disp = self._tom(acc * exp, grade)
         else:
-            disp = self._com_personagem(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m)
+            disp = self._com_personagem(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m, ceu_extra)
+        if frente_extra is not None:                       # chuva etc.: na frente de TUDO, inclusive do personagem
+            disp = frente_extra(disp)
         disp = self._final(disp, grade, semente_grao)
         W0, H0 = saida; x0 = (self.W - W0) // 2; y0 = (self.H - H0) // 2
         return disp[y0:y0 + H0, x0:x0 + W0]
@@ -164,12 +168,12 @@ class Placa:
         x = lum + (x - lum) * sat
         return np.clip(_srgb(np.clip(x, 0, 1)), 0, 1).astype(np.float32)
 
-    def _com_personagem(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m):
+    def _com_personagem(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m, ceu_extra=None):
         """Cena inteira (mapeada) + personagem (sRGB, paleta intacta) com teste de profundidade por pixel."""
         import skia
         if D is None:
             raise ValueError("profundidade_personagem é obrigatória (teste de profundidade)")
-        acc, _, occ = self._pilha(ordem, pesos, cam, nevoa, oclusao_ate_m=D - cam.get("tz", 0.0) - espessura_m)
+        acc, _, occ = self._pilha(ordem, pesos, cam, nevoa, oclusao_ate_m=D - cam.get("tz", 0.0) - espessura_m, ceu_extra=ceu_extra)
         d = self._tom(acc * exp, grade)
         s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
         personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))

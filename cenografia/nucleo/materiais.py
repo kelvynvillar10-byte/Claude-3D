@@ -5,7 +5,10 @@ Tudo é procedural (nós de textura do Blender: ruído, Voronoi, tijolo), sem im
 Cada material aceita: cor (hex), escala, desgaste (0–1), sujeira (0–1). Mesmo nome + mesmos parâmetros = mesmo material.
 
 Materiais da E0: asfalto, concreto (placas de calçada), reboco, tijolo, pintura (metal/madeira pintados), vidro,
-emissor (luz de janela, luminária), borracha, folhagem, terra. A E1 amplia e refina esta biblioteca.
+emissor (luz de janela, luminária), borracha, folhagem, terra.
+E1 (bairro urbano brasileiro): calçada portuguesa, ladrilho hidráulico, pastilha, azulejo, telha cerâmica, concreto
+aparente, metal com ferrugem, madeira, grama; PALETA_BAIRRO (cores de fachada mais saturadas); UMIDADE (piso molhado:
+mais escuro, brilhante e com poças) em asfalto, concreto e calçada portuguesa.
 """
 import bpy
 
@@ -110,8 +113,8 @@ def _guardar(chave, m):
     _CACHE[chave] = m; return m
 
 
-def asfalto(cor="#3a3a3d", escala=1.0, desgaste=0.5, sujeira=0.4):
-    chave = ("asfalto", cor, escala, desgaste, sujeira)
+def asfalto(cor="#3a3a3d", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0):
+    chave = ("asfalto", cor, escala, desgaste, sujeira, umidade)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("asfalto"); v = t.coord("Object")
@@ -125,16 +128,19 @@ def asfalto(cor="#3a3a3d", escala=1.0, desgaste=0.5, sujeira=0.4):
     rach.inputs["To Min"].default_value = desgaste; rach.inputs["To Max"].default_value = 0.0
     t.l(vor.outputs["Distance"], rach.inputs["Value"])
     base = t.mistura(base, lin("#141415"), rach.outputs["Result"])
-    t.l(base, t.b.inputs["Base Color"])
-    t.l(t.mat_valor(grao, 0.78, 0.95), t.b.inputs["Roughness"])
+    if umidade > 0:
+        _umidade(t, base, 0.88, umidade, v)
+    else:
+        t.l(base, t.b.inputs["Base Color"])
+        t.l(t.mat_valor(grao, 0.78, 0.95), t.b.inputs["Roughness"])
     alt = t.n("ShaderNodeMath", operation="SUBTRACT"); t.l(grao, alt.inputs[0]); t.l(rach.outputs["Result"], alt.inputs[1])
     t.l(t.relevo(alt.outputs[0], 0.25, 0.01), t.b.inputs["Normal"])
     return _guardar(chave, t.m)
 
 
-def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0, 1.0)):
+def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0, 1.0), umidade=0.0):
     """Placas de calçada: juntas pelo nó de tijolo (sem deslocamento entre fileiras)."""
-    chave = ("concreto", cor, escala, desgaste, sujeira, placa_m)
+    chave = ("concreto", cor, escala, desgaste, sujeira, placa_m, umidade)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("concreto"); v = t.coord("Object")
@@ -145,7 +151,7 @@ def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0,
     mancha = t.ruido(v, 2.5 * escala, 4.0, 0.6)
     base = t.mistura(br.outputs["Color"], _escurece(cor, 0.7), t.mat_valor(mancha, -0.3, 0.5 * desgaste + 0.1))
     base = t.sujeira_base(base, sujeira, 0.25)
-    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.88
+    _umidade(t, base, 0.88, umidade, v)
     junta = t.n("ShaderNodeMath", operation="SUBTRACT"); junta.inputs[0].default_value = 1.0; t.l(br.outputs["Factor"], junta.inputs[1])
     t.l(t.relevo(junta.outputs[0], 0.35, 0.01), t.b.inputs["Normal"])
     return _guardar(chave, t.m)
@@ -244,8 +250,205 @@ def terra(cor="#5a4632"):
     return _guardar(chave, t.m)
 
 
+# ------------------------------------------------------------------ E1
+PALETA_BAIRRO = {   # cores de fachada e acabamento típicas de bairro brasileiro (mais saturadas que a E0)
+    "amarelo_ocre": "#e3a12f", "terracota": "#c25a36", "verde_agua": "#4fae9c", "azul_colonial": "#3a78c2",
+    "rosa_salmao": "#e8806c", "lilas": "#9278c4", "creme": "#f0d29a", "verde_musgo": "#6a8f3a", "branco_gelo": "#ede6d8",
+    "vermelho_tijolo": "#a8442b", "azul_piscina": "#3fa7d6", "laranja_queimado": "#d9702c",
+}
+
+
+def _umidade(t, base, rug_seco, umidade, v, poca_escala=0.35):
+    """Piso molhado: escurece, baixa a rugosidade e cria poças (máscara de ruído) quase espelhadas."""
+    if umidade <= 0:
+        t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = rug_seco
+        return
+    poca = t.ruido(v, poca_escala, 2.0, 0.5)
+    m = t.n("ShaderNodeMapRange"); m.inputs["From Min"].default_value = 0.58 - 0.12 * umidade; m.inputs["From Max"].default_value = 0.62 - 0.12 * umidade
+    t.l(poca, m.inputs["Value"])
+    molhado = t.mistura(base, (0.0, 0.0, 0.0, 1.0), 0.38 * umidade, "MIX")
+    t.l(t.mistura(molhado, _escurece("#2a2c30", 1.0), m.outputs["Result"]), t.b.inputs["Base Color"])
+    r = t.n("ShaderNodeMapRange"); r.inputs["To Min"].default_value = rug_seco * (1 - 0.7 * umidade); r.inputs["To Max"].default_value = 0.03
+    t.l(m.outputs["Result"], r.inputs["Value"]); t.l(r.outputs["Result"], t.b.inputs["Roughness"])
+
+
+def calcada_portuguesa(cor_a="#ece6da", cor_b="#2c2c30", escala=1.0, onda_m=1.6, desgaste=0.3, sujeira=0.3, umidade=0.0):
+    """Pedras pequenas (Voronoi) com rejunte, em ondas preto e branco (padrão de calçada portuguesa)."""
+    chave = ("calcada_portuguesa", cor_a, cor_b, escala, onda_m, desgaste, sujeira, umidade)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("calcada_portuguesa"); v = t.coord("Object")
+    pedras = t.n("ShaderNodeTexVoronoi", Scale=22 * escala); t.l(v, pedras.inputs["Vector"])
+    borda = t.n("ShaderNodeTexVoronoi", feature="DISTANCE_TO_EDGE", Scale=22 * escala); t.l(v, borda.inputs["Vector"])
+    # padrão de ondas avaliado no centro de cada pedra (cada pedra é preta OU branca, como na calçada real)
+    sep = t.n("ShaderNodeSeparateXYZ"); t.l(pedras.outputs["Position"], sep.inputs["Vector"])
+    k = 6.2832 / onda_m
+    sy = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(sep.outputs["Y"], sy.inputs[0]); sy.inputs[1].default_value = k * 0.5
+    sin_y = t.n("ShaderNodeMath", operation="SINE"); t.l(sy.outputs[0], sin_y.inputs[0])
+    amp = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(sin_y.outputs[0], amp.inputs[0]); amp.inputs[1].default_value = 0.35 * onda_m
+    sx = t.n("ShaderNodeMath", operation="ADD"); t.l(sep.outputs["X"], sx.inputs[0]); t.l(amp.outputs[0], sx.inputs[1])
+    kx = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(sx.outputs[0], kx.inputs[0]); kx.inputs[1].default_value = k
+    onda = t.n("ShaderNodeMath", operation="SINE"); t.l(kx.outputs[0], onda.inputs[0])
+    faixa = t.n("ShaderNodeMath", operation="GREATER_THAN"); t.l(onda.outputs[0], faixa.inputs[0]); faixa.inputs[1].default_value = 0.35
+    cor = t.mistura(lin(cor_a), lin(cor_b), faixa.outputs[0])
+    var = t.mat_valor(pedras.outputs["Distance"], 0.0, 0.25)
+    cor = t.mistura(cor, _escurece(cor_a, 0.7), var)
+    rej = t.n("ShaderNodeMapRange"); rej.inputs["From Min"].default_value = 0.0; rej.inputs["From Max"].default_value = 0.06
+    rej.inputs["To Min"].default_value = 1.0; rej.inputs["To Max"].default_value = 0.0; t.l(borda.outputs["Distance"], rej.inputs["Value"])
+    cor = t.mistura(cor, lin("#7d756a"), rej.outputs["Result"])
+    cor = t.sujeira_base(cor, sujeira, 0.2) if sujeira else cor
+    _umidade(t, cor, 0.8, umidade, v)
+    alt = t.n("ShaderNodeMath", operation="SUBTRACT"); alt.inputs[0].default_value = 1.0; t.l(rej.outputs["Result"], alt.inputs[1])
+    t.l(t.relevo(alt.outputs[0], 0.45, 0.012), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def _grade_local(t, v, tam_m):
+    """Coordenada local dentro de cada ladrilho: (fract(p/tam) − 0,5)."""
+    mp = t.n("ShaderNodeVectorMath", operation="DIVIDE"); t.l(v, mp.inputs[0]); mp.inputs[1].default_value = (tam_m, tam_m, tam_m)
+    fr = t.n("ShaderNodeVectorMath", operation="FRACTION"); t.l(mp.outputs[0], fr.inputs[0])
+    sub = t.n("ShaderNodeVectorMath", operation="SUBTRACT"); t.l(fr.outputs[0], sub.inputs[0]); sub.inputs[1].default_value = (0.5, 0.5, 0.5)
+    return sub.outputs[0]
+
+
+def ladrilho_hidraulico(cor_fundo="#e8dcc4", cor_a="#b7452f", cor_b="#2f5f8a", tam_m=0.2, desgaste=0.35, sujeira=0.3):
+    """Ladrilho de 20 cm com motivo geométrico (losango + círculo) e rejunte."""
+    chave = ("ladrilho_hidraulico", cor_fundo, cor_a, cor_b, tam_m, desgaste, sujeira)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("ladrilho_hidraulico"); v = t.coord("Object"); q = _grade_local(t, v, tam_m)
+    sep = t.n("ShaderNodeSeparateXYZ"); t.l(q, sep.inputs["Vector"])
+    ax = t.n("ShaderNodeMath", operation="ABSOLUTE"); t.l(sep.outputs["X"], ax.inputs[0])
+    ay = t.n("ShaderNodeMath", operation="ABSOLUTE"); t.l(sep.outputs["Y"], ay.inputs[0])
+    los = t.n("ShaderNodeMath", operation="ADD"); t.l(ax.outputs[0], los.inputs[0]); t.l(ay.outputs[0], los.inputs[1])
+    raio = t.n("ShaderNodeVectorMath", operation="LENGTH"); t.l(q, raio.inputs[0])
+    m_los = t.n("ShaderNodeMath", operation="LESS_THAN"); t.l(los.outputs[0], m_los.inputs[0]); m_los.inputs[1].default_value = 0.42
+    m_circ = t.n("ShaderNodeMath", operation="LESS_THAN"); t.l(raio.outputs["Value"], m_circ.inputs[0]); m_circ.inputs[1].default_value = 0.16
+    cor = t.mistura(lin(cor_fundo), lin(cor_a), m_los.outputs[0])
+    cor = t.mistura(cor, lin(cor_b), m_circ.outputs[0])
+    mx = t.n("ShaderNodeMath", operation="MAXIMUM"); t.l(ax.outputs[0], mx.inputs[0]); t.l(ay.outputs[0], mx.inputs[1])
+    rej = t.n("ShaderNodeMath", operation="GREATER_THAN"); t.l(mx.outputs[0], rej.inputs[0]); rej.inputs[1].default_value = 0.485
+    cor = t.mistura(cor, lin("#9c9284"), rej.outputs[0])
+    gasto = t.ruido(v, 3.0, 4.0, 0.6)
+    cor = t.mistura(cor, _escurece(cor_fundo, 0.75), t.mat_valor(gasto, -0.2, 0.45 * desgaste))
+    cor = t.sujeira_base(cor, sujeira, 0.15) if sujeira else cor
+    t.l(cor, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.55
+    inv = t.n("ShaderNodeMath", operation="SUBTRACT"); inv.inputs[0].default_value = 1.0; t.l(rej.outputs[0], inv.inputs[1])
+    t.l(t.relevo(inv.outputs[0], 0.3, 0.004), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def _azulejado(nome, cor, tam_m, rejunte, rug, variacao, chave_extra=()):
+    chave = (nome, cor, tam_m, rejunte, rug, variacao) + chave_extra
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT(nome); v = t.coord("Object")
+    br = t.n("ShaderNodeTexBrick", offset=0.0, squash=1.0, Scale=1.0 / tam_m, **{"Mortar Size": rejunte, "Brick Width": 1.0, "Row Height": 1.0, "Bias": 0.0})
+    br.inputs["Color1"].default_value = lin(cor); br.inputs["Color2"].default_value = _escurece(cor, 1.0 - variacao)
+    br.inputs["Mortar"].default_value = lin("#d8d0c2"); t.l(v, br.inputs["Vector"])
+    suj = t.ruido(v, 2.0, 3.0, 0.5)
+    cor_f = t.mistura(br.outputs["Color"], _escurece(cor, 0.8), t.mat_valor(suj, -0.2, 0.25))
+    t.l(cor_f, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = rug
+    inv = t.n("ShaderNodeMath", operation="SUBTRACT"); inv.inputs[0].default_value = 1.0; t.l(br.outputs["Factor"], inv.inputs[1])
+    t.l(t.relevo(inv.outputs[0], 0.4, 0.003), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def pastilha(cor="#3fa7d6", tam_m=0.025):
+    """Pastilha de 2,5 cm (fachadas anos 70), cada peça com tom levemente diferente, vitrificada."""
+    return _azulejado("pastilha", cor, tam_m, 0.08, 0.25, 0.22)
+
+
+def azulejo(cor="#f2efe6", tam_m=0.15):
+    return _azulejado("azulejo", cor, tam_m, 0.025, 0.12, 0.05)
+
+
+def telha_ceramica(cor="#b5532f", escala=1.0, desgaste=0.4):
+    """Telha capa-canal: ondas ao longo de x, fileiras ao longo de y, manchas de musgo e sujeira."""
+    chave = ("telha", cor, escala, desgaste)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("telha_ceramica"); v = t.coord("Object")
+    onda = t.n("ShaderNodeTexWave", wave_type="BANDS", bands_direction="X", Scale=3.2 * escala, Distortion=0.0); t.l(v, onda.inputs["Vector"])
+    fila = t.n("ShaderNodeTexBrick", offset=0.0, Scale=2.0 * escala, **{"Mortar Size": 0.02, "Brick Width": 4.0, "Row Height": 0.45})
+    fila.inputs["Color1"].default_value = lin(cor); fila.inputs["Color2"].default_value = _escurece(cor, 0.85)
+    fila.inputs["Mortar"].default_value = _escurece(cor, 0.4); t.l(v, fila.inputs["Vector"])
+    musgo = t.ruido(v, 1.5, 4.0, 0.6)
+    cor_f = t.mistura(fila.outputs["Color"], lin("#4f5a2e"), t.mat_valor(musgo, -0.4, 0.5 * desgaste))
+    cor_f = t.mistura(cor_f, _escurece(cor, 0.6), t.mat_valor(onda.outputs["Factor"], 0.0, 0.35))
+    t.l(cor_f, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.8
+    t.l(t.relevo(onda.outputs["Factor"], 0.8, 0.04), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def concreto_aparente(cor="#9d9a93", tabua_m=0.18, desgaste=0.4):
+    """Concreto de fôrma de tábua: faixas horizontais, veios e furos de amarração."""
+    chave = ("concreto_aparente", cor, tabua_m, desgaste)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("concreto_aparente"); v = t.coord("Object")
+    tab = t.n("ShaderNodeTexBrick", offset=0.37, Scale=1.0 / 1.2, **{"Mortar Size": 0.006, "Brick Width": 1.2, "Row Height": tabua_m / 1.2})
+    tab.inputs["Color1"].default_value = lin(cor); tab.inputs["Color2"].default_value = _escurece(cor, 0.88)
+    tab.inputs["Mortar"].default_value = _escurece(cor, 0.7); t.l(t.coord("Object", (1, 1, 1)), tab.inputs["Vector"])
+    veio = t.n("ShaderNodeTexWave", wave_type="BANDS", bands_direction="Z", Scale=9.0, Distortion=6.0, **{"Detail": 3.0}); t.l(v, veio.inputs["Vector"])
+    cor_f = t.mistura(tab.outputs["Color"], _escurece(cor, 0.8), t.mat_valor(veio.outputs["Factor"], 0.0, 0.18))
+    cor_f = t.escorrido(cor_f, desgaste)
+    t.l(cor_f, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.85
+    t.l(t.relevo(veio.outputs["Factor"], 0.15, 0.003), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def metal_ferrugem(cor="#2f6f5f", ferrugem=0.45):
+    """Metal pintado (portão, grade) com ferrugem nas manchas: a tinta descasca e a rugosidade sobe."""
+    chave = ("metal_ferrugem", cor, ferrugem)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("metal_ferrugem"); v = t.coord("Object")
+    r = t.ruido(v, 4.0, 6.0, 0.65)
+    m = t.n("ShaderNodeMapRange"); m.inputs["From Min"].default_value = 0.62 - 0.25 * ferrugem; m.inputs["From Max"].default_value = 0.66 - 0.25 * ferrugem
+    t.l(r, m.inputs["Value"])
+    ferr = t.rampa(t.ruido(v, 25.0, 3.0, 0.6), [(0.3, lin("#5a2a14")), (0.7, lin("#a4541f"))])
+    t.l(t.mistura(lin(cor), ferr, m.outputs["Result"]), t.b.inputs["Base Color"])
+    t.l(t.mat_valor(m.outputs["Result"], 0.38, 0.9), t.b.inputs["Roughness"])
+    t.l(t.mat_valor(m.outputs["Result"], 0.35, 0.0), t.b.inputs["Metallic"])
+    t.l(t.relevo(m.outputs["Result"], 0.3, 0.004), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def madeira(cor="#8a5a3b", escala=1.0, pintada=None):
+    chave = ("madeira", cor, escala, pintada)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("madeira"); v = t.coord("Object", (1.0, 1.0, 0.08))
+    veio = t.n("ShaderNodeTexWave", wave_type="RINGS", Scale=6.0 * escala, Distortion=8.0, **{"Detail": 4.0}); t.l(v, veio.inputs["Vector"])
+    base = t.rampa(veio.outputs["Factor"], [(0.2, _escurece(cor, 0.7)), (0.8, _escurece(cor, 1.15))])
+    if pintada:
+        descasca = t.ruido(t.coord("Object"), 6.0, 5.0, 0.6)
+        mk = t.n("ShaderNodeMapRange"); mk.inputs["From Min"].default_value = 0.6; mk.inputs["From Max"].default_value = 0.63; t.l(descasca, mk.inputs["Value"])
+        base = t.mistura(lin(pintada), base, mk.outputs["Result"])
+    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.7
+    t.l(t.relevo(veio.outputs["Factor"], 0.2, 0.004), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def grama(cor="#5d8a35", escala=1.0, seca=0.2):
+    chave = ("grama", cor, escala, seca)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("grama"); v = t.coord("Object")
+    fino = t.ruido(v, 90 * escala, 2.0, 0.8); manchas = t.ruido(v, 1.2 * escala, 3.0, 0.5)
+    base = t.rampa(fino, [(0.3, _escurece(cor, 0.6)), (0.7, _escurece(cor, 1.2))])
+    base = t.mistura(base, lin("#a5944f"), t.mat_valor(manchas, -0.3, 0.7 * seca))
+    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.9
+    t.l(t.relevo(fino, 0.6, 0.02), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
 CATALOGO = {"asfalto": asfalto, "concreto": concreto, "reboco": reboco, "tijolo": tijolo, "pintura": pintura, "vidro": vidro,
-            "emissor": emissor, "borracha": borracha, "folhagem": folhagem, "terra": terra}
+            "emissor": emissor, "borracha": borracha, "folhagem": folhagem, "terra": terra,
+            "calcada_portuguesa": calcada_portuguesa, "ladrilho_hidraulico": ladrilho_hidraulico, "pastilha": pastilha,
+            "azulejo": azulejo, "telha_ceramica": telha_ceramica, "concreto_aparente": concreto_aparente,
+            "metal_ferrugem": metal_ferrugem, "madeira": madeira, "grama": grama}
 
 
 def por_nome(nome, **params):

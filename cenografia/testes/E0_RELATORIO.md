@@ -1,6 +1,6 @@
 # Relatório da etapa E0 — fundamentos da biblioteca de cenografia
 
-25/11/2026 · Autorizada pelo diretor: só a E0 (implementação, testes e documentação dos fundamentos). **A E1 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25/11/2026 · Autorizada pelo diretor: só a E0 (implementação, testes e documentação dos fundamentos). **E0 APROVADA pelo diretor em 25/11/2026; E1 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Cena de teste: `receitas/e0_calcada.json`, uma calçada de bairro vista à altura dos olhos. **Os componentes são provisórios** (prédios, poste, banco e vaso simples), feitos só para exercitar o núcleo. O detalhamento é das etapas E1–E5.
 
