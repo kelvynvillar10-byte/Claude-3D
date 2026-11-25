@@ -96,6 +96,8 @@ def t_giro():
         for o in cena.objects:
             if o.type in ("MESH", "CURVE", "FONT", "EMPTY"):
                 o.visible_camera = True
+        cena.view_settings.exposure = -1.2
+        bpy.context.view_layer.update()            # sem isto, matrix_world dos filhos ainda não reflete a posição (medida errada)
         out[tipo] = _medir(cena, tipo); raiz = cena.objects["v"]; tempos = []
         for k in range(N_GIRO):
             raiz.rotation_euler = (raiz.rotation_euler.x, 0.0, 2 * math.pi * k / N_GIRO)
