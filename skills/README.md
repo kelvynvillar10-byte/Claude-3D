@@ -4,6 +4,10 @@
 
 O skill que o Claude usa vem da sua conta claude.ai (skills sincronizados). A edição feita na cópia local da sessão pode ser substituída na próxima sincronização. Para a mudança valer em todas as sessões, envie este `SKILL.md` como nova versão do skill `modo-curioso-padrao` nas configurações de skills da sua conta.
 
+Atualização de 25/11/2026 (rig v2 oficial):
+- Nova entrada **Rig oficial do Heitor: v2**, com as regras de animação verificadas por script: cotovelo anatômico, pé plantado, trocas de olho e boca sem "pulo", objeto preso à mão, estampa nunca espelhada e integração com cenário 3D por âncoras.
+- Checklist: novos itens 11 (personagem e cotovelos) e 12 (marca do cenário nunca coberta).
+
 O que mudou em relação à versão anterior:
 - Nova seção **0.1 Identidade oficial**: voz licenciada sem clonagem (ID-001), estampa "Modo Curioso" na camiseta (ID-002), grafia oficial (ID-003) e marca "MODO CURIOSO" dentro dos cenários (ID-004).
 - Marca d'água: exatamente "MODO CURIOSO", tudo em maiúsculas.

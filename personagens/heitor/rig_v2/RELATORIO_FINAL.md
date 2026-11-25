@@ -1,6 +1,6 @@
-# Relatório final — Heitor rig v2 (PROPOSTA)
+# Relatório final — Heitor rig v2
 
-25/11/2026 · Fases F1 a F4 concluídas. **Status: PROPOSTA aguardando a aprovação final do diretor.** O rig v2 não substitui nada até essa aprovação. As decisões ID-001 a ID-004 não foram alteradas, e o rig v1 do piloto 01 continua intacto.
+25/11/2026 · Fases F1 a F4 concluídas. **Status: APROVADO pelo diretor em 25/11/2026 como o rig oficial do Heitor** ("Aprovado e autorizado"). Substitui o rig v1 do piloto 01 na produção. As decisões ID-001 a ID-004 não foram alteradas, e o rig v1 do piloto 01 continua intacto.
 
 ## Objetivos pedidos × entregue
 | Objetivo | Entregue | Onde ver |
@@ -41,7 +41,7 @@
 
 ## Como regerar e verificar tudo
 ```
-cd personagens/heitor/rig_v2_PROPOSTA
+cd personagens/heitor/rig_v2
 ../../../.venv/bin/python codigo/folhas.py && ../../../.venv/bin/python codigo/verificar_f1.py
 ../../../.venv/bin/python codigo/testes_f2.py
 ../../../.venv/bin/python codigo/testes_f3.py
@@ -50,5 +50,5 @@ cd personagens/heitor/rig_v2_PROPOSTA
 ../../../.venv/bin/python codigo/verificar_cotovelos.py
 ```
 
-## Decisão pendente do diretor
-Aprovar (ou não) o **Heitor rig v2** como o rig oficial. Se aprovado, a sugestão é trocar o rig v1 pelo v2 no pipeline (arquitetura, seção 15) e atualizar o skill. Isso **não** inicia nenhum vídeo de história, que continua dependendo da sua autorização.
+## Decisão do diretor
+**Aprovado e autorizado (25/11/2026).** O rig v2 passa a ser o rig oficial do Heitor. Foi trocado no pipeline (`docs/PIPELINE_PRODUCAO.md`, seção 15) e no skill (`skills/modo-curioso-padrao/SKILL.md`). Nenhum vídeo de história foi iniciado: isso continua dependendo de autorização explícita.

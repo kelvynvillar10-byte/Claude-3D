@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — sistema de animação corporal (fase F2).
+"""Heitor rig v2 — sistema de animação corporal (fase F2).
 
 - ik2(): IK analítica de 2 ossos (coxa+canela ou braço+antebraço), com o joelho para a frente.
 - Ciclo de CAMINHADA e de CORRIDA procedurais, definidos em coordenadas de mundo (H):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — testes da fase F4, renderizados e MEDIDOS.
+"""Heitor rig v2 — testes da fase F4, renderizados e MEDIDOS.
 
 T7 expressões animadas (frente, 3/4 e perfil ao mesmo tempo) + piscadas + olhar + fala de teste com sincronia labial.
 T8 teste em cena: fundo 3D estático (Blender, Cycles CPU) + Heitor 2D — entra andando, para, pega a bola na mesa,
@@ -77,7 +77,7 @@ def t7():
             c.drawString({"frente": "FRENTE", "tres_quartos": "3/4", "perfil": "PERFIL"}[v], r.left() + 24, r.bottom() - 24, F_P,
                          skia.Paint(AntiAlias=True, Color=0xFF55607A))
         c.drawLine(540, 1190, 540, HH, skia.Paint(Color=0xFFBFB8AA, StrokeWidth=4))
-        legenda(c, "T7 · expressões animadas e fala — Heitor rig v2 (PROPOSTA)", q, tt,
+        legenda(c, "T7 · expressões animadas e fala — Heitor rig v2", q, tt,
                 "· falando" if bocas[q] is not None else "")
         reg.append({"t": tt, "e": copy.deepcopy(e), "pisc": pisc, "fala": bocas[q] is not None})
         return reg[-1]
@@ -289,7 +289,7 @@ def t8():
             pose["objeto_d"] = lambda cc, vv: bola.desenhar(cc, *H.ENCAIXE[vv], 1.0)
         H.desenhar(c, sx(X), Y_PE, ALT, vista=v, pose=pose, rosto=e)
         marca_dagua(c)
-        c.drawString(f"T8 · em cena · rig v2 (PROPOSTA) · {q:03d} · {tt:4.2f} s", 40, 1880, F_P, skia.Paint(AntiAlias=True, Color=0xFF1F2A44))
+        c.drawString(f"T8 · em cena · rig v2 · {q:03d} · {tt:4.2f} s", 40, 1880, F_P, skia.Paint(AntiAlias=True, Color=0xFF1F2A44))
         pes_mundo = {s: (X + M[f"pe_{s}"].mapXY(0, 0).x(), -M[f"pe_{s}"].mapXY(0, 0).y()) for s in ("d", "e")}
         return {"t": tt, "vista": v, "X": X, "pes": pes_mundo, "apoio": apoio_pes, "bola": (bola.x, bola.y), "encaixe": (sx_, sy_),
                 "preso": est["preso"], "erro_ik": erro}

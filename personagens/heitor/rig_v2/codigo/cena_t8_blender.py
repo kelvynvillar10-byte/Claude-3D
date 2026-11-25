@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — cenário do TESTE T8 (bpy, Cycles CPU).
+"""Heitor rig v2 — cenário do TESTE T8 (bpy, Cycles CPU).
 
 Um canto de quarto/estudo simples, low-poly, em cores que conversam com a paleta do Heitor: parede creme, piso de
 madeira, rodapé, mesa de madeira, estante com livros e planta, janela com luz quente e o pôster "MODO CURIOSO"

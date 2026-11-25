@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — verificação automática da fase F1 (consistência visual entre ângulos).
+"""Heitor rig v2 — verificação automática da fase F1 (consistência visual entre ângulos).
 
 Para cada vista (frente, 3/4, perfil, costas, 3/4 espelhado, perfil espelhado), desenha o personagem
 sozinho e mede EM PIXELS:
@@ -88,7 +88,7 @@ for r in res:
         falhas.append("estampa " + ("ausente" if r["estampa_esperada"] else "indevida"))
     r["ok"] = not falhas; r["falhas"] = falhas
 (OUT / "f1_consistencia.json").write_text(json.dumps({"tolerancia_H": tol, "resultados": res}, ensure_ascii=False, indent=1))
-linhas = ["# Verificação automática F1 — consistência entre ângulos (Heitor rig v2, PROPOSTA)", "",
+linhas = ["# Verificação automática F1 — consistência entre ângulos (Heitor rig v2)", "",
           f"Medido em pixels (altura 1200 px; 1 H = 300 px). Tolerância: ±{tol:.2f} H (2 % da altura).", "",
           "| Vista | Topo | Olhos | Barra camiseta | Barra calça | Sola | Paleta oficial | Estampa (OCR) | Resultado |", "|" + "---|" * 9]
 for r in res:

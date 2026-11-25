@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — folhas da fase F1 (imagens estáticas para aprovação do diretor).
+"""Heitor rig v2 — folhas da fase F1 (imagens estáticas para aprovação do diretor).
 
 folhas/folha_modelo_v2.png       giro: frente, 3/4, perfil, costas + 3/4 e perfil espelhados, com linhas de alinhamento
 folhas/folha_maos_v2.png         poses de mão (dorso, palma, lado) + cada dedo flexionando sozinho + contagem 1–5
@@ -17,7 +17,7 @@ import heitor_v2 as H   # noqa: E402
 OUT = AQUI.parent / "folhas"; OUT.mkdir(exist_ok=True)
 FUNDO = 0xFFEDEBE6; TXT = 0xFF1F2A44
 F_T = skia.Font(H.NUNITO, 52); F_S = skia.Font(H.NUNITO, 30); F_P = skia.Font(H.NUNITO, 24)
-CAB = "HEITOR — rig v2 (PROPOSTA, aguardando aprovação; não substitui nenhuma referência)"
+CAB = "HEITOR — rig v2 (OFICIAL, aprovado pelo diretor em 25/11/2026)"
 
 
 def titulo(c, sub):

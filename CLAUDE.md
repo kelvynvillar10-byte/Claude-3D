@@ -10,10 +10,10 @@ Responda em português do Brasil. O usuário é o diretor do estúdio. Ele aprov
 
 ## Estado atual (atualize ao fim de cada etapa)
 - Concluído: auditoria dos 13 MP4 (`docs/AUDITORIA_REFERENCIAS.md`), manuais, identidade oficial (ID-001 a ID-004), arquitetura técnica (proposta, seção 15), ambiente reproduzível (`ambiente/`, `Dockerfile`).
-- Piloto técnico 01 (10 s) produzido em `pilotos/piloto_01_ultimo_homem/` e **aguardando avaliação do diretor**. Rig do Heitor v1 é PROPOSTA (não oficial); voz temporária espeak-ng.
-- Heitor rig v2 (PROPOSTA) em `personagens/heitor/rig_v2_PROPOSTA/`: F1, F2 e F3 **aprovadas**; F4 (expressões animadas + fala de teste T7, teste em cena com fundo Blender T8) **concluída**; `RELATORIO_FINAL.md` **aguardando a aprovação final do diretor**. Cotovelos: auditoria em `verificacao/cotovelos.md`. Escorço corrigido (autorizado).
+- Piloto técnico 01 (10 s) produzido em `pilotos/piloto_01_ultimo_homem/` e **aguardando avaliação do diretor**. Feito com o rig v1, hoje substituído pelo v2; voz temporária espeak-ng.
+- **Rig oficial do Heitor: v2** em `personagens/heitor/rig_v2/` (aprovado pelo diretor em 25/11/2026; F1–F4, `RELATORIO_FINAL.md`). Use-o em toda produção nova; ele substitui o rig v1. QA do personagem: `verificar_f1.py`, `verificar_cotovelos.py`, oclusão da marca no cenário.
 - **Não iniciar produção em escala nem novos pilotos sem autorização explícita do usuário.**
-- Pendências do usuário: aprovar a arquitetura; plano e chave da ElevenLabs; liberar hosts na rede; biblioteca de música e SFX; quem desenha o rig; Git LFS.
+- Pendências do usuário: aprovar a arquitetura; plano e chave da ElevenLabs; liberar hosts na rede; biblioteca de música e SFX; Git LFS; reenviar o skill atualizado para a conta claude.ai.
 
 ## Regras fixas
 - Camiseta (e patch do figurino): exatamente "Modo Curioso". Marca d'água: exatamente "MODO CURIOSO". Marca dentro do cenário (telas, envelopes, fichas, placas): exatamente "MODO CURIOSO" (ID-004). Qualquer outra grafia reprova no QA.

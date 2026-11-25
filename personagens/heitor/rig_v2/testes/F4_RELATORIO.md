@@ -1,6 +1,8 @@
 # Relatório da fase F4 — Heitor rig v2 (PROPOSTA)
 
 25/11/2026 · Expressões animadas (T7), teste em cena (T8) e relatório final (`RELATORIO_FINAL.md`, na pasta do rig).
+> Registro histórico da fase de proposta. **O rig v2 foi aprovado como oficial em 25/11/2026** (ver `RELATORIO_FINAL.md`).
+
 **Nada aqui está aprovado automaticamente.** F1, F2 e F3 foram aprovadas pelo diretor; a F4 e o rig v2 como um todo aguardam avaliação.
 
 ## O que foi construído

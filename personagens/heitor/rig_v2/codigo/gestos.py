@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — gestos e mãos animadas (fase F3).
+"""Heitor rig v2 — gestos e mãos animadas (fase F3).
 
 - Clipe de quadros-chave por canal, com curvas: linear, suave (ease-in-out), saida (ease-out),
   volta (ease-out com overshoot: antecipação/assentamento).

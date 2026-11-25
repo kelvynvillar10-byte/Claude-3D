@@ -1,4 +1,4 @@
-# Verificação automática F1 — consistência entre ângulos (Heitor rig v2, PROPOSTA)
+# Verificação automática F1 — consistência entre ângulos (Heitor rig v2)
 
 Medido em pixels (altura 1200 px; 1 H = 300 px). Tolerância: ±0.08 H (2 % da altura).
 

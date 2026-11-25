@@ -1,4 +1,4 @@
-# Auditoria dos cotovelos — Heitor rig v2 (PROPOSTA)
+# Auditoria dos cotovelos — Heitor rig v2
 
 Regra: no perfil o antebraço só dobra para a frente; de frente/costas/3-4, com o braço acima da horizontal, o cotovelo não pode ficar acima do ombro com o bico apontando para a cabeça (geometria real do esqueleto). Tolerância 5°.
 

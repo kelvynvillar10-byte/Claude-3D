@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor — rig 2D com esqueleto, v2 (PROPOSTA; não aprovada; não substitui nenhuma referência).
+"""Heitor — rig 2D com esqueleto, v2 (OFICIAL, aprovado pelo diretor em 25/11/2026).
 
 Fonte da verdade: ../modelo.json (paleta e proporções da especificação oficial).
 - Esqueleto hierárquico com FK: raiz(pelve) → tronco → cabeça; tronco → braço → antebraço → mão → 5 dedos;

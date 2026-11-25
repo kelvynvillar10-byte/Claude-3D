@@ -53,6 +53,13 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
   - Use esse nível nos momentos de poder e ação; no resto, o nível base basta.
 - Antagonista pode ter mais detalhe que o herói. Multidões = mesmo modelo variando roupa, cabelo e pele.
 - Elenco do canal — **Heitor (v3)**: 10–12 anos, ~4 cabeças de altura, cabeça redonda, SEM bochecha rosada, cabelo liso castanho-escuro com franja lateral (#3a2316 / sombra #24140a / brilho #5c3a25), olhos castanhos (#6a3d20), pele #ffd9c2 (sombra #efb594), camiseta azul #3d80d8 (sombra #2b61b0, gola #2855a0) com a estampa "Modo Curioso" no peito ("Modo" #f2efe8, "Curioso" #ffc21f, Nunito ExtraBold), calça jeans #34507f (sombra #243a60) com barra dobrada #4a6b9f, tênis branco #f6f4f0 com faixa azul. Vistas: frente, 3/4, perfil, costas; expressões: neutro, feliz, surpreso, triste, assustado, preocupado, bravo, pensativo, sonolento.
+- **Rig oficial do Heitor: v2** (aprovado em 25/11/2026), em `personagens/heitor/rig_v2/` no repositório Claude-3D. É vetor 2D por código (skia-python), com esqueleto, 4 vistas, 5 dedos por mão e rosto paramétrico. Nunca redesenhar o Heitor nem gerá-lo por IA de imagem: sempre posar o rig. Regras de animação verificadas por script:
+  - Cotovelo só dobra no sentido anatômico. De perfil, o antebraço vai para a frente. De frente ou de costas, um cotovelo acima do ombro nunca aponta para a cabeça; aceno, "mãos ao alto" e punho erguido têm o antebraço PARA CIMA. Use a IK com escolha automática do cotovelo.
+  - Pé de apoio plantado (deslize zero) em caminhada, corrida e parada.
+  - Troca de desenho de olho (pequeno escuro ↔ arregalado branco) escondida por uma piscada; troca de boca com a boca quase fechada.
+  - Objeto segurado preso ao ponto de pega da mão. Com a palma para a câmera, o objeto aparece NA FRENTE da mão.
+  - Estampa "Modo Curioso" nunca espelhada (inclusive nas vistas viradas para a esquerda).
+  - No cenário 3D: fundo estático do Blender + Heitor 2D posicionado e escalado por âncoras 3D → 2D (altura 1,40 m), com sombra de contato no chão.
 
 ## 4. Cenários
 - Ambientes com perspectiva real e materiais (madeira, tijolo, azulejo, grama, asfalto, pedra) e MUITOS objetos de contexto (prateleiras, letreiros, fios, plantas, carros, toldos). Profundidade com desfoque no fundo, névoa quente ao longe e primeiro plano desfocado às vezes.
@@ -125,3 +132,5 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 8. Marca d'água exatamente "MODO CURIOSO" (maiúsculas) + camisetas com exatamente "Modo Curioso" (M e C maiúsculos) + toda marca dentro do cenário com exatamente "MODO CURIOSO" (ID-004).
 9. Nenhum personagem, logo ou pessoa real de terceiros.
 10. Final com "Segue aí" + gancho de parte 2 ou pergunta para comentário.
+11. Personagem: só o rig oficial (Heitor v2), 0 cotovelos invertidos (`verificar_cotovelos.py`), pé de apoio sem deslize, estampa legível de frente e em 3/4.
+12. Marca dentro do cenário ("MODO CURIOSO") nunca cortada nem coberta pelo personagem ou por objetos: oclusão medida quadro a quadro = 0.

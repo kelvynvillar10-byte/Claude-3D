@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — fala de TESTE e sincronia labial (fase F4).
+"""Heitor rig v2 — fala de TESTE e sincronia labial (fase F4).
 
 Voz: espeak-ng (TEMPORÁRIA, a mesma do piloto 01; a voz oficial depende da decisão ID-001 — sem clonagem).
 Para ter o tempo EXATO de cada palavra (o espeak-ng não informa tempos), cada palavra é sintetizada sozinha e

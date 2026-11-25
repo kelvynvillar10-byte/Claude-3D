@@ -1,6 +1,8 @@
 # Relatório da fase F3 — Heitor rig v2 (PROPOSTA)
 
 25/11/2026 · Mãos e gestos: dedos individuais, segurar e soltar um objeto, acenar, apontar e reações.
+> Registro histórico da fase de proposta. **O rig v2 foi aprovado como oficial em 25/11/2026** (ver `RELATORIO_FINAL.md`).
+
 **Nada aqui está aprovado automaticamente.** F1 e F2 foram aprovadas pelo diretor; a F3 aguarda avaliação.
 
 ## O que foi construído

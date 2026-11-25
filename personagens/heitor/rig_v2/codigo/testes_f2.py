@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — testes da fase F2 (T2 caminhada frente/perfil/costas, T3 corrida).
+"""Heitor rig v2 — testes da fase F2 (T2 caminhada frente/perfil/costas, T3 corrida).
 
 Renderiza cada teste em MP4 1080×1920 30 qps (câmera acompanha a pelve; marcas no chão andam com o mundo),
 gera folha de contato de 1 ciclo e sobreposição (onion skin), e MEDE pela cinemática real do rig (FK):
@@ -123,10 +123,10 @@ def medir(reg, P, vista, tipo):
 
 
 TESTES = [
-    ("T2_caminhada_perfil", "perfil", "caminhada", 3.44, "T2 · caminhada · perfil — Heitor rig v2 (PROPOSTA)"),
-    ("T2_caminhada_frente", "frente", "caminhada", 2.58, "T2 · caminhada · frente — Heitor rig v2 (PROPOSTA)"),
-    ("T2_caminhada_costas", "costas", "caminhada", 2.58, "T2 · caminhada · costas — Heitor rig v2 (PROPOSTA)"),
-    ("T3_corrida_perfil", "perfil", "corrida", 2.12, "T3 · corrida · perfil — Heitor rig v2 (PROPOSTA)"),
+    ("T2_caminhada_perfil", "perfil", "caminhada", 3.44, "T2 · caminhada · perfil — Heitor rig v2"),
+    ("T2_caminhada_frente", "frente", "caminhada", 2.58, "T2 · caminhada · frente — Heitor rig v2"),
+    ("T2_caminhada_costas", "costas", "caminhada", 2.58, "T2 · caminhada · costas — Heitor rig v2"),
+    ("T3_corrida_perfil", "perfil", "corrida", 2.12, "T3 · corrida · perfil — Heitor rig v2"),
 ]
 def camada_olhar(t):
     """Camada só da cabeça (máscara ["cabeca"]): inclina para olhar para cima entre 1,0 e 1,4 s e sorri; o braço_e da camada é ignorado pela máscara."""

@@ -230,6 +230,13 @@ Princípio: **tudo vem de arquivos de dados versionados** (roteiro, linha do tem
 
 ### 15.2 Criação de personagens e cenários
 
+> **Atualização de 25/11/2026: rig oficial do Heitor = rig v2** (`personagens/heitor/rig_v2/`, aprovado pelo diretor; substitui o rig v1 do piloto 01). Diferenças em relação ao plano original abaixo:
+> - O rig é **código Python** (`codigo/heitor_v2.py` + `modelo.json` com paleta, proporções, ossos e limites), e não um `rig.json` de SVG em camadas. As partes são vetores desenhados por código no sistema de cada osso.
+> - Esqueleto FK com ombro, cotovelo, punho, quadril, joelho e tornozelo; IK de 2 ossos; mãos com 5 dedos individuais; rosto paramétrico.
+> - Animação reutilizável: ciclos de caminhada e corrida, camadas, gestos, transição de expressões e sincronia labial (`animacao.py`, `gestos.py`, `fala.py`).
+> - **No cenário 3D:** fundo estático do Blender + âncoras 3D → 2D (`cena_t8_blender.py` e `t8()` em `testes_f4.py`).
+> - **QA do personagem:** consistência entre vistas, estampa por OCR, cotovelos sem inversão (`verificar_cotovelos.py`) e marca do cenário nunca coberta (oclusão medida quadro a quadro).
+
 **Personagens: boneco 2D recortado (cutout rig), em vetor.**
 - Cada personagem é um arquivo de rig (`assets/personagens/<id>/rig.json`), uma árvore de partes: tronco → cabeça → (cabelo, olhos, sobrancelhas, boca); tronco → braço → antebraço → mão; quadril → coxa → perna → pé.
 - Cada parte é uma forma vetorial (caminhos SVG) com cor base, um tom de sombra e um contorno fino opcional, com ponto de pivô na articulação.
@@ -364,12 +371,12 @@ Depois que fontes, modelos, SFX e música estiverem baixados e versionados, **a 
 2. **Voz:** direção decidida (ID-001). Falta contratar o plano, aprovar a amostra no teste da seção 1.5 de `IDENTIDADE_OFICIAL.md` e liberar o acesso (rede e chave de API).
 3. **Rede do ambiente:** liberar `api.elevenlabs.io` e os hosts de assets (modelos CC0, fontes). Liberar o Hugging Face é opcional (checagem de sincronia com Whisper).
 4. **Música e SFX:** escolher a biblioteca (CC0/gratuita ou assinatura comercial) com licença válida para as plataformas de publicação.
-5. **Quem desenha o rig dos personagens:** eu, por código, com iterações sobre a folha de modelo, ou um ilustrador (SVG em camadas).
+5. ~~Quem desenha o rig dos personagens~~ **Decidido em 25/11/2026:** por código. O rig v2 do Heitor foi aprovado como oficial (`personagens/heitor/rig_v2/`).
 6. **Git LFS** para os assets pesados e os MP4 de referência.
 7. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial. Desde 25/11/2026, a cópia do skill alinhada à identidade oficial está em `skills/modo-curioso-padrao/SKILL.md`.
 
 ## 17. Próxima etapa proposta (sem gerar o vídeo completo)
 
 1. Teste técnico de 10 s: 1 cenário, o Heitor, 5 planos, legenda, câmera e mix. Serve para validar a arquitetura da seção 15 de ponta a ponta, **medir os tempos reais de render** (15.8) e passar pelo QA automático. Depende das decisões 1–3 da seção 16.
-2. Folha de modelo do Heitor nas 4 vistas e 9 expressões, para aprovação.
+2. ~~Folha de modelo do Heitor nas 4 vistas e 9 expressões~~ **Feito:** rig v2 oficial (4 vistas, 11 expressões, mãos, caminhada e corrida, gestos, fala), aprovado em 25/11/2026.
 3. Só depois disso: o primeiro episódio completo.

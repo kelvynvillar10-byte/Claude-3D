@@ -1,6 +1,18 @@
-# Heitor — rig v2 (PROPOSTA)
+# Heitor — rig v2 (OFICIAL)
 
-**Status: F1, F2 e F3 aprovadas pelo diretor em 25/11/2026; F4 concluída. O rig v2 aguarda a aprovação final.** O rig v2 como um todo continua PROPOSTA até a aprovação final. Esta proposta **não está aprovada**, não substitui nenhuma referência e não altera as decisões ID-001 a ID-004. O rig v1 (`pilotos/piloto_01_ultimo_homem/`) continua intacto.
+**Status: aprovado pelo diretor em 25/11/2026 como o rig oficial do Heitor** (fases F1–F4; relatório final em [`RELATORIO_FINAL.md`](RELATORIO_FINAL.md)). Substitui o rig v1 do piloto 01 na produção. O piloto 01 continua como registro histórico, feito com o v1. As decisões ID-001 a ID-004 não mudaram. Os vídeos de teste em `testes/` foram renderizados durante a fase de proposta, por isso trazem o rótulo "PROPOSTA".
+
+## Como usar na produção
+- **Rig:** `codigo/heitor_v2.py`, função `desenhar(canvas, x_pe, y_pe, altura_px, vista, direcao, pose, rosto)`. Vistas: frente, tres_quartos, perfil, costas (direção −1 espelha; a estampa nunca espelha).
+- **Animação:**
+  - `codigo/animacao.py`: caminhada e corrida, camadas, piscada.
+  - `codigo/gestos.py`: clipes com curvas, transição de expressões, IK de braço com cotovelo anatômico, mira, objeto na mão e regra do cotovelo.
+  - `codigo/fala.py`: sincronia labial.
+- **No cenário 3D:** o fundo vem do Blender e o Heitor é posicionado e escalado pelas âncoras 3D → 2D (exemplo completo: `codigo/cena_t8_blender.py` + `t8()` em `codigo/testes_f4.py`).
+- **QA do personagem:**
+  - `codigo/verificar_f1.py`: consistência entre vistas e estampa.
+  - `codigo/verificar_cotovelos.py`: cotovelos.
+  - Medição de oclusão da marca no cenário: ver `t8()`.
 
 Fonte da verdade do personagem: a especificação oficial (`docs/IDENTIDADE_OFICIAL.md` e o skill), transcrita em [`modelo.json`](modelo.json): paleta hex, proporções em H (altura da cabeça; altura total 4 H), comprimento dos ossos e limites das juntas.
 
@@ -41,7 +53,7 @@ As 6 vistas passaram com tolerância de ±2 % da altura: topo 4,01 H, olhos 3,44
 ## Fase F2 (concluída e aprovada pelo diretor em 25/11/2026)
 IK, sistema de animação com camadas, caminhada (perfil, frente, costas) e corrida. Testes em vídeo e métricas: [`testes/F2_RELATORIO.md`](testes/F2_RELATORIO.md).
 
-## Fase F4 (concluída, aguardando avaliação do diretor) e relatório final
+## Fase F4 (concluída e aprovada pelo diretor em 25/11/2026) e relatório final
 Expressões animadas em 3 vistas com piscadas e fala de teste com sincronia labial (T7). Teste em cena: fundo 3D do Blender e Heitor 2D com âncoras (T8). Relatório: [`testes/F4_RELATORIO.md`](testes/F4_RELATORIO.md). **Relatório final do rig v2:** [`RELATORIO_FINAL.md`](RELATORIO_FINAL.md).
 
 ## Fase F3 (concluída e aprovada pelo diretor em 25/11/2026)

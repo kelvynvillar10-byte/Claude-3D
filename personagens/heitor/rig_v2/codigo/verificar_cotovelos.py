@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — auditoria da regra anatômica do cotovelo (ver gestos.cotovelo_invertido).
+"""Heitor rig v2 — auditoria da regra anatômica do cotovelo (ver gestos.cotovelo_invertido).
 
 Verifica todas as poses desenhadas nas folhas da F1, todos os quadros dos ciclos da F2 (caminhada e corrida,
 perfil/frente/costas) e lê o resultado dos testes da F3 e da F4 (medido durante a renderização).
@@ -24,7 +24,7 @@ def auditar(registros):
     return inv
 
 
-linhas = ["# Auditoria dos cotovelos — Heitor rig v2 (PROPOSTA)", "",
+linhas = ["# Auditoria dos cotovelos — Heitor rig v2", "",
           "Regra: no perfil o antebraço só dobra para a frente; de frente/costas/3-4, com o braço acima da horizontal, "
           "o cotovelo não pode ficar acima do ombro com o bico apontando para a cabeça (geometria real do esqueleto). Tolerância 5°.", "",
           "| Conjunto | Poses/quadros verificados | Cotovelos invertidos |", "|---|---|---|"]

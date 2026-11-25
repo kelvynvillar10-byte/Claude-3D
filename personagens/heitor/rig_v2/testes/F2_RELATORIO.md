@@ -1,6 +1,8 @@
 # Relatório da fase F2 — Heitor rig v2 (PROPOSTA)
 
 25/11/2026 · Movimento: IK, sistema de animação com camadas, caminhada (perfil, frente, costas) e corrida.
+> Registro histórico da fase de proposta. **O rig v2 foi aprovado como oficial em 25/11/2026** (ver `RELATORIO_FINAL.md`).
+
 **Nada aqui está aprovado automaticamente.** O desenho da F1 foi aprovado como base; a F2 aguarda avaliação.
 
 ## O que foi construído

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor rig v2 (PROPOSTA) — testes da fase F3 (mãos e gestos), renderizados e MEDIDOS.
+"""Heitor rig v2 — testes da fase F3 (mãos e gestos), renderizados e MEDIDOS.
 
 T4 dedos individuais · T5 segurar e soltar · T6 acenar e apontar · T6b reações (susto e comemoração).
 Saída: testes/T4_*.mp4, T5_*.mp4, T6_*.mp4 (+ folhas) e testes/f3_metricas.json
@@ -82,7 +82,7 @@ def t4():
             c.save(); c.translate(x, 560); c.scale(1700, 1700); H.desenhar_mao(c, m, v, False, 1); c.restore()
             c.drawString(rot, x - 50, 1420, F_P, skia.Paint(AntiAlias=True, Color=0xFF1F2A44))
         ativo = next((d for d, (a, b) in janelas.items() if a <= tt < b), "")
-        legenda(c, "T4 · dedos individuais — Heitor rig v2 (PROPOSTA)", q, tt, f"· {ativo}")
+        legenda(c, "T4 · dedos individuais — Heitor rig v2", q, tt, f"· {ativo}")
         return {"t": tt, "mao": copy.deepcopy(m)}
 
     reg = gravar("T4_dedos_individuais", dur, quadro)
@@ -153,7 +153,7 @@ def t5():
         else:
             H.desenhar(c, CX, CHAO, ALT, vista=vista, pose=pose, rosto=e)
             bola.desenhar(c, CX + bola.x * U, CHAO + bola.y * U, U)
-        legenda(c, "T5 · segurar e soltar — Heitor rig v2 (PROPOSTA)", q, tt, "· " + ("segurando" if estado["preso"] else ("solta" if estado["solto_em"] else "livre")))
+        legenda(c, "T5 · segurar e soltar — Heitor rig v2", q, tt, "· " + ("segurando" if estado["preso"] else ("solta" if estado["solto_em"] else "livre")))
         return {"t": tt, "encaixe": (sx, sy), "bola": (bola.x, bola.y), "preso": estado["preso"], "erro_ik": erro}
 
     reg = gravar("T5_segurar_soltar", 5.2, quadro)
@@ -209,7 +209,7 @@ def t6():
             (est.moveTo if i == 0 else est.lineTo)(ax + r * math.cos(a), ay - r * math.sin(a))
         est.close(); c.drawPath(est, H.tinta(0xFFFFC21F)); c.drawPath(est, H.contorno(3))
         H.desenhar(c, XP, CHAO, ALT, vista=vista, pose=pose, rosto=clip.valor("rosto", tt))
-        legenda(c, "T6 · acenar e apontar — Heitor rig v2 (PROPOSTA)", q, tt)
+        legenda(c, "T6 · acenar e apontar — Heitor rig v2", q, tt)
         return {"t": tt, "antebraco_d": pose["antebraco_d"], "erro_mira_graus": err_ang}
 
     reg = gravar("T6_acenar_apontar", 6.2, quadro)
@@ -266,7 +266,7 @@ def t6b():
                 c.drawLine(880 + r0 * math.cos(a), 520 + r0 * math.sin(a), 880 + r1 * math.cos(a), 520 + r1 * math.sin(a),
                            skia.Paint(AntiAlias=True, Color=0xFFFFC21F, StrokeWidth=10, StrokeCap=skia.Paint.kRound_Cap))
         H.desenhar(c, CX - 60, CHAO + min(0.0, y) * U, ALT, vista=vista, pose=pose, rosto=clip.valor("rosto", tt))
-        legenda(c, "T6b · reações: susto e comemoração — Heitor rig v2 (PROPOSTA)", q, tt)
+        legenda(c, "T6b · reações: susto e comemoração — Heitor rig v2", q, tt)
         return {"t": tt, "raiz_y": y, "braco_d": pose["braco_d"], "tornozelo_y": -tz}
 
     reg = gravar("T6b_reacoes", 5.0, quadro)
