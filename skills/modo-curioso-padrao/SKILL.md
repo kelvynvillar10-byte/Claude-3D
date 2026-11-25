@@ -13,17 +13,18 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 - Temas de guerra só em tom sério.
 - **Identidade oficial (fonte da verdade: `docs/IDENTIDADE_OFICIAL.md` no repositório Claude-3D; ver seção 0.1).**
 - Marca d'água em todo vídeo novo: exatamente **"MODO CURIOSO"**, tudo em maiúsculas, no canto superior direito ("MODO" branco com 60 % de opacidade, "CURIOSO" em amarelo #ffc21f, fonte condensada, ~30 px em 1080 de largura), fixa do início ao fim.
-- Camiseta de TODO personagem oficial: estampa exatamente **"Modo Curioso"** (M e C maiúsculos). Nunca o @ de outro produtor nem qualquer marca de terceiros. A marca também pode aparecer em placas, faixas e envelopes do cenário.
+- Camiseta de TODO personagem oficial: estampa exatamente **"Modo Curioso"** (M e C maiúsculos). Nunca o @ de outro produtor nem qualquer marca de terceiros. Marca DENTRO do cenário (telas, envelopes, fichas, placas, letreiros, faixas): exatamente **"MODO CURIOSO"**, tudo em maiúsculas (ID-004).
 - Efeitos sonoros baixos, por baixo da voz.
 - Voz: só comprimir pausas (pausa ≥ 0,8 s → 0,42 s; 0,18–0,8 s → 0,18 s). NUNCA acelerar com rubberband (gera eco/voz duplicada).
 - Personagens reutilizáveis entre temas, trocando só a roupa.
 
-## 0.1 Identidade oficial (decisões de 25/11/2026 — prevalecem sobre qualquer instrução antiga)
+## 0.1 Identidade oficial (decisões ID-001 a ID-004, de 25/11/2026 — prevalecem sobre qualquer instrução antiga)
 | ID | Decisão |
 |---|---|
 | ID-001 | Narração com voz sintética licenciada, de características semelhantes às referências, sem clonar a identidade vocal de ninguém. Perfil alvo e teste de aprovação em `docs/IDENTIDADE_OFICIAL.md`. |
 | ID-002 | Todo personagem oficial veste a estampa "Modo Curioso" no peito: Nunito ExtraBold, serigrafia fosca, centrada, com 50–60 % da largura do peito. Em camiseta média ou escura, "Modo" #f2efe8 + "Curioso" #ffc21f; em camiseta clara, as duas palavras em #1f2a44. A estampa recebe a sombra do tecido e segue o tronco e as dobras; completa de frente, comprimida em 3/4, ausente de perfil e nas costas. Em figurino que não é camiseta, vai como patch bordado no peito. Sempre a partir do arquivo-mestre vetorial, nunca redigitada nem gerada por IA de imagem. |
 | ID-003 | Grafia: camiseta = **"Modo Curioso"** (M e C maiúsculos); marca d'água = **"MODO CURIOSO"** (tudo maiúsculo). Qualquer outra grafia é erro. |
+| ID-004 | Marca dentro dos cenários (telas, envelopes, fichas, placas e elementos visuais de identificação): sempre **"MODO CURIOSO"**, tudo em maiúsculas, a partir do arquivo-mestre, legível e sem abreviação. Permanente. A única aplicação em maiúsculas e minúsculas é o vestuário dos personagens ("Modo Curioso"). |
 
 ## 1. Formato
 - Vertical 1080×1920, 30 qps (60 opcional). Duração 85–100 s (mediana 91 s); episódio de série pode ir a 120–140 s.
@@ -121,6 +122,6 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 5. Sombras roxo-azuladas, luz quente motivada, vinheta, grão.
 6. Legendas: 2–3 palavras, amarelo em ~4 de cada 10, sem cobrir rosto.
 7. −14 LUFS, efeitos baixos, voz sem aceleração.
-8. Marca d'água exatamente "MODO CURIOSO" (maiúsculas) + camisetas com exatamente "Modo Curioso" (M e C maiúsculos).
+8. Marca d'água exatamente "MODO CURIOSO" (maiúsculas) + camisetas com exatamente "Modo Curioso" (M e C maiúsculos) + toda marca dentro do cenário com exatamente "MODO CURIOSO" (ID-004).
 9. Nenhum personagem, logo ou pessoa real de terceiros.
 10. Final com "Segue aí" + gancho de parte 2 ou pergunta para comentário.

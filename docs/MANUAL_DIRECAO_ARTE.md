@@ -11,9 +11,10 @@ Convenção: **[medido]** = medido por nós nos 13 MP4. **[visto]** = observado 
 1. **Nada de personagem, logo, marca ou obra de terceiros.** As referências são de outro criador (a marca "@rmhkaiser" aparece nas roupas, placas, envelopes e no cartão final dos 13 vídeos) e citam obras protegidas: o "stand" roxo e dourado de JoJo (v01, v19), o Luffy de One Piece com o chapéu de palha (v15), o filme Lucy e o jogo Clash (v14), e um cientista caricato estilo Einstein (v14). **Nós aprendemos a gramática visual, não copiamos personagens, roupas, cenários ou a marca deles.**
 2. Nunca usar foto real de criança.
 3. Guerra só em tom sério.
-4. **Marca d'água em todo vídeo: exatamente "MODO CURIOSO", tudo em maiúsculas** (ID-003), no canto superior direito ("MODO" branco com 60 % de opacidade, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 3.2. Além dela, a marca pode aparecer dentro do cenário (placa de rua, faixa, envelope), como as referências fazem com o @ delas [visto em todos os 13].
-6. **Camiseta de todo personagem oficial: exatamente "Modo Curioso", com M e C maiúsculos** (ID-002 e ID-003, permanente). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 2.
+4. **Marca d'água em todo vídeo: exatamente "MODO CURIOSO", tudo em maiúsculas** (ID-003), no canto superior direito ("MODO" branco com 60 % de opacidade, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 3.2. Além dela, a marca aparece dentro do cenário (telas, envelopes, fichas, placas, faixas), como as referências fazem com o @ delas [visto em todos os 13], **sempre exatamente "MODO CURIOSO", tudo em maiúsculas** (ID-004).
 5. Personagens reaproveitados entre temas, trocando só a roupa.
+6. **Camiseta de todo personagem oficial: exatamente "Modo Curioso", com M e C maiúsculos** (ID-002 e ID-003, permanente). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 2. É a única aplicação da marca em maiúsculas e minúsculas.
+7. **Marca dentro do cenário (telas, envelopes, fichas, placas, letreiros, faixas): exatamente "MODO CURIOSO", tudo em maiúsculas** (ID-004, permanente). Especificação em `IDENTIDADE_OFICIAL.md`, seção 4.
 
 ---
 
@@ -154,7 +155,7 @@ Número grande ("4.000 bar", "×20.000", "1.400 km/h", "59 %", "0,14 s", "80 kg"
 Régua de altura na porta (v14), barra vertical com escala e alerta vermelho "−10 %" (v17), termômetro (v16), contador "1 s" (v10), "0 g" (v13), app de celular com porcentagem (v20).
 
 ### 5.3 Telas e documentos [visto]
-Celular na mão com vídeo viral e views (v19), ficha/dossiê com foto e carimbo, envelope "CONFIDENCIAL" com a marca, notebook de loja "USO RESTRITO / PEDIDO ✓" (v20), notícia no celular (v20), cartaz de procurado desenhado (v16). **Os nossos levam a marca MODO CURIOSO.**
+Celular na mão com vídeo viral e views (v19), ficha/dossiê com foto e carimbo, envelope "CONFIDENCIAL" com a marca, notebook de loja "USO RESTRITO / PEDIDO ✓" (v20), notícia no celular (v20), cartaz de procurado desenhado (v16). **Os nossos levam a marca exatamente "MODO CURIOSO", tudo em maiúsculas (ID-004).**
 
 ### 5.4 Comparações [visto]
 Tela dividida com linha de luz vertical (grafite × diamante "C = C" no v17; velho × jovem), lupa redonda com detalhe (v10, v14, v18).
@@ -179,4 +180,5 @@ Tela dividida com linha de luz vertical (grafite × diamante "C = C" no v17; vel
 4. O cenário tem objetos de contexto e profundidade (desfoque ou névoa)?
 5. O número científico tem rótulo grande?
 6. A estampa da camiseta diz exatamente "Modo Curioso" (M e C maiúsculos), aparece correta em frente e 3/4 e recebe a luz do tecido? A marca d'água diz exatamente "MODO CURIOSO"?
+8. **ID-004:** toda marca dentro do cenário (tela, envelope, ficha, placa, letreiro, faixa) diz exatamente "MODO CURIOSO", tudo em maiúsculas, legível e sem abreviação?
 7. Nenhum elemento de terceiros (personagem, logo, roupa característica, marca)?

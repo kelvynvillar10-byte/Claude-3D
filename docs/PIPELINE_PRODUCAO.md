@@ -96,7 +96,7 @@ Alvos para a lista inteira (detalhe no Padrão de Edição): plano mediano de 1,
 | Personagens | Heitor (elenco fixo) + coadjuvantes reutilizáveis, trocando só a roupa; estampa "Modo Curioso" a partir do arquivo-mestre `assets/marca/camiseta_modo_curioso.svg` (ID-002) | Boneco 2D recortado: cada parte do corpo é uma camada com ponto de pivô (SVG/PNG em camadas). Expressões como trocas de olho, sobrancelha e boca. |
 | Cenários | Quarto, cozinha, escola, rua de bairro, academia, campo, vila medieval, laboratório, base noturna | 3D low-poly com materiais simples e luz motivada, renderizado como fundo (ou pintura 2.5D com camadas para paralaxe) |
 | Inserts científicos | Átomos, moléculas, neurônio, corpo holográfico, câmera térmica, visão noturna, espaço | Modelos reutilizáveis sobre fundo azul-marinho com bokeh |
-| UI/tela | Celular com app, ficha "CONFIDENCIAL", notebook de loja, notícia | Templates vetoriais com a nossa marca |
+| UI/tela | Celular com app, ficha "CONFIDENCIAL", notebook de loja, notícia | Templates vetoriais com a marca exatamente "MODO CURIOSO" (ID-004), a partir do arquivo-mestre `assets/marca/cenario_MODO_CURIOSO.svg` |
 | Tipografia | Legenda (condensada bold) e rótulos (arredondada) | Fontes livres: Roboto Condensed 800 e, por exemplo, Nunito/Baloo para rótulos |
 | Áudio | Whoosh, impacto, pop, riser, ambiente; trilhas | Biblioteca licenciada, com a licença registrada por arquivo |
 
@@ -139,6 +139,7 @@ Os scripts em `tools/analise/` mediram as referências. Rodados no nosso vídeo 
 | Vinheta (cantos/centro) | 0,50–0,66 | 0,39–0,67 (mediana 0,57) |
 | Sombras Lab b | < −4 (tinta azul) | −19,4 a −1,4 (mediana −11,5); 12 de 13 abaixo de −4 |
 | Loudness | −14 ± 0,5 LUFS | −13,9 a −14,3 em 12 de 13 (v16: −21,0) |
+| Grafia da marca (OCR) | Camiseta "Modo Curioso" (ID-002/003); marca d'água "MODO CURIOSO" (ID-003); marca no cenário "MODO CURIOSO" (ID-004). Qualquer outra grafia reprova | — (regra nossa) |
 | Legendas | 2–3 palavras/bloco, centro entre 15 % e 80 % da altura, ~40 % com destaque amarelo | 64 blocos/min; 84 % entre 60 % e 80 % da altura; amarelo em 43 % (0–61 %) |
 
 O que o script não mede (aprovação humana no G8): leitura da história, humor, precisão científica, direitos autorais, expressão dos personagens.

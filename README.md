@@ -16,7 +16,7 @@ Resultado esperado: `RESULTADO: AMBIENTE PRONTO`. Procedimento completo, Docker 
 
 | Pasta / arquivo | Conteúdo |
 |---|---|
-| [`docs/IDENTIDADE_OFICIAL.md`](docs/IDENTIDADE_OFICIAL.md) | **Fonte da verdade da identidade:** voz (ID-001), estampa "Modo Curioso" (ID-002), grafias oficiais (ID-003) |
+| [`docs/IDENTIDADE_OFICIAL.md`](docs/IDENTIDADE_OFICIAL.md) | **Fonte da verdade da identidade:** voz (ID-001), estampa "Modo Curioso" (ID-002), grafias oficiais (ID-003), marca "MODO CURIOSO" nos cenários (ID-004) |
 | [`docs/AUDITORIA_REFERENCIAS.md`](docs/AUDITORIA_REFERENCIAS.md) | Inventário e análise medida dos 13 MP4 de referência |
 | [`docs/MANUAL_DIRECAO_ARTE.md`](docs/MANUAL_DIRECAO_ARTE.md) | Personagens, cenários, luz, cor |
 | [`docs/MANUAL_ANIMACAO.md`](docs/MANUAL_ANIMACAO.md) | Poses, expressões, câmera, efeitos |
@@ -31,6 +31,6 @@ Resultado esperado: `RESULTADO: AMBIENTE PRONTO`. Procedimento completo, Docker 
 | `snaptik_*.mp4`, `v*_*.jpg`, `index.html` | Material de referência original (de outro criador; só para estudo) |
 
 ## Regras que nunca mudam
-- Camiseta dos personagens: **"Modo Curioso"**. Marca d'água: **"MODO CURIOSO"**.
+- Camiseta dos personagens: **"Modo Curioso"**. Marca d'água e marca dentro dos cenários: **"MODO CURIOSO"**.
 - Nada de personagem, marca ou obra de terceiros. Nenhuma voz clonada sem autorização.
 - Nenhuma chave de API no repositório.

@@ -151,3 +151,4 @@ Regras:
 7. −14 LUFS, true peak ≤ −1 dBTP, sem pausas longas, voz sem aceleração?
 8. Final com "Segue aí" + gancho de parte, ou pergunta para comentário?
 9. Marca d'água "MODO CURIOSO" do início ao fim? Camisetas com "Modo Curioso"? Nenhum elemento de terceiros?
+10. **ID-004:** toda marca dentro do cenário (telas, envelopes, fichas, placas) com exatamente "MODO CURIOSO", tudo em maiúsculas?

@@ -7,10 +7,11 @@ Registro das decisões de identidade do canal. Cada decisão tem número, data, 
 | ID-001 | Narração com voz sintética licenciada, de características semelhantes às referências, **sem clonar** a voz de terceiros | 25/11/2026 | **Aprovada a direção.** Fornecedor e voz final dependem do teste de amostra (seção 1.5) |
 | ID-002 | Marca **"Modo Curioso"** estampada na camiseta de todos os personagens oficiais, no lugar da identificação de outro produtor | 25/11/2026 | **Aprovada e permanente** |
 | ID-003 | Grafia oficial da marca: **"Modo Curioso"** na camiseta (M e C maiúsculos) e **"MODO CURIOSO"** na marca d'água (tudo maiúsculo) | 25/11/2026 | **Confirmada e permanente** |
+| ID-004 | Marca dentro dos cenários (telas, envelopes, fichas, placas e elementos visuais de identificação): sempre **"MODO CURIOSO"**, tudo em maiúsculas | 25/11/2026 | **Aprovada e permanente** |
 
 Regra fixa relacionada: nada de personagem, marca ou obra de terceiros (ver `MANUAL_DIRECAO_ARTE.md`, seção 0).
 
-**Fonte da verdade:** este documento. O skill `modo-curioso-padrao` e os manuais foram alinhados a ele em 25/11/2026. A cópia versionada do skill está em `skills/modo-curioso-padrao/SKILL.md`.
+**Fonte da verdade:** este documento. O skill `modo-curioso-padrao` e os manuais foram alinhados a ele em 25/11/2026 (ID-001 a ID-004). A cópia versionada do skill está em `skills/modo-curioso-padrao/SKILL.md`.
 
 ---
 
@@ -174,5 +175,44 @@ As cores e as outras especificações já definidas continuam valendo, sem mudan
 | Proibido | Animar, trocar de canto, mudar a grafia, trocar a fonte, pôr contorno colorido ou fundo |
 
 ### 3.3 Resumo para conferência (QA)
-- Camiseta: "Modo Curioso". Marca d'água: "MODO CURIOSO". Qualquer outra grafia é erro e reprova o plano.
+- Camiseta: "Modo Curioso". Marca d'água: "MODO CURIOSO". Marca dentro do cenário: "MODO CURIOSO" (ID-004). Qualquer outra grafia é erro e reprova o plano.
 - Nunca aparece identificação de outro produtor (@, logo, nome).
+
+---
+
+## ID-004 — Marca dentro dos cenários
+
+### 4.1 Decisão (aprovada oficialmente em 25/11/2026)
+Toda aparição da marca Modo Curioso **dentro dos cenários** usa exatamente:
+
+**MODO CURIOSO**
+
+Tudo em letras maiúsculas. A regra é **permanente** e vale para todos os vídeos e materiais futuros.
+
+### 4.2 Abrangência
+Vale para qualquer elemento visual de identificação dentro da cena, por exemplo:
+- telas (celular, notebook, TV, monitor, app, notícia, vídeo viral);
+- envelopes, fichas, dossiês, crachás, carimbos, documentos "CONFIDENCIAL";
+- placas de rua, letreiros, fachadas, faixas, cartazes, outdoors;
+- embalagens, rótulos de produto, adesivos, bandeiras e qualquer outro objeto de cena que identifique o canal.
+
+### 4.3 Quadro geral das grafias (ID-002, ID-003 e ID-004)
+
+| Onde a marca aparece | Grafia exata | Decisão |
+|---|---|---|
+| Camiseta e patch bordado do figurino dos personagens | **Modo Curioso** | ID-002 / ID-003 |
+| Marca d'água do vídeo | **MODO CURIOSO** | ID-003 |
+| Qualquer elemento dentro do cenário (telas, envelopes, fichas, placas, letreiros, faixas…) | **MODO CURIOSO** | ID-004 |
+
+A única aplicação em maiúsculas e minúsculas é o **vestuário dos personagens** (camiseta e patch). Todo o resto é **MODO CURIOSO**.
+
+### 4.4 Regras de execução
+1. O texto é inserido a partir de um arquivo-mestre vetorial (`assets/marca/cenario_MODO_CURIOSO.svg`), com o texto convertido em curvas. Nunca é redigitado à mão nem gerado por IA de imagem.
+2. O texto é sempre legível e completo. Se não couber, use um enquadramento ou objeto em que caiba, nunca uma abreviação ("MC", "Modo C."), ponto, "@" ou endereço.
+3. A marca recebe a luz, a perspectiva e a gradação da cena como o resto do objeto.
+4. Nunca aparece identificação de outro produtor (@, logo, nome) em nenhum objeto de cena.
+
+### 4.5 Controle de qualidade (QA)
+- Em todo plano com marca no cenário, confira se ela diz exatamente **MODO CURIOSO**.
+- Na conferência automática, o OCR das folhas de contato procura qualquer grafia da marca. "Modo Curioso" só é aceito na camiseta ou no patch; em qualquer outro lugar, o plano reprova.
+- Qualquer outra grafia ("Modo Curioso" num objeto de cena, "modo curioso", "ModoCurioso", "MC") **reprova o plano**.
