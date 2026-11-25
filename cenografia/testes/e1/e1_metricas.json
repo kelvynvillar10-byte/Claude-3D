@@ -1,0 +1,499 @@
+{
+ "E1_1_materiais": {
+  "render_s": 118.1,
+  "amostras": {
+   "asfalto": {
+    "saturacao_pct": 44.6,
+    "brilho_pct": 22.0,
+    "variacao_luminancia_pct": 1.0,
+    "detalhe_laplaciano": 7.3
+   },
+   "asfalto molhado": {
+    "saturacao_pct": 48.5,
+    "brilho_pct": 22.0,
+    "variacao_luminancia_pct": 1.1,
+    "detalhe_laplaciano": 5.2
+   },
+   "concreto (placas)": {
+    "saturacao_pct": 22.6,
+    "brilho_pct": 49.7,
+    "variacao_luminancia_pct": 3.6,
+    "detalhe_laplaciano": 4.3
+   },
+   "calçada portuguesa": {
+    "saturacao_pct": 22.6,
+    "brilho_pct": 52.1,
+    "variacao_luminancia_pct": 15.8,
+    "detalhe_laplaciano": 23.0
+   },
+   "ladrilho hidráulico": {
+    "saturacao_pct": 27.8,
+    "brilho_pct": 50.5,
+    "variacao_luminancia_pct": 14.7,
+    "detalhe_laplaciano": 17.6
+   },
+   "reboco amarelo-ocre": {
+    "saturacao_pct": 65.1,
+    "brilho_pct": 46.3,
+    "variacao_luminancia_pct": 1.2,
+    "detalhe_laplaciano": 2.0
+   },
+   "reboco verde-água": {
+    "saturacao_pct": 60.9,
+    "brilho_pct": 43.5,
+    "variacao_luminancia_pct": 1.3,
+    "detalhe_laplaciano": 2.1
+   },
+   "tijolo à vista": {
+    "saturacao_pct": 32.2,
+    "brilho_pct": 33.9,
+    "variacao_luminancia_pct": 11.1,
+    "detalhe_laplaciano": 24.9
+   },
+   "pastilha": {
+    "saturacao_pct": 48.8,
+    "brilho_pct": 51.3,
+    "variacao_luminancia_pct": 5.6,
+    "detalhe_laplaciano": 22.6
+   },
+   "azulejo": {
+    "saturacao_pct": 16.3,
+    "brilho_pct": 65.7,
+    "variacao_luminancia_pct": 1.5,
+    "detalhe_laplaciano": 3.6
+   },
+   "telha cerâmica": {
+    "saturacao_pct": 51.4,
+    "brilho_pct": 27.7,
+    "variacao_luminancia_pct": 2.6,
+    "detalhe_laplaciano": 3.3
+   },
+   "concreto aparente": {
+    "saturacao_pct": 28.0,
+    "brilho_pct": 44.3,
+    "variacao_luminancia_pct": 1.4,
+    "detalhe_laplaciano": 2.7
+   },
+   "metal + ferrugem": {
+    "saturacao_pct": 57.9,
+    "brilho_pct": 28.8,
+    "variacao_luminancia_pct": 3.1,
+    "detalhe_laplaciano": 4.3
+   },
+   "madeira pintada": {
+    "saturacao_pct": 47.7,
+    "brilho_pct": 35.4,
+    "variacao_luminancia_pct": 1.2,
+    "detalhe_laplaciano": 2.3
+   },
+   "grama": {
+    "saturacao_pct": 47.5,
+    "brilho_pct": 30.8,
+    "variacao_luminancia_pct": 1.8,
+    "detalhe_laplaciano": 7.8
+   },
+   "folhagem": {
+    "saturacao_pct": 45.5,
+    "brilho_pct": 28.7,
+    "variacao_luminancia_pct": 1.6,
+    "detalhe_laplaciano": 3.1
+   }
+  },
+  "_duracao_teste_s": 119.0
+ },
+ "E1_2_placas": {
+  "manha": {
+   "cache": "MISS",
+   "render_total_s": 158.08,
+   "por_camada_s": {
+    "ceu": 8.24,
+    "longe": 33.62,
+    "meio": 78.97,
+    "perto": 16.83,
+    "frente": 20.1
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "manha_molhado": {
+   "cache": "MISS",
+   "render_total_s": 163.04,
+   "por_camada_s": {
+    "ceu": 7.95,
+    "longe": 33.9,
+    "meio": 83.64,
+    "perto": 16.95,
+    "frente": 20.15
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "meio_dia": {
+   "cache": "MISS",
+   "render_total_s": 160.36,
+   "por_camada_s": {
+    "ceu": 7.69,
+    "longe": 34.85,
+    "meio": 80.0,
+    "perto": 16.99,
+    "frente": 20.37
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "meio_dia_molhado": {
+   "cache": "MISS",
+   "render_total_s": 167.1,
+   "por_camada_s": {
+    "ceu": 8.01,
+    "longe": 35.23,
+    "meio": 84.86,
+    "perto": 17.46,
+    "frente": 21.08
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "tarde_dourada": {
+   "cache": "MISS",
+   "render_total_s": 159.26,
+   "por_camada_s": {
+    "ceu": 8.2,
+    "longe": 35.29,
+    "meio": 77.92,
+    "perto": 17.27,
+    "frente": 20.14
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "tarde_dourada_molhado": {
+   "cache": "MISS",
+   "render_total_s": 164.19,
+   "por_camada_s": {
+    "ceu": 8.06,
+    "longe": 35.25,
+    "meio": 83.15,
+    "perto": 17.03,
+    "frente": 20.24
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "crepusculo": {
+   "cache": "MISS",
+   "render_total_s": 164.74,
+   "por_camada_s": {
+    "ceu": 7.89,
+    "longe": 36.75,
+    "meio": 81.45,
+    "perto": 17.24,
+    "frente": 20.92
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "crepusculo_molhado": {
+   "cache": "MISS",
+   "render_total_s": 169.65,
+   "por_camada_s": {
+    "ceu": 8.26,
+    "longe": 37.28,
+    "meio": 85.6,
+    "perto": 17.27,
+    "frente": 20.73
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "noite": {
+   "cache": "MISS",
+   "render_total_s": 167.32,
+   "por_camada_s": {
+    "ceu": 7.71,
+    "longe": 36.91,
+    "meio": 83.42,
+    "perto": 17.17,
+    "frente": 21.6
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "noite_molhado": {
+   "cache": "MISS",
+   "render_total_s": 169.3,
+   "por_camada_s": {
+    "ceu": 7.23,
+    "longe": 36.82,
+    "meio": 87.08,
+    "perto": 17.28,
+    "frente": 20.42
+   },
+   "amostras_por_camada": {
+    "ceu": 4,
+    "longe": 16,
+    "meio": 24,
+    "perto": 24,
+    "frente": 16
+   }
+  },
+  "_resumo": {
+   "placas": 10,
+   "media_s": 164.3,
+   "max_s": 169.7,
+   "dentro_meta_3_5_min": 10
+  },
+  "_duracao_teste_s": 1665.0
+ },
+ "E1_3_grade": {
+  "manha/limpo": {
+   "brilho_pct": 52.4,
+   "saturacao_pct": 33.8,
+   "contraste_pct": 21.0,
+   "vinheta_pct": 43.5,
+   "sombras_a": 7.4,
+   "sombras_b": -17.1,
+   "altas_luzes_b": 28.3
+  },
+  "manha/nublado": {
+   "brilho_pct": 51.7,
+   "saturacao_pct": 24.5,
+   "contraste_pct": 19.4,
+   "vinheta_pct": 42.6,
+   "sombras_a": 6.0,
+   "sombras_b": -15.7,
+   "altas_luzes_b": 15.2
+  },
+  "manha/neblina": {
+   "brilho_pct": 62.5,
+   "saturacao_pct": 12.2,
+   "contraste_pct": 16.8,
+   "vinheta_pct": 47.1,
+   "sombras_a": 0.7,
+   "sombras_b": -8.0,
+   "altas_luzes_b": 12.3
+  },
+  "manha/chuva": {
+   "brilho_pct": 52.6,
+   "saturacao_pct": 19.8,
+   "contraste_pct": 19.1,
+   "vinheta_pct": 39.3,
+   "sombras_a": 4.9,
+   "sombras_b": -13.2,
+   "altas_luzes_b": 12.0
+  },
+  "meio_dia/limpo": {
+   "brilho_pct": 54.1,
+   "saturacao_pct": 36.6,
+   "contraste_pct": 20.5,
+   "vinheta_pct": 50.7,
+   "sombras_a": 6.5,
+   "sombras_b": -17.4,
+   "altas_luzes_b": 15.6
+  },
+  "meio_dia/nublado": {
+   "brilho_pct": 52.6,
+   "saturacao_pct": 28.0,
+   "contraste_pct": 19.2,
+   "vinheta_pct": 48.6,
+   "sombras_a": 6.1,
+   "sombras_b": -16.0,
+   "altas_luzes_b": 10.1
+  },
+  "meio_dia/neblina": {
+   "brilho_pct": 61.2,
+   "saturacao_pct": 13.4,
+   "contraste_pct": 17.3,
+   "vinheta_pct": 48.6,
+   "sombras_a": 1.9,
+   "sombras_b": -11.4,
+   "altas_luzes_b": 8.7
+  },
+  "meio_dia/chuva": {
+   "brilho_pct": 51.3,
+   "saturacao_pct": 25.6,
+   "contraste_pct": 18.5,
+   "vinheta_pct": 43.5,
+   "sombras_a": 6.0,
+   "sombras_b": -14.0,
+   "altas_luzes_b": 10.2
+  },
+  "tarde_dourada/limpo": {
+   "brilho_pct": 53.8,
+   "saturacao_pct": 29.9,
+   "contraste_pct": 18.1,
+   "vinheta_pct": 56.0,
+   "sombras_a": 10.0,
+   "sombras_b": -3.6,
+   "altas_luzes_b": 17.7
+  },
+  "tarde_dourada/nublado": {
+   "brilho_pct": 53.0,
+   "saturacao_pct": 16.6,
+   "contraste_pct": 17.6,
+   "vinheta_pct": 49.6,
+   "sombras_a": 7.4,
+   "sombras_b": -7.7,
+   "altas_luzes_b": 11.4
+  },
+  "tarde_dourada/neblina": {
+   "brilho_pct": 63.8,
+   "saturacao_pct": 15.8,
+   "contraste_pct": 16.2,
+   "vinheta_pct": 49.8,
+   "sombras_a": 3.8,
+   "sombras_b": 1.1,
+   "altas_luzes_b": 14.6
+  },
+  "tarde_dourada/chuva": {
+   "brilho_pct": 52.7,
+   "saturacao_pct": 14.6,
+   "contraste_pct": 17.8,
+   "vinheta_pct": 44.0,
+   "sombras_a": 6.6,
+   "sombras_b": -8.1,
+   "altas_luzes_b": 11.8
+  },
+  "crepusculo/limpo": {
+   "brilho_pct": 37.4,
+   "saturacao_pct": 43.3,
+   "contraste_pct": 13.3,
+   "vinheta_pct": 60.3,
+   "sombras_a": 16.6,
+   "sombras_b": -10.1,
+   "altas_luzes_b": 27.3
+  },
+  "crepusculo/nublado": {
+   "brilho_pct": 38.3,
+   "saturacao_pct": 28.3,
+   "contraste_pct": 13.3,
+   "vinheta_pct": 53.6,
+   "sombras_a": 12.2,
+   "sombras_b": -9.2,
+   "altas_luzes_b": 23.3
+  },
+  "crepusculo/neblina": {
+   "brilho_pct": 47.1,
+   "saturacao_pct": 19.8,
+   "contraste_pct": 13.0,
+   "vinheta_pct": 51.3,
+   "sombras_a": 10.5,
+   "sombras_b": -4.2,
+   "altas_luzes_b": 9.2
+  },
+  "crepusculo/chuva": {
+   "brilho_pct": 38.3,
+   "saturacao_pct": 23.6,
+   "contraste_pct": 12.6,
+   "vinheta_pct": 47.4,
+   "sombras_a": 11.0,
+   "sombras_b": -9.4,
+   "altas_luzes_b": 2.4
+  },
+  "noite/limpo": {
+   "brilho_pct": 28.3,
+   "saturacao_pct": 50.9,
+   "contraste_pct": 12.0,
+   "vinheta_pct": 76.7,
+   "sombras_a": 12.8,
+   "sombras_b": -16.5,
+   "altas_luzes_b": 53.0
+  },
+  "noite/nublado": {
+   "brilho_pct": 27.1,
+   "saturacao_pct": 46.8,
+   "contraste_pct": 12.6,
+   "vinheta_pct": 79.3,
+   "sombras_a": 11.9,
+   "sombras_b": -16.0,
+   "altas_luzes_b": 38.6
+  },
+  "noite/neblina": {
+   "brilho_pct": 25.7,
+   "saturacao_pct": 47.5,
+   "contraste_pct": 10.1,
+   "vinheta_pct": 82.3,
+   "sombras_a": 12.7,
+   "sombras_b": -19.6,
+   "altas_luzes_b": 21.5
+  },
+  "noite/chuva": {
+   "brilho_pct": 24.2,
+   "saturacao_pct": 45.8,
+   "contraste_pct": 8.9,
+   "vinheta_pct": 74.9,
+   "sombras_a": 11.7,
+   "sombras_b": -16.2,
+   "altas_luzes_b": 20.8
+  },
+  "_duracao_teste_s": 89.9
+ },
+ "E1_4_video": {
+  "quadros": 480,
+  "composicao_media_s": 2.29,
+  "composicao_max_s": 5.16,
+  "ceu_diferenca_media_entre_quadros_8bit": 2.2,
+  "ceu_maior_diferenca_entre_quadros_8bit": 2.71,
+  "_duracao_teste_s": 1117.8
+ },
+ "E1_5_determinismo": {
+  "mesma_semente_identico": true,
+  "outra_semente_diferente": true,
+  "_duracao_teste_s": 8.0
+ },
+ "E1_6_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "heitor_pixels_medidos": 191462,
+  "heitor_pixels_cobertos_por_algo_mais_perto": 0,
+  "heitor_pixels_identicos_pct": 100.0,
+  "heitor_maior_diferenca_8bit": 0,
+  "_duracao_teste_s": 14.3
+ }
+}
