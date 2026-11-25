@@ -53,6 +53,10 @@ def sistema():
     reg("sistema", "GPU", "OK" if gpu else "AVISO", "presente" if gpu else "ausente: Blender em CPU (previsto na arquitetura)")
 
 
+# ferramentas instaladas pelo usuário (uv) ficam em ~/.local/bin
+os.environ["PATH"] = os.environ.get("PATH", "") + os.pathsep + str(Path.home() / ".local" / "bin")
+
+
 def binarios():
     c, out = cmd(["ffmpeg", "-version"])
     v = re.search(r"ffmpeg version (\S+)", out)

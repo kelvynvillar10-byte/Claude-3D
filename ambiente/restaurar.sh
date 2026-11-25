@@ -20,6 +20,7 @@ while [ $# -gt 0 ]; do
   esac
   shift
 done
+export PATH="$HOME/.local/bin:$PATH"
 passo() { printf '\n==> %s\n' "$*"; }
 
 passo "1/5 Código e documentos"
