@@ -29,7 +29,7 @@ OUT = RAIZ / "cenografia" / "testes" / "e0"; OUT.mkdir(parents=True, exist_ok=Tr
 TMP = RAIZ / "_tmp" / "e0"; TMP.mkdir(parents=True, exist_ok=True)
 REC = RAIZ / "cenografia" / "receitas" / "e0_calcada.json"
 FPS = 30; W, H = 1080, 1920
-GRADE = dict(exposicao=-0.9, bloom=0.2, bloom_limiar=1.0, sombra_tinta=0.05, luz_quente=1.0, saturacao=1.12, vinheta=0.32, grao=0.012)
+GRADE = dict(exposicao=-0.6, bloom=0.2, bloom_limiar=1.0, sombra_tinta=0.05, luz_quente=3.6, saturacao=1.95, vinheta=0.95, grao=0.012)
 NEVOA = dict(cor="#d9c2a6", densidade=0.006)
 CAM_FINAL = dict(tx=0.30, ty=0.05, tz=1.4)
 PESOS_NOITE = {"ceu": (0.35, "#8fa6ff"), "sol": (0.12, "#ff8a5c"), "artificial": (2.5, None), "efeito": (6.0, "#5fb8ff")}
@@ -192,8 +192,13 @@ def _tom_real(pasta, P, grade):
 
 
 def t_real(P, nome, cam=None, pesos=None, luzes=None):
-    dest = TMP / f"real_{nome}"; shutil.rmtree(dest, ignore_errors=True)
-    t_r = CO.render_verificacao(REC, dest, cam=cam, luzes=luzes)
+    dest = TMP / f"real_{nome}"
+    t_r = None
+    if (dest / "imagem.exr").exists() and (dest / "render_s.txt").exists():   # render real já feito por este mesmo código
+        t_r = float((dest / "render_s.txt").read_text())
+    else:
+        shutil.rmtree(dest, ignore_errors=True); t_r = CO.render_verificacao(REC, dest, cam=cam, luzes=luzes)
+        (dest / "render_s.txt").write_text(str(t_r))
     g = dict(GRADE, grao=0.0)
     real = _tom_real(dest, P, g); comp = P.compor(pesos=pesos, cam=cam, grade=g)
     met, d = MD.comparar(comp, real)
@@ -271,7 +276,8 @@ if __name__ == "__main__":
         m["medidas_cor_quadro_final"] = MD.quadro(com); m["alvos_skill"] = MD.ALVOS; return m
     rodar("E0_3_folha_e_composicao", folha)
     rodar("E0_4_video_paralaxe", lambda: t_paralaxe(P))
-    rodar("E0_5_paralaxe_x_real", lambda: t_real(P, "paralaxe", cam=CAM_FINAL))
+    # o render real de verificação tem TODAS as luzes da cena no peso 1 → o compositor usa os mesmos pesos
+    rodar("E0_5_paralaxe_x_real", lambda: t_real(P, "paralaxe", cam=CAM_FINAL, pesos={g: 1.0 for g in R.GRUPOS_LUZ}))
     rodar("E0_6_reiluminacao_x_real", lambda: t_real(P, "reiluminacao", pesos=PESOS_NOITE,
                                                          luzes={g: (v[0], v[1]) for g, v in PESOS_NOITE.items()}))
     rodar("E0_7_video_iluminacao", lambda: t_iluminacao(P))

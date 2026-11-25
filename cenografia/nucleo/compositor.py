@@ -95,14 +95,26 @@ class Placa:
         return (self.cx + zoom * (u * z - self.f * tx) / (z - tz), self.cy + zoom * (v * z + self.f * ty) / (z - tz), s * zoom)
 
     # ---------------------------------------------------------------- quadro
+    def _iluminada(self, c, pesos, nevoa):
+        """Camada reiluminada + névoa, guardada em cache enquanto pesos e névoa não mudam (ex.: só a câmera anda)."""
+        chave = (c, json.dumps(pesos, sort_keys=True, default=str), json.dumps(nevoa, sort_keys=True, default=str))
+        cache = self.__dict__.setdefault("_cache_luz", {})
+        if chave in cache:
+            return cache[chave]
+        L = self.iluminar(c, pesos); a = self.camadas[c]["alfa"]
+        if nevoa and c != "ceu":
+            Z = self.camadas[c]["prof"]; h = 1 - np.exp(-nevoa["densidade"] * np.maximum(0, Z - nevoa.get("inicio_m", 0)))
+            L = L * (1 - h[..., None]) + hexlin(nevoa["cor"]) * nevoa.get("forca", 1.0) * (h * a)[..., None]
+        if len(cache) > 3 * len(self.m["camadas"]):
+            cache.clear()
+        cache[chave] = L
+        return L
+
     def _pilha(self, cams, pesos, cam, nevoa):
         """Compõe (linear, pré-multiplicado) as camadas dadas, do fundo para a frente. Retorna (rgb, alfa)."""
         acc = np.zeros((self.H, self.W, 3), np.float32); alfa = np.zeros((self.H, self.W), np.float32)
         for c in cams:
-            L = self.iluminar(c, pesos); a = self.camadas[c]["alfa"]
-            if nevoa and c != "ceu":
-                Z = self.camadas[c]["prof"]; h = 1 - np.exp(-nevoa["densidade"] * np.maximum(0, Z - nevoa.get("inicio_m", 0)))
-                L = L * (1 - h[..., None]) + hexlin(nevoa["cor"]) * nevoa.get("forca", 1.0) * (h * a)[..., None]
+            L = self._iluminada(c, pesos, nevoa); a = self.camadas[c]["alfa"]
             mx, my = self.mapa_paralaxe(c, **cam)
             L = cv2.remap(L, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
             if c != "ceu":
@@ -131,8 +143,9 @@ class Placa:
         # bloom: altas luzes borradas somadas (antes da curva)
         if grade.get("bloom", 0.0) > 0:
             br = np.maximum(lin - grade.get("bloom_limiar", 1.0), 0)
-            br = cv2.GaussianBlur(br, (0, 0), self.H / 90)
-            lin = lin + grade["bloom"] * br
+            pq = cv2.resize(br, (br.shape[1] // 4, br.shape[0] // 4), interpolation=cv2.INTER_AREA)   # borrão em 1/4 da resolução
+            pq = cv2.GaussianBlur(pq, (0, 0), self.H / 360)
+            lin = lin + grade["bloom"] * cv2.resize(pq, (br.shape[1], br.shape[0]), interpolation=cv2.INTER_LINEAR)
         x = filmico(lin)
         # gradação: sombras roxo-azuladas, altas luzes quentes, saturação
         lum = (0.2126 * x[..., 0] + 0.7152 * x[..., 1] + 0.0722 * x[..., 2])[..., None]
@@ -161,9 +174,12 @@ class Placa:
     def _final(self, disp, grade, semente):
         H, W = disp.shape[:2]
         if grade.get("vinheta", 0.0) > 0:
-            yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
-            r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / math.sqrt(2)
-            disp = disp * (1 - grade["vinheta"] * np.clip(r, 0, 1) ** 2.2)[..., None]
+            chave = (H, W, grade["vinheta"]); vc = self.__dict__.setdefault("_cache_vinheta", {})
+            if chave not in vc:
+                yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+                r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2) / math.sqrt(2)
+                vc[chave] = (1 - grade["vinheta"] * np.clip(r, 0, 1) ** 2.2)[..., None].astype(np.float32)
+            disp = disp * vc[chave]
         if grade.get("grao", 0.0) > 0:
             rng = np.random.default_rng(semente)
             g = rng.standard_normal((H // 2, W // 2)).astype(np.float32)
