@@ -3,6 +3,7 @@
 Responda em português do Brasil. O usuário é o diretor do estúdio. Ele aprova cada etapa antes da execução.
 
 ## Ao abrir uma sessão nova
+0. Use o ambiente cloud **"Claude-3D"**: o script de configuração dele roda `ambiente/instalar.sh` sozinho em cada container novo.
 1. Ambiente: rode `.venv/bin/python ambiente/verificar.py --rapido`. Se falhar ou `.venv` não existir, rode `bash ambiente/restaurar.sh` (procedimento em `ambiente/RESTAURAR.md`). Use sempre `.venv/bin/python`, nunca o Python do sistema.
 2. Leia `docs/IDENTIDADE_OFICIAL.md`. Ele prevalece sobre qualquer outro documento ou skill.
 3. Estado e próximos passos: `docs/PIPELINE_PRODUCAO.md`, seções 15 (arquitetura), 16 (decisões pendentes) e 17 (próxima etapa).

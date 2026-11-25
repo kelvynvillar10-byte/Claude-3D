@@ -95,7 +95,9 @@ O ambiente cloud do Claude pode rodar um **script de configuração** toda vez q
 ```bash
 if [ -d Claude-3D ]; then (cd Claude-3D && bash ambiente/instalar.sh --sem-verificar); fi
 ```
-Esse script fica salvo nas configurações do ambiente (não no repositório) e só é gravado com a sua aprovação.
+Esse script fica salvo nas configurações do ambiente (não no repositório).
+
+**Configurado em 25/11/2026:** ambiente cloud pessoal **"Claude-3D"**, ligado ao repositório `kelvynvillar10-byte/Claude-3D`, com esse script e a mesma rede do ambiente padrão (gerenciadores de pacotes liberados, sem hosts extras). Ao abrir uma sessão nova, escolha o ambiente "Claude-3D". O script só fica comprovado quando uma sessão nova subir nele. Se algo falhar, o Procedimento A continua valendo. Os hosts da ElevenLabs e dos modelos 3D ainda não estão liberados: serão adicionados a esse ambiente quando você aprovar.
 
 ## Limites conhecidos
 - Python e bibliotecas são idênticos em qualquer lugar (lock + Python do uv). Os pacotes **apt** seguem as atualizações do Ubuntu 24.04. As versões exatas de hoje estão registradas, e `--exato` tenta instalá-las, mas versões antigas podem sair dos espelhos do Ubuntu.
