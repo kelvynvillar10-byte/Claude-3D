@@ -1,0 +1,529 @@
+{
+ "E4_1_giro_e_escala": {
+  "hatch": {
+   "comprimento_m": 3.98,
+   "largura_sem_retrovisor_m": 1.75,
+   "largura_com_retrovisor_m": 2.05,
+   "altura_m": 1.46,
+   "diametro_roda_m": 0.6,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     3.8,
+     4.1
+    ],
+    [
+     1.65,
+     1.76
+    ],
+    [
+     1.42,
+     1.56
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 2.03,
+   "objetos": 28
+  },
+  "seda": {
+   "comprimento_m": 4.58,
+   "largura_sem_retrovisor_m": 1.78,
+   "largura_com_retrovisor_m": 2.09,
+   "altura_m": 1.44,
+   "diametro_roda_m": 0.62,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     4.4,
+     4.75
+    ],
+    [
+     1.7,
+     1.82
+    ],
+    [
+     1.4,
+     1.5
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 1.95,
+   "objetos": 28
+  },
+  "suv": {
+   "comprimento_m": 4.48,
+   "largura_sem_retrovisor_m": 1.85,
+   "largura_com_retrovisor_m": 2.15,
+   "altura_m": 1.66,
+   "diametro_roda_m": 0.7,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     4.2,
+     4.6
+    ],
+    [
+     1.76,
+     1.87
+    ],
+    [
+     1.58,
+     1.72
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 2.01,
+   "objetos": 28
+  },
+  "picape": {
+   "comprimento_m": 5.38,
+   "largura_sem_retrovisor_m": 1.89,
+   "largura_com_retrovisor_m": 2.18,
+   "altura_m": 1.8,
+   "diametro_roda_m": 0.74,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     5.1,
+     5.4
+    ],
+    [
+     1.8,
+     1.92
+    ],
+    [
+     1.74,
+     1.86
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 1.94,
+   "objetos": 31
+  },
+  "furgao": {
+   "comprimento_m": 5.08,
+   "largura_sem_retrovisor_m": 1.98,
+   "largura_com_retrovisor_m": 2.22,
+   "altura_m": 2.42,
+   "diametro_roda_m": 0.68,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     4.8,
+     5.5
+    ],
+    [
+     1.9,
+     2.06
+    ],
+    [
+     2.25,
+     2.6
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 2.2,
+   "objetos": 32
+  },
+  "onibus": {
+   "comprimento_m": 12.13,
+   "largura_sem_retrovisor_m": 2.55,
+   "largura_com_retrovisor_m": 3.17,
+   "altura_m": 3.06,
+   "diametro_roda_m": 1.0,
+   "pneu_mais_baixo_z_m": 0.0,
+   "referencia_tipica (C, L, A)": [
+    [
+     11.5,
+     13.2
+    ],
+    [
+     2.45,
+     2.6
+    ],
+    [
+     2.95,
+     3.35
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 2.07,
+   "objetos": 21
+  },
+  "moto": {
+   "comprimento_m": 1.94,
+   "largura_sem_retrovisor_m": 0.72,
+   "largura_com_retrovisor_m": 0.72,
+   "altura_m": 1.13,
+   "diametro_roda_m": 0.61,
+   "pneu_mais_baixo_z_m": -0.006,
+   "referencia_tipica (C, L, A)": [
+    [
+     1.9,
+     2.1
+    ],
+    [
+     0.7,
+     0.82
+    ],
+    [
+     1.0,
+     1.15
+    ]
+   ],
+   "dentro_da_referencia": {
+    "comprimento": true,
+    "largura": true,
+    "altura": true
+   },
+   "quadros": 48,
+   "render_por_quadro_s": 1.95,
+   "objetos": 18
+  },
+  "_resumo": {
+   "dentro_da_referencia": {
+    "hatch": true,
+    "seda": true,
+    "suv": true,
+    "picape": true,
+    "furgao": true,
+    "onibus": true,
+    "moto": true
+   },
+   "pneus_no_chao": {
+    "hatch": true,
+    "seda": true,
+    "suv": true,
+    "picape": true,
+    "furgao": true,
+    "onibus": true,
+    "moto": true
+   }
+  },
+  "_duracao_teste_s": 686.6
+ },
+ "E4_3_cenas": {
+  "calcada_tarde": {
+   "cache": "MISS",
+   "render_total_s": 180.22,
+   "por_camada_s": {
+    "ceu": 8.9,
+    "longe": 34.46,
+    "meio": 100.59,
+    "perto": 17.1,
+    "frente": 11.03
+   },
+   "objetos": 3124,
+   "medidas_cor": {
+    "brilho_pct": 52.3,
+    "saturacao_pct": 31.3,
+    "contraste_pct": 19.4,
+    "vinheta_pct": 67.9,
+    "sombras_a": 8.9,
+    "sombras_b": -11.5,
+    "altas_luzes_b": 17.0
+   }
+  },
+  "esquina_tarde": {
+   "cache": "MISS",
+   "render_total_s": 162.68,
+   "por_camada_s": {
+    "ceu": 9.0,
+    "longe": 52.86,
+    "meio": 66.76,
+    "perto": 14.08,
+    "frente": 11.26
+   },
+   "objetos": 3124,
+   "medidas_cor": {
+    "brilho_pct": 45.8,
+    "saturacao_pct": 28.2,
+    "contraste_pct": 13.5,
+    "vinheta_pct": 70.7,
+    "sombras_a": 7.8,
+    "sombras_b": -19.5,
+    "altas_luzes_b": 5.8
+   }
+  },
+  "calcada_noite": {
+   "cache": "MISS",
+   "render_total_s": 195.6,
+   "por_camada_s": {
+    "ceu": 8.82,
+    "longe": 36.51,
+    "meio": 109.19,
+    "perto": 17.96,
+    "frente": 11.91
+   },
+   "objetos": 3128,
+   "medidas_cor": {
+    "brilho_pct": 31.1,
+    "saturacao_pct": 48.7,
+    "contraste_pct": 14.1,
+    "vinheta_pct": 72.9,
+    "sombras_a": 13.5,
+    "sombras_b": -20.9,
+    "altas_luzes_b": 25.2
+   }
+  },
+  "esquina_noite": {
+   "cache": "MISS",
+   "render_total_s": 167.65,
+   "por_camada_s": {
+    "ceu": 7.85,
+    "longe": 57.84,
+    "meio": 69.37,
+    "perto": 13.45,
+    "frente": 11.8
+   },
+   "objetos": 3128,
+   "medidas_cor": {
+    "brilho_pct": 23.9,
+    "saturacao_pct": 43.2,
+    "contraste_pct": 10.6,
+    "vinheta_pct": 59.7,
+    "sombras_a": 12.3,
+    "sombras_b": -18.3,
+    "altas_luzes_b": -4.9
+   }
+  },
+  "_resumo": {
+   "placas_renderizadas_agora": 4,
+   "media_s": 176.5,
+   "max_s": 195.6,
+   "dentro_meta_3_5_min": 4
+  },
+  "_duracao_teste_s": 727.4
+ },
+ "E4_4_qa_determinismo": {
+  "calcada_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 640,
+   "textos_fora_da_lista": [],
+   "textos": [
+    "101",
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CENTRO",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ]
+  },
+  "esquina_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 640,
+   "textos_fora_da_lista": [],
+   "textos": [
+    "101",
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CENTRO",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ]
+  },
+  "calcada_noite": {
+   "flutuando": [],
+   "malhas_verificadas": 640,
+   "textos_fora_da_lista": [],
+   "textos": [
+    "101",
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CENTRO",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ]
+  },
+  "esquina_noite": {
+   "flutuando": [],
+   "malhas_verificadas": 640,
+   "textos_fora_da_lista": [],
+   "textos": [
+    "101",
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CENTRO",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ]
+  },
+  "_resumo": {
+   "objetos_flutuando": 0,
+   "textos_fora_da_lista": [],
+   "veiculos_na_cena": 14,
+   "por_tipo": {
+    "picape": 1,
+    "suv": 2,
+    "hatch": 7,
+    "seda": 2,
+    "onibus": 1,
+    "moto": 1
+   },
+   "mesma_receita_mesma_geometria": true,
+   "outra_semente_geometria_diferente": true,
+   "regra_textos": "palavras da lista permitida (inclui CENTRO, do letreiro do ônibus) ou números só com algarismos; placas de veículo SEM caracteres"
+  },
+  "_duracao_teste_s": 20.6
+ },
+ "E4_5_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "heitor_pixels_medidos": 191418,
+  "heitor_pixels_cobertos_por_algo_mais_perto": 0,
+  "heitor_pixels_identicos_pct": 100.0,
+  "heitor_maior_diferenca_8bit": 0,
+  "_duracao_teste_s": 16.1
+ }
+}
