@@ -105,7 +105,7 @@ def folha_articulacoes():
     titulo(c, "Juntas funcionais (poses ESTÁTICAS — animação só na fase F2): ombro, cotovelo, punho, dedos, quadril, joelho, tornozelo, tronco, cabeça")
     alt = 1150; chao = 1580
     poses = []
-    p = H.pose_base("frente"); p.update({"braco_d": 165, "antebraco_d": -25, "mao_d": -10, "dedos_d": H.MAOS["acenar"], "mao_vista_d": "palma"}); poses.append(("frente", p, "alegria", "acenar (ombro+cotovelo+punho)"))
+    p = H.pose_base("frente"); p.update({"braco_d": 108, "antebraco_d": 62, "mao_d": -10, "dedos_d": H.MAOS["acenar"], "mao_vista_d": "palma"}); poses.append(("frente", p, "alegria", "acenar (ombro+cotovelo+punho)"))
     p = H.pose_base("frente"); p.update({"braco_e": -78, "antebraco_e": -8, "dedos_e": H.MAOS["apontar"], "mao_vista_e": "dorso", "cabeca": -4}); poses.append(("frente", p, "surpresa", "apontar"))
     p = H.pose_base("tres_quartos"); p.update({"braco_d": 40, "antebraco_d": -95, "dedos_d": H.MAOS["segurar"], "mao_vista_d": "dorso"}); poses.append(("tres_quartos", p, "pensativo", "segurar (dedos fechados)"))
     p = H.pose_base("perfil"); p.update({"coxa_d": -55, "canela_d": 85, "pe_d": -10, "coxa_e": 20, "canela_e": 15, "braco_d": -40, "antebraco_d": -70, "braco_e": 40, "antebraco_e": -30, "tronco": 8}); poses.append(("perfil", p, "medo", "quadril, joelho, tornozelo"))

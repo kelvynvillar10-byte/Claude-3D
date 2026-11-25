@@ -20,8 +20,20 @@ Vídeos em 1080×1920, 30 qps, H.264. Todos juntos (24 s): `F3_todos_os_testes.m
 |---|---|---|---|
 | T4 dedos individuais | `T4_dedos_individuais.mp4` (7,9 s) | Cada dedo dobra sozinho: polegar 70°, os outros 95°. **Movimento dos outros dedos na janela de cada um: 0,0°**. Depois: contagem 1–5, punho, abrir e "onda" dos dedos | Dorso e palma lado a lado. A dobra lê como dedo dobrando, por escorço na vista frontal da mão. Contagem legível (conferida no quadro do "2") |
 | T5 segurar e soltar | `T5_segurar_soltar.mp4` (5,2 s) | Pega aos **1,33 s**, segura **61 quadros**; **distância bola–mão enquanto segura: 0,0** (presa ao ponto de pega); erro de alcance ≤ **0,0085 H** (~2 px); solta aos **3,37 s**; a bola **não atravessa o chão** e para no chão | Estende o braço com a mão abrindo, a mão fecha em volta da bola, ergue até o peito, estende, abre os dedos, a bola cai e quica. Expressão: pensativo → alegria → surpresa → preocupação |
-| T6 acenar e apontar | `T6_acenar_apontar.mp4` (6,2 s) | Aceno: **2,2 Hz medido** (FFT) para 2,2 Hz pedido, amplitude ±24° no antebraço; **erro de mira 0,0°** nos 40 quadros em que segura o apontar | De frente: ergue o braço com a palma aberta e acena com alegria; abaixa; aponta para a estrela com o indicador, com surpresa |
-| T6b reações | `T6b_reacoes.mp4` (5,0 s) | Susto: **antecipação** (agacha 0,11 H) → pulo de **0,28 H** → pouso amortecido → tremor; **pés parados no chão quando não está no ar (variação 0,0 H)**. Comemoração: agacha, pula, punho erguido com **overshoot de 14,9°** que assenta | Susto: braços se abrem para cima com os dedos esticados e olhos arregalados (medo), depois preocupação. Comemoração: alegria, punho cerrado no alto |
+| T6 acenar e apontar | `T6_acenar_apontar.mp4` (6,2 s) | Aceno: **2,2 Hz medido** (FFT) para 2,2 Hz pedido, amplitude ±24° no antebraço; **erro de mira 0,0°** nos 40 quadros em que segura o apontar | De frente: braço ao lado com o antebraço para cima e a palma aberta, acenando com alegria; abaixa; aponta para a estrela com o indicador, com surpresa |
+| T6b reações | `T6b_reacoes.mp4` (5,0 s) | Susto: **antecipação** (agacha 0,11 H) → pulo de **0,28 H** → pouso amortecido → tremor; **pés parados no chão quando não está no ar (variação 0,0 H)**. Comemoração: agacha, pula, punho erguido com **overshoot de 11,1°** que assenta | Susto: "mãos ao alto" (braços abertos, antebraços para cima, dedos esticados) e olhos arregalados (medo), depois preocupação. Comemoração: alegria, punho cerrado erguido com o antebraço para cima |
+
+## Correção pedida pelo diretor: cotovelos invertidos
+O diretor apontou que a anatomia dos cotovelos parecia invertida. **Confirmado** nos quadros: no aceno (T6), no susto e no punho da comemoração (T6b), e também na pose "acenar" da folha de articulações da F1, o braço subia e o antebraço dobrava **para fora**, com o cotovelo apontando para a cabeça. Nenhuma métrica anterior verificava isso.
+
+- **Regra anatômica, agora verificável** (`gestos.cotovelo_invertido`, tolerância de 5°):
+  - No perfil, o antebraço só dobra para a frente.
+  - De frente, de costas e no 3/4, com o braço acima da horizontal, o antebraço só dobra para cima, em direção à cabeça.
+  - Abaixo da horizontal os dois sentidos são possíveis, porque o úmero gira (mão na barriga, mão para fora).
+- **Verificador validado:** reprova as 5 poses antigas e aprova as corrigidas, a "mão na barriga" e o perfil do T5. Também reprova uma hiperextensão de perfil criada de propósito.
+- **Poses corrigidas:** aceno (braço a 108°, antebraço +62° ±24°), susto ("mãos ao alto"), punho erguido e a pose "acenar" da folha F1. A função de apontar agora só dobra o cotovelo no sentido anatômico.
+- **Auditoria completa** (`codigo/verificar_cotovelos.py` → `verificacao/cotovelos.md`): 31 poses das folhas da F1, 360 quadros da F2 (caminhada e corrida nas 3 vistas) e todos os quadros da F3, com **0 cotovelos invertidos**. O T4 só mostra a mão, então não entra nessa conta. A F1 foi reverificada: 6/6 OK.
+- Cada teste da F3 agora registra `quadros_com_cotovelo_invertido` em `f3_metricas.json`.
 
 ## Problemas encontrados pelos testes e corrigidos
 1. **T4: as duas mãos se sobrepunham e saíam do quadro.** Escala e espaçamento refeitos.

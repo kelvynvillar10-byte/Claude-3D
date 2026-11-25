@@ -173,8 +173,8 @@ def t6():
     vista = "frente"; XP = CX - 100; ESTRELA = (975, 720)   # pés do Heitor e alvo na tela
     alvo_ponto = ((ESTRELA[0] - XP) / U, (ESTRELA[1] - CHAO) / U)   # alvo no mundo do personagem (H)
     clip = G.Clipe({
-        "braco_d": [(0.0, 0.0, "suave"), (0.3, 0.0, "suave"), (0.8, 152.0, "volta"), (2.7, 152.0, "suave"), (3.2, 0.0, "suave")],
-        "antebraco_d": [(0.0, 0.0, "suave"), (0.3, 0.0, "suave"), (0.8, -28.0, "suave"), (2.7, -28.0, "suave"), (3.2, 0.0, "suave")],
+        "braco_d": [(0.0, 0.0, "suave"), (0.3, 0.0, "suave"), (0.8, 108.0, "volta"), (2.7, 108.0, "suave"), (3.2, 0.0, "suave")],
+        "antebraco_d": [(0.0, 0.0, "suave"), (0.3, 0.0, "suave"), (0.8, 62.0, "suave"), (2.7, 62.0, "suave"), (3.2, 0.0, "suave")],
         "dedos_d": [(0.0, G.mao("relaxada"), "suave"), (0.5, G.mao("relaxada"), "suave"), (0.8, G.mao("acenar"), "suave"),
                     (2.7, G.mao("acenar"), "suave"), (3.2, G.mao("relaxada"), "suave")],
         "dedos_e": [(0.0, G.mao("relaxada"), "suave"), (3.3, G.mao("relaxada"), "suave"), (3.75, G.mao("apontar"), "suave"),
@@ -228,12 +228,12 @@ def t6b():
     clip = G.Clipe({
         "raiz_y": [(0.0, 0.0, "suave"), (0.8, 0.0, "suave"), (0.93, 0.11, "saida"), (1.12, -0.22, "saida"), (1.32, 0.09, "suave"),
                    (1.5, 0.0, "suave"), (2.9, 0.0, "suave"), (3.05, 0.11, "saida"), (3.3, -0.28, "saida"), (3.55, 0.08, "suave"), (3.75, 0.0, "suave")],
-        "braco_d": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, 128.0, "volta"), (2.3, 120.0, "suave"), (2.8, 0.0, "suave"),
-                    (3.05, 0.0, "suave"), (3.3, 150.0, "volta"), (4.2, 150.0, "suave"), (4.7, 0.0, "suave")],
-        "antebraco_d": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, -72.0, "volta"), (2.3, -66.0, "suave"), (2.8, 0.0, "suave"),
-                        (3.05, 0.0, "suave"), (3.3, -55.0, "volta"), (4.2, -55.0, "suave"), (4.7, 0.0, "suave")],
-        "braco_e": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, -128.0, "volta"), (2.3, -120.0, "suave"), (2.8, 0.0, "suave")],
-        "antebraco_e": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, 72.0, "volta"), (2.3, 66.0, "suave"), (2.8, 0.0, "suave")],
+        "braco_d": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, 72.0, "volta"), (2.3, 68.0, "suave"), (2.8, 0.0, "suave"),
+                    (3.05, 0.0, "suave"), (3.3, 112.0, "volta"), (4.2, 112.0, "suave"), (4.7, 0.0, "suave")],
+        "antebraco_d": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, 98.0, "volta"), (2.3, 92.0, "suave"), (2.8, 0.0, "suave"),
+                        (3.05, 0.0, "suave"), (3.3, 62.0, "volta"), (4.2, 62.0, "suave"), (4.7, 0.0, "suave")],
+        "braco_e": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, -72.0, "volta"), (2.3, -68.0, "suave"), (2.8, 0.0, "suave")],
+        "antebraco_e": [(0.0, 0.0, "suave"), (0.9, 0.0, "suave"), (1.1, -98.0, "volta"), (2.3, -92.0, "suave"), (2.8, 0.0, "suave")],
         "dedos_d": [(0.0, G.mao("relaxada"), "suave"), (0.9, G.mao("relaxada"), "suave"), (1.05, G.mao("aberta"), "saida"),
                     (2.4, G.mao("aberta"), "suave"), (2.8, G.mao("relaxada"), "suave"), (3.1, G.mao("punho"), "saida"), (4.3, G.mao("punho"), "suave"),
                     (4.7, G.mao("relaxada"), "suave")],
@@ -274,7 +274,7 @@ def t6b():
     pre = [r["raiz_y"] for r in reg if 0.85 <= r["t"] <= 0.95]
     bd = [r["braco_d"] for r in reg if 3.05 <= r["t"] <= 3.6]
     return {"antecipacao_agacha_antes_do_pulo_H": round(max(pre), 3), "altura_maxima_pulo_H": round(-min(ys), 3),
-            "overshoot_braco_comemoracao_graus": round(max(bd) - 150.0, 1),
+            "overshoot_braco_comemoracao_graus": round(max(bd) - 112.0, 1),
             # pés no chão enquanto não está no ar: altura do tornozelo comparada à da pose de repouso (quadro 0)
             "tornozelo_no_chao_variacao_max_H": round(max(abs(r["tornozelo_y"] - reg[0]["tornozelo_y"]) for r in reg if r["raiz_y"] >= 0), 5)}
 
@@ -286,5 +286,10 @@ if __name__ == "__main__":
     for nome, f in (("T4_dedos_individuais", t4), ("T5_segurar_soltar", t5), ("T6_acenar_apontar", t6), ("T6b_reacoes", t6b)):
         if so and nome not in so:
             continue
-        res[nome] = f(); print(nome, json.dumps(res[nome], ensure_ascii=False))
+        H.AUDITORIA = []
+        res[nome] = f()
+        inv = [(v, l) for v, p in H.AUDITORIA for l in ("d", "e") if G.cotovelo_invertido(p, v, l)[0]]
+        res[nome]["quadros_com_cotovelo_invertido"] = len(inv)
+        H.AUDITORIA = None
+        print(nome, json.dumps(res[nome], ensure_ascii=False))
     caminho.write_text(json.dumps(res, ensure_ascii=False, indent=1))

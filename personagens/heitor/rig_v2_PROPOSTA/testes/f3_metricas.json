@@ -27,7 +27,8 @@
    -10.0,
    110.0
   ],
-  "maior_variacao_graus_por_quadro": 34.9
+  "maior_variacao_graus_por_quadro": 34.9,
+  "quadros_com_cotovelo_invertido": 0
  },
  "T5_segurar_soltar": {
   "quadros_segurando": 61,
@@ -36,19 +37,22 @@
   "distancia_bola_encaixe_enquanto_segura_max_H": 0.0,
   "erro_ik_max_H": 0.0085,
   "bola_atravessa_chao": false,
-  "bola_final_no_chao": true
+  "bola_final_no_chao": true,
+  "quadros_com_cotovelo_invertido": 0
  },
  "T6_acenar_apontar": {
   "aceno_frequencia_hz_medida": 2.2,
   "aceno_frequencia_hz_pedida": 2.2,
   "aceno_amplitude_antebraco_graus": 24.0,
   "apontar_erro_mira_max_graus": 0.0,
-  "apontar_quadros_medidos": 40
+  "apontar_quadros_medidos": 40,
+  "quadros_com_cotovelo_invertido": 0
  },
  "T6b_reacoes": {
   "antecipacao_agacha_antes_do_pulo_H": 0.109,
   "altura_maxima_pulo_H": 0.28,
-  "overshoot_braco_comemoracao_graus": 14.9,
-  "tornozelo_no_chao_variacao_max_H": 0.0
+  "overshoot_braco_comemoracao_graus": 11.1,
+  "tornozelo_no_chao_variacao_max_H": 0.0,
+  "quadros_com_cotovelo_invertido": 0
  }
 }

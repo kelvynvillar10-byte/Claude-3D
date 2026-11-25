@@ -138,7 +138,7 @@ def mira_braco(pose, vista, lado, alvo, dobra=8.0, iter=8):
         pose[f"braco_{lado}"] = b; pose[f"antebraco_{lado}"] = sg * dobra; pose[f"mao_{lado}"] = 0.0
         return erro_mira(pose, vista, lado, alvo)
     melhor = None
-    for sg in (1, -1):                       # o sentido da dobra do cotovelo que a vista permite
+    for sg in (sentido_flexao(vista, lado),):   # dobra só no sentido anatômico (ver regra do cotovelo abaixo)
         for b0 in (-90.0, 90.0, 0.0, 180.0):   # vários pontos de partida (evita o ramo errado)
             x0, x1 = b0, b0 + 10.0; f0, f1 = aplicar(x0, sg), aplicar(x1, sg)
             for _ in range(iter):
@@ -158,3 +158,37 @@ def erro_mira(pose, vista, lado, alvo):
     p0 = M[f"mao_{lado}"].mapXY(0, 0); p1 = M[f"mao_{lado}"].mapXY(0, 1)
     eixo = A.ang_osso(p1.x() - p0.x(), p1.y() - p0.y()); dirc = A.ang_osso(alvo[0] - p0.x(), alvo[1] - p0.y())
     return (dirc - eixo + 180) % 360 - 180
+
+
+# ------------------------------------------------------------------ regra anatômica do cotovelo
+# O cotovelo só dobra para o lado da flexão (limite do modelo: cotovelo 0–150°). Em 2D isso vira:
+# - perfil (personagem virado para +x; a vista espelhada usa os mesmos valores): o antebraço vai para a FRENTE,
+#   ou seja, ângulo relativo do antebraço <= 0 (tolerância de 5°).
+# - frente/costas/3-4: o úmero pode girar, então os dois sentidos são possíveis com o braço ABAIXO da horizontal
+#   (mão na barriga ou mão para fora). Com o braço ACIMA da horizontal, o antebraço só pode dobrar para CIMA,
+#   em direção à cabeça (aceno, "mãos ao alto", punho erguido); dobrar para fora/baixo deixaria o cotovelo
+#   apontando para a cabeça — articulação invertida.
+TOL_COTOVELO = 5.0
+
+
+def lado_tela(vista, lado):
+    """+1 se o ombro desse braço fica no lado esquerdo da tela (x < 0), −1 se no direito."""
+    return 1 if H.LAYOUT[vista][f"braco_{lado}"][0] < 0 else -1
+
+
+def sentido_flexao(vista, lado, braco_abs=0.0):
+    """Sinal do ângulo relativo do antebraço que corresponde a FLEXÃO (dobra anatômica) nesta vista."""
+    if vista == "perfil":
+        return -1
+    return lado_tela(vista, lado)   # braço erguido: dobra em direção à cabeça
+
+
+def cotovelo_invertido(pose, vista, lado):
+    """Retorna (invertido?, ângulo absoluto do braço, ângulo relativo do antebraço)."""
+    rel = pose[f"antebraco_{lado}"]
+    ab = pose[f"braco_{lado}"] + H.LAYOUT[vista][f"braco_{lado}"][1] + pose.get("tronco", 0.0)
+    if vista == "perfil":
+        return rel > TOL_COTOVELO, ab, rel
+    s = lado_tela(vista, lado)
+    erguido = s * ab > 90.0
+    return (erguido and s * rel < -TOL_COTOVELO), ab, rel

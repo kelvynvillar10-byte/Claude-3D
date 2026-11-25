@@ -624,8 +624,14 @@ ORDEM = {   # do fundo para a frente (d = lado direito do personagem)
 VISTA_MAO = {"frente": "lado", "costas": "lado", "tres_quartos": "dorso", "perfil": "dorso"}
 
 
+# auditoria opcional: se for uma lista, cada chamada de desenhar() registra (vista, pose) para verificações (ex.: cotovelos)
+AUDITORIA = None
+
+
 def desenhar(c, x_pe, y_pe, altura_px, vista="frente", direcao=1, pose=None, rosto=None, luz=-1):
     pose = pose or pose_base(vista)
+    if AUDITORIA is not None:
+        AUDITORIA.append((vista, {k: v for k, v in pose.items() if not callable(v)}))
     e = rosto if isinstance(rosto, dict) else EXPRESSOES[rosto or "neutro"]
     u = altura_px / 4.0
     c.save(); c.translate(x_pe, y_pe); c.scale(u * direcao, u)
