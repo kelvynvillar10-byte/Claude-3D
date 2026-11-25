@@ -1,5 +1,5 @@
 {
- "render_s": 119.8,
+ "render_s": 119.7,
  "amostras": {
   "asfalto": {
    "saturacao_pct": 44.6,
@@ -8,9 +8,9 @@
    "detalhe_laplaciano": 7.3
   },
   "asfalto molhado": {
-   "saturacao_pct": 51.1,
-   "brilho_pct": 20.6,
-   "variacao_luminancia_pct": 1.6,
+   "saturacao_pct": 48.5,
+   "brilho_pct": 22.0,
+   "variacao_luminancia_pct": 1.1,
    "detalhe_laplaciano": 5.2
   },
   "concreto (placas)": {
