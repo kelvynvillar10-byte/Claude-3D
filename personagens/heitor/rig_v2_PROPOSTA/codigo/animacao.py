@@ -45,8 +45,8 @@ def suave(x):
 # ------------------------------------------------------------------ parâmetros dos ciclos
 CAMINHADA = dict(T=0.86, v=1.80, apoio=0.62, levante=0.16, bob=0.035, desce=0.10, braco=22.0, antebraco=(-12, -26),
                  tronco=3.0, cabeca=-1.5, chute=0.0, rolagem=24.0)
-CORRIDA = dict(T=0.53, v=4.20, apoio=0.38, levante=0.50, bob=0.06, desce=0.15, braco=42.0, antebraco=(-92, -100),
-               tronco=12.0, cabeca=-6.0, chute=0.6, rolagem=30.0)
+CORRIDA = dict(T=0.56, v=4.00, apoio=0.38, levante=0.46, bob=0.04, desce=0.21, braco=42.0, antebraco=(-92, -100),
+               tronco=12.0, cabeca=-6.0, chute=0.3, rolagem=30.0)
 
 
 def _pe_ciclo(t, fase0, P, quadril_x):
@@ -67,7 +67,9 @@ def _pe_ciclo(t, fase0, P, quadril_x):
     s = (ph - sf) / (1 - sf)   # BALANÇO
     prog = suave(s) if P["chute"] == 0 else suave(s ** (1 + P["chute"]))   # na corrida o pé fica atrás e sobe (chute)
     x = xc + passada * prog
-    y = ALT_TORNOZELO + P["levante"] * math.sin(math.pi * s) ** (1.0 if P["chute"] == 0 else 0.8)
+    # o balanço parte da altura em que o apoio terminou (calcanhar já levantado) — sem salto entre quadros
+    y_saida = 0.30 * math.sin(math.radians(P["rolagem"])) * (1 - suave(s / 0.4))
+    y = ALT_TORNOZELO + y_saida + P["levante"] * math.sin(math.pi * s) ** (1.0 if P["chute"] == 0 else 0.8)
     ang = P["rolagem"] * (1 - suave(s / 0.35)) if s < 0.35 else -10 * suave((s - 0.6) / 0.4)
     return x, y, ang, False, ph
 
@@ -101,17 +103,19 @@ def pose_locomocao(t, vista="perfil", tipo="caminhada"):
             p[f"esc_coxa_{s}"] = max(0.35, math.cos(math.radians(a1)))
             p[f"esc_canela_{s}"] = max(0.35, math.cos(math.radians(a2)))
             # pé à frente (mais perto da câmera na frente) aparece um pouco mais baixo; nas costas, mais alto
-            prof = (ax - X) * (0.07 if vista == "frente" else -0.07)
+            prof = (ax - X) * (0.13 if vista == "frente" else -0.13)
             p[f"_prof_{s}"] = prof
     # braços opostos às pernas
     for s, sinal in (("d", 1), ("e", -1)):
-        sw = P["braco"] * math.cos(2 * math.pi * (ph_d - 0.5)) * sinal   # +: para trás (no perfil voltado à direita)
+        sw = P["braco"] * math.cos(2 * math.pi * ph_d) * sinal   # +: para trás; braço direito atrás quando a perna direita está à frente
         frente = max(0.0, -sw / P["braco"])
         anteb = P["antebraco"][0] + (P["antebraco"][1] - P["antebraco"][0]) * frente
         if vista == "perfil":
             p[f"braco_{s}"] = sw; p[f"antebraco_{s}"] = anteb
         else:
-            p[f"braco_{s}"] = (3.0 if s == "d" else -3.0) * (1 if vista == "frente" else -1) * (0.5 + 0.5 * frente)
+            # na frente/costas o braço que vai para a frente cruza um pouco para o meio do corpo (e o que vai para trás abre)
+            lado_tela = (1 if s == "d" else -1) * (1 if vista == "frente" else -1)   # +1 = braço do lado esquerdo da tela
+            p[f"braco_{s}"] = lado_tela * (2.0 - 9.0 * (sw / P["braco"]) * (-1 if vista == "frente" else 1))
             p[f"esc_braco_{s}"] = max(0.5, math.cos(math.radians(sw)))
             p[f"esc_antebraco_{s}"] = max(0.4, math.cos(math.radians(sw + anteb)))
             p[f"antebraco_{s}"] = 0.0
@@ -123,7 +127,7 @@ def pose_locomocao(t, vista="perfil", tipo="caminhada"):
     p["raiz"] = [0.0, -(pelve_y - H.PROP["barra_camisa"])]
     if vista != "perfil":   # balanço lateral do quadril para o lado do pé de apoio + leve inclinação
         lado = math.sin(2 * math.pi * ph_d) * (1 if vista == "frente" else -1)
-        p["raiz"][0] = 0.035 * lado; p["tronco"] = -1.5 * lado; p["cabeca"] = 1.2 * lado
+        p["raiz"][0] = 0.05 * lado; p["tronco"] = -2.5 * lado; p["cabeca"] = 2.0 * lado
     return p, diag
 
 

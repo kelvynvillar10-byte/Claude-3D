@@ -38,5 +38,8 @@ As 6 vistas passaram com tolerância de ±2 % da altura: topo 4,01 H, olhos 3,44
 6. **O espessamento do contorno é proporcional à altura do personagem.** Em closes muito grandes, o traço fica mais grosso. Precisa de um limite por tamanho de tela.
 7. **Blender CPU:** não afeta o personagem, que é 2D e leva milissegundos por quadro. Continua valendo o plano da arquitetura: fundos estáticos em camadas no Blender e personagem no skia.
 
-## Próxima fase (só com autorização): F2
+## Fase F2 (concluída, aguardando avaliação)
+IK, sistema de animação com camadas, caminhada (perfil, frente, costas) e corrida. Testes em vídeo e métricas: [`testes/F2_RELATORIO.md`](testes/F2_RELATORIO.md).
+
+## Plano original da F2
 IK de 2 ossos (pé plantado e mão em alvo), sistema de animação com camadas, caminhada de frente, perfil e costas, e corrida, com os testes T2 e T3 renderizados em MP4 e medidos (deslize do pé, ciclo, ângulos).

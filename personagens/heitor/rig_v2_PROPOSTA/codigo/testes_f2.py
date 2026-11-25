@@ -49,7 +49,7 @@ def sombra_pes(c, M, vista):
                               MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 6)))
 
 
-def renderizar(nome, vista, tipo, dur, rotulo):
+def renderizar(nome, vista, tipo, dur, rotulo, camada=None):
     P = A.CAMINHADA if tipo == "caminhada" else A.CORRIDA
     n = int(round(dur * FPS))
     cmd = ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{HH}", "-r", str(FPS), "-i", "-",
@@ -62,11 +62,15 @@ def renderizar(nome, vista, tipo, dur, rotulo):
         t = q / FPS
         pose, dg = A.pose_locomocao(t, vista, tipo)
         pose["respira"] = math.sin(2 * math.pi * t / 2.6)
+        expr = "neutro"
+        if camada:   # sistema de camadas: sobreposição parcial com peso e máscara sobre a locomoção
+            parcial, peso, mascara, expr = camada(t)
+            pose = A.misturar(pose, [(parcial, peso, mascara)])
         s = skia.Surface(W, HH); c = s.getCanvas()
         cenario(c, dg["pelve_x"], vista)
         M = H.esqueleto(pose, vista)
         sombra_pes(c, M, vista)
-        H.desenhar(c, CX, CHAO, ALT, vista=vista, pose=pose, rosto=A.rosto_com_piscada("neutro", t))
+        H.desenhar(c, CX, CHAO, ALT, vista=vista, pose=pose, rosto=A.rosto_com_piscada(expr, t))
         c.drawString(rotulo, 40, 70, F_L, skia.Paint(AntiAlias=True, Color=0xFF1F2A44))
         c.drawString(f"quadro {q:03d} · t={t:4.2f} s · fase {dg['pernas']['d']['fase']:.2f}", 40, 115, F_L, skia.Paint(AntiAlias=True, Color=0xFF55607A))
         pr.stdin.write(s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).tobytes())
@@ -124,13 +128,23 @@ TESTES = [
     ("T2_caminhada_costas", "costas", "caminhada", 2.58, "T2 · caminhada · costas — Heitor rig v2 (PROPOSTA)"),
     ("T3_corrida_perfil", "perfil", "corrida", 2.12, "T3 · corrida · perfil — Heitor rig v2 (PROPOSTA)"),
 ]
+def camada_olhar(t):
+    """Camada só da cabeça (máscara ["cabeca"]): inclina para olhar para cima entre 1,0 e 1,4 s e sorri; o braço_e da camada é ignorado pela máscara."""
+    peso = A.suave((t - 1.0) / 0.4) * (1 - A.suave((t - 2.6) / 0.4))
+    return {"cabeca": -16.0, "braco_e": 20.0}, peso, ["cabeca"], ("alegria" if 1.3 < t < 2.7 else "neutro")
+
+
+TESTES.append(("T2_camadas_caminhada_olha_cima", "perfil", "caminhada", 3.44,
+               "T2 · camadas: caminhada + cabeça olha p/ cima (máscara) + expressão", camada_olhar))
+
 if __name__ == "__main__":
     so = sys.argv[1:]
-    res = {}
-    for nome, vista, tipo, dur, rot in TESTES:
+    res = json.loads((OUT / "f2_metricas.json").read_text()) if so and (OUT / "f2_metricas.json").exists() else {}
+    for item in TESTES:
+        nome, vista, tipo, dur, rot = item[:5]; cam = item[5] if len(item) > 5 else None
         if so and nome not in so:
             continue
-        reg, P = renderizar(nome, vista, tipo, dur, rot)
+        reg, P = renderizar(nome, vista, tipo, dur, rot, cam)
         res[nome] = medir(reg, P, vista, tipo)
         print(nome, json.dumps(res[nome], ensure_ascii=False))
     (OUT / "f2_metricas.json").write_text(json.dumps(res, ensure_ascii=False, indent=1))
