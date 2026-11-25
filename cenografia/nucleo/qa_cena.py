@@ -69,6 +69,22 @@ def medidas(cena, prefixos=("trecho_1_meiofio", "poste_", "cruz_zebra_p", "trech
     return out
 
 
+def nada_atravessando(cena):
+    """E5: cada peça de ambientação (rótulo 'ambientacao') não pode atravessar a geometria vizinha (BVH, triângulos
+    reais; o chão — topo ≤ 20 cm — não conta). O espalhamento já testa na hora de colocar; aqui é a conferência final,
+    que pega também o que outro componente pôs depois."""
+    from cenografia.componentes.ambientacao import colisoes
+    grupos = [o for o in cena.objects if o.get("ambientacao")]; ruins = []
+    for g in grupos:
+        hits = colisoes(cena, [g] + list(g.children_recursive), ignorar=[g["ignorar_colisao"]] if g.get("ignorar_colisao") else ())
+        if hits:
+            ruins.append({"peca": g.name, "atravessa": hits[:5]})
+    return {"pecas_verificadas": len(grupos), "atravessando": ruins}
+
+
 def verificar(cena):
     bpy.context.view_layer.update()
-    return {"nada_flutuando": nada_flutuando(cena), "textos": textos(cena), "medidas": medidas(cena)}
+    out = {"nada_flutuando": nada_flutuando(cena), "textos": textos(cena), "medidas": medidas(cena)}
+    if any(o.get("ambientacao") for o in cena.objects):
+        out["nada_atravessando"] = nada_atravessando(cena)
+    return out

@@ -1,6 +1,6 @@
 # Relatório da etapa E4 — veículos
 
-25/11/2026 · Autorizada pelo diretor junto com a aprovação da E3 ("Aprovo e autorizo"). **Aguardando avaliação do diretor. A E5 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25/11/2026 · Autorizada pelo diretor junto com a aprovação da E3 ("Aprovo e autorizo"). **E4 APROVADA pelo diretor em 25/11/2026; E5 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Escopo do plano aprovado: "5 carrocerias, ônibus e moto; giro de 360° de cada um". **Sem marca, sem logotipo e sem modelo real.** As placas são o modelo Mercosul **em branco, sem caracteres**, para não reproduzir uma placa real.
 

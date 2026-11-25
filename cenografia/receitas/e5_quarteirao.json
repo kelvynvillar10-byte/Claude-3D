@@ -1,0 +1,741 @@
+{
+ "nome": "e5_quarteirao",
+ "descricao": "Cena de TESTE da E5 (ambientação): o quarteirão da E4 com árvores nos canteiros, mobiliário urbano espalhado nas calçadas por regras (nada flutuando, nada atravessando, áreas livres), mesas de bar em frente às lanchonetes e padarias.",
+ "semente": 33,
+ "saida": {
+  "largura": 1080,
+  "altura": 1920,
+  "overscan": 0.25,
+  "amostras": 64,
+  "amostras_por_camada": {
+   "ceu": 4,
+   "longe": 16,
+   "meio": 24,
+   "perto": 24,
+   "frente": 16
+  }
+ },
+ "camera": {
+  "pos": [
+   -5.0,
+   0.0,
+   1.15
+  ],
+  "alvo": [
+   -4.6,
+   20.0,
+   1.55
+  ],
+  "lente_mm": 35
+ },
+ "luz": {
+  "preset": "tarde_dourada",
+  "efeito": [
+   {
+    "pos": [
+     -4.75,
+     4.0,
+     1.05
+    ],
+    "watts": 60,
+    "cor": "#ffffff",
+    "raio": 0.05
+   }
+  ]
+ },
+ "camadas": [
+  "ceu",
+  "longe",
+  "meio",
+  "perto",
+  "frente"
+ ],
+ "ancoras": {
+  "heitor_pe": [
+   -5.0,
+   4.2,
+   0.15
+  ],
+  "heitor_topo": [
+   -5.0,
+   4.2,
+   1.55
+  ]
+ },
+ "textos_permitidos": [
+  "214",
+  "215",
+  "216",
+  "217",
+  "218",
+  "30",
+  "ALUGA-SE",
+  "AÇOUGUE",
+  "BANCA",
+  "BAZAR",
+  "CENTRO",
+  "CHAVEIRO",
+  "FARMÁCIA",
+  "HORTIFRUTI",
+  "LANCHONETE",
+  "MERCADINHO",
+  "MODO CURIOSO",
+  "PADARIA",
+  "PAPELARIA",
+  "R. DAS JABUTICABAS",
+  "R. VAGALUME",
+  "SALÃO",
+  "SAPATARIA",
+  "ÓTICA",
+  "ÔNIBUS"
+ ],
+ "componentes": [
+  {
+   "tipo": "rua_trecho",
+   "camada": "meio",
+   "params": {
+    "nome": "trecho_1",
+    "y0": -6,
+    "y1": 20.5,
+    "marcacao": "dupla_amarela",
+    "remendos": 5,
+    "tampas": 2
+   }
+  },
+  {
+   "tipo": "cruzamento",
+   "camada": "meio",
+   "params": {
+    "nome": "cruz",
+    "yc": 30.0,
+    "largura_transversal": 7.0,
+    "comp_esquina": 6.0,
+    "braco": 24.0
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "meio",
+   "params": {
+    "x_fachada": -6.85,
+    "lado": -1,
+    "y0": -6.0,
+    "y1": 23.15,
+    "profundidade": 10.0,
+    "esquina_fim": true,
+    "nome": "qe1"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "meio",
+   "params": {
+    "x_fachada": 6.85,
+    "lado": 1,
+    "y0": -6.0,
+    "y1": 23.15,
+    "profundidade": 10.0,
+    "esquina_fim": true,
+    "nome": "qd1"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "x_fachada": -6.85,
+    "lado": -1,
+    "y0": 36.85,
+    "y1": 72.0,
+    "profundidade": 10.0,
+    "esquina_inicio": true,
+    "nome": "qe2"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "x_fachada": 6.85,
+    "lado": 1,
+    "y0": 36.85,
+    "y1": 72.0,
+    "profundidade": 10.0,
+    "esquina_inicio": true,
+    "nome": "qd2"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "y_fachada": 23.15,
+    "lado": -1,
+    "x0": -24.4,
+    "x1": -17.0,
+    "profundidade": 8.0,
+    "nome": "qc1"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "y_fachada": 23.15,
+    "lado": -1,
+    "x0": 17.0,
+    "x1": 24.4,
+    "profundidade": 8.0,
+    "nome": "qc2"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "y_fachada": 36.85,
+    "lado": 1,
+    "x0": -24.4,
+    "x1": -17.0,
+    "profundidade": 8.0,
+    "nome": "qc3"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "y_fachada": 36.85,
+    "lado": 1,
+    "x0": 17.0,
+    "x1": 24.4,
+    "profundidade": 8.0,
+    "nome": "qc4"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "x_fachada": -24.5,
+    "lado": -1,
+    "y0": 17.0,
+    "y1": 43.0,
+    "profundidade": 10.0,
+    "nome": "qfe"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "x_fachada": 24.5,
+    "lado": 1,
+    "y0": 17.0,
+    "y1": 43.0,
+    "profundidade": 10.0,
+    "nome": "qfd"
+   }
+  },
+  {
+   "tipo": "fachada_quadra",
+   "camada": "longe",
+   "params": {
+    "y_fachada": 72.0,
+    "lado": 1,
+    "x0": -16.0,
+    "x1": 18.0,
+    "profundidade": 10.0,
+    "nome": "qfundo"
+   }
+  },
+  {
+   "tipo": "rua_trecho",
+   "camada": "longe",
+   "params": {
+    "nome": "trecho_2",
+    "y0": 39.5,
+    "y1": 72,
+    "marcacao": "dupla_amarela",
+    "remendos": 3,
+    "tampas": 1,
+    "folhas": 25
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "frente",
+   "params": {
+    "x": -3.95,
+    "y": 2.2,
+    "lado": 1,
+    "linha": "a",
+    "id": 214
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "meio",
+   "params": {
+    "x": -3.95,
+    "y": 15.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 215,
+    "transformador": true
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "longe",
+   "params": {
+    "x": -3.95,
+    "y": 44.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 216
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "longe",
+   "params": {
+    "x": -3.95,
+    "y": 66.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 217
+   }
+  },
+  {
+   "tipo": "fiacao",
+   "camada": "meio",
+   "params": {
+    "sobras": 0.6
+   }
+  },
+  {
+   "tipo": "semaforo",
+   "camada": "meio",
+   "params": {
+    "x": -4.15,
+    "y": 25.6,
+    "rot_graus": 0,
+    "estado": "verde"
+   }
+  },
+  {
+   "tipo": "semaforo",
+   "camada": "longe",
+   "params": {
+    "x": 4.15,
+    "y": 34.4,
+    "rot_graus": 180,
+    "estado": "vermelho"
+   }
+  },
+  {
+   "tipo": "placa_rua",
+   "camada": "meio",
+   "params": {
+    "x": -4.3,
+    "y": 25.0,
+    "nomes": [
+     "R. DAS JABUTICABAS",
+     "R. VAGALUME"
+    ]
+   }
+  },
+  {
+   "tipo": "placa_regulamentacao",
+   "camada": "meio",
+   "params": {
+    "x": -4.15,
+    "y": 9.0,
+    "tipo": "velocidade",
+    "limite": 30,
+    "rot_graus": 0
+   }
+  },
+  {
+   "tipo": "placa_regulamentacao",
+   "camada": "longe",
+   "params": {
+    "x": 4.15,
+    "y": 18.0,
+    "tipo": "proibido_estacionar",
+    "rot_graus": 0
+   }
+  },
+  {
+   "tipo": "hidrante",
+   "camada": "perto",
+   "params": {
+    "x": -4.3,
+    "y": 6.6
+   }
+  },
+  {
+   "tipo": "lixeira_poste",
+   "camada": "perto",
+   "params": {
+    "x": -6.3,
+    "y": 11.5
+   }
+  },
+  {
+   "tipo": "estacionamento",
+   "camada": "meio",
+   "params": {
+    "nome": "est_d1",
+    "lado": 1,
+    "y0": -6.0,
+    "y1": 21.0,
+    "evitar": [
+     [
+      17.5,
+      21.0
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "estacionamento",
+   "camada": "meio",
+   "params": {
+    "nome": "est_e1",
+    "lado": -1,
+    "y0": -6.0,
+    "y1": 21.0,
+    "evitar": [
+     [
+      5.4,
+      7.8
+     ],
+     [
+      -1.0,
+      5.6
+     ],
+     [
+      17.5,
+      21.0
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "estacionamento",
+   "camada": "longe",
+   "params": {
+    "nome": "est_d2",
+    "lado": 1,
+    "y0": 39.0,
+    "y1": 72.0,
+    "evitar": [
+     [
+      39.0,
+      42.0
+     ],
+     [
+      42.0,
+      50.0
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "estacionamento",
+   "camada": "longe",
+   "params": {
+    "nome": "est_e2",
+    "lado": -1,
+    "y0": 39.0,
+    "y1": 72.0,
+    "evitar": [
+     [
+      39.0,
+      42.0
+     ]
+    ]
+   }
+  },
+  {
+   "tipo": "veiculo",
+   "camada": "longe",
+   "params": {
+    "nome": "bus",
+    "tipo": "onibus",
+    "x": 1.75,
+    "y": 46.0,
+    "rot_graus": 90
+   }
+  },
+  {
+   "tipo": "veiculo",
+   "camada": "meio",
+   "params": {
+    "nome": "carro_espera",
+    "tipo": "seda",
+    "x": -9.9,
+    "y": 28.25,
+    "rot_graus": 0,
+    "cor": "#9e1f1f",
+    "metal": 0.35
+   }
+  },
+  {
+   "tipo": "veiculo",
+   "camada": "meio",
+   "params": {
+    "nome": "moto_espera",
+    "tipo": "moto",
+    "x": -8.4,
+    "y": 26.95,
+    "rot_graus": 0,
+    "inclinacao": 0.0
+   }
+  },
+  {
+   "tipo": "arborizacao",
+   "camada": "meio",
+   "params": {
+    "nome": "arb_m",
+    "faixa_y": [
+     -10,
+     30
+    ],
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ],
+    "novos_canteiros": [
+     [
+      -4.3,
+      -5.0,
+      19.0
+     ],
+     [
+      4.3,
+      -5.0,
+      19.0
+     ]
+    ],
+    "passo": 8.0
+   }
+  },
+  {
+   "tipo": "arborizacao",
+   "camada": "longe",
+   "params": {
+    "nome": "arb_l",
+    "faixa_y": [
+     30,
+     80
+    ],
+    "novos_canteiros": [
+     [
+      -4.3,
+      40.0,
+      70.0
+     ],
+     [
+      4.3,
+      40.0,
+      70.0
+     ]
+    ],
+    "passo": 8.0
+   }
+  },
+  {
+   "tipo": "ambientacao",
+   "camada": "meio",
+   "params": {
+    "nome": "ponto",
+    "faixas": [
+     [
+      4.25,
+      2.0,
+      4.6,
+      16.0,
+      0
+     ]
+    ],
+    "itens": {
+     "ponto_onibus": 1
+    },
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ],
+    "dist_min": 0.5
+   }
+  },
+  {
+   "tipo": "ambientacao",
+   "camada": "meio",
+   "params": {
+    "nome": "banca",
+    "faixas": [
+     [
+      5.85,
+      0.0,
+      5.95,
+      18.0,
+      0
+     ]
+    ],
+    "itens": {
+     "banca": 1
+    },
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ],
+    "dist_min": 0.5
+   }
+  },
+  {
+   "tipo": "ambientacao",
+   "camada": "meio",
+   "params": {
+    "nome": "amb_m",
+    "faixas": [
+     [
+      -4.65,
+      -5.0,
+      -4.15,
+      19.5,
+      180
+     ],
+     [
+      -6.55,
+      -5.0,
+      -6.0,
+      19.5,
+      180
+     ],
+     [
+      4.15,
+      -5.0,
+      4.65,
+      19.5,
+      0
+     ],
+     [
+      6.0,
+      -5.0,
+      6.55,
+      19.5,
+      0
+     ]
+    ],
+    "itens": {
+     "banco": 2,
+     "vaso": 4,
+     "sacos": 3,
+     "conteiner": 1,
+     "bicicleta": 2,
+     "cones": 1,
+     "frutas": 1,
+     "arbusto": 2
+    },
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ],
+    "dist_min": 0.5
+   }
+  },
+  {
+   "tipo": "ambientacao",
+   "camada": "longe",
+   "params": {
+    "nome": "amb_l",
+    "faixas": [
+     [
+      -4.65,
+      40.0,
+      -4.15,
+      70.0,
+      180
+     ],
+     [
+      -6.55,
+      40.0,
+      -6.0,
+      70.0,
+      180
+     ],
+     [
+      4.15,
+      40.0,
+      4.65,
+      70.0,
+      0
+     ],
+     [
+      6.0,
+      40.0,
+      6.55,
+      70.0,
+      0
+     ]
+    ],
+    "itens": {
+     "banco": 2,
+     "vaso": 4,
+     "sacos": 3,
+     "conteiner": 2,
+     "bicicleta": 1,
+     "arbusto": 3
+    },
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ],
+    "dist_min": 0.5
+   }
+  },
+  {
+   "tipo": "mesas_bar",
+   "camada": "meio",
+   "params": {
+    "nome": "bar",
+    "lojas": [
+     "LANCHONETE",
+     "PADARIA"
+    ],
+    "livres": [
+     [
+      -6.9,
+      -3.0,
+      -3.6,
+      7.2
+     ]
+    ]
+   }
+  }
+ ],
+ "textos_numericos_permitidos": "números de casa e de poste: só algarismos (1 a 4)"
+}
