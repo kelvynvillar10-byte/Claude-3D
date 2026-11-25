@@ -28,7 +28,7 @@ HORARIOS = ["manha", "meio_dia", "tarde_dourada", "crepusculo", "noite"]
 NOMES_H = {"manha": "manhã", "meio_dia": "meio-dia", "tarde_dourada": "tarde dourada", "crepusculo": "crepúsculo", "noite": "noite"}
 CLIMAS_ORD = ["limpo", "nublado", "neblina", "chuva"]
 AMOSTRAS_CAMADA = None      # a receita já traz as amostras por camada escolhidas no experimento (A: 4/16/24/24/16)
-GRADE = dict(T0.GRADE)
+GRADE = dict(T0.GRADE, vinheta=0.8)   # vinheta um pouco menor que na E0 (medida abaixo do alvo na grade)
 EXPOSICAO = {"manha": -0.55, "meio_dia": -0.75, "tarde_dourada": -0.6, "crepusculo": -0.35, "noite": 0.0}
 FPS = 30; W, H = 1080, 1920
 res = {}

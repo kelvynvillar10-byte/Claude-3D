@@ -106,6 +106,11 @@ class Atmosfera:
                 cor, a = C2.iluminar_nuvens(dd, self.sol_tela, self.cor_luz, self.cor_sombra, self.cor_borda)
                 a = a[..., None] * 0.96
                 out = out * (1 - a) + cor * a
+            # névoa também no CÉU (neblina, chuva, nublado): sem isso o céu fica mais escuro que os prédios enevoados
+            k = {"limpo": 0.0, "nublado": 0.25, "neblina": 0.8, "chuva": 0.45}[self.clima]
+            if k > 0:
+                nv = self.nevoa(); cor_n = hexlin(nv["cor"]) * float(self.ceu_medio @ np.array([0.2126, 0.7152, 0.0722], np.float32)) * 1.05
+                out = out * (1 - k) + cor_n * k
             return out
         return aplicar
 

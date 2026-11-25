@@ -31,7 +31,11 @@ receita JSON ──► construir.py ──► Blender (Cycles CPU) ──► PLA
 | Render | `nucleo/render.py` | Uma passada por camada. Os objetos das outras camadas **continuam fazendo sombra e reflexo**, mas não aparecem para a câmera, então cada camada sai inteira, sem buracos. EXR linear com uma passada limpa (OIDN) por grupo de luz, mais alfa e profundidade |
 | Cache | `nucleo/cache.py` | `.cache/cenografia/<chave>/` (fora do Git) com manifesto e sha256 de cada arquivo. Arquivo faltando ou alterado invalida o cache |
 | Compositor | `nucleo/compositor.py` | Reiluminação (Σ peso × cor × passada), névoa por distância, **paralaxe por pixel** pela profundidade, personagem entre as camadas, mapeamento fílmico e gradação (sombras roxo-azuladas, altas luzes quentes, brilho, vinheta, grão) |
-| QA | `nucleo/medidas.py`, `testes/e0_testes.py` | Medidas de cor iguais às da auditoria das referências; testes da E0 |
+| QA | `nucleo/medidas.py`, `testes/e0_testes.py`, `testes/e1_testes.py` | Medidas de cor iguais às da auditoria das referências; testes da E0 e da E1 |
+| **E1 · materiais de bairro** | `nucleo/materiais.py` | + calçada portuguesa, ladrilho hidráulico, pastilha, azulejo, telha cerâmica, concreto aparente, metal com ferrugem, madeira (pintada ou não), grama; `PALETA_BAIRRO`; **umidade** (piso molhado com poças); mapeamento parede/piso para padrões em superfícies verticais |
+| **E1 · horários** | `nucleo/luz.py` | manhã, meio-dia, tarde dourada, crepúsculo, noite (céu em degradê + lua como luz fria). Cada horário é uma placa (o sol muda de lugar) |
+| **E1 · céu e clima** | `nucleo/ceu2d.py`, `nucleo/atmosfera.py` | Nuvens 2D em 3 camadas com deriva e luz do sol; lua com fase; estrelas; chuva em 3 profundidades. Climas: limpo, nublado, neblina, chuva (chuva usa a placa com piso molhado) |
+| **E1 · tempo de render** | `construir.py` (`amostras_por_camada`) | Amostras por camada (céu 4 · longe 16 · meio 24 · perto 24 · frente 16): ~2,8 min por placa, dentro da meta |
 
 ## Uso
 ```
@@ -46,4 +50,4 @@ quadro = P.compor(pesos={"ceu": 1, "sol": 1, "artificial": 0.25, "efeito": (6, "
                   personagem=funcao_que_desenha_o_heitor, grade={...})
 ```
 
-Resultados e limitações da E0: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md).
+Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md).
