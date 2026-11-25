@@ -7,3 +7,6 @@ _tmp/
 renders/
 producoes/*/planos/
 producoes/*/_cache/
+
+# cenografia: placas renderizadas (cache, fora do Git)
+.cache/

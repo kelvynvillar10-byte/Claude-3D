@@ -1,0 +1,57 @@
+"""Cenografia — iluminação e GRUPOS DE LUZ (E0, bpy).
+
+Toda luz pertence a um grupo de luz do Cycles; cada grupo sai numa passada separada (linear). No compositor:
+imagem = Σ peso_g × cor_g × passada_g. Isso permite reacender, escurecer ou tingir cada grupo SEM renderizar de
+novo (ex.: o sol cai e os postes acendem; um raio azul ilumina a rua). Grupos:
+- "ceu":        céu físico do Blender (mundo): luz ambiente do céu e o próprio céu visto pela câmera
+- "sol":        o sol (luz direcional com sombra dura e quente)
+- "artificial": postes, janelas acesas, vitrines (objetos emissivos e luzes)
+- "efeito":     luzes reservadas para efeitos (posição vem da receita); renderizadas com intensidade unitária
+Presets de horário definem o céu e o sol físicos (a posição do sol NÃO muda no compositor: muda só intensidade/cor).
+"""
+import math
+import bpy
+from mathutils import Vector
+from .materiais import lin
+
+PRESETS = {
+    # elevação/azimute do sol (graus), intensidade, cor; céu: turbidez/ar/aerosol, força; pesos padrão no compositor
+    "tarde_dourada": dict(sol_elev=12.0, sol_azim=52.0, sol_forca=4.2, sol_cor="#ffcf96", sol_raio=1.2,
+                          ceu_forca=0.45, ar=1.0, aerosol=2.2, ozonio=1.0, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 0.25, "efeito": 0.0}),
+    "meio_dia": dict(sol_elev=62.0, sol_azim=-30.0, sol_forca=5.0, sol_cor="#fff4e6", sol_raio=0.6,
+                     ceu_forca=0.6, ar=1.0, aerosol=1.0, ozonio=1.0, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 0.0, "efeito": 0.0}),
+}
+
+
+def ceu_e_sol(preset):
+    P = PRESETS[preset]; cena = bpy.context.scene
+    mundo = bpy.data.worlds.new("mundo"); cena.world = mundo; mundo.use_nodes = True
+    nt = mundo.node_tree; bg = nt.nodes["Background"]
+    ceu = nt.nodes.new("ShaderNodeTexSky"); ceu.sky_type = "MULTIPLE_SCATTERING"
+    ceu.sun_disc = False; ceu.sun_elevation = math.radians(P["sol_elev"]); ceu.sun_rotation = math.radians(P["sol_azim"])
+    ceu.air_density = P["ar"]; ceu.aerosol_density = P["aerosol"]; ceu.ozone_density = P["ozonio"]
+    nt.links.new(ceu.outputs["Color"], bg.inputs["Color"]); bg.inputs["Strength"].default_value = P["ceu_forca"]
+    mundo.lightgroup = "ceu"
+    sol = bpy.data.lights.new("sol", "SUN"); sol.energy = P["sol_forca"]; sol.color = lin(P["sol_cor"])[:3]
+    sol.angle = math.radians(P["sol_raio"])
+    o = bpy.data.objects.new("sol", sol); cena.collection.objects.link(o); o.lightgroup = "sol"
+    el, az = math.radians(P["sol_elev"]), math.radians(P["sol_azim"])
+    d = Vector((math.sin(az) * math.cos(el), math.cos(az) * math.cos(el), math.sin(el)))   # direção PARA o sol
+    o.rotation_euler = (-d).to_track_quat("-Z", "Y").to_euler()
+    return P
+
+
+def luz_ponto(nome, pos, forca_w, cor, grupo, raio=0.08, tipo="POINT", alvo=None, angulo=None):
+    L = bpy.data.lights.new(nome, tipo); L.energy = forca_w; L.color = lin(cor)[:3]; L.shadow_soft_size = raio
+    if tipo == "SPOT":
+        L.spot_size = math.radians(angulo or 110); L.spot_blend = 0.6
+    o = bpy.data.objects.new(nome, L); bpy.context.scene.collection.objects.link(o); o.location = pos; o.lightgroup = grupo
+    if alvo is not None:
+        o.rotation_euler = (Vector(alvo) - Vector(pos)).to_track_quat("-Z", "Y").to_euler()
+    return o
+
+
+def preparar_grupos(view_layer, grupos):
+    for g in grupos:
+        if g not in [lg.name for lg in view_layer.lightgroups]:
+            view_layer.lightgroups.add(name=g)
