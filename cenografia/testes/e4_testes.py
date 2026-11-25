@@ -71,7 +71,7 @@ def _medir(cena, tipo):
     (x0, y0, z0), (x1, y1, z1) = bb(sem_retro); (_, Y0, _), (_, Y1, _) = bb(filhos)
     rodas = [o for o in filhos if "roda" in o.name and "caixa" not in o.name]
     (_, _, rz0), (_, _, rz1) = bb(rodas[:1])
-    ref = REFERENCIA[tipo]; L, W, H = x1 - x0, y1 - y0, z1 - z0
+    ref = REFERENCIA[tipo]; L, W, H = x1 - x0, (Y1 - Y0 if tipo == "moto" else y1 - y0), z1 - z0   # moto: largura no guidão
     dentro = lambda v, f: f[0] <= v <= f[1]
     return {"comprimento_m": round(L, 2), "largura_sem_retrovisor_m": round(W, 2), "largura_com_retrovisor_m": round(Y1 - Y0, 2),
             "altura_m": round(H, 2), "diametro_roda_m": round(rz1 - rz0, 2), "pneu_mais_baixo_z_m": round(min(bb([o])[0][2] for o in rodas), 3),

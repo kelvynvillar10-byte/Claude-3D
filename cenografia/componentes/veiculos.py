@@ -151,18 +151,16 @@ def _roda_malha(r, tw, estilo):
         return me
     bm = bmesh.new()
 
-    def cil(raio, larg, idx, seg=28, chanfro=0.0):
+    def cil(raio, larg, idx, seg=28):
         g = bmesh.ops.create_cone(bm, cap_ends=True, segments=seg, radius1=raio, radius2=raio, depth=larg)
         vs = g["verts"]
         for v in vs:
             v.co = Vector((v.co.x, v.co.z, v.co.y))        # eixo z → eixo y
-        fs = list({f for v in vs for f in v.link_faces})
-        for f in fs:
+        for f in sorted({f for v in vs for f in v.link_faces}, key=lambda f: f.calc_center_median().to_tuple()):
             f.material_index = idx; f.smooth = True
-        if chanfro > 0:
-            es = [e for e in {e for v in vs for e in v.link_edges} if e.calc_face_angle(0) > 1.0]
-            bmesh.ops.bevel(bm, geom=es, offset=chanfro, segments=3, affect="EDGES")
-    cil(r, tw, 0, 32, chanfro=min(0.06, r * 0.18))
+    # pneu com ombro arredondado: banda de rodagem + flanco (sem chanfro: largura exata e ordem de vértices fixa)
+    cil(r, tw * 0.78, 0, 32)
+    cil(r * 0.955, tw, 0, 32)
     cil(r * 0.64, tw + 0.012, 1, 28)
     cil(r * 0.5, tw + 0.016, 2, 24)
     for k in range(5):
