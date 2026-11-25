@@ -1,0 +1,30 @@
+{
+ "E0_1_cache": {
+  "chave": "974c9cbf05d81306",
+  "segunda_construcao": "HIT",
+  "segunda_construcao_s": 0.06,
+  "render_original_por_camada_s": {
+   "ceu": 31.59,
+   "longe": 132.27,
+   "meio": 164.25,
+   "perto": 35.61,
+   "frente": 59.17
+  },
+  "render_original_total_s": 423.65,
+  "montagem_cena_s": 0.14,
+  "objetos_na_cena": 419,
+  "resolucao_placa": [
+   1350,
+   2400
+  ],
+  "amostras": 64,
+  "arquivos_no_manifesto": 35,
+  "chave_muda_com_1cm_no_banco": true,
+  "chave_muda_com_outra_semente": true,
+  "chave_muda_com_mudanca_no_codigo_do_gerador": true,
+  "cache_valido_antes": true,
+  "cache_valido_com_1_byte_alterado": false,
+  "cache_valido_sem_1_arquivo": false,
+  "_duracao_teste_s": 0.3
+ }
+}
