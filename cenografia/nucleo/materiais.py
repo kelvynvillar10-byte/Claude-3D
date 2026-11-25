@@ -241,12 +241,12 @@ def reboco(cor="#e2c9a4", escala=1.0, desgaste=0.35, sujeira=0.35, detalhe=0.0):
     base = t.rampa(nuvem, [(0.25, _escurece(cor, 0.86)), (0.6, lin(cor)), (0.85, _escurece(cor, 1.06))])
     if detalhe > 0:   # rampas centradas na faixa real do ruído (0,3–0,7)
         cel = t.n("ShaderNodeTexVoronoi", feature="F1", Scale=0.45 * escala, Randomness=0.8); t.l(v, cel.inputs["Vector"])
-        base = t.mistura(base, _escurece(cor, 0.9), t.mat_valor(cel.outputs["Color"], -0.6 * detalhe, 1.0 * detalhe))      # repintura
-        base = t.mistura(base, _escurece(cor, 1.08), t.mat_valor(cel.outputs["Distance"], 0.5 * detalhe, -0.4 * detalhe))  # bordas
+        base = t.mistura(base, _escurece(cor, 0.8), t.mat_valor(cel.outputs["Color"], -0.4 * detalhe, 1.0 * detalhe))      # repintura
+        base = t.mistura(base, _escurece(cor, 1.12), t.mat_valor(cel.outputs["Distance"], 0.6 * detalhe, -0.4 * detalhe))  # bordas
         med = t.ruido(v, 3.0 * escala, 3.0, 0.6)
-        base = t.mistura(base, _escurece(cor, 0.86), t.mat_valor(med, -1.2 * detalhe, 1.6 * detalhe))
+        base = t.mistura(base, _escurece(cor, 0.74), t.mat_valor(med, -1.4 * detalhe, 2.2 * detalhe))
         gr = t.ruido(v, 40 * escala, 2.0, 0.7)
-        base = t.mistura(base, _escurece(cor, 0.92), t.mat_valor(gr, -0.6 * detalhe, 1.2 * detalhe))
+        base = t.mistura(base, _escurece(cor, 0.86), t.mat_valor(gr, -0.6 * detalhe, 1.4 * detalhe))
     base = t.escorrido(base, desgaste)
     base = t.sujeira_base(base, sujeira, 1.0)
     t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.92
