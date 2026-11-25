@@ -1,0 +1,133 @@
+{
+ "nome": "Heitor",
+ "versao": "rig v2 — PROPOSTA (não aprovada; não substitui nenhuma referência)",
+ "fonte_da_verdade": "docs/IDENTIDADE_OFICIAL.md + skills/modo-curioso-padrao/SKILL.md (Heitor: 10–12 anos, ~4 cabeças, cabeça redonda, SEM bochecha rosada, cabelo liso castanho-escuro com franja lateral, olhos castanhos, camiseta azul com 'Modo Curioso', jeans com barra dobrada, tênis branco com faixa azul)",
+ "unidade": "H = altura da cabeça; altura total = 4 H; y medido do chão para cima",
+ "paleta": {
+  "pele": "#ffd9c2",
+  "pele_s": "#efb594",
+  "cabelo": "#3a2316",
+  "cabelo_s": "#24140a",
+  "cabelo_b": "#5c3a25",
+  "olho": "#6a3d20",
+  "pupila": "#2a160b",
+  "branco_olho": "#ffffff",
+  "camisa": "#3d80d8",
+  "camisa_s": "#2b61b0",
+  "gola": "#2855a0",
+  "jeans": "#34507f",
+  "jeans_s": "#243a60",
+  "barra": "#4a6b9f",
+  "tenis": "#f6f4f0",
+  "tenis_s": "#d9d4cc",
+  "tenis_faixa": "#3d80d8",
+  "sola": "#c9c3b8",
+  "contorno": "#2a1d17",
+  "boca": "#7a3b2e",
+  "boca_interna": "#4a1f18",
+  "lingua": "#d9786b",
+  "dentes": "#fbf7f0",
+  "estampa_modo": "#f2efe8",
+  "estampa_curioso": "#ffc21f"
+ },
+ "proporcoes_H": {
+  "topo_cabeca": 4.0,
+  "centro_cabeca": 3.5,
+  "linha_olhos": 3.44,
+  "queixo": 3.0,
+  "largura_cabeca": 0.92,
+  "ombro": 2.76,
+  "largura_ombros": 0.88,
+  "barra_camisa": 1.72,
+  "quadril_junta": 1.7,
+  "joelho": 0.96,
+  "tornozelo": 0.22,
+  "chao": 0.0
+ },
+ "ossos_H": {
+  "braco": 0.56,
+  "antebraco": 0.5,
+  "palma": 0.2,
+  "dedos": {
+   "polegar": [
+    0.075,
+    0.062
+   ],
+   "indicador": [
+    0.075,
+    0.05,
+    0.045
+   ],
+   "medio": [
+    0.085,
+    0.055,
+    0.045
+   ],
+   "anelar": [
+    0.08,
+    0.05,
+    0.042
+   ],
+   "minimo": [
+    0.06,
+    0.04,
+    0.035
+   ]
+  },
+  "coxa": 0.74,
+  "canela": 0.74,
+  "pe": 0.3
+ },
+ "limites_graus": {
+  "ombro": [
+   -180,
+   180
+  ],
+  "cotovelo": [
+   0,
+   150
+  ],
+  "punho": [
+   -70,
+   70
+  ],
+  "dedo_junta": [
+   -10,
+   100
+  ],
+  "polegar_junta": [
+   -20,
+   80
+  ],
+  "quadril": [
+   -100,
+   60
+  ],
+  "joelho": [
+   -150,
+   0
+  ],
+  "tornozelo": [
+   -40,
+   40
+  ]
+ },
+ "estampa": {
+  "texto": "Modo Curioso",
+  "fonte": "assets/fontes/Nunito-ExtraBold.ttf",
+  "largura_rel_peito": 0.56,
+  "tres_quartos": {
+   "compressao": 0.8,
+   "deslocamento": "para o lado mais distante"
+  },
+  "perfil": "não aparece",
+  "costas": "não aparece"
+ },
+ "vistas": [
+  "frente",
+  "tres_quartos",
+  "perfil",
+  "costas"
+ ],
+ "espelho": "vistas 3/4 e perfil voltadas para a esquerda por espelhamento; a estampa é redesenhada sem espelhar"
+}

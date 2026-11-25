@@ -1,0 +1,89 @@
+{
+ "tolerancia_H": 0.08,
+ "resultados": [
+  {
+   "vista": "frente",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": 3.44,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 96.8,
+   "ocr_tronco": "Modo Curioso",
+   "estampa_lida": true,
+   "estampa_esperada": true,
+   "ok": true,
+   "falhas": []
+  },
+  {
+   "vista": "tres_quartos",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": 3.44,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 96.7,
+   "ocr_tronco": "Modo Curioso",
+   "estampa_lida": true,
+   "estampa_esperada": true,
+   "ok": true,
+   "falhas": []
+  },
+  {
+   "vista": "perfil",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": 3.44,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 96.4,
+   "ocr_tronco": "",
+   "estampa_lida": false,
+   "estampa_esperada": false,
+   "ok": true,
+   "falhas": []
+  },
+  {
+   "vista": "costas",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": null,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 97.4,
+   "ocr_tronco": "",
+   "estampa_lida": false,
+   "estampa_esperada": false,
+   "ok": true,
+   "falhas": []
+  },
+  {
+   "vista": "tres_quartos (espelho)",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": 3.44,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 96.7,
+   "ocr_tronco": "Modo Curioso",
+   "estampa_lida": true,
+   "estampa_esperada": true,
+   "ok": true,
+   "falhas": []
+  },
+  {
+   "vista": "perfil (espelho)",
+   "topo_H": 4.01,
+   "sola_H": -0.01,
+   "olhos_H": 3.44,
+   "barra_camiseta_H": 1.73,
+   "barra_calca_H": 0.25,
+   "paleta_pct": 96.6,
+   "ocr_tronco": "",
+   "estampa_lida": false,
+   "estampa_esperada": false,
+   "ok": true,
+   "falhas": []
+  }
+ ]
+}
