@@ -229,14 +229,24 @@ def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0,
     return _guardar(chave, t.m)
 
 
-def reboco(cor="#e2c9a4", escala=1.0, desgaste=0.35, sujeira=0.35):
-    chave = ("reboco", cor, escala, desgaste, sujeira)
+def reboco(cor="#e2c9a4", escala=1.0, desgaste=0.35, sujeira=0.35, detalhe=0.0):
+    """detalhe (E3, 0 = igual à E1): manchas de repintura em placas, variação média de tom e granulado — para paredes
+    grandes não lerem como cor chapada."""
+    chave = ("reboco", cor, escala, desgaste, sujeira, detalhe)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("reboco"); v = t.coord("Object")
     textura = t.ruido(v, 22 * escala, 5.0, 0.6)
     nuvem = t.ruido(v, 0.8 * escala, 3.0, 0.5)
     base = t.rampa(nuvem, [(0.25, _escurece(cor, 0.86)), (0.6, lin(cor)), (0.85, _escurece(cor, 1.06))])
+    if detalhe > 0:   # rampas centradas na faixa real do ruído (0,3–0,7)
+        cel = t.n("ShaderNodeTexVoronoi", feature="F1", Scale=0.45 * escala, Randomness=0.8); t.l(v, cel.inputs["Vector"])
+        base = t.mistura(base, _escurece(cor, 0.9), t.mat_valor(cel.outputs["Color"], -0.6 * detalhe, 1.0 * detalhe))      # repintura
+        base = t.mistura(base, _escurece(cor, 1.08), t.mat_valor(cel.outputs["Distance"], 0.5 * detalhe, -0.4 * detalhe))  # bordas
+        med = t.ruido(v, 3.0 * escala, 3.0, 0.6)
+        base = t.mistura(base, _escurece(cor, 0.86), t.mat_valor(med, -1.2 * detalhe, 1.6 * detalhe))
+        gr = t.ruido(v, 40 * escala, 2.0, 0.7)
+        base = t.mistura(base, _escurece(cor, 0.92), t.mat_valor(gr, -0.6 * detalhe, 1.2 * detalhe))
     base = t.escorrido(base, desgaste)
     base = t.sujeira_base(base, sujeira, 1.0)
     t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.92

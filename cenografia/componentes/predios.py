@@ -92,7 +92,7 @@ def _mat_fachada(spec, rng):
     if isinstance(spec, dict):
         s = dict(spec); return M.por_nome(s.pop("nome"), **s)
     cor = spec or _tinta_real(rng.choice(list(M.PALETA_BAIRRO.values())))
-    return M.reboco(cor, desgaste=rng.uniform(0.3, 0.6))
+    return M.reboco(cor, desgaste=rng.uniform(0.3, 0.6), detalhe=1.0)
 
 
 # ------------------------------------------------------------------ peças de fachada (coordenadas da face)
@@ -181,7 +181,7 @@ def _mats(rng, p):
             "persiana": M.chapa_ondulada("#d9d4c8", passo_m=0.03, desgaste=0.2, metal=0.0),
             "ferro": M.pintura(rng.choice(["#2b2e33", "#3d4148", "#f0ece2", "#2f5d62"]), rug=0.45, metal=0.5, desgaste=0.35),
             "ac": M.pintura("#e6e4dc", rug=0.5, desgaste=0.4), "escuro": M.pintura("#3a3d42", rug=0.6),
-            "laje": M.reboco("#e9e2d2", desgaste=0.5), "mureta": M.reboco(rng.choice(list(M.PALETA_BAIRRO.values())), desgaste=0.4),
+            "laje": M.reboco("#e9e2d2", desgaste=0.5, detalhe=1.0), "mureta": M.reboco(_tinta_real(rng.choice(list(M.PALETA_BAIRRO.values()))), desgaste=0.4, detalhe=1.0),
             "p_acesa": p.get("acesas", 0.15)}
 
 
@@ -304,7 +304,7 @@ def comercial(nome, col, rng, L, D, p):
     n_sup = p.get("andares", rng.randint(0, 2)); H_l = 3.3; H = Z0 + H_l + n_sup * H_ANDAR; rec = 0.7
     mat = _mat_fachada(p.get("mat") or rng.choice([{"nome": "pastilha", "cor": rng.choice(["#3fa7d6", "#e3a12f", "#4fae9c", "#e8806c"])}, None, None]), rng)
     mats = _mats(rng, p); mat2 = _mat_fachada(p.get("mat2"), rng)
-    G.caixa(f"{nome}_terreo", (rec, 0.0, 0.0), (D, L, Z0 + H_l), M.reboco("#e9e2d2", desgaste=0.4), col)
+    G.caixa(f"{nome}_terreo", (rec, 0.0, 0.0), (D, L, Z0 + H_l), M.reboco("#e9e2d2", desgaste=0.4, detalhe=1.0), col)
     G.caixa(f"{nome}_corpo", (0.0, 0.0, Z0 + H_l - 0.35), (D, L, H), mat, col, chanfro=0.02)
     G.caixa(f"{nome}_piso", (0.0, 0.0, 0.0), (rec + 0.02, L, Z0 + 0.02), M.ladrilho_hidraulico(tam_m=0.2), col)
     F = Face(nome + "_f", col, rng, mats)
