@@ -1,0 +1,377 @@
+{
+ "nome": "e2_quarteirao",
+ "descricao": "Cena de TESTE da E2 (ruas e calçadas): quarteirão de bairro com cruzamento, postes de concreto, fiação, semáforos, placas (nomes INVENTADOS), bocas de lobo, calçadas por lote. Prédios ainda provisórios (E3).",
+ "semente": 21,
+ "saida": {
+  "largura": 1080,
+  "altura": 1920,
+  "overscan": 0.25,
+  "amostras": 64,
+  "amostras_por_camada": {
+   "ceu": 4,
+   "longe": 16,
+   "meio": 24,
+   "perto": 24,
+   "frente": 16
+  }
+ },
+ "camera": {
+  "pos": [
+   -5.0,
+   0.0,
+   1.15
+  ],
+  "alvo": [
+   -4.6,
+   20.0,
+   1.55
+  ],
+  "lente_mm": 35
+ },
+ "luz": {
+  "preset": "tarde_dourada",
+  "efeito": [
+   {
+    "pos": [
+     -4.75,
+     4.0,
+     1.05
+    ],
+    "watts": 60,
+    "cor": "#ffffff",
+    "raio": 0.05
+   }
+  ]
+ },
+ "camadas": [
+  "ceu",
+  "longe",
+  "meio",
+  "perto",
+  "frente"
+ ],
+ "ancoras": {
+  "heitor_pe": [
+   -5.0,
+   4.2,
+   0.15
+  ],
+  "heitor_topo": [
+   -5.0,
+   4.2,
+   1.55
+  ]
+ },
+ "textos_permitidos": [
+  "R. DAS JABUTICABAS",
+  "R. VAGALUME",
+  "30",
+  "MODO CURIOSO",
+  "214",
+  "215",
+  "216",
+  "217",
+  "218"
+ ],
+ "componentes": [
+  {
+   "tipo": "rua_trecho",
+   "camada": "meio",
+   "params": {
+    "nome": "trecho_1",
+    "y0": -6,
+    "y1": 20.5,
+    "marcacao": "dupla_amarela",
+    "remendos": 5,
+    "tampas": 2
+   }
+  },
+  {
+   "tipo": "cruzamento",
+   "camada": "meio",
+   "params": {
+    "nome": "cruz",
+    "yc": 30.0,
+    "largura_transversal": 7.0,
+    "comp_esquina": 6.0,
+    "braco": 24.0
+   }
+  },
+  {
+   "tipo": "rua_trecho",
+   "camada": "longe",
+   "params": {
+    "nome": "trecho_2",
+    "y0": 39.5,
+    "y1": 72,
+    "marcacao": "dupla_amarela",
+    "remendos": 3,
+    "tampas": 1,
+    "folhas": 25
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "meio",
+   "params": {
+    "nome": "esq_1",
+    "x0": -15,
+    "x1": -6.85,
+    "y0": -6,
+    "y1": 10,
+    "altura": 10.5,
+    "lado": -1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#e3a12f",
+     "desgaste": 0.45
+    },
+    "toldo": "#2f6f5f"
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "meio",
+   "params": {
+    "nome": "esq_2",
+    "x0": -15,
+    "x1": -6.85,
+    "y0": 10.2,
+    "y1": 22.95,
+    "altura": 13.5,
+    "lado": -1,
+    "mat": {
+     "nome": "tijolo",
+     "cor": "#a8442b"
+    },
+    "toldo": "#3a78c2"
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "esq_3",
+    "x0": -15,
+    "x1": -6.85,
+    "y0": 36.85,
+    "y1": 52,
+    "altura": 9.0,
+    "lado": -1,
+    "mat": {
+     "nome": "pastilha",
+     "cor": "#3fa7d6"
+    },
+    "toldo": "#d9702c"
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "esq_4",
+    "x0": -15,
+    "x1": -6.85,
+    "y0": 52.2,
+    "y1": 72,
+    "altura": 15.0,
+    "lado": -1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#4fae9c",
+     "desgaste": 0.5
+    },
+    "terreo": false
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "dir_1",
+    "x0": 6.85,
+    "x1": 15,
+    "y0": -6,
+    "y1": 23.150000000000002,
+    "altura": 11.0,
+    "lado": 1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#e8806c"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "dir_2",
+    "x0": 6.85,
+    "x1": 15,
+    "y0": 36.85,
+    "y1": 72,
+    "altura": 17.0,
+    "lado": 1,
+    "mat": {
+     "nome": "concreto_aparente"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "fundo_1",
+    "x0": -16,
+    "x1": 18,
+    "y0": 74,
+    "y1": 84,
+    "altura": 16.0,
+    "lado": 1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#f0d29a"
+    },
+    "terreo": false
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "frente",
+   "params": {
+    "x": -3.95,
+    "y": 2.2,
+    "lado": 1,
+    "linha": "a",
+    "id": 214
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "meio",
+   "params": {
+    "x": -3.95,
+    "y": 15.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 215,
+    "transformador": true
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "longe",
+   "params": {
+    "x": -3.95,
+    "y": 44.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 216
+   }
+  },
+  {
+   "tipo": "poste_concreto",
+   "camada": "longe",
+   "params": {
+    "x": -3.95,
+    "y": 66.0,
+    "lado": 1,
+    "linha": "a",
+    "id": 217
+   }
+  },
+  {
+   "tipo": "fiacao",
+   "camada": "meio",
+   "params": {
+    "sobras": 0.6
+   }
+  },
+  {
+   "tipo": "semaforo",
+   "camada": "meio",
+   "params": {
+    "x": -4.15,
+    "y": 25.6,
+    "rot_graus": 0,
+    "estado": "verde"
+   }
+  },
+  {
+   "tipo": "semaforo",
+   "camada": "longe",
+   "params": {
+    "x": 4.15,
+    "y": 34.4,
+    "rot_graus": 180,
+    "estado": "vermelho"
+   }
+  },
+  {
+   "tipo": "placa_rua",
+   "camada": "meio",
+   "params": {
+    "x": -4.3,
+    "y": 25.0,
+    "nomes": [
+     "R. DAS JABUTICABAS",
+     "R. VAGALUME"
+    ]
+   }
+  },
+  {
+   "tipo": "placa_regulamentacao",
+   "camada": "meio",
+   "params": {
+    "x": -4.15,
+    "y": 9.0,
+    "tipo": "velocidade",
+    "limite": 30,
+    "rot_graus": 0
+   }
+  },
+  {
+   "tipo": "placa_regulamentacao",
+   "camada": "longe",
+   "params": {
+    "x": 4.15,
+    "y": 18.0,
+    "tipo": "proibido_estacionar",
+    "rot_graus": 0
+   }
+  },
+  {
+   "tipo": "hidrante",
+   "camada": "perto",
+   "params": {
+    "x": -4.3,
+    "y": 6.6
+   }
+  },
+  {
+   "tipo": "lixeira_poste",
+   "camada": "perto",
+   "params": {
+    "x": -6.3,
+    "y": 11.5
+   }
+  },
+  {
+   "tipo": "banco",
+   "camada": "perto",
+   "params": {
+    "x": -6.35,
+    "y": 7.9
+   }
+  },
+  {
+   "tipo": "arbusto_vaso",
+   "camada": "meio",
+   "params": {
+    "x": -6.4,
+    "y": 16.5,
+    "raio": 0.42
+   }
+  }
+ ]
+}

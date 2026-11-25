@@ -46,8 +46,8 @@ def predio_bloco(ctx, p, rng, col):
     nome = p.get("nome", f"predio_{int(x0)}_{int(y0)}")
     G.caixa(nome, (x0, y0, 0), (x1, y1, alt), mat, col, chanfro=0.02)
     fx = x0 if lado > 0 else x1; dx = -lado
-    G.caixa(nome + "_plat", (min(fx, fx + dx * 0.25) if True else 0, y0 - 0.05, alt), (max(fx, fx + dx * 0.25), y1 + 0.05, alt + 0.45),
-            M.reboco("#f1e8d8", desgaste=0.5), col, chanfro=0.02)
+    G.caixa(nome + "_plat", (min(fx, fx + dx * 0.25), y0 - 0.05, alt), (max(fx, fx + dx * 0.25), y1 + 0.05, alt + 0.45),
+            M.reboco("#f1e8d8", desgaste=0.5), col, chanfro=0.02)["suspenso"] = True
     moldura = M.pintura("#f3eee4", rug=0.6); vid = M.vidro(); acesa = M.emissor("#ffcf8a", 3.5)
     cortinas = ["#c9b79a", "#8fa7b8", "#d9cfc0", "#b98c7a"]
     jl, jh = p.get("janela", (1.1, 1.4)); passo_y, passo_z = p.get("passo", (2.6, 3.0))
@@ -58,21 +58,22 @@ def predio_bloco(ctx, p, rng, col):
             yc = y0 + (y1 - y0) / 2 + (j - (nj - 1) / 2) * passo_y
             fora = fx - dx * 0.0
             # moldura (saliente) + vidro recuado + peitoril
-            G.caixa(f"{nome}_mol_{k}_{j}", (min(fora, fora - dx * 0.06), yc - jl / 2 - 0.1, z - 0.1), (max(fora, fora - dx * 0.06), yc + jl / 2 + 0.1, z + jh + 0.1), moldura, col)
+            G.caixa(f"{nome}_mol_{k}_{j}", (min(fora, fora - dx * 0.06), yc - jl / 2 - 0.1, z - 0.1), (max(fora, fora - dx * 0.06), yc + jl / 2 + 0.1, z + jh + 0.1), moldura, col)["suspenso"] = True
             liga = rng.random() < p.get("acesas", 0.25)
             m_v = acesa if liga else (vid if rng.random() < 0.6 else M.pintura(rng.choice(cortinas), rug=0.8))
             o = G.caixa(f"{nome}_vid_{k}_{j}", (min(fora, fora - dx * 0.075), yc - jl / 2, z), (max(fora, fora - dx * 0.075), yc + jl / 2, z + jh), m_v, col)
+            o["suspenso"] = True
             if liga:
                 o.lightgroup = "artificial"
             G.caixa(f"{nome}_pei_{k}_{j}", (min(fora, fora - dx * 0.16), yc - jl / 2 - 0.15, z - 0.16), (max(fora, fora - dx * 0.16), yc + jl / 2 + 0.15, z - 0.08),
-                    moldura, col, chanfro=0.01)
+                    moldura, col, chanfro=0.01)["suspenso"] = True
     # térreo comercial: porta de enrolar + vitrine acesa + toldo
     if p.get("terreo", True):
         yc = (y0 + y1) / 2
-        G.caixa(nome + "_porta", (min(fx, fx - dx * 0.05), yc - 1.6, 0.13), (max(fx, fx - dx * 0.05), yc - 0.1, 2.6), M.pintura("#6d737a", rug=0.5, metal=0.4, desgaste=0.5), col)
+        G.caixa(nome + "_porta", (min(fx, fx - dx * 0.05), yc - 1.6, 0.0), (max(fx, fx - dx * 0.05), yc - 0.1, 2.6), M.pintura("#6d737a", rug=0.5, metal=0.4, desgaste=0.5), col)
         vit = G.caixa(nome + "_vitrine", (min(fx, fx - dx * 0.05), yc + 0.2, 0.6), (max(fx, fx - dx * 0.05), yc + 2.4, 2.5), M.emissor("#ffe2b0", 1.6), col)
-        vit.lightgroup = "artificial"
-        G.caixa(nome + "_toldo", (min(fx, fx - dx * 1.1), yc - 1.8, 2.75), (max(fx, fx - dx * 1.1), yc + 2.6, 2.85), M.pintura(p.get("toldo", "#2f5d62"), rug=0.8), col, chanfro=0.02)
+        vit.lightgroup = "artificial"; vit["suspenso"] = True
+        G.caixa(nome + "_toldo", (min(fx, fx - dx * 1.1), yc - 1.8, 2.75), (max(fx, fx - dx * 1.1), yc + 2.6, 2.85), M.pintura(p.get("toldo", "#2f5d62"), rug=0.8), col, chanfro=0.02)["suspenso"] = True
 
 
 @componente("poste")
@@ -108,6 +109,6 @@ def banco(ctx, p, rng, col):
     for s in (-1, 1):
         G.caixa(f"banco_pe{s}_{x}", (x - 0.25, y + s * (comp / 2 - 0.15) - 0.03, 0.13), (x + 0.25, y + s * (comp / 2 - 0.15) + 0.03, 0.55), ferro, col)
     for i in range(3):
-        G.caixa(f"banco_ripa{i}_{x}", (x - 0.25 + i * 0.17, y - comp / 2, 0.55), (x - 0.25 + i * 0.17 + 0.14, y + comp / 2, 0.59), mad, col, chanfro=0.008)
+        G.caixa(f"banco_ripa{i}_{x}", (x - 0.25 + i * 0.17, y - comp / 2, 0.55), (x - 0.25 + i * 0.17 + 0.14, y + comp / 2, 0.59), mad, col, chanfro=0.008)["suspenso"] = True
     for i in range(2):
-        G.caixa(f"banco_enc{i}_{x}", (x + 0.27, y - comp / 2, 0.7 + i * 0.16), (x + 0.31, y + comp / 2, 0.82 + i * 0.16), mad, col, chanfro=0.008)
+        G.caixa(f"banco_enc{i}_{x}", (x + 0.27, y - comp / 2, 0.7 + i * 0.16), (x + 0.31, y + comp / 2, 0.82 + i * 0.16), mad, col, chanfro=0.008)["suspenso"] = True

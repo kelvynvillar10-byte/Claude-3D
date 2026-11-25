@@ -1,6 +1,6 @@
 # Relatório da etapa E1 — materiais, céu e atmosfera, tempo de render
 
-25/11/2026 · Autorizada pelo diretor após a aprovação da E0. **A E2 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25/11/2026 · Autorizada pelo diretor após a aprovação da E0. **E1 APROVADA pelo diretor em 25/11/2026; E2 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Cena de teste: `receitas/e1_calcada.json`, a mesma calçada da E0, agora com os materiais de bairro brasileiro. Os volumes (prédios, poste, banco, vaso) **continuam provisórios**; os kits detalhados são das etapas E2–E5.
 

@@ -20,7 +20,7 @@ def _montar(r):
     import bpy
     from cenografia.nucleo import geometria as G, luz as L, camera as CAM, materiais as M, render as RD, registro as REG
     bpy.ops.wm.read_factory_settings(use_empty=True)
-    M._CACHE.clear()
+    M._CACHE.clear(); G._FONTES.clear()      # referências a dados do Blender não sobrevivem ao reinício da cena
     REG.carregar_kits()
     cena = bpy.context.scene
     RD.configurar(cena, r["saida"]["amostras"], r["semente"], R.GRUPOS_LUZ)
@@ -49,7 +49,8 @@ def construir(caminho_ou_receita, forcar=False, destino=None):
     pasta.mkdir(parents=True)
     t0 = time.time()
     bpy, cena, cam, W, H, cols, P, ancoras, t_mont = _montar(r)
-    from cenografia.nucleo import render as RD, camera as CAM
+    from cenografia.nucleo import render as RD, camera as CAM, qa_cena
+    qa = qa_cena.verificar(cena)
     tempos = {}
     amostras_camada = r["saida"].get("amostras_por_camada", {})
     for c in r["camadas"]:
@@ -59,7 +60,7 @@ def construir(caminho_ou_receita, forcar=False, destino=None):
             "pesos_padrao": P["pesos"], "preset_luz": r["luz"]["preset"], "sol_dir": P["sol_dir"], "noite": bool(P.get("noite")),
             "intrinsecos": CAM.intrinsecos(cam, W, H), "ancoras": ancoras,
             "tempo_montagem_s": round(t_mont, 2), "tempo_render_s": tempos, "tempo_total_s": round(time.time() - t0, 2),
-            "objetos": len(cena.objects), "amostras": r["saida"]["amostras"], "amostras_por_camada": amostras_camada, "blender": bpy.app.version_string}
+            "objetos": len(cena.objects), "qa_cena": qa, "amostras": r["saida"]["amostras"], "amostras_por_camada": amostras_camada, "blender": bpy.app.version_string}
     if destino:
         (pasta / "manifest.json").write_text(json.dumps(dict(meta, chave=k, estado="completo"), ensure_ascii=False, indent=1))
         return k, meta, False
@@ -104,7 +105,7 @@ def render_verificacao(caminho_ou_receita, destino, cam=None, luzes=None):
                         b.inputs["Emission Color"].default_value = tuple(Vector(b.inputs["Emission Color"].default_value[:3]) * t) + (1.0,)
                         ms.material["_escalado"] = True
     for o in cena.objects:
-        if o.type in ("MESH", "CURVE", "EMPTY"):
+        if o.type in RD.TIPOS_VISIVEIS:
             o.visible_camera = True
     cena.render.film_transparent = False
     Path(destino).mkdir(parents=True, exist_ok=True)

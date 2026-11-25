@@ -13,6 +13,7 @@ import numpy as np
 import bpy
 
 ARQ = {"alfa": "alfa", "profundidade": "profundidade", "imagem": "imagem"}
+TIPOS_VISIVEIS = ("MESH", "CURVE", "EMPTY", "FONT", "SURFACE", "META")   # tudo o que a câmera pode ver (texto incluso)
 
 
 def configurar(cena, amostras, semente, grupos, persistente=True):
@@ -52,7 +53,7 @@ def render_camada(cena, colecoes, camada, pasta, grupos):
     pasta = Path(pasta); pasta.mkdir(parents=True, exist_ok=True)
     alvo = set(colecoes[camada].all_objects) if camada != "ceu" else set()
     for o in cena.objects:
-        if o.type in ("MESH", "CURVE", "EMPTY"):
+        if o.type in TIPOS_VISIVEIS:
             o.visible_camera = o in alvo
     cena.render.film_transparent = camada != "ceu"
     _grafo(cena, pasta, grupos)

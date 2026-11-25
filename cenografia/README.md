@@ -6,7 +6,7 @@ Direção aprovada pelo diretor em 25/11/2026:
 - ambientação padrão **bairro urbano brasileiro**;
 - sem sites externos de texturas ou modelos.
 
-**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. **E1 (materiais, céu e atmosfera, tempo de render) concluída e aguardando avaliação.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
+**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. E1 (materiais, céu e atmosfera, tempo de render) aprovada. **E2 (ruas e calçadas) em andamento.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
 
 O personagem oficial é o **Heitor rig v2** (`personagens/heitor/rig_v2/`). A cenografia **não altera o rig**: o Heitor é desenhado por cima do cenário pelo compositor, com a paleta oficial intacta. Valem as decisões ID-001 a ID-004 (`docs/IDENTIDADE_OFICIAL.md`).
 
