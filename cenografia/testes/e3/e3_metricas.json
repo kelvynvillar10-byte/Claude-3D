@@ -3,7 +3,7 @@
   "residencial_0": {
    "semente": 500,
    "largura_m": 11.0,
-   "render_s": 13.0,
+   "render_s": 12.9,
    "cache": "MISS",
    "objetos": 220,
    "flutuando": [],
@@ -15,7 +15,7 @@
   "residencial_1": {
    "semente": 501,
    "largura_m": 13.0,
-   "render_s": 12.72,
+   "render_s": 12.27,
    "cache": "MISS",
    "objetos": 216,
    "flutuando": [],
@@ -27,7 +27,7 @@
   "residencial_2": {
    "semente": 502,
    "largura_m": 12.0,
-   "render_s": 12.95,
+   "render_s": 12.9,
    "cache": "MISS",
    "objetos": 271,
    "flutuando": [],
@@ -39,7 +39,7 @@
   "residencial_3": {
    "semente": 503,
    "largura_m": 14.0,
-   "render_s": 14.42,
+   "render_s": 14.61,
    "cache": "MISS",
    "objetos": 267,
    "flutuando": [],
@@ -51,7 +51,7 @@
   "comercial_0": {
    "semente": 510,
    "largura_m": 7.0,
-   "render_s": 10.46,
+   "render_s": 10.39,
    "cache": "MISS",
    "objetos": 154,
    "flutuando": [],
@@ -63,7 +63,7 @@
   "comercial_1": {
    "semente": 511,
    "largura_m": 10.0,
-   "render_s": 12.72,
+   "render_s": 12.92,
    "cache": "MISS",
    "objetos": 279,
    "flutuando": [],
@@ -76,7 +76,7 @@
   "comercial_2": {
    "semente": 512,
    "largura_m": 8.5,
-   "render_s": 13.02,
+   "render_s": 13.59,
    "cache": "MISS",
    "objetos": 249,
    "flutuando": [],
@@ -89,7 +89,7 @@
   "comercial_3": {
    "semente": 513,
    "largura_m": 11.0,
-   "render_s": 12.38,
+   "render_s": 12.92,
    "cache": "MISS",
    "objetos": 180,
    "flutuando": [],
@@ -103,7 +103,7 @@
   "sobrado_0": {
    "semente": 520,
    "largura_m": 7.0,
-   "render_s": 11.16,
+   "render_s": 11.13,
    "cache": "MISS",
    "objetos": 173,
    "flutuando": [],
@@ -115,7 +115,7 @@
   "sobrado_1": {
    "semente": 521,
    "largura_m": 8.0,
-   "render_s": 11.08,
+   "render_s": 11.33,
    "cache": "MISS",
    "objetos": 183,
    "flutuando": [],
@@ -127,7 +127,7 @@
   "sobrado_2": {
    "semente": 522,
    "largura_m": 6.5,
-   "render_s": 10.38,
+   "render_s": 11.13,
    "cache": "MISS",
    "objetos": 171,
    "flutuando": [],
@@ -139,7 +139,7 @@
   "sobrado_3": {
    "semente": 523,
    "largura_m": 8.5,
-   "render_s": 10.84,
+   "render_s": 11.12,
    "cache": "MISS",
    "objetos": 172,
    "flutuando": [],
@@ -148,6 +148,343 @@
    ],
    "textos_fora": []
   },
-  "_duracao_teste_s": 150.1
+  "_duracao_teste_s": 152.4
+ },
+ "E3_2_cenas": {
+  "calcada_tarde": {
+   "cache": "MISS",
+   "render_total_s": 169.54,
+   "por_camada_s": {
+    "ceu": 8.35,
+    "longe": 33.02,
+    "meio": 93.9,
+    "perto": 16.94,
+    "frente": 11.04
+   },
+   "objetos": 2732,
+   "medidas_cor": {
+    "brilho_pct": 52.9,
+    "saturacao_pct": 30.9,
+    "contraste_pct": 19.0,
+    "vinheta_pct": 67.4,
+    "sombras_a": 8.7,
+    "sombras_b": -11.6,
+    "altas_luzes_b": 17.0
+   }
+  },
+  "esquina_tarde": {
+   "cache": "MISS",
+   "render_total_s": 151.82,
+   "por_camada_s": {
+    "ceu": 8.64,
+    "longe": 51.86,
+    "meio": 61.08,
+    "perto": 11.81,
+    "frente": 10.06
+   },
+   "objetos": 2732,
+   "medidas_cor": {
+    "brilho_pct": 46.1,
+    "saturacao_pct": 28.0,
+    "contraste_pct": 13.3,
+    "vinheta_pct": 70.7,
+    "sombras_a": 7.5,
+    "sombras_b": -20.1,
+    "altas_luzes_b": 5.6
+   }
+  },
+  "calcada_noite": {
+   "cache": "MISS",
+   "render_total_s": 175.34,
+   "por_camada_s": {
+    "ceu": 7.81,
+    "longe": 34.55,
+    "meio": 98.57,
+    "perto": 16.6,
+    "frente": 11.14
+   },
+   "objetos": 2732,
+   "medidas_cor": {
+    "brilho_pct": 30.9,
+    "saturacao_pct": 49.0,
+    "contraste_pct": 14.1,
+    "vinheta_pct": 72.5,
+    "sombras_a": 13.7,
+    "sombras_b": -21.5,
+    "altas_luzes_b": 23.8
+   }
+  },
+  "esquina_chuva": {
+   "cache": "MISS",
+   "render_total_s": 161.02,
+   "por_camada_s": {
+    "ceu": 8.38,
+    "longe": 50.93,
+    "meio": 69.95,
+    "perto": 13.01,
+    "frente": 10.65
+   },
+   "objetos": 2732,
+   "medidas_cor": {
+    "brilho_pct": 51.3,
+    "saturacao_pct": 12.7,
+    "contraste_pct": 12.1,
+    "vinheta_pct": 60.8,
+    "sombras_a": 3.3,
+    "sombras_b": -13.0,
+    "altas_luzes_b": 2.7
+   }
+  },
+  "_resumo": {
+   "placas_renderizadas_agora": 4,
+   "media_s": 164.4,
+   "max_s": 175.3,
+   "dentro_meta_3_5_min": 4,
+   "alvos_skill": {
+    "brilho_pct": [
+     46,
+     56
+    ],
+    "saturacao_pct": [
+     35,
+     46
+    ],
+    "vinheta_pct": [
+     57,
+     66
+    ]
+   }
+  },
+  "_duracao_teste_s": 679.5
+ },
+ "E3_3_qa": {
+  "calcada_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 586,
+   "textos": [
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ],
+   "textos_fora_da_lista": []
+  },
+  "esquina_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 586,
+   "textos": [
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ],
+   "textos_fora_da_lista": []
+  },
+  "calcada_noite": {
+   "flutuando": [],
+   "malhas_verificadas": 586,
+   "textos": [
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ],
+   "textos_fora_da_lista": []
+  },
+  "esquina_chuva": {
+   "flutuando": [],
+   "malhas_verificadas": 586,
+   "textos": [
+    "1494",
+    "162",
+    "1777",
+    "1900",
+    "214",
+    "215",
+    "216",
+    "217",
+    "283",
+    "287",
+    "29",
+    "30",
+    "35",
+    "378",
+    "402",
+    "47",
+    "470",
+    "499",
+    "507",
+    "633",
+    "750",
+    "ALUGA-SE",
+    "AÇOUGUE",
+    "BAZAR",
+    "CHAVEIRO",
+    "HORTIFRUTI",
+    "LANCHONETE",
+    "MERCADINHO",
+    "PADARIA",
+    "PAPELARIA",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME",
+    "SALÃO",
+    "ÓTICA"
+   ],
+   "textos_fora_da_lista": []
+  },
+  "escala_e_instancias": {
+   "predios": 28,
+   "altura_corpo_m": {
+    "min": 0.35,
+    "max": 20.75
+   },
+   "moldura_janela_padrao_m (altura, largura) — vão 1,20 × 1,25 + moldura 7 cm": [
+    1.45,
+    1.44
+   ],
+   "objetos_malha": 2607,
+   "malhas_distintas": 1944,
+   "objetos_instanciados (malha compartilhada)": 700,
+   "prototipos": 37
+  },
+  "_resumo": {
+   "objetos_flutuando": 0,
+   "textos_fora_da_lista": [],
+   "regra_textos": "palavras da lista permitida (nomes de rua inventados, palavras comuns de comércio, ALUGA-SE, MODO CURIOSO) ou números só com algarismos (1 a 4)",
+   "ocr": "não executado: não há OCR instalado no ambiente; a conferência é feita na fonte (texto exato de cada objeto de texto)"
+  },
+  "_duracao_teste_s": 10.8
+ },
+ "E3_4_area_vazia": {
+  "E3_calcada_tarde": {
+   "blocos_fora_do_ceu": 448,
+   "blocos_vazios": 35,
+   "area_vazia_pct": 7.8
+  },
+  "E2_calcada_tarde": {
+   "blocos_fora_do_ceu": 490,
+   "blocos_vazios": 41,
+   "area_vazia_pct": 8.4
+  },
+  "E3_esquina_tarde": {
+   "blocos_fora_do_ceu": 525,
+   "blocos_vazios": 134,
+   "area_vazia_pct": 25.5
+  },
+  "E2_esquina_tarde": {
+   "blocos_fora_do_ceu": 506,
+   "blocos_vazios": 99,
+   "area_vazia_pct": 19.6
+  },
+  "_duracao_teste_s": 301.6
+ },
+ "E3_5_determinismo": {
+  "mesma_receita_mesma_geometria": true,
+  "objetos": 2732,
+  "outra_semente_geometria_diferente": true,
+  "objetos_outra_semente": 2917,
+  "cache_segunda_chamada": "HIT",
+  "cache_tempo_s": 2.07,
+  "_duracao_teste_s": 8.1
+ },
+ "E3_6_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "heitor_pixels_medidos": 191418,
+  "heitor_pixels_cobertos_por_algo_mais_perto": 0,
+  "heitor_pixels_identicos_pct": 100.0,
+  "heitor_maior_diferenca_8bit": 0,
+  "_duracao_teste_s": 15.0
  }
 }

@@ -1,6 +1,6 @@
 # Relatório da etapa E2 — ruas e calçadas (quarteirão modular)
 
-25/11/2026 · Autorizada pelo diretor após a aprovação da E1. **Aguardando avaliação do diretor. A E3 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25/11/2026 · Autorizada pelo diretor após a aprovação da E1. **E2 APROVADA pelo diretor em 25/11/2026; E3 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Cena de teste: `receitas/e2_quarteirao.json`: um quarteirão de bairro com um trecho de rua, um cruzamento e a continuação da rua depois dele. **Os prédios continuam provisórios** (volumes da E0); prédios detalhados são a E3.
 
