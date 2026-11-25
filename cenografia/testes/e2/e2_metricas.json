@@ -1,7 +1,135 @@
 {
+ "E2_1_cenas": {
+  "calcada_tarde": {
+   "cache": "MISS",
+   "render_total_s": 155.56,
+   "por_camada_s": {
+    "ceu": 8.52,
+    "longe": 34.62,
+    "meio": 83.97,
+    "perto": 16.07,
+    "frente": 10.37
+   },
+   "objetos": 1148,
+   "medidas_cor": {
+    "brilho_pct": 51.6,
+    "saturacao_pct": 29.4,
+    "contraste_pct": 15.6,
+    "vinheta_pct": 82.1,
+    "sombras_a": 14.2,
+    "sombras_b": -2.9,
+    "altas_luzes_b": 13.3
+   }
+  },
+  "esquina_tarde": {
+   "cache": "MISS",
+   "render_total_s": 130.83,
+   "por_camada_s": {
+    "ceu": 8.71,
+    "longe": 38.81,
+    "meio": 58.9,
+    "perto": 11.44,
+    "frente": 10.06
+   },
+   "objetos": 1148,
+   "medidas_cor": {
+    "brilho_pct": 45.5,
+    "saturacao_pct": 39.2,
+    "contraste_pct": 12.9,
+    "vinheta_pct": 70.2,
+    "sombras_a": 9.1,
+    "sombras_b": -20.5,
+    "altas_luzes_b": -7.7
+   }
+  },
+  "de_cima_tarde": {
+   "cache": "HIT",
+   "render_total_s": 169.85,
+   "por_camada_s": {
+    "ceu": 8.16,
+    "longe": 16.45,
+    "meio": 119.82,
+    "perto": 12.25,
+    "frente": 9.98
+   },
+   "objetos": 1148,
+   "medidas_cor": {
+    "brilho_pct": 34.9,
+    "saturacao_pct": 34.1,
+    "contraste_pct": 9.9,
+    "vinheta_pct": 56.2,
+    "sombras_a": 12.2,
+    "sombras_b": -19.0,
+    "altas_luzes_b": -0.5
+   }
+  },
+  "calcada_noite": {
+   "cache": "MISS",
+   "render_total_s": 161.34,
+   "por_camada_s": {
+    "ceu": 7.5,
+    "longe": 35.37,
+    "meio": 89.17,
+    "perto": 15.8,
+    "frente": 10.54
+   },
+   "objetos": 1148,
+   "medidas_cor": {
+    "brilho_pct": 29.8,
+    "saturacao_pct": 58.9,
+    "contraste_pct": 12.5,
+    "vinheta_pct": 66.9,
+    "sombras_a": 16.1,
+    "sombras_b": -18.6,
+    "altas_luzes_b": 32.9
+   }
+  },
+  "esquina_chuva": {
+   "cache": "MISS",
+   "render_total_s": 131.68,
+   "por_camada_s": {
+    "ceu": 7.57,
+    "longe": 38.85,
+    "meio": 61.51,
+    "perto": 11.64,
+    "frente": 9.23
+   },
+   "objetos": 1148,
+   "medidas_cor": {
+    "brilho_pct": 52.1,
+    "saturacao_pct": 17.6,
+    "contraste_pct": 12.9,
+    "vinheta_pct": 61.8,
+    "sombras_a": 3.6,
+    "sombras_b": -15.1,
+    "altas_luzes_b": 1.6
+   }
+  },
+  "_resumo": {
+   "placas_renderizadas_agora": 4,
+   "media_s": 144.9,
+   "max_s": 161.3,
+   "dentro_meta_3_5_min": 4,
+   "alvos_skill": {
+    "brilho_pct": [
+     46,
+     56
+    ],
+    "saturacao_pct": [
+     35,
+     46
+    ],
+    "vinheta_pct": [
+     57,
+     66
+    ]
+   }
+  },
+  "_duracao_teste_s": 605.3
+ },
  "E2_2_folha_componentes": {
   "cache": "MISS",
-  "render_total_s": 60.73,
+  "render_total_s": 63.84,
   "objetos": 170,
   "qa_cena": {
    "nada_flutuando": {
@@ -25,140 +153,12 @@
     }
    }
   },
-  "_duracao_teste_s": 62.5
- },
- "E2_1_cenas": {
-  "calcada_tarde": {
-   "cache": "MISS",
-   "render_total_s": 145.9,
-   "por_camada_s": {
-    "ceu": 8.7,
-    "longe": 32.21,
-    "meio": 78.07,
-    "perto": 14.66,
-    "frente": 9.76
-   },
-   "objetos": 933,
-   "medidas_cor": {
-    "brilho_pct": 52.7,
-    "saturacao_pct": 31.3,
-    "contraste_pct": 15.4,
-    "vinheta_pct": 82.6,
-    "sombras_a": 14.3,
-    "sombras_b": -1.3,
-    "altas_luzes_b": 13.4
-   }
-  },
-  "esquina_tarde": {
-   "cache": "MISS",
-   "render_total_s": 117.63,
-   "por_camada_s": {
-    "ceu": 7.69,
-    "longe": 40.07,
-    "meio": 47.97,
-    "perto": 11.13,
-    "frente": 9.36
-   },
-   "objetos": 933,
-   "medidas_cor": {
-    "brilho_pct": 47.9,
-    "saturacao_pct": 39.4,
-    "contraste_pct": 12.0,
-    "vinheta_pct": 62.6,
-    "sombras_a": 7.3,
-    "sombras_b": -17.0,
-    "altas_luzes_b": -5.5
-   }
-  },
-  "de_cima_tarde": {
-   "cache": "MISS",
-   "render_total_s": 149.51,
-   "por_camada_s": {
-    "ceu": 7.21,
-    "longe": 12.59,
-    "meio": 106.69,
-    "perto": 11.85,
-    "frente": 9.74
-   },
-   "objetos": 933,
-   "medidas_cor": {
-    "brilho_pct": 38.6,
-    "saturacao_pct": 36.8,
-    "contraste_pct": 12.2,
-    "vinheta_pct": 54.4,
-    "sombras_a": 11.9,
-    "sombras_b": -18.8,
-    "altas_luzes_b": 17.3
-   }
-  },
-  "calcada_noite": {
-   "cache": "MISS",
-   "render_total_s": 155.18,
-   "por_camada_s": {
-    "ceu": 7.6,
-    "longe": 33.96,
-    "meio": 86.05,
-    "perto": 15.03,
-    "frente": 9.75
-   },
-   "objetos": 933,
-   "medidas_cor": {
-    "brilho_pct": 29.9,
-    "saturacao_pct": 59.3,
-    "contraste_pct": 12.3,
-    "vinheta_pct": 68.7,
-    "sombras_a": 16.1,
-    "sombras_b": -19.4,
-    "altas_luzes_b": 33.1
-   }
-  },
-  "esquina_chuva": {
-   "cache": "MISS",
-   "render_total_s": 125.72,
-   "por_camada_s": {
-    "ceu": 7.68,
-    "longe": 40.56,
-    "meio": 54.02,
-    "perto": 11.48,
-    "frente": 9.53
-   },
-   "objetos": 933,
-   "medidas_cor": {
-    "brilho_pct": 53.6,
-    "saturacao_pct": 16.3,
-    "contraste_pct": 11.5,
-    "vinheta_pct": 56.2,
-    "sombras_a": 2.3,
-    "sombras_b": -14.5,
-    "altas_luzes_b": -6.6
-   }
-  },
-  "_resumo": {
-   "placas_renderizadas_agora": 5,
-   "media_s": 138.8,
-   "max_s": 155.2,
-   "dentro_meta_3_5_min": 5,
-   "alvos_skill": {
-    "brilho_pct": [
-     46,
-     56
-    ],
-    "saturacao_pct": [
-     35,
-     46
-    ],
-    "vinheta_pct": [
-     57,
-     66
-    ]
-   }
-  },
-  "_duracao_teste_s": 717.3
+  "_duracao_teste_s": 65.8
  },
  "E2_3_qa": {
   "calcada_tarde": {
    "flutuando": [],
-   "malhas_verificadas": 417,
+   "malhas_verificadas": 421,
    "textos": [
     "214",
     "215",
@@ -202,7 +202,7 @@
   },
   "esquina_tarde": {
    "flutuando": [],
-   "malhas_verificadas": 417,
+   "malhas_verificadas": 421,
    "textos": [
     "214",
     "215",
@@ -246,7 +246,7 @@
   },
   "de_cima_tarde": {
    "flutuando": [],
-   "malhas_verificadas": 417,
+   "malhas_verificadas": 421,
    "textos": [
     "214",
     "215",
@@ -290,7 +290,7 @@
   },
   "calcada_noite": {
    "flutuando": [],
-   "malhas_verificadas": 417,
+   "malhas_verificadas": 421,
    "textos": [
     "214",
     "215",
@@ -334,7 +334,7 @@
   },
   "esquina_chuva": {
    "flutuando": [],
-   "malhas_verificadas": 417,
+   "malhas_verificadas": 421,
    "textos": [
     "214",
     "215",
@@ -381,37 +381,37 @@
    "textos_fora_da_lista": [],
    "ocr": "não executado: não há OCR instalado no ambiente; a conferência é feita na fonte (texto exato de cada objeto de texto da cena)"
   },
-  "_duracao_teste_s": 9.7
+  "_duracao_teste_s": 9.8
  },
  "E2_4_area_vazia": {
   "calcada_tarde": {
    "blocos_fora_do_ceu": 490,
-   "blocos_vazios": 27,
-   "area_vazia_pct": 5.5
+   "blocos_vazios": 41,
+   "area_vazia_pct": 8.4
   },
   "esquina_tarde": {
-   "blocos_fora_do_ceu": 540,
-   "blocos_vazios": 87,
-   "area_vazia_pct": 16.1
+   "blocos_fora_do_ceu": 506,
+   "blocos_vazios": 99,
+   "area_vazia_pct": 19.6
   },
   "de_cima_tarde": {
    "blocos_fora_do_ceu": 576,
-   "blocos_vazios": 157,
-   "area_vazia_pct": 27.3
+   "blocos_vazios": 203,
+   "area_vazia_pct": 35.2
   },
   "referencia_E1_calcada_tarde": {
    "blocos_fora_do_ceu": 513,
    "blocos_vazios": 101,
    "area_vazia_pct": 19.7
   },
-  "_duracao_teste_s": 168.4
+  "_duracao_teste_s": 167.5
  },
  "E2_5_determinismo": {
   "mesma_receita_mesma_geometria": true,
-  "objetos": 933,
+  "objetos": 1148,
   "outra_semente_geometria_diferente": true,
   "cache_segunda_chamada": "HIT",
-  "cache_tempo_s": 1.89,
+  "cache_tempo_s": 1.88,
   "_duracao_teste_s": 4.5
  },
  "E2_6_integridade": {
@@ -422,6 +422,6 @@
   "heitor_pixels_cobertos_por_algo_mais_perto": 0,
   "heitor_pixels_identicos_pct": 100.0,
   "heitor_maior_diferenca_8bit": 0,
-  "_duracao_teste_s": 14.1
+  "_duracao_teste_s": 15.0
  }
 }
