@@ -9,7 +9,7 @@
  "camadas": ["ceu", "longe", "meio", "perto", "frente"],
  "ancoras": {"heitor_pe": [-5.0, 4.2, 0.13], "heitor_topo": [-5.0, 4.2, 1.53], "efeito_0": [-4.75, 4.0, 1.05]},
  "componentes": [
-  {"tipo": "rua_reta", "camada": "meio", "params": {"y0": -4, "y1": 90, "largura_pista": 7.0, "largura_calcada": 3.2}},
+  {"tipo": "rua_reta", "camada": "meio", "params": {"y0": -4, "y1": 70, "largura_pista": 7.0, "largura_calcada": 3.2}},
   {"tipo": "predio_bloco", "camada": "meio", "params": {"nome": "esq_1", "x0": -15, "x1": -7.0, "y0": -4, "y1": 11, "altura": 10.5, "lado": -1, "cor": "#e3c49a", "toldo": "#2f5d62"}},
   {"tipo": "predio_bloco", "camada": "meio", "params": {"nome": "esq_2", "x0": -15, "x1": -7.2, "y0": 11.2, "y1": 22, "altura": 13.5, "lado": -1, "material": "tijolo", "toldo": "#8c2f2f"}},
   {"tipo": "predio_bloco", "camada": "meio", "params": {"nome": "esq_3", "x0": -15, "x1": -7.0, "y0": 22.2, "y1": 34, "altura": 8.0, "lado": -1, "cor": "#b9cfc6", "toldo": "#d9a441"}},

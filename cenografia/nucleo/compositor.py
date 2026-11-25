@@ -110,31 +110,39 @@ class Placa:
         cache[chave] = L
         return L
 
-    def _pilha(self, cams, pesos, cam, nevoa):
-        """Compõe (linear, pré-multiplicado) as camadas dadas, do fundo para a frente. Retorna (rgb, alfa)."""
+    def _pilha(self, cams, pesos, cam, nevoa, oclusao_ate_m=None):
+        """Compõe (linear, pré-multiplicado) as camadas dadas, do fundo para a frente. Retorna (rgb, alfa, oclusao):
+        oclusao = cobertura (0–1) do que está MAIS PERTO da câmera que 'oclusao_ate_m' (profundidade após o movimento),
+        usada para o teste de profundidade do personagem."""
         acc = np.zeros((self.H, self.W, 3), np.float32); alfa = np.zeros((self.H, self.W), np.float32)
+        livre = np.ones((self.H, self.W), np.float32)
         for c in cams:
             L = self._iluminada(c, pesos, nevoa); a = self.camadas[c]["alfa"]
             mx, my = self.mapa_paralaxe(c, **cam)
             L = cv2.remap(L, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
             if c != "ceu":
                 a = cv2.remap(a, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
+                if oclusao_ate_m is not None:
+                    Z = cv2.remap(self.camadas[c]["prof"], mx, my, cv2.INTER_NEAREST, borderMode=cv2.BORDER_REPLICATE) - cam.get("tz", 0.0)
+                    livre *= 1 - a * (Z < oclusao_ate_m)
             acc = L + acc * (1 - a[..., None]); alfa = a + alfa * (1 - a)
-        return acc, alfa
+        return acc, alfa, 1 - livre
 
-    def compor(self, pesos=None, cam=None, nevoa=None, personagem=None, plano_personagem="meio", grade=None, semente_grao=0,
-               saida=(1080, 1920), camadas=None):
+    def compor(self, pesos=None, cam=None, nevoa=None, personagem=None, profundidade_personagem=None, grade=None, semente_grao=0,
+               saida=(1080, 1920), camadas=None, espessura_m=0.25):
         """Retorna o quadro final RGB uint8 (recorte central do tamanho 'saida').
         personagem: função(canvas_skia, projecao) que desenha em RGBA na resolução da placa;
-        projecao(x, y, z) → (x', y', escala) aplica o mesmo movimento de câmera ao plano do personagem."""
+        projecao(x, y, z) → (x', y', escala) aplica o mesmo movimento de câmera ao plano do personagem.
+        profundidade_personagem (m, ao longo do eixo da câmera): TESTE DE PROFUNDIDADE por pixel — o personagem só é
+        coberto pelo que está mais perto da câmera que ele (menos 'espessura_m', para o chão logo à frente dos pés)."""
         pesos = pesos or self.m["pesos_padrao"]; cam = cam or {}; grade = grade or {}
         exp = 2.0 ** grade.get("exposicao", 0.0)
         ordem = [c for c in self.m["camadas"] if camadas is None or c in camadas]
         if personagem is None:
-            acc, _ = self._pilha(ordem, pesos, cam, nevoa)
+            acc, _, _ = self._pilha(ordem, pesos, cam, nevoa)
             disp = self._tom(acc * exp, grade)
         else:
-            disp = self._com_personagem(pesos, cam, nevoa, personagem, plano_personagem, grade, exp, ordem)
+            disp = self._com_personagem(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m)
         disp = self._final(disp, grade, semente_grao)
         W0, H0 = saida; x0 = (self.W - W0) // 2; y0 = (self.H - H0) // 2
         return disp[y0:y0 + H0, x0:x0 + W0]
@@ -155,21 +163,19 @@ class Placa:
         x = lum + (x - lum) * sat
         return np.clip(_srgb(np.clip(x, 0, 1)), 0, 1).astype(np.float32)
 
-    def _com_personagem(self, pesos, cam, nevoa, personagem, plano, grade, exp, ordem):
-        """Camadas até 'plano' (mapeadas) + personagem (sRGB, paleta intacta) + camadas da frente (mapeadas)."""
+    def _com_personagem(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m):
+        """Cena inteira (mapeada) + personagem (sRGB, paleta intacta) com teste de profundidade por pixel."""
         import skia
-        todas = self.m["camadas"]; i = todas.index(plano)
-        fundo, _ = self._pilha([c for c in todas[:i + 1] if c in ordem], pesos, cam, nevoa)
-        frente, a_fr = self._pilha([c for c in todas[i + 1:] if c in ordem], pesos, cam, nevoa)
-        d = self._tom(fundo * exp, grade)
+        if D is None:
+            raise ValueError("profundidade_personagem é obrigatória (teste de profundidade)")
+        acc, _, occ = self._pilha(ordem, pesos, cam, nevoa, oclusao_ate_m=D - cam.get("tz", 0.0) - espessura_m)
+        d = self._tom(acc * exp, grade)
         s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
         personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
         fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
-        d = fig[..., :3] + d * (1 - fig[..., 3:4])                          # skia: RGBA pré-multiplicado
-        if (a_fr > 0).any():
-            d_fr = self._tom(frente * exp / np.maximum(a_fr[..., None], 1e-4), grade)
-            d = d_fr * a_fr[..., None] + d * (1 - a_fr[..., None])
-        return d
+        vis = (1 - occ)[..., None]                                   # skia: RGBA pré-multiplicado
+        self.ultima_oclusao = occ
+        return fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis)
 
     def _final(self, disp, grade, semente):
         H, W = disp.shape[:2]

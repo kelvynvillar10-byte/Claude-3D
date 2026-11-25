@@ -62,6 +62,11 @@ def _marca(rgb):
     return s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType)[..., :3].copy()
 
 
+def DP(placa):
+    """Profundidade do Heitor (m, eixo da câmera) = a da âncora dos pés."""
+    return placa.m["ancoras"]["heitor_pe"][2]
+
+
 def heitor(placa, t):
     """Heitor rig v2 OFICIAL, sem alteração: de frente, parado (respiração e piscada), no plano da âncora."""
     pe, topo = placa.m["ancoras"]["heitor_pe"], placa.m["ancoras"]["heitor_topo"]
@@ -152,7 +157,7 @@ def t_folha(P):
     zz = np.clip(np.log(Z[y0:y0 + H, x0:x0 + W]) / np.log(150), 0, 1)
     prof = cv2.applyColorMap((255 - zz * 255).astype(np.uint8), cv2.COLORMAP_MAGMA)[..., ::-1]
     sem = P.compor(grade=GRADE, nevoa=NEVOA)
-    com = P.compor(grade=GRADE, nevoa=NEVOA, personagem=heitor(P, 0.0))
+    com = P.compor(grade=GRADE, nevoa=NEVOA, personagem=heitor(P, 0.0), profundidade_personagem=DP(P))
     extra = [_texto(cv2.resize(prof, (tw, th)), ["PROFUNDIDADE", "perto = claro"], 30, 18),
              _texto(cv2.resize(sem, (tw, th)), ["COMPOSIÇÃO", "sem personagem"], 30, 18),
              _texto(cv2.resize(com, (tw, th)), ["COMPOSIÇÃO", "+ Heitor rig v2"], 30, 18)]
@@ -173,12 +178,12 @@ def t_paralaxe(P):
         if t < 3.0:   # camadas entrando uma a uma
             k = min(len(etapas), int(t / 0.5) + 1); mostrar = etapas[:k]
             cams = [c for c in ordem if c in mostrar]
-            img = P.compor(grade=GRADE, nevoa=NEVOA, camadas=cams, personagem=heitor(P, t) if "HEITOR" in mostrar else None, semente_grao=q)
+            img = P.compor(grade=GRADE, nevoa=NEVOA, camadas=cams, personagem=heitor(P, t) if "HEITOR" in mostrar else None, profundidade_personagem=DP(P), semente_grao=q)
             nomes = {"ceu": "céu", "longe": "longe", "meio": "meio", "HEITOR": "Heitor (rig v2)", "perto": "perto", "frente": "frente"}
             return _marca(_texto(img, ["E0 · camadas", " + ".join(nomes[m] for m in mostrar)], 1760, 30))
         s = suave((t - 3.0) / 4.5)
         cam = {k: v * s for k, v in CAM_FINAL.items()}
-        img = P.compor(grade=GRADE, nevoa=NEVOA, cam=cam, personagem=heitor(P, t), semente_grao=q)
+        img = P.compor(grade=GRADE, nevoa=NEVOA, cam=cam, personagem=heitor(P, t), profundidade_personagem=DP(P), semente_grao=q)
         return _marca(_texto(img, ["E0 · paralaxe 2.5D por pixel", f"câmera: {cam['tz']:.2f} m à frente, {cam['tx']:.2f} m à direita"], 1760, 30))
     return video("E0_camadas_e_paralaxe", n, quadro)
 
@@ -226,10 +231,24 @@ def t_iluminacao(P):
             pulso = max(0.0, math.sin(2 * math.pi * 3.0 * (t - 4.6))) ** 2 * (0.6 + 0.4 * math.sin(37 * t) ** 2)
             p["efeito"] = (7.0 * pulso, "#5fb8ff")
         neb = dict(NEVOA, cor="#d9c2a6" if k < 0.5 else "#6a6f8c")
-        img = P.compor(pesos=p, grade=GRADE, nevoa=neb, personagem=heitor(P, t), semente_grao=q)
+        img = P.compor(pesos=p, grade=GRADE, nevoa=neb, personagem=heitor(P, t), profundidade_personagem=DP(P), semente_grao=q)
         leg = "tarde → anoitecer (só pesos dos grupos de luz)" if t <= 4.6 else "luz de EFEITO azul no cenário (sem novo render)"
         return _marca(_texto(img, ["E0 · reiluminação no compositor", leg], 1760, 30))
     return video("E0_iluminacao", n, quadro)
+
+
+# ------------------------------------------------------------------ E0-8 ordem das camadas × profundidade
+def t_ordem(P):
+    """Onde uma camada da frente cobre outra de trás, a da frente tem de estar mais perto (tolerância 0,3 m)."""
+    ordem = P.m["camadas"][1:]; out = {}
+    for i, frente in enumerate(ordem):
+        for tras in ordem[:i]:
+            af, at = P.camadas[frente]["alfa"] > 0.5, P.camadas[tras]["alfa"] > 0.5; sob = af & at
+            if sob.sum() == 0:
+                continue
+            viol = sob & (P.camadas[frente]["prof"] > P.camadas[tras]["prof"] + 0.3)
+            out[f"{frente}_sobre_{tras}"] = {"pixels_sobrepostos": int(sob.sum()), "violacoes_pct": round(100 * float(viol.sum()) / float(sob.sum()), 3)}
+    return out
 
 
 # ------------------------------------------------------------------ E0-10 integridade
@@ -244,13 +263,13 @@ def t_integridade(P, com):
     s = skia.Surface(P.W, P.H); cv = s.getCanvas(); cv.clear(0); heitor(P, 0.0)(cv, lambda x, y, z: P.projetar_ponto(x, y, z))
     so = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType)
     x0, y0 = (P.W - W) // 2, (P.H - H) // 2; so = so[y0:y0 + H, x0:x0 + W]
-    sem_grade = P.compor(grade=dict(GRADE, vinheta=0.0, grao=0.0), nevoa=NEVOA, personagem=heitor(P, 0.0))
-    a_fr = P.camadas["frente"]["alfa"][y0:y0 + H, x0:x0 + W] + P.camadas["perto"]["alfa"][y0:y0 + H, x0:x0 + W]
-    m = (so[..., 3] == 255) & (a_fr < 0.01)
+    sem_grade = P.compor(grade=dict(GRADE, vinheta=0.0, grao=0.0), nevoa=NEVOA, personagem=heitor(P, 0.0), profundidade_personagem=DP(P))
+    occ = P.ultima_oclusao[y0:y0 + H, x0:x0 + W]            # o que está na frente do Heitor (teste de profundidade)
+    m = (so[..., 3] == 255) & (occ < 0.01)
     dif_px = np.abs(sem_grade.astype(int) - so[..., :3].astype(int)).max(axis=2)[m]
     return {"assinatura_rig_identidade_skill": ass, "alteracoes_pendentes_nesses_caminhos": dif or "nenhuma",
             "verificar_f1_vistas_ok": f1.count("| OK |"),
-            "heitor_pixels_medidos": int(m.sum()), "heitor_pixels_identicos_pct": round(100 * float((dif_px == 0).mean()), 2),
+            "heitor_pixels_medidos": int(m.sum()), "heitor_pixels_cobertos_por_algo_mais_perto": int(((so[..., 3] == 255) & (occ >= 0.01)).sum()), "heitor_pixels_identicos_pct": round(100 * float((dif_px == 0).mean()), 2),
             "heitor_maior_diferenca_8bit": int(dif_px.max()) if dif_px.size else None}
 
 
@@ -281,10 +300,11 @@ if __name__ == "__main__":
     rodar("E0_6_reiluminacao_x_real", lambda: t_real(P, "reiluminacao", pesos=PESOS_NOITE,
                                                          luzes={g: (v[0], v[1]) for g, v in PESOS_NOITE.items()}))
     rodar("E0_7_video_iluminacao", lambda: t_iluminacao(P))
+    rodar("E0_8_ordem_camadas", lambda: t_ordem(P))
 
     def desempenho():
         tam = sum(p.stat().st_size for p in C.pasta(R.chave(R.carregar(REC))).rglob("*") if p.is_file())
-        t = time.time(); P.compor(grade=GRADE, nevoa=NEVOA, personagem=heitor(P, 0.0), cam=CAM_FINAL); tq = time.time() - t
+        t = time.time(); P.compor(grade=GRADE, nevoa=NEVOA, personagem=heitor(P, 0.0), profundidade_personagem=DP(P), cam=CAM_FINAL); tq = time.time() - t
         return {"placa_disco_MB": round(tam / 2 ** 20, 1), "carregar_placa_s": round(t_carga, 2), "compor_1_quadro_com_camera_e_heitor_s": round(tq, 2)}
     rodar("E0_9_desempenho", desempenho)
     rodar("E0_10_integridade", lambda: t_integridade(P, estado.get("com")))
