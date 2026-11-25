@@ -139,7 +139,7 @@ Regras:
 1. Gradação: sombras com tinta azul-arroxeada (Lab b ≈ −10), altas luzes quentes (Lab b ≈ +18) [medido: medianas −11,5 e +17,7].
 2. Vinheta: cantos com ~57–62 % do brilho do centro [medido: mediana 0,57].
 3. Grão de filme leve e bloom nas luzes [visto].
-4. Marca d'água MODO CURIOSO (canto superior direito).
+4. Marca d'água **exatamente "MODO CURIOSO"**, tudo em maiúsculas, no canto superior direito (ID-003; especificação em `IDENTIDADE_OFICIAL.md`, seção 3.2). Ela fica fora do acabamento de cor.
 
 ## 11. Checklist de edição
 1. Gancho dentro do 1º segundo, quebrado em 3–5 legendas?
@@ -150,4 +150,4 @@ Regras:
 6. SFX em cortes e efeitos, baixos?
 7. −14 LUFS, true peak ≤ −1 dBTP, sem pausas longas, voz sem aceleração?
 8. Final com "Segue aí" + gancho de parte, ou pergunta para comentário?
-9. Marca d'água + marca no cenário? Nenhum elemento de terceiros?
+9. Marca d'água "MODO CURIOSO" do início ao fim? Camisetas com "Modo Curioso"? Nenhum elemento de terceiros?

@@ -113,7 +113,7 @@ Ver `MANUAL_ANIMACAO.md`. Resumo: animação pose a pose com poses seguradas no 
 ## 9. Etapa 7: montagem
 
 - A montagem é descrita em `montagem.json` (planos, tempos, transições, câmera, legendas) e renderizada por script (FFmpeg, ou um compositor em Python/Node). Assim a edição é reprodutível e dá para checar por script.
-- Ordem das camadas: plano → câmera (push/pan/tilt/roll/tremida) → transições → acabamento de cor (sombras roxo-azuladas, vinheta, grão, bloom) → rótulos → legendas → marca d'água.
+- Ordem das camadas: plano → câmera (push/pan/tilt/roll/tremida) → transições → acabamento de cor (sombras roxo-azuladas, vinheta, grão, bloom) → rótulos → legendas → marca d'água "MODO CURIOSO" (ID-003; fica fora da gradação de cor, da vinheta e do grão).
 
 ## 10. Etapa 8: áudio
 
@@ -180,7 +180,7 @@ Observação: hoje os 13 MP4 (~190 MB) estão versionados direto no Git, na raiz
 1. **Voz:** direção decidida (ID-001). Falta aprovar a amostra no teste da seção 1.5 de `IDENTIDADE_OFICIAL.md` e liberar o acesso ao fornecedor (rede e chave de API).
 2. **Motor de render:** 2D vetorial (SVG/canvas, mais rápido e consistente) ou 3D low-poly (Blender/bpy, mais próximo das referências nos cenários)? Recomendo **híbrido**: personagens 2D recortados sobre cenários 3D low-poly renderizados como fundo. É o que as referências fazem.
 3. **Rede:** liberar o Hugging Face (alinhamento de palavras com Whisper) ou usar um TTS que já devolva os tempos.
-4. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial.
+4. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial. Desde 25/11/2026, a cópia do skill alinhada à identidade oficial está em `skills/modo-curioso-padrao/SKILL.md`.
 
 ## 16. Próxima etapa proposta (sem gerar o vídeo completo)
 

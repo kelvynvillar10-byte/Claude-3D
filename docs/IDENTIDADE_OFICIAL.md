@@ -6,8 +6,11 @@ Registro das decisões de identidade do canal. Cada decisão tem número, data, 
 |---|---|---|---|
 | ID-001 | Narração com voz sintética licenciada, de características semelhantes às referências, **sem clonar** a voz de terceiros | 25/11/2026 | **Aprovada a direção.** Fornecedor e voz final dependem do teste de amostra (seção 1.5) |
 | ID-002 | Marca **"Modo Curioso"** estampada na camiseta de todos os personagens oficiais, no lugar da identificação de outro produtor | 25/11/2026 | **Aprovada e permanente** |
+| ID-003 | Grafia oficial da marca: **"Modo Curioso"** na camiseta (M e C maiúsculos) e **"MODO CURIOSO"** na marca d'água (tudo maiúsculo) | 25/11/2026 | **Confirmada e permanente** |
 
-Regras fixas relacionadas (já existentes): marca d'água "MODO CURIOSO" no canto superior direito de todo vídeo; nada de personagem, marca ou obra de terceiros (ver `MANUAL_DIRECAO_ARTE.md`, seção 0).
+Regra fixa relacionada: nada de personagem, marca ou obra de terceiros (ver `MANUAL_DIRECAO_ARTE.md`, seção 0).
+
+**Fonte da verdade:** este documento. O skill `modo-curioso-padrao` e os manuais foram alinhados a ele em 25/11/2026. A cópia versionada do skill está em `skills/modo-curioso-padrao/SKILL.md`.
 
 ---
 
@@ -101,7 +104,7 @@ Nas referências, a camiseta dos personagens traz a identificação de outro pro
 
 | Item | Regra |
 |---|---|
-| Texto | **Modo Curioso**, exatamente assim: duas palavras, iniciais maiúsculas, sem "@", sem ponto, sem endereço |
+| Texto | **Modo Curioso**, exatamente assim: duas palavras, **M e C maiúsculos** e o resto minúsculo, sem "@", sem ponto, sem endereço (ID-003). Nunca "MODO CURIOSO", "modo curioso" ou "ModoCurioso" na camiseta |
 | Fonte | Arredondada bold, a mesma família dos rótulos do canal: **Nunito ExtraBold** (licença livre OFL) |
 | Cores (camiseta média ou escura) | "Modo" em branco-tecido `#f2efe8` + "Curioso" em amarelo `#ffc21f` (mesmo par de cores da marca d'água) |
 | Cores (camiseta clara: branca, amarela, creme) | As duas palavras em azul-marinho `#1f2a44` |
@@ -143,3 +146,33 @@ Para garantir a consistência:
 - Qualquer identificação de outro produtor, @, logo ou marca de terceiros, em qualquer peça, cenário ou tela.
 - Distorcer, contornar, colocar brilho ou mudar a fonte da marca.
 - Gerar a escrita por IA de imagem sem o arquivo-mestre (é a principal fonte de letras erradas e de inconsistência entre planos).
+
+---
+
+## ID-003 — Grafia oficial da marca
+
+### 3.1 Decisão (confirmada em 25/11/2026)
+
+| Aplicação | Grafia exata | Observação |
+|---|---|---|
+| **Camiseta dos personagens** (estampa ou patch) | **Modo Curioso** | M e C maiúsculos, o resto minúsculo. Especificação na seção 2.2 |
+| **Marca d'água dos vídeos** | **MODO CURIOSO** | Tudo em maiúsculas. Especificação na seção 3.2 |
+
+As cores e as outras especificações já definidas continuam valendo, sem mudança.
+
+### 3.2 Especificação da marca d'água
+
+| Item | Regra |
+|---|---|
+| Texto | **MODO CURIOSO**, exatamente assim, tudo em maiúsculas, em uma linha |
+| Posição | Canto superior direito, alinhada à direita, dentro da área segura (margens sugeridas, a confirmar no teste: ~40 px da borda direita e ~60 px do topo, em 1080×1920) |
+| Fonte | Condensada bold, a mesma família das legendas (Roboto Condensed 800) |
+| Tamanho | ~30 px de altura de letra em 1080 de largura |
+| Cores | "MODO" em branco com 60 % de opacidade; "CURIOSO" em amarelo `#ffc21f` |
+| Duração | Fixa do primeiro ao último quadro, em todo vídeo |
+| Camada | Acima de tudo (depois das legendas), sem receber gradação de cor, vinheta ou grão |
+| Proibido | Animar, trocar de canto, mudar a grafia, trocar a fonte, pôr contorno colorido ou fundo |
+
+### 3.3 Resumo para conferência (QA)
+- Camiseta: "Modo Curioso". Marca d'água: "MODO CURIOSO". Qualquer outra grafia é erro e reprova o plano.
+- Nunca aparece identificação de outro produtor (@, logo, nome).

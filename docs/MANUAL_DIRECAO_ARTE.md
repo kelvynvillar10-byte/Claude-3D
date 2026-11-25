@@ -11,8 +11,8 @@ Convenção: **[medido]** = medido por nós nos 13 MP4. **[visto]** = observado 
 1. **Nada de personagem, logo, marca ou obra de terceiros.** As referências são de outro criador (a marca "@rmhkaiser" aparece nas roupas, placas, envelopes e no cartão final dos 13 vídeos) e citam obras protegidas: o "stand" roxo e dourado de JoJo (v01, v19), o Luffy de One Piece com o chapéu de palha (v15), o filme Lucy e o jogo Clash (v14), e um cientista caricato estilo Einstein (v14). **Nós aprendemos a gramática visual, não copiamos personagens, roupas, cenários ou a marca deles.**
 2. Nunca usar foto real de criança.
 3. Guerra só em tom sério.
-4. Marca d'água em todo vídeo: "MODO CURIOSO" no canto superior direito ("MODO" branco 60 %, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). **E** a marca dentro do cenário (placa de rua, faixa, envelope), como as referências fazem com o @ delas [visto em todos os 13].
-6. **Marca "Modo Curioso" na camiseta de todo personagem oficial** (decisão ID-002, permanente). Especificação completa em `IDENTIDADE_OFICIAL.md`.
+4. **Marca d'água em todo vídeo: exatamente "MODO CURIOSO", tudo em maiúsculas** (ID-003), no canto superior direito ("MODO" branco com 60 % de opacidade, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 3.2. Além dela, a marca pode aparecer dentro do cenário (placa de rua, faixa, envelope), como as referências fazem com o @ delas [visto em todos os 13].
+6. **Camiseta de todo personagem oficial: exatamente "Modo Curioso", com M e C maiúsculos** (ID-002 e ID-003, permanente). Especificação completa em `IDENTIDADE_OFICIAL.md`, seção 2.
 5. Personagens reaproveitados entre temas, trocando só a roupa.
 
 ---
@@ -178,5 +178,5 @@ Tela dividida com linha de luz vertical (grafite × diamante "C = C" no v17; vel
 3. O rosto está legível (olhos, sobrancelha) e fora da área da legenda?
 4. O cenário tem objetos de contexto e profundidade (desfoque ou névoa)?
 5. O número científico tem rótulo grande?
-6. A marca MODO CURIOSO está no cenário pelo menos uma vez no vídeo? A estampa "Modo Curioso" aparece correta na camiseta (frente e 3/4), recebendo a luz do tecido?
+6. A estampa da camiseta diz exatamente "Modo Curioso" (M e C maiúsculos), aparece correta em frente e 3/4 e recebe a luz do tecido? A marca d'água diz exatamente "MODO CURIOSO"?
 7. Nenhum elemento de terceiros (personagem, logo, roupa característica, marca)?
