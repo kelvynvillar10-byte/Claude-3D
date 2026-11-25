@@ -35,7 +35,7 @@ Cena de teste: `receitas/e0_calcada.json`, uma calçada de bairro vista à altur
 | Placa completa (5 camadas, 1350×2400, 64 amostras + remoção de ruído) | **396 s (6,6 min)**: céu 30 s · longe 122 s · meio 152 s · perto 34 s · frente 58 s |
 | CPU e memória | 1.522 s de CPU (os 4 núcleos ocupados); pico de memória de 3,5 GB |
 | Disco por placa (EXR half, ZIP) | 63 MB, fora do Git (`.cache/`) |
-| Mesma placa com 32 amostras | 310 s (**só 22 % mais rápido**); quadro praticamente idêntico ao de 64 (PSNR 46 dB). O tempo **não** depende principalmente da quantidade de amostras |
+| Mesma placa com 32 amostras | 310 s (22 % mais rápido); quadro praticamente idêntico ao de 64 (PSNR 46 dB). **⚠ Medição inválida, corrigida na E1:** esse render rodou ao mesmo tempo que outros testes e disputou a CPU. Medido sozinho na E1, o tempo é proporcional às amostras (camada "meio": 64 → 154,5 s; 16 → 39,1 s; preparo 3,1 s; remoção de ruído e gravação ~10 s) |
 | Composição por quadro (1080×1920 final) | Câmera andando e luz fixa: **1,17 s/quadro**. Luz mudando a cada quadro: **1,81 s/quadro**. Carregar a placa: 3,5 s |
 
 ### Cache e reprodutibilidade
@@ -75,7 +75,7 @@ Cena de teste: `receitas/e0_calcada.json`, uma calçada de bairro vista à altur
 8. **A cena saía lavada e quase toda na sombra.** O sol estava atrás dos prédios e o céu dominava a exposição. O sol foi reposicionado e o céu virou um grupo de luz próprio.
 
 ## Limitações (registradas, não escondidas)
-1. **Tempo de render acima da meta.** A placa leva 6,6 min; a meta da proposta era 3–5 min. Como 32 amostras só economizaram 22 %, o custo principal parece ser fixo por camada: preparo da cena e remoção de ruído de 5 passadas por camada, 25 por placa. **Isso é hipótese, ainda não medida em separado.** A medir e otimizar na E1: menos passadas limpas, céu e "longe" em resolução menor, menos amostras onde a névoa esconde.
+1. **Tempo de render acima da meta.** A placa leva 6,6 min; a meta da proposta era 3–5 min. A hipótese registrada aqui (custo fixo de preparo e remoção de ruído) **estava errada**: o perfil da E1, medido sem CPU disputada, mostrou que o tempo é proporcional às amostras. A otimização é feita na E1 (amostras por camada).
 2. **A paralaxe 2.5D não revela o que estava escondido dentro de uma mesma camada.** Movimentos de câmera grandes mostram o erro nas bordas. Regra para as próximas etapas: objetos que precisam se descolar do fundo (vasos, postes, carros em primeiro plano) vão em camadas próprias; movimentos fortes de câmera usam render real.
 3. **Saturação abaixo do alvo (30,7 %, alvo 35–46 %).** A paleta provisória é pálida (concreto e creme). Forçar a gradação deixaria o quadro artificial; a correção é a paleta dos materiais da E1.
 4. **O Heitor não recebe a luz do cenário.** No anoitecer e na luz de efeito azul, ele continua com as cores oficiais de dia, e a diferença aparece no vídeo. Corrigir isso exige uma extensão de iluminação do personagem. Pelas suas regras, ela **não foi feita** e, se for o caso, será proposta separadamente, com demonstração e testes.

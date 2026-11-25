@@ -51,13 +51,15 @@ def construir(caminho_ou_receita, forcar=False, destino=None):
     bpy, cena, cam, W, H, cols, P, ancoras, t_mont = _montar(r)
     from cenografia.nucleo import render as RD, camera as CAM
     tempos = {}
+    amostras_camada = r["saida"].get("amostras_por_camada", {})
     for c in r["camadas"]:
+        cena.cycles.samples = int(amostras_camada.get(c, r["saida"]["amostras"]))
         tempos[c] = RD.render_camada(cena, cols, c, pasta / c, R.GRUPOS_LUZ)
     meta = {"receita": r, "versao_nucleo": R.VERSAO_NUCLEO, "resolucao": [W, H], "camadas": r["camadas"], "grupos_luz": R.GRUPOS_LUZ,
             "pesos_padrao": P["pesos"], "preset_luz": r["luz"]["preset"], "sol_dir": P["sol_dir"], "noite": bool(P.get("noite")),
             "intrinsecos": CAM.intrinsecos(cam, W, H), "ancoras": ancoras,
             "tempo_montagem_s": round(t_mont, 2), "tempo_render_s": tempos, "tempo_total_s": round(time.time() - t0, 2),
-            "objetos": len(cena.objects), "amostras": r["saida"]["amostras"], "blender": bpy.app.version_string}
+            "objetos": len(cena.objects), "amostras": r["saida"]["amostras"], "amostras_por_camada": amostras_camada, "blender": bpy.app.version_string}
     if destino:
         (pasta / "manifest.json").write_text(json.dumps(dict(meta, chave=k, estado="completo"), ensure_ascii=False, indent=1))
         return k, meta, False

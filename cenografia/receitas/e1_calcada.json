@@ -1,0 +1,286 @@
+{
+ "nome": "e1_calcada",
+ "descricao": "Cena de TESTE da E1 (materiais, céu e atmosfera): a mesma calçada da E0 com a biblioteca de materiais de bairro brasileiro. Volumes ainda provisórios (kits das etapas E2–E5).",
+ "semente": 7,
+ "saida": {
+  "largura": 1080,
+  "altura": 1920,
+  "overscan": 0.25,
+  "amostras": 64,
+  "amostras_por_camada": {}
+ },
+ "camera": {
+  "pos": [
+   -5.0,
+   0.0,
+   1.15
+  ],
+  "alvo": [
+   -4.6,
+   20.0,
+   1.55
+  ],
+  "lente_mm": 35
+ },
+ "luz": {
+  "preset": "tarde_dourada",
+  "efeito": [
+   {
+    "pos": [
+     -4.75,
+     4.0,
+     1.05
+    ],
+    "watts": 60,
+    "cor": "#ffffff",
+    "raio": 0.05
+   }
+  ]
+ },
+ "camadas": [
+  "ceu",
+  "longe",
+  "meio",
+  "perto",
+  "frente"
+ ],
+ "ancoras": {
+  "heitor_pe": [
+   -5.0,
+   4.2,
+   0.13
+  ],
+  "heitor_topo": [
+   -5.0,
+   4.2,
+   1.53
+  ],
+  "efeito_0": [
+   -4.75,
+   4.0,
+   1.05
+  ]
+ },
+ "componentes": [
+  {
+   "tipo": "rua_reta",
+   "camada": "meio",
+   "params": {
+    "y0": -4,
+    "y1": 70,
+    "largura_pista": 7.0,
+    "largura_calcada": 3.2,
+    "calcada": {
+     "nome": "calcada_portuguesa"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "meio",
+   "params": {
+    "nome": "esq_1",
+    "x0": -15,
+    "x1": -7.0,
+    "y0": -4,
+    "y1": 11,
+    "altura": 10.5,
+    "lado": -1,
+    "toldo": "#2f6f5f",
+    "mat": {
+     "nome": "reboco",
+     "cor": "#e3a12f",
+     "desgaste": 0.45
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "meio",
+   "params": {
+    "nome": "esq_2",
+    "x0": -15,
+    "x1": -7.2,
+    "y0": 11.2,
+    "y1": 22,
+    "altura": 13.5,
+    "lado": -1,
+    "toldo": "#3a78c2",
+    "mat": {
+     "nome": "tijolo",
+     "cor": "#a8442b"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "meio",
+   "params": {
+    "nome": "esq_3",
+    "x0": -15,
+    "x1": -7.0,
+    "y0": 22.2,
+    "y1": 34,
+    "altura": 8.0,
+    "lado": -1,
+    "toldo": "#d9702c",
+    "mat": {
+     "nome": "pastilha",
+     "cor": "#3fa7d6"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "esq_4",
+    "x0": -15,
+    "x1": -7.1,
+    "y0": 34.2,
+    "y1": 52,
+    "altura": 16.0,
+    "lado": -1,
+    "terreo": false,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#4fae9c",
+     "desgaste": 0.5
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "dir_1",
+    "x0": 7.0,
+    "x1": 15,
+    "y0": 30,
+    "y1": 48,
+    "altura": 12.0,
+    "lado": 1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#e8806c"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "dir_2",
+    "x0": 7.2,
+    "x1": 15,
+    "y0": 48.2,
+    "y1": 66,
+    "altura": 18.0,
+    "lado": 1,
+    "mat": {
+     "nome": "concreto_aparente"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "fundo_1",
+    "x0": -16,
+    "x1": 2.0,
+    "y0": 72,
+    "y1": 82,
+    "altura": 15.0,
+    "lado": 1,
+    "terreo": false,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#f0d29a"
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "fundo_2",
+    "x0": 2.2,
+    "x1": 18,
+    "y0": 70,
+    "y1": 80,
+    "altura": 21.0,
+    "lado": 1,
+    "terreo": false,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#3a78c2",
+     "desgaste": 0.3
+    }
+   }
+  },
+  {
+   "tipo": "poste",
+   "camada": "meio",
+   "params": {
+    "x": -3.95,
+    "y": 12.0,
+    "lado": 1
+   }
+  },
+  {
+   "tipo": "poste",
+   "camada": "meio",
+   "params": {
+    "x": -3.95,
+    "y": 30.0,
+    "lado": 1
+   }
+  },
+  {
+   "tipo": "poste",
+   "camada": "longe",
+   "params": {
+    "x": -3.95,
+    "y": 48.0,
+    "lado": 1
+   }
+  },
+  {
+   "tipo": "banco",
+   "camada": "perto",
+   "params": {
+    "x": -6.35,
+    "y": 7.6
+   }
+  },
+  {
+   "tipo": "arbusto_vaso",
+   "camada": "perto",
+   "params": {
+    "x": -4.15,
+    "y": 9.0,
+    "raio": 0.42
+   }
+  },
+  {
+   "tipo": "arbusto_vaso",
+   "camada": "meio",
+   "params": {
+    "x": -6.4,
+    "y": 15.5,
+    "raio": 0.42
+   }
+  },
+  {
+   "tipo": "poste",
+   "camada": "frente",
+   "params": {
+    "x": -4.55,
+    "y": 2.1,
+    "lado": 1,
+    "altura": 6.0
+   }
+  }
+ ]
+}
