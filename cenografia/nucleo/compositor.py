@@ -5,7 +5,7 @@ Tudo em luz LINEAR até o mapeamento de tons:
 2. Névoa por profundidade (perspectiva aérea): mistura com a cor do horizonte conforme a distância real (m).
 3. Câmera 2.5D com PARALAXE POR PIXEL: para um deslocamento da câmera (tx, ty, tz em metros, no referencial
    da câmera), cada pixel se move segundo a sua profundidade Z:  u' = (u·Z − f·tx) / (Z − tz).
-   Resolvido por remapeamento inverso com 2 iterações de ponto fixo; a profundidade das áreas transparentes é
+   Resolvido por remapeamento inverso com 4 iterações de ponto fixo; a profundidade das áreas transparentes é
    preenchida com a do pixel válido mais próximo (sem "rasgos" na borda dos objetos).
 4. Composição camada a camada (alfa pré-multiplicado), do céu para a frente; o personagem entra entre as camadas
    "meio" e "perto" (ou onde a receita mandar), no plano de profundidade da âncora.
@@ -65,12 +65,13 @@ class Placa:
 
     # ---------------------------------------------------------------- iluminação
     def iluminar(self, camada, pesos):
-        """pesos: {grupo: (intensidade, cor_hex_ou_None)} → RGB linear pré-multiplicado."""
+        """pesos: {grupo: intensidade | (intensidade, cor)}; cor = hex, RGB linear (3 valores) ou None → RGB linear pré-multiplicado."""
         L = self.camadas[camada]["luz"]; out = np.zeros_like(L[self.grupos[0]])
         for g in self.grupos:
             w, cor = pesos.get(g, (0.0, None)) if isinstance(pesos.get(g), (tuple, list)) else (pesos.get(g, 0.0), None)
             if w:
-                out += L[g] * (w * (hexlin(cor) if cor else 1.0))
+                tinta = 1.0 if cor is None else (hexlin(cor) if isinstance(cor, str) else np.asarray(cor, np.float32))
+                out += L[g] * (w * tinta)
         return out
 
     # ---------------------------------------------------------------- câmera 2.5D
@@ -81,7 +82,7 @@ class Placa:
         if camada == "ceu" or (tx == 0 and ty == 0 and tz == 0):
             return (up + self.cx).astype(np.float32), (vp + self.cy).astype(np.float32)
         Zs = Z
-        for _ in range(2):
+        for _ in range(getattr(self, "iteracoes_paralaxe", 4)):   # 4: erro ≤ 0,6 px no chão perto (medido na E0)
             u = (up * (Zs - tz) + self.f * tx) / Zs
             v = (vp * (Zs - tz) - self.f * ty) / Zs
             Zs = cv2.remap(Z, (u + self.cx).astype(np.float32), (v + self.cy).astype(np.float32), cv2.INTER_NEAREST, borderMode=cv2.BORDER_REPLICATE)

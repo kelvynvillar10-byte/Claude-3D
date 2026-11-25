@@ -217,11 +217,15 @@ def t_real(P, nome, cam=None, pesos=None, luzes=None):
 def t_iluminacao(P):
     n = int(7.0 * FPS); base = P.m["pesos_padrao"]
 
+    from cenografia.nucleo.compositor import hexlin
+
     def mix(a, b, k):
+        """Interpola intensidade E cor (em luz linear): a cor da noite entra aos poucos, junto com o peso."""
         out = {}
         for g in P.grupos:
             wa, ca = (a[g] if isinstance(a[g], tuple) else (a[g], None)); wb, cb = (b[g] if isinstance(b[g], tuple) else (b[g], None))
-            out[g] = (wa + (wb - wa) * k, cb or ca)
+            la = hexlin(ca) if ca else np.ones(3, np.float32); lb = hexlin(cb) if cb else np.ones(3, np.float32)
+            out[g] = (wa + (wb - wa) * k, tuple(float(x) for x in la + (lb - la) * k))
         return out
     noite = dict(PESOS_NOITE, efeito=(0.0, "#5fb8ff"))
 
