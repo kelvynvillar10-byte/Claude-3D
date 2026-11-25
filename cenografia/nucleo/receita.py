@@ -59,12 +59,17 @@ def _normalizar(x):
     return x
 
 
+# módulos que rodam NO BLENDER e definem a placa; os do compositor (compositor, atmosfera, ceu2d, medidas) não entram:
+# mudar nuvem, névoa ou gradação não pode obrigar a renderizar a placa de novo
+MODULOS_DA_PLACA = ["receita.py", "registro.py", "materiais.py", "geometria.py", "luz.py", "camera.py", "render.py"]
+
+
 def hash_codigo():
-    """Hash do código dos geradores (núcleo + componentes): mudar o gerador invalida o cache."""
+    """Hash do código que GERA a placa (núcleo do Blender + componentes): mudar o gerador invalida o cache."""
     h = hashlib.sha256()
-    for p in sorted((CENOGRAFIA / "nucleo").glob("*.py")) + sorted((CENOGRAFIA / "componentes").glob("*.py")):
-        if p.name == "compositor.py" or p.name == "medidas.py":   # não afetam a placa renderizada
-            continue
+    for nome in MODULOS_DA_PLACA:
+        p = CENOGRAFIA / "nucleo" / nome; h.update(nome.encode()); h.update(p.read_bytes())
+    for p in sorted((CENOGRAFIA / "componentes").glob("*.py")):
         h.update(p.name.encode()); h.update(p.read_bytes())
     return h.hexdigest()
 

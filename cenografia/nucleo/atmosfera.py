@@ -49,6 +49,9 @@ class Atmosfera:
         self.ganho_ceu = 0.55 if not placa.m.get("noite") else 1.0
         L = placa.iluminar("ceu", placa.m["pesos_padrao"]) * self.ganho_ceu; topo = L[: int(self.y_horiz * 0.8)]
         self.ceu_medio = topo.reshape(-1, 3).mean(0).astype(np.float32) if topo.size else np.full(3, 0.5, np.float32)
+        # cor do céu logo acima do horizonte (já com o ganho): é para ela que a névoa converge (perspectiva aérea)
+        y0, y1 = int(max(0, self.y_horiz - 0.10 * H)), int(max(1, self.y_horiz - 0.03 * H))
+        self.horizonte = L[y0:y1].reshape(-1, 3).mean(0).astype(np.float32)
         lum = float(self.ceu_medio @ np.array([0.2126, 0.7152, 0.0722], np.float32))
         sol_cor = hexlin({"manha": "#ffe2bf", "meio_dia": "#fff4e6", "tarde_dourada": "#ffc98a", "crepusculo": "#ff8a55", "noite": "#9fb4ff"}[self.preset])
         roxo = np.array([0.62, 0.58, 0.85], np.float32)                     # sombras roxo-azuladas (alvo do skill)
@@ -76,10 +79,15 @@ class Atmosfera:
         return b
 
     def nevoa(self):
+        """Névoa convergindo para a cor do céu no horizonte (a mesma que a câmera vê), tingida pelo clima/horário."""
         cor, dens = NEVOA_BASE.get(self.preset, ("#d9c2a6", 0.006))
         if self.clima in ("nublado", "chuva", "neblina") and not self.noite:
             cor = "#c9ced6" if self.clima != "neblina" else "#e6e8ea"
-        return {"cor": cor, "densidade": dens * self.c["nevoa_mult"], "forca": 1.0 if not self.noite else 0.8}
+        lum_h = float(self.horizonte @ np.array([0.2126, 0.7152, 0.0722], np.float32))
+        tinta = hexlin(cor); tinta = tinta / max(1e-4, float(tinta @ np.array([0.2126, 0.7152, 0.0722], np.float32)))
+        mistura = 0.35 if self.clima == "limpo" else 0.6                     # quanto do tom do clima entra
+        cor_lin = (self.horizonte * (1 - mistura) + tinta * lum_h * mistura).astype(np.float32)
+        return {"cor": [float(x) for x in cor_lin], "densidade": dens * self.c["nevoa_mult"], "forca": 1.0}
 
     def grade(self, g):
         g = dict(g); g["saturacao"] = g.get("saturacao", 1.0) * self.c["saturacao"]
@@ -109,7 +117,7 @@ class Atmosfera:
             # névoa também no CÉU (neblina, chuva, nublado): sem isso o céu fica mais escuro que os prédios enevoados
             k = {"limpo": 0.0, "nublado": 0.25, "neblina": 0.8, "chuva": 0.45}[self.clima]
             if k > 0:
-                nv = self.nevoa(); cor_n = hexlin(nv["cor"]) * float(self.ceu_medio @ np.array([0.2126, 0.7152, 0.0722], np.float32)) * 1.05
+                nv = self.nevoa(); cor_n = np.asarray(nv["cor"], np.float32)
                 out = out * (1 - k) + cor_n * k
             return out
         return aplicar

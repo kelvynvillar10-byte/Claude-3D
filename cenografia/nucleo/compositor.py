@@ -33,6 +33,11 @@ def hexlin(h):
     h = h.lstrip("#"); return _lin(np.array([int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)], np.float32)).astype(np.float32)
 
 
+def cor_lin(c):
+    """Cor como hex ('#rrggbb') ou RGB linear (3 valores) → array linear."""
+    return hexlin(c) if isinstance(c, str) else np.asarray(c, np.float32)
+
+
 def filmico(x):
     """Curva fílmica (aproximação ACES de Narkowicz) — comprime altas luzes sem estourar."""
     a, b, c, d, e = 2.51, 0.03, 2.43, 0.59, 0.14
@@ -105,7 +110,7 @@ class Placa:
         L = self.iluminar(c, pesos); a = self.camadas[c]["alfa"]
         if nevoa and c != "ceu":
             Z = self.camadas[c]["prof"]; h = 1 - np.exp(-nevoa["densidade"] * np.maximum(0, Z - nevoa.get("inicio_m", 0)))
-            L = L * (1 - h[..., None]) + hexlin(nevoa["cor"]) * nevoa.get("forca", 1.0) * (h * a)[..., None]
+            L = L * (1 - h[..., None]) + cor_lin(nevoa["cor"]) * nevoa.get("forca", 1.0) * (h * a)[..., None]
         if len(cache) > 3 * len(self.m["camadas"]):
             cache.clear()
         cache[chave] = L
