@@ -160,6 +160,6 @@ def piscada(t, periodo=3.4, dur=0.12, deslocamento=0.7):
 def rosto_com_piscada(nome, t):
     e = copy.deepcopy(H.EXPRESSOES[nome])
     pf = piscada(t)
-    if pf > 0 and not e["branco"]:
+    if pf > 0:
         e["palp_sup"] = max(e["palp_sup"], pf if pf < 0.9 else 1.0)
     return e

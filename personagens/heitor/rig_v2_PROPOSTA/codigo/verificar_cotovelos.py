@@ -2,7 +2,7 @@
 """Heitor rig v2 (PROPOSTA) — auditoria da regra anatômica do cotovelo (ver gestos.cotovelo_invertido).
 
 Verifica todas as poses desenhadas nas folhas da F1, todos os quadros dos ciclos da F2 (caminhada e corrida,
-perfil/frente/costas) e lê o resultado dos testes da F3 (medido durante a renderização).
+perfil/frente/costas) e lê o resultado dos testes da F3 e da F4 (medido durante a renderização).
 Saída: verificacao/cotovelos.md
 """
 import json, sys
@@ -26,7 +26,7 @@ def auditar(registros):
 
 linhas = ["# Auditoria dos cotovelos — Heitor rig v2 (PROPOSTA)", "",
           "Regra: no perfil o antebraço só dobra para a frente; de frente/costas/3-4, com o braço acima da horizontal, "
-          "o antebraço só dobra para cima (em direção à cabeça). Tolerância 5°.", "",
+          "o cotovelo não pode ficar acima do ombro com o bico apontando para a cabeça (geometria real do esqueleto). Tolerância 5°.", "",
           "| Conjunto | Poses/quadros verificados | Cotovelos invertidos |", "|---|---|---|"]
 # F1: folhas
 import folhas  # noqa: E402
@@ -45,6 +45,10 @@ inv = auditar(f2); linhas.append(f"| F2 caminhada e corrida (3 vistas, 2 s cada)
 m = json.loads((AQUI.parent / "testes" / "f3_metricas.json").read_text())
 for k, v in m.items():
     linhas.append(f"| F3 {k} | todos os quadros | {v.get('quadros_com_cotovelo_invertido', 'não medido')} |")
+p4 = AQUI.parent / "testes" / "f4_metricas.json"
+if p4.exists():
+    for k, v in json.loads(p4.read_text()).items():
+        linhas.append(f"| F4 {k} | todos os quadros | {v.get('quadros_com_cotovelo_invertido', 'não medido')} |")
 if det:
     linhas += ["", "## Ocorrências", ""] + [f"- {d}" for d in det]
 (AQUI.parent / "verificacao" / "cotovelos.md").write_text("\n".join(linhas) + "\n")

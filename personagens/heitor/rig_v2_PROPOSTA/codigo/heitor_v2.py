@@ -216,7 +216,7 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1, objeto=None
     """Mão no sistema do osso 'mao' (origem no punho, +y para as pontas). vista: dorso | palma | lado.
     Cinco dedos individuais: polegar (2 falanges) e indicador, médio, anelar, mínimo (3 falanges cada).
     objeto(c, vista): desenha um objeto segurado no ENCAIXE da mão (ver ENCAIXE), na camada certa:
-    dorso → atrás da mão; palma → entre a palma e os dedos; lado → na frente da palma, atrás do indicador e do polegar."""
+    dorso → atrás da mão; palma → na frente da mão (mostrando); lado → na frente da palma, atrás do indicador e do polegar."""
     c.save()
     if espelho:
         c.scale(-1, 1)
@@ -243,8 +243,6 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1, objeto=None
         if vista == "palma":
             for (a0, a1, q) in (((-0.06, 0.09), (0.06, 0.11), (0.0, 0.075)), ((-0.05, 0.135), (0.055, 0.15), (0.0, 0.12))):
                 pth = skia.Path(); pth.moveTo(*a0); pth.quadTo(q[0], q[1], *a1); c.drawPath(pth, traco(C["pele_s"], 0.009))
-            if objeto:
-                objeto(c, vista)
         dobradas = []
         for n in _DEDOS:
             bx, by, w, sp = _BASE_DORSO[n]; bx *= sg
@@ -256,6 +254,8 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1, objeto=None
             c.restore()
         for (m, f) in dobradas:   # dedos dobrados por cima da palma (punho)
             c.save(); c.setMatrix(m); c.drawPath(f, tinta(C["pele_s"])); c.drawPath(f, contorno()); c.restore()
+        if objeto and vista == "palma":   # palma para a câmera: o objeto fica NA FRENTE da mão (mostrando o objeto)
+            objeto(c, vista)
         if vista == "dorso":
             polegar()
     else:   # vista "lado": dedos empilhados (mínimo atrás → indicador na frente), flexão = rotação real
@@ -283,7 +283,7 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1, objeto=None
 
 
 # ponto de encaixe de um objeto segurado, no sistema da mão, por vista
-ENCAIXE = {"dorso": (0.0, 0.215), "palma": (0.0, 0.215), "lado": (-0.10, 0.17)}
+ENCAIXE = {"dorso": (0.0, 0.215), "palma": (0.0, 0.2), "lado": (-0.10, 0.17)}
 
 
 # ------------------------------------------------------------------ rosto
@@ -315,8 +315,21 @@ def _olho(c, x, y, e, esc_x=1.0, lado=1, pele_lid=None):
     ox, oy = e["olhar"]
     if e["branco"]:
         r = 0.105
-        c.drawCircle(0, 0, r, tinta(C["branco_olho"])); c.drawCircle(0, 0, r, contorno())
+        c.drawCircle(0, 0, r, tinta(C["branco_olho"]))
         c.drawCircle(ox * 0.035, oy * 0.035, 0.046 * e["pupila"] + 0.006, tinta(C["pupila"]))
+        ps = e["palp_sup"]
+        if ps > 0:   # pálpebra também no olho arregalado (piscar sem trocar de estilo)
+            c.save(); c.clipPath(oval(0, 0, r, r), doAntiAlias=True)
+            c.drawRect(skia.Rect.MakeLTRB(-r - 0.01, -r - 0.01, r + 0.01, -r + 2 * r * ps), tinta(pele_lid))
+            c.restore()
+        if ps >= 0.99:
+            c.drawPath(oval(0, 0, r, r), tinta(pele_lid))
+            pth = skia.Path(); pth.moveTo(-r, 0.005); pth.quadTo(0, 0.05, r, 0.005); c.drawPath(pth, traco(C["pupila"], 0.026))
+        else:
+            c.drawCircle(0, 0, r, contorno())
+            if ps > 0.15:
+                yl = -r + 2 * r * ps; dx = math.sqrt(max(0.0, r * r - yl * yl))
+                c.drawLine(-dx, yl, dx, yl, traco(C["pupila"], 0.02))
     else:
         r = 0.07
         clip = oval(0, 0, r + 0.002, r + 0.002)

@@ -26,7 +26,40 @@ def curva(x, tipo="suave"):
     return x * x * (3 - 2 * x)
 
 
+def mistura_expr(a, b, k):
+    """Transição entre duas expressões (k: 0 → a, 1 → b).
+    - Parâmetros contínuos (pálpebras, sobrancelhas, olhar, abertura, sorriso, largura) interpolam.
+    - Troca de DESENHO de boca (ex.: 'linha' → 'o'): a boca de origem quase fecha, troca no meio e a nova abre —
+      a troca acontece com a boca pequena, sem "pulo".
+    - Troca de ESTILO de olho (pequeno escuro ↔ arregalado branco): escondida por uma piscada (fechado no meio)."""
+    out = {}
+    for key, va in a.items():
+        vb = b.get(key, va)
+        if key in ("boca", "abertura", "dentes", "branco"):
+            continue
+        if key == "sobr_e":
+            va = va if va is not None else a["sobr"]; vb = vb if vb is not None else b["sobr"]
+        out[key] = _lerp(va, vb, k)
+    if a["boca"] == b["boca"]:
+        out["boca"] = a["boca"]; out["abertura"] = _lerp(a["abertura"], b["abertura"], k)
+        out["dentes"] = a["dentes"] if k < 0.5 else b["dentes"]
+    else:
+        meio = min(a["abertura"], b["abertura"]) * 0.3
+        if k < 0.5:
+            out.update(boca=a["boca"], abertura=_lerp(a["abertura"], meio, k * 2), dentes=a["dentes"])
+        else:
+            out.update(boca=b["boca"], abertura=_lerp(meio, b["abertura"], k * 2 - 1), dentes=b["dentes"])
+    out["branco"] = a["branco"] if k < 0.5 else b["branco"]
+    if a["branco"] != b["branco"]:   # fechado em k 0,30–0,70 (cobre a troca em 0,5 mesmo com passos grandes por quadro)
+        pisc = min(1.0, max(0.0, (0.42 - abs(k - 0.5)) / 0.22))
+        out["palp_sup"] = max(out["palp_sup"], pisc)
+        out["_piscada_troca"] = pisc > 0
+    return out
+
+
 def _lerp(a, b, k):
+    if isinstance(a, dict) and isinstance(b, dict) and "boca" in a and "boca" in b:
+        return mistura_expr(a, b, k)
     if isinstance(a, (int, float)) and isinstance(b, (int, float)):
         return a + (b - a) * k
     if isinstance(a, (list, tuple)) and isinstance(b, (list, tuple)):
@@ -68,6 +101,23 @@ def mao(nome):
 
 
 def ik_braco(pose, vista, lado, alvo, cotovelo=1, iter=4):
+    """cotovelo=None: escolhe automaticamente a solução anatômica (cotovelo para fora, nunca invertido)."""
+    if cotovelo is None:
+        sols = []
+        for cv in (1, -1):
+            p = copy.deepcopy(pose); e = _ik_braco(p, vista, lado, alvo, cv, iter)
+            inv = cotovelo_invertido(p, vista, lado)[0]
+            M = H.esqueleto(p, vista); ex = M[f"antebraco_{lado}"].mapXY(0, 0).x()
+            lateral = -ex * (lado_tela(vista, lado) if vista != "perfil" else 0)
+            if vista == "perfil":   # perfil: a solução com flexão para a frente (antebraço relativo <= 0)
+                lateral = -p[f"antebraco_{lado}"]
+            sols.append((inv, -lateral, e, cv))
+        cv = sorted(sols)[0][3]
+        return _ik_braco(pose, vista, lado, alvo, cv, iter)
+    return _ik_braco(pose, vista, lado, alvo, cotovelo, iter)
+
+
+def _ik_braco(pose, vista, lado, alvo, cotovelo=1, iter=4):
     """Ajusta braco_/antebraco_/mao_ para o ENCAIXE da mão chegar a 'alvo' (mundo, H; y para baixo, origem nos pés).
     Antebraço + mão tratados como um segmento rígido (mão reta, mao_=0). O encaixe não fica no eixo do antebraço
     (na vista de lado ele está deslocado para a palma), então a IK analítica é refinada por correção do alvo,
@@ -80,8 +130,8 @@ def ik_braco(pose, vista, lado, alvo, cotovelo=1, iter=4):
     tx, ty = alvo
     for _ in range(iter):
         a1, a2, _, _ = A.ik2(o.x(), o.y(), tx, ty, l1, l2, joelho=cotovelo)
-        pose[f"braco_{lado}"] = a1 - tr - ba
-        pose[f"antebraco_{lado}"] = a2 - a1
+        pose[f"braco_{lado}"] = _ang(a1 - tr - ba)
+        pose[f"antebraco_{lado}"] = _ang(a2 - a1)
         pose[f"mao_{lado}"] = 0.0
         sx, sy = encaixe_mundo(pose, vista, lado)
         tx += alvo[0] - sx; ty += alvo[1] - sy
@@ -183,12 +233,30 @@ def sentido_flexao(vista, lado, braco_abs=0.0):
     return lado_tela(vista, lado)   # braço erguido: dobra em direção à cabeça
 
 
+def _ang(a):
+    """Normaliza um ângulo para (−180°, 180°]."""
+    return (a + 180.0) % 360.0 - 180.0 if (a + 180.0) % 360.0 != 0 else 180.0
+
+
 def cotovelo_invertido(pose, vista, lado):
-    """Retorna (invertido?, ângulo absoluto do braço, ângulo relativo do antebraço)."""
-    rel = pose[f"antebraco_{lado}"]
-    ab = pose[f"braco_{lado}"] + H.LAYOUT[vista][f"braco_{lado}"][1] + pose.get("tronco", 0.0)
+    """Retorna (invertido?, ângulo absoluto do braço, ângulo relativo do antebraço) — ângulos normalizados.
+    Perfil: o antebraço só dobra para a frente (relativo <= +5°).
+    Frente/costas/3-4 (geometria real do esqueleto): o cotovelo está INVERTIDO quando está acima do ombro e a dobra
+    aponta para a cabeça (o "bico" do cotovelo vira para dentro). Abaixo do ombro os dois sentidos são possíveis
+    (mão na barriga; "não sei" com os antebraços para fora), porque o úmero gira."""
+    rel = _ang(pose[f"antebraco_{lado}"])
+    ab = _ang(pose[f"braco_{lado}"] + H.LAYOUT[vista][f"braco_{lado}"][1] + pose.get("tronco", 0.0))
     if vista == "perfil":
         return rel > TOL_COTOVELO, ab, rel
-    s = lado_tela(vista, lado)
-    erguido = s * ab > 90.0
-    return (erguido and s * rel < -TOL_COTOVELO), ab, rel
+    if abs(rel) <= TOL_COTOVELO:
+        return False, ab, rel
+    M = H.esqueleto(pose, vista)
+    S = M[f"braco_{lado}"].mapXY(0, 0); E = M[f"antebraco_{lado}"].mapXY(0, 0); P = M[f"mao_{lado}"].mapXY(0, 0)
+    C = M["cabeca"].mapXY(0, -0.58)
+    lx, ly = P.x() - S.x(), P.y() - S.y(); L = math.hypot(lx, ly) or 1e-9
+    ex, ey = E.x() - S.x(), E.y() - S.y()
+    k = (ex * lx + ey * ly) / (L * L)
+    nx, ny = ex - k * lx, ey - k * ly                     # para onde o "bico" do cotovelo aponta
+    acima = E.y() < S.y() - 0.02
+    para_cabeca = nx * (C.x() - S.x()) + ny * (C.y() - S.y()) > 0
+    return (acima and para_cabeca), ab, rel

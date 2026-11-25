@@ -1,6 +1,6 @@
 # Heitor — rig v2 (PROPOSTA)
 
-**Status: desenho da F1 aprovado pelo diretor em 25/11/2026 como base do personagem v2; fases F2–F4 em desenvolvimento.** O rig v2 como um todo continua PROPOSTA até a aprovação final. Esta proposta **não está aprovada**, não substitui nenhuma referência e não altera as decisões ID-001 a ID-004. O rig v1 (`pilotos/piloto_01_ultimo_homem/`) continua intacto.
+**Status: F1, F2 e F3 aprovadas pelo diretor em 25/11/2026; F4 concluída. O rig v2 aguarda a aprovação final.** O rig v2 como um todo continua PROPOSTA até a aprovação final. Esta proposta **não está aprovada**, não substitui nenhuma referência e não altera as decisões ID-001 a ID-004. O rig v1 (`pilotos/piloto_01_ultimo_homem/`) continua intacto.
 
 Fonte da verdade do personagem: a especificação oficial (`docs/IDENTIDADE_OFICIAL.md` e o skill), transcrita em [`modelo.json`](modelo.json): paleta hex, proporções em H (altura da cabeça; altura total 4 H), comprimento dos ossos e limites das juntas.
 
@@ -41,7 +41,10 @@ As 6 vistas passaram com tolerância de ±2 % da altura: topo 4,01 H, olhos 3,44
 ## Fase F2 (concluída e aprovada pelo diretor em 25/11/2026)
 IK, sistema de animação com camadas, caminhada (perfil, frente, costas) e corrida. Testes em vídeo e métricas: [`testes/F2_RELATORIO.md`](testes/F2_RELATORIO.md).
 
-## Fase F3 (concluída, aguardando avaliação do diretor)
+## Fase F4 (concluída, aguardando avaliação do diretor) e relatório final
+Expressões animadas em 3 vistas com piscadas e fala de teste com sincronia labial (T7). Teste em cena: fundo 3D do Blender e Heitor 2D com âncoras (T8). Relatório: [`testes/F4_RELATORIO.md`](testes/F4_RELATORIO.md). **Relatório final do rig v2:** [`RELATORIO_FINAL.md`](RELATORIO_FINAL.md).
+
+## Fase F3 (concluída e aprovada pelo diretor em 25/11/2026)
 Dedos individuais, segurar e soltar um objeto (IK até o ponto de pega, objeto preso à mão, queda com quique), acenar, apontar (mira) e reações (susto e comemoração). Testes em vídeo e métricas: [`testes/F3_RELATORIO.md`](testes/F3_RELATORIO.md). Código: `codigo/gestos.py` e `codigo/testes_f3.py`.
 
 ## Plano original da F2
