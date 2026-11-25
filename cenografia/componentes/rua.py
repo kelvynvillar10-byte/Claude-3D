@@ -39,7 +39,7 @@ def _calcada_mat(nome, um, rng):
     if nome == "ladrilho_hidraulico":
         return M.ladrilho_hidraulico(cor_a=rng.choice(["#b7452f", "#2f6f5f", "#c4952e"]), cor_b=rng.choice(["#2f5f8a", "#3a3a3a"]))
     if nome == "concreto":
-        return M.concreto(rng.choice(["#aaa294", "#b8b0a0", "#9f9a90"]), placa_m=rng.choice([(1.0, 1.0), (0.6, 0.6), (1.5, 1.0)]), umidade=um)
+        return M.concreto(rng.choice(["#aaa294", "#b8b0a0", "#9f9a90"]), placa_m=rng.choice([(1.0, 1.0), (0.6, 0.6), (1.5, 1.0)]), umidade=um, detalhe=1.0)
     return M.por_nome(nome)
 
 
@@ -56,7 +56,7 @@ def _grupo(nome, objs, loc, rot_z, col):
 def rua_trecho(ctx, p, rng, col):
     y0, y1 = p["y0"], p["y1"]; Lp = p.get("largura_pista", 7.0); C = p.get("largura_calcada", 3.2); um = p.get("umidade", 0.0)
     m = _mats(um); nome = p.get("nome", f"trecho_{int(y0)}")
-    G.caixa(nome + "_pista", (-Lp / 2 + SARJ, y0, -0.05), (Lp / 2 - SARJ, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55), umidade=um), col)
+    G.caixa(nome + "_pista", (-Lp / 2 + SARJ, y0, -0.05), (Lp / 2 - SARJ, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55), umidade=um, detalhe=p.get("detalhe_asfalto", 1.0)), col)
     for s in (-1, 1):
         xa, xb = sorted((s * (Lp / 2 - SARJ), s * Lp / 2))
         G.caixa(f"{nome}_sarjeta{s}", (xa, y0, -0.05), (xb, y1, 0.004), m["sarjeta"], col)
@@ -176,7 +176,7 @@ def cruzamento(ctx, p, rng, col):
     yc = p["yc"]; Lp = p.get("largura_pista", 7.0); Wc = p.get("largura_transversal", 7.0); C = p.get("largura_calcada", 3.2)
     X = p.get("braco", 22.0); R = p.get("raio_esquina", 2.2); Ly = p.get("comp_esquina", 6.0); um = p.get("umidade", 0.0)
     m = _mats(um); nome = p.get("nome", "cruz")
-    asf = M.asfalto(desgaste=0.6, umidade=um)
+    asf = M.asfalto(desgaste=0.6, umidade=um, detalhe=p.get("detalhe_asfalto", 1.0))
     G.caixa(nome + "_centro", (-Lp / 2, yc - Wc / 2, -0.05), (Lp / 2, yc + Wc / 2, 0.0), asf, col)
     for sx in (-1, 1):
         xa, xb = sorted((sx * Lp / 2, sx * X))

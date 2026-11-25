@@ -29,7 +29,7 @@ W, H = 1080, 1920
 # câmera + âncora do Heitor (mundo, m) por vista. "de_cima" é vista de conferência do piso: sem personagem.
 CAMS = {
     "calcada": {"camera": {"pos": [-5.0, 0.0, 1.15], "alvo": [-4.6, 20.0, 1.55], "lente_mm": 35}, "heitor": [-5.0, 4.2, 0.15]},
-    "esquina": {"camera": {"pos": [1.8, 17.5, 1.25], "alvo": [-4.0, 27.0, 1.9], "lente_mm": 35}, "heitor": [-4.3, 24.6, 0.15]},   # na esquina, junto ao semáforo
+    "esquina": {"camera": {"pos": [1.8, 17.5, 1.25], "alvo": [-5.0, 26.5, 1.9], "lente_mm": 35}, "heitor": [-4.3, 24.6, 0.15]},   # na esquina, junto ao semáforo
     "de_cima": {"camera": {"pos": [-1.5, 6.0, 4.2], "alvo": [-4.5, 13.0, 0.0], "lente_mm": 30}, "heitor": None},
 }
 # (nome, câmera, horário, clima) — o clima "chuva" usa a placa com piso molhado

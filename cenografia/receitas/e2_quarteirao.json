@@ -236,6 +236,42 @@
    }
   },
   {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "fundo_cruz_esq",
+    "x0": -44,
+    "x1": -24.5,
+    "y0": 17,
+    "y1": 64,
+    "altura": 12.0,
+    "lado": -1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#d98a6a",
+     "desgaste": 0.4
+    }
+   }
+  },
+  {
+   "tipo": "predio_bloco",
+   "camada": "longe",
+   "params": {
+    "nome": "fundo_cruz_dir",
+    "x0": 24.5,
+    "x1": 44,
+    "y0": 17,
+    "y1": 64,
+    "altura": 10.0,
+    "lado": 1,
+    "mat": {
+     "nome": "reboco",
+     "cor": "#9fc7a8",
+     "desgaste": 0.4
+    }
+   }
+  },
+  {
    "tipo": "poste_concreto",
    "camada": "frente",
    "params": {

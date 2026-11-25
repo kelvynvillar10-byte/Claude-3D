@@ -139,8 +139,10 @@ def _guardar(chave, m):
     _CACHE[chave] = m; return m
 
 
-def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0):
-    chave = ("asfalto", cor, escala, desgaste, sujeira, umidade)
+def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0, detalhe=0.0):
+    """detalhe (E2, 0 = igual à E1): pedrisco graúdo visível, desgaste em manchas médias (óleo, borracha), malha de
+    fissuras finas — para o asfalto não ficar liso em plano próximo."""
+    chave = ("asfalto", cor, escala, desgaste, sujeira, umidade, detalhe)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("asfalto"); v = t.coord("Object")
@@ -156,6 +158,21 @@ def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0):
     rach.inputs["To Min"].default_value = desgaste; rach.inputs["To Max"].default_value = 0.0
     t.l(vor.outputs["Distance"], rach.inputs["Value"])
     base = t.mistura(base, lin("#141415"), rach.outputs["Result"])
+    if detalhe > 0:
+        pedra = t.ruido(v, 55 * escala, 1.0, 0.4)                                   # pedrisco graúdo, claro
+        base = t.mistura(base, _escurece(cor, 1.9), t.mat_valor(pedra, -1.9 * detalhe, 0.75 * detalhe))
+        oleo = t.ruido(v, 0.45 * escala, 3.0, 0.6, distorcao=0.6)                    # manchas médias (óleo, borracha)
+        base = t.mistura(base, _escurece(cor, 0.55), t.mat_valor(oleo, -0.9 * detalhe, 0.55 * detalhe))
+        claro = t.ruido(v, 0.8 * escala, 2.0, 0.5)                                   # asfalto lavado/ressecado (mais claro)
+        base = t.mistura(base, _escurece(cor, 1.35), t.mat_valor(claro, -0.9 * detalhe, 0.5 * detalhe))
+        vf = t.n("ShaderNodeTexVoronoi", feature="DISTANCE_TO_EDGE", Scale=1.6 * escala); t.l(v, vf.inputs["Vector"])
+        fis = t.n("ShaderNodeMapRange"); fis.inputs["From Min"].default_value = 0.0; fis.inputs["From Max"].default_value = 0.006
+        fis.inputs["To Min"].default_value = 0.55 * detalhe; fis.inputs["To Max"].default_value = 0.0
+        t.l(vf.outputs["Distance"], fis.inputs["Value"])
+        msk = t.ruido(v, 0.7 * escala, 2.0, 0.5)                                    # fissuras só em parte da pista
+        fm = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(fis.outputs["Result"], fm.inputs[0]); t.l(t.mat_valor(msk, -1.5, 2.0), fm.inputs[1])
+        fc = t.n("ShaderNodeClamp"); t.l(fm.outputs[0], fc.inputs["Value"])
+        base = t.mistura(base, lin("#1a1a1c"), fc.outputs["Result"])
     if umidade > 0:
         _umidade(t, base, 0.88, umidade, v)
     else:
@@ -166,9 +183,10 @@ def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0):
     return _guardar(chave, t.m)
 
 
-def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0, 1.0), umidade=0.0):
-    """Placas de calçada: juntas pelo nó de tijolo (sem deslocamento entre fileiras)."""
-    chave = ("concreto", cor, escala, desgaste, sujeira, placa_m, umidade)
+def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0, 1.0), umidade=0.0, detalhe=0.0):
+    """Placas de calçada: juntas pelo nó de tijolo (sem deslocamento entre fileiras).
+    detalhe (E2, 0 = igual à E1): tom diferente por placa, granulado e manchas pequenas."""
+    chave = ("concreto", cor, escala, desgaste, sujeira, placa_m, umidade, detalhe)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("concreto"); v = t.planar()
@@ -178,6 +196,14 @@ def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0,
     br.inputs["Mortar"].default_value = _escurece(cor, 0.45); t.l(v, br.inputs["Vector"])
     mancha = t.ruido(v, 2.5 * escala, 4.0, 0.6)
     base = t.mistura(br.outputs["Color"], _escurece(cor, 0.7), t.mat_valor(mancha, -0.3, 0.5 * desgaste + 0.1))
+    if detalhe > 0:
+        cel = t.n("ShaderNodeTexVoronoi", feature="F1", Scale=1.0 / max(placa_m[0], 0.3)); t.l(v, cel.inputs["Vector"])
+        base = t.mistura(base, _escurece(cor, 0.78), t.mat_valor(cel.outputs["Distance"], -0.2 * detalhe, 0.55 * detalhe))   # placa a placa
+        base = t.mistura(base, _escurece(cor, 1.18), t.mat_valor(cel.outputs["Color"], -0.6 * detalhe, 0.6 * detalhe))
+        gr = t.ruido(v, 70 * escala, 2.0, 0.7)                                       # granulado
+        base = t.mistura(base, _escurece(cor, 0.8), t.mat_valor(gr, -1.2 * detalhe, 0.6 * detalhe))
+        mc = t.ruido(v, 5.0 * escala, 3.0, 0.6)                                      # manchas pequenas (chiclete, goteira)
+        base = t.mistura(base, _escurece(cor, 0.62), t.mat_valor(mc, -2.4 * detalhe, 0.45 * detalhe))
     base = t.sujeira_base(base, sujeira, 0.25)
     _umidade(t, base, 0.88, umidade, v)
     junta = t.n("ShaderNodeMath", operation="SUBTRACT"); junta.inputs[0].default_value = 1.0; t.l(br.outputs["Factor"], junta.inputs[1])
