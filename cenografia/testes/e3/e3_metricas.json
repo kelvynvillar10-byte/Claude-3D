@@ -1,0 +1,153 @@
+{
+ "E3_1_variacoes": {
+  "residencial_0": {
+   "semente": 500,
+   "largura_m": 11.0,
+   "render_s": 13.0,
+   "cache": "MISS",
+   "objetos": 220,
+   "flutuando": [],
+   "textos": [
+    "203"
+   ],
+   "textos_fora": []
+  },
+  "residencial_1": {
+   "semente": 501,
+   "largura_m": 13.0,
+   "render_s": 12.72,
+   "cache": "MISS",
+   "objetos": 216,
+   "flutuando": [],
+   "textos": [
+    "532"
+   ],
+   "textos_fora": []
+  },
+  "residencial_2": {
+   "semente": 502,
+   "largura_m": 12.0,
+   "render_s": 12.95,
+   "cache": "MISS",
+   "objetos": 271,
+   "flutuando": [],
+   "textos": [
+    "1684"
+   ],
+   "textos_fora": []
+  },
+  "residencial_3": {
+   "semente": 503,
+   "largura_m": 14.0,
+   "render_s": 14.42,
+   "cache": "MISS",
+   "objetos": 267,
+   "flutuando": [],
+   "textos": [
+    "1268"
+   ],
+   "textos_fora": []
+  },
+  "comercial_0": {
+   "semente": 510,
+   "largura_m": 7.0,
+   "render_s": 10.46,
+   "cache": "MISS",
+   "objetos": 154,
+   "flutuando": [],
+   "textos": [
+    "AÇOUGUE"
+   ],
+   "textos_fora": []
+  },
+  "comercial_1": {
+   "semente": 511,
+   "largura_m": 10.0,
+   "render_s": 12.72,
+   "cache": "MISS",
+   "objetos": 279,
+   "flutuando": [],
+   "textos": [
+    "FARMÁCIA",
+    "SALÃO"
+   ],
+   "textos_fora": []
+  },
+  "comercial_2": {
+   "semente": 512,
+   "largura_m": 8.5,
+   "render_s": 13.02,
+   "cache": "MISS",
+   "objetos": 249,
+   "flutuando": [],
+   "textos": [
+    "ALUGA-SE",
+    "PADARIA"
+   ],
+   "textos_fora": []
+  },
+  "comercial_3": {
+   "semente": 513,
+   "largura_m": 11.0,
+   "render_s": 12.38,
+   "cache": "MISS",
+   "objetos": 180,
+   "flutuando": [],
+   "textos": [
+    "ALUGA-SE",
+    "MERCADINHO",
+    "ÓTICA"
+   ],
+   "textos_fora": []
+  },
+  "sobrado_0": {
+   "semente": 520,
+   "largura_m": 7.0,
+   "render_s": 11.16,
+   "cache": "MISS",
+   "objetos": 173,
+   "flutuando": [],
+   "textos": [
+    "520"
+   ],
+   "textos_fora": []
+  },
+  "sobrado_1": {
+   "semente": 521,
+   "largura_m": 8.0,
+   "render_s": 11.08,
+   "cache": "MISS",
+   "objetos": 183,
+   "flutuando": [],
+   "textos": [
+    "386"
+   ],
+   "textos_fora": []
+  },
+  "sobrado_2": {
+   "semente": 522,
+   "largura_m": 6.5,
+   "render_s": 10.38,
+   "cache": "MISS",
+   "objetos": 171,
+   "flutuando": [],
+   "textos": [
+    "858"
+   ],
+   "textos_fora": []
+  },
+  "sobrado_3": {
+   "semente": 523,
+   "largura_m": 8.5,
+   "render_s": 10.84,
+   "cache": "MISS",
+   "objetos": 172,
+   "flutuando": [],
+   "textos": [
+    "855"
+   ],
+   "textos_fora": []
+  },
+  "_duracao_teste_s": 150.1
+ }
+}

@@ -518,11 +518,48 @@ def grama(cor="#5d8a35", escala=1.0, seca=0.2):
     return _guardar(chave, t.m)
 
 
+def chapa_ondulada(cor="#8a9098", passo_m=0.08, desgaste=0.4, metal=0.35):
+    """E3: porta de enrolar / chapa canelada — nervuras HORIZONTAIS (paredes: v = altura), com sujeira embaixo."""
+    chave = ("chapa_ondulada", cor, passo_m, desgaste, metal)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("chapa_ondulada"); v = t.planar()
+    w = t.n("ShaderNodeTexWave", wave_type="BANDS", bands_direction="Y", wave_profile="SIN", Scale=6.2832 / (10.0 * passo_m),
+            Distortion=0.0, Detail=0.0); t.l(v, w.inputs["Vector"])
+    base = t.mistura(_escurece(cor, 0.78), _escurece(cor, 1.12), w.outputs["Factor"])
+    var = t.ruido(v, 3.0, 3.0, 0.6)
+    base = t.mistura(base, _escurece(cor, 0.62), t.mat_valor(var, -0.4, 0.7 * desgaste))
+    base = t.sujeira_base(base, 0.35 * desgaste + 0.1, 0.6)
+    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Metallic"].default_value = metal
+    t.l(t.mat_valor(var, 0.38, 0.62), t.b.inputs["Roughness"])
+    t.l(t.relevo(w.outputs["Factor"], 0.6, 0.01), t.b.inputs["Normal"])
+    return _guardar(chave, t.m)
+
+
+def listrado(cor_a="#c8382f", cor_b="#f1e9d8", largura_m=0.25, desgaste=0.3):
+    """E3: lona de toldo com listras perpendiculares à fachada (variam ao longo de y LOCAL do objeto), desbotada pelo sol."""
+    chave = ("listrado", cor_a, cor_b, largura_m, desgaste)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("listrado"); v = t.coord("Object")     # no kit de prédios, y local = ao longo da fachada
+    sx = t.n("ShaderNodeSeparateXYZ"); t.l(v, sx.inputs["Vector"])
+    k = t.n("ShaderNodeMath", operation="DIVIDE"); t.l(sx.outputs["Y"], k.inputs[0]); k.inputs[1].default_value = 2 * largura_m
+    fr = t.n("ShaderNodeMath", operation="FRACT"); t.l(k.outputs[0], fr.inputs[0])
+    st = t.n("ShaderNodeMath", operation="GREATER_THAN"); t.l(fr.outputs[0], st.inputs[0]); st.inputs[1].default_value = 0.5
+    base = t.mistura(lin(cor_a), lin(cor_b), st.outputs[0])
+    var = t.ruido(v, 1.5, 3.0, 0.5)
+    base = t.mistura(base, lin("#f4efe4"), t.mat_valor(var, -0.2, 0.35 * desgaste))     # desbotado
+    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.85
+    t.b.inputs["Sheen Weight"].default_value = 0.3
+    return _guardar(chave, t.m)
+
+
 CATALOGO = {"asfalto": asfalto, "concreto": concreto, "reboco": reboco, "tijolo": tijolo, "pintura": pintura, "vidro": vidro,
             "emissor": emissor, "borracha": borracha, "folhagem": folhagem, "terra": terra,
             "calcada_portuguesa": calcada_portuguesa, "ladrilho_hidraulico": ladrilho_hidraulico, "pastilha": pastilha,
             "azulejo": azulejo, "telha_ceramica": telha_ceramica, "concreto_aparente": concreto_aparente,
-            "metal_ferrugem": metal_ferrugem, "madeira": madeira, "grama": grama}
+            "metal_ferrugem": metal_ferrugem, "madeira": madeira, "grama": grama,
+            "chapa_ondulada": chapa_ondulada, "listrado": listrado}
 
 
 def por_nome(nome, **params):
