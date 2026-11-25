@@ -464,5 +464,5 @@ Leitura: o tom médio varia só de 105 a 116 Hz entre os 13 vídeos, o que indic
 2. **Enviar os 7 MP4 que faltam** (v02, v03, v04, v05, v08, v09, v11) e o **v21**, se quiser que eles entrem na análise.
 3. **Rede:** liberar o Hugging Face (para Whisper), se quiser medir a sincronia fala × legenda palavra por palavra.
 4. **Repositório:** mover os MP4 para `referencias/` com Git LFS (não feito, para não mexer nos originais sem aprovação).
-5. Decisões de produção listadas no `PIPELINE_PRODUCAO.md`, seção 15 (motor de render).
+5. Decisões de produção listadas no `PIPELINE_PRODUCAO.md`, seção 16 (arquitetura descrita na seção 15).
 6. **Decididas em 25/11/2026** (ver `IDENTIDADE_OFICIAL.md`): ID-001, narração com voz sintética licenciada (falta o teste de amostra); ID-002, marca "Modo Curioso" na camiseta de todos os personagens oficiais.

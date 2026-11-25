@@ -175,15 +175,198 @@ Observação: hoje os 13 MP4 (~190 MB) estão versionados direto no Git, na raiz
 | Whisper / reconhecimento de fala | Bloqueado: o download do modelo no Hugging Face foi recusado pela rede do ambiente |
 | TTS (voz) | Direção decidida (ID-001); fornecedor recomendado: ElevenLabs Voice Design, a testar. O endpoint com tempos por caractere também resolve o alinhamento de legendas |
 
-## 15. Decisões pendentes (suas)
+## 15. Arquitetura técnica de produção (proposta para aprovação)
 
-1. **Voz:** direção decidida (ID-001). Falta aprovar a amostra no teste da seção 1.5 de `IDENTIDADE_OFICIAL.md` e liberar o acesso ao fornecedor (rede e chave de API).
-2. **Motor de render:** 2D vetorial (SVG/canvas, mais rápido e consistente) ou 3D low-poly (Blender/bpy, mais próximo das referências nos cenários)? Recomendo **híbrido**: personagens 2D recortados sobre cenários 3D low-poly renderizados como fundo. É o que as referências fazem.
-3. **Rede:** liberar o Hugging Face (alinhamento de palavras com Whisper) ou usar um TTS que já devolva os tempos.
-4. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial. Desde 25/11/2026, a cópia do skill alinhada à identidade oficial está em `skills/modo-curioso-padrao/SKILL.md`.
+Versão 1.0, de 25/11/2026. **Status: proposta, não executada.** Nada foi instalado nem renderizado para escrever esta seção. As compatibilidades marcadas como "verificado" foram checadas sem instalar (resolução de pacotes). Os tempos e custos marcados como "estimativa" precisam ser medidos no teste técnico (seção 17).
 
-## 16. Próxima etapa proposta (sem gerar o vídeo completo)
+### 15.0 Visão geral
 
-1. Teste técnico de 10 s: 1 cenário, o Heitor, 5 planos, legenda, câmera e mix. Serve para validar o pipeline de ponta a ponta e passar pelo QA automático.
+```
+ roteiro.md ──► TTS com tempos (API externa) ──► voz.wav + tempos por caractere
+                                                     │
+                                                     ▼
+                                       linha do tempo (montagem.json)  ◄── decupagem.json
+                                    palavras · blocos de legenda · planos · SFX · rótulos
+                                                     │
+            ┌────────────────────────────┬───────────┴─────────────┬────────────────────┐
+            ▼                            ▼                         ▼                    ▼
+  cenários 3D low-poly          personagens 2D recortados     inserts / rótulos      áudio
+  (Blender bpy, Cycles CPU)     (rig vetorial, skia-python)   (skia-python)          (FFmpeg)
+  → fundos estáticos em camadas → camadas por quadro          → camadas por quadro   SFX + música + voz
+            └───────────────┬────────────┴─────────────────────────┘                    │
+                            ▼                                                           │
+              compositor Python (skia + NumPy): câmera, transições, cor,                │
+              vinheta, grão, bloom, rótulos, legendas, marca d'água                     │
+                            │  quadros RGB 1080×1920 por pipe                           │
+                            ▼                                                           ▼
+                    FFmpeg (libx264) ◄───────────────────────────────────── mix.wav (−14 LUFS)
+                            │
+                            ▼
+                  MC_<serie>_<ep>_v<n>.mp4 ──► QA automático (tools/analise) ──► aprovação humana
+```
+
+Princípio: **tudo vem de arquivos de dados versionados** (roteiro, linha do tempo, rig, cenas). O vídeo é sempre re-renderizável e conferível por script. Nenhuma etapa depende de geração de imagem ou de vídeo por IA, que é a principal fonte de inconsistência de personagem e de letras erradas.
+
+### 15.1 Motor de renderização
+
+**Híbrido, com dois motores e um compositor:**
+
+| Camada | Motor | Por quê |
+|---|---|---|
+| Cenários 3D | **Blender como módulo Python (`bpy` 5.3.0), render Cycles em CPU**. Compatível com o Python 3.13 deste ambiente (verificado; ainda não instalado nem testado) | Materiais, luz motivada, névoa e profundidade como nas referências; roda sem interface, por script |
+| Personagens, inserts, rótulos, legendas | **skia-python** (versão 144.1, compatível, verificado) | Desenho vetorial 2D rápido em CPU, antialiasing de qualidade, texto com qualquer fonte, matrizes de transformação para o rig |
+| Composição final | **Compositor próprio em Python** (skia + NumPy) | Câmera, transições, gradação, vinheta, grão e bloom aplicados igual em todos os planos |
+| Codificação | **FFmpeg 6.1.1** (já instalado) | H.264/AAC, loudness, mixagem |
+
+**Restrição decisiva: não há GPU neste ambiente** (nenhum `/dev/dri`, nenhuma placa NVIDIA). Por isso:
+- **o Blender não renderiza animação quadro a quadro.** Ele renderiza **um fundo estático por plano**, maior que a tela e separado em 2–3 camadas de profundidade (fundo, meio, primeiro plano);
+- o movimento de câmera é feito no compositor, como transformação 2D dessas camadas, com paralaxe entre elas. Isso reproduz o que as referências fazem: push-in lento em 74 % dos planos, pan, tilt, crash-zoom;
+- EEVEE (o motor rápido do Blender) precisa de GPU/OpenGL e não está previsto. Se o teste mostrar que funciona em modo software, ele vira opção.
+
+**Alternativa descartada:** render 3D completo da animação (personagens 3D). É lento demais sem GPU (estimativa: horas por vídeo) e se afasta do estilo 2D chapado definido no Manual de Direção de Arte.
+
+### 15.2 Criação de personagens e cenários
+
+**Personagens: boneco 2D recortado (cutout rig), em vetor.**
+- Cada personagem é um arquivo de rig (`assets/personagens/<id>/rig.json`), uma árvore de partes: tronco → cabeça → (cabelo, olhos, sobrancelhas, boca); tronco → braço → antebraço → mão; quadril → coxa → perna → pé.
+- Cada parte é uma forma vetorial (caminhos SVG) com cor base, um tom de sombra e um contorno fino opcional, com ponto de pivô na articulação.
+- O rosto é uma biblioteca de trocas: olhos (ponto, arregalado branco, fechado, "><", brilhando), sobrancelhas (reta, V, arqueada), boca (linha, "o", aberta, sorriso). São as expressões da seção 2.5 do Manual de Animação.
+- 4 vistas (frente, 3/4, perfil, costas), cada uma com seu conjunto de partes.
+- A estampa "Modo Curioso" é uma parte filha do tronco, gerada do arquivo-mestre `assets/marca/camiseta_modo_curioso.svg` (texto já convertido em curvas, fonte Nunito ExtraBold), com variantes pré-deformadas por vista (ID-002 e ID-003).
+- **Quem desenha:** eu escrevo os vetores por código a partir das especificações (cores e proporções do Heitor já definidas), gero a folha de modelo e itero com você até aprovar. Alternativa: um ilustrador entrega os SVG em camadas, e eu monto o rig.
+
+**Cenários: 3D low-poly montado por script.**
+- Cada cenário é um script `bpy` (`assets/cenarios/<id>/cena.py`): geometria, materiais (madeira, tijolo, azulejo, grama, asfalto), luz motivada (sol rasante, abajur, tocha), névoa volumétrica e câmeras nomeadas por enquadramento.
+- Objetos de contexto vêm de uma biblioteca de modelos **CC0** (domínio público, uso comercial livre). Fontes previstas: Kenney, Quaternius, Poly Haven. Depende de liberar esses hosts na rede.
+- Saída por plano: camadas PNG com transparência (fundo, meio, primeiro plano) em 1350×2400 (25 % de margem para o movimento de câmera) e um mapa de profundidade para desfoque.
+- **Inserts científicos** (átomos, moléculas, holograma, térmica, visão noturna): desenhados em skia-python sobre fundo azul-marinho com bokeh, ou em Blender quando precisam de volume (rede cristalina, corpo holográfico).
+
+### 15.3 Consistência visual dos personagens
+
+| Mecanismo | Como garante |
+|---|---|
+| Rig único por personagem | O mesmo arquivo de vetores é usado em todo plano de todo episódio. O personagem não é redesenhado, só posado |
+| Paleta travada | As cores vêm do rig (hex da especificação), nunca escolhidas no plano |
+| Biblioteca fechada de expressões e poses | Só existem as trocas aprovadas na folha de modelo; nenhuma expressão "nova" no meio de um episódio |
+| Estampa a partir do arquivo-mestre | A marca "Modo Curioso" nunca é redigitada; as variantes por vista são geradas uma vez e aprovadas |
+| Proporção fixa | Altura em cabeças e tamanho relativo entre personagens definidos no rig; o enquadramento muda a escala do plano, não a do personagem |
+| Luz por plano, não por personagem | O personagem recebe um "tom de luz" do cenário (multiplicador quente ou frio + direção da sombra), parametrizado, e a gradação final é comum a tudo |
+| Versão do rig | `rig.json` versionado no Git; cada episódio registra a versão usada |
+| QA visual | Folha de contato automática de cada episódio, conferida por mim quadro a quadro e por você contra a folha de modelo |
+
+### 15.4 Movimentos de câmera e animações
+
+**Câmera (no compositor):**
+- Cada plano tem uma câmera virtual 2D: zoom, deslocamento x/y, giro, com curva de easing (ease-out padrão).
+- As camadas do cenário se movem com fatores de paralaxe diferentes (fundo 0,6×, meio 1,0×, primeiro plano 1,4×). O personagem acompanha a camada em que está.
+- Biblioteca de movimentos com os valores medidos na auditoria: push-in (6 %/s, total ~9 %), pull-out, pan, tilt, giro (~6°), crash-zoom (+40 % ou mais), punch-zoom (+7 % em 0,18 s), chicote (0,13 s com borrão de movimento), tremida de impacto (1,4 % do quadro, decaimento em 0,3–0,5 s, 18–24 Hz).
+- Desfoque de profundidade e de movimento simulados no compositor.
+
+**Animação de personagem (no rig):**
+- Quadros-chave por parte (rotação nas juntas, posição, troca de expressão), interpolados com easing.
+- **Nível base:** pose a pose com pose segurada, "respiração" (1–2 % de escala do tronco) e piscada automática; boca com 3 estados nas batidas da frase (sem sincronia labial), como as referências.
+- **Nível ação:** antecipação → golpe → overshoot → assentamento, ciclos de corrida, quadro de impacto, só nos momentos de poder.
+- **Efeitos:** biblioteca procedural em skia-python (ondas de choque, raios, partículas, fogo, gelo, vapor, contorno de poder), parametrizada por tempo.
+
+### 15.5 Sincronização entre narração, imagens, legendas e efeitos sonoros
+
+**Fonte única de tempo:** os tempos devolvidos pelo TTS.
+1. **Voz:** o TTS gera `voz.wav` e os tempos de início e fim de cada caractere (endpoint `with-timestamps` da ElevenLabs). Juntamos os caracteres em palavras: `voz_palavras.json`.
+2. **Compressão de pausas** (regra do canal: pausa ≥ 0,8 s vira 0,42 s; pausa de 0,18–0,8 s vira 0,18 s). Feita por nós com corte no silêncio, **remapeando os tempos das palavras** depois de cada pausa encurtada. Nunca time-stretch.
+3. **Legendas:** o roteiro já vem dividido em blocos de 2–3 palavras. Cada bloco começa no início da 1ª palavra e termina no início do bloco seguinte. A palavra-chave do bloco vai em amarelo.
+4. **Planos:** cada plano começa e termina em fronteiras de bloco de legenda (o corte cai entre blocos, como nas referências). O plano mediano alvo é de 1,5–2,0 s.
+5. **Rótulos e efeitos:** o número aparece no quadro em que começa a palavra do número; o efeito, na palavra que o nomeia (marcação no roteiro, ex.: `{efeito:onda_choque}voou`).
+6. **SFX:** um evento em cada corte com chicote, em cada tremida, em cada pop de rótulo e no clímax, posicionado no quadro exato do evento visual.
+7. **Conversão para quadros:** `quadro = round(tempo × 30)`. Tudo vive em `montagem.json`, que o compositor e o mixador leem.
+8. **Conferência:** o QA mede a coincidência entre cortes e SFX e confere se cada legenda está dentro da janela da palavra. Opcional: uma 2ª checagem com Whisper, se o Hugging Face for liberado.
+
+### 15.6 Ferramentas, bibliotecas, APIs e serviços externos
+
+| Item | Tipo | Uso | Situação |
+|---|---|---|---|
+| FFmpeg 6.1.1 | Local | Codificação, mixagem, loudness, análise | Instalado |
+| Python 3.13, NumPy, Pillow | Local | Compositor, scripts | Instalados |
+| OpenCV, RapidOCR, librosa | Local (pip) | QA automático (câmera, legendas, voz) | Instalados nesta sessão |
+| skia-python 144.1 | Local (pip) | Render 2D (personagens, inserts, rótulos, legendas, composição) | Compatível (verificado); a instalar |
+| bpy 5.3.0 (Blender) | Local (pip) | Render 3D dos cenários | Compatível (verificado); a instalar e testar |
+| Fontes Roboto Condensed e Nunito | Arquivos (licença OFL) | Legenda, marca d'água, estampa, rótulos | **Não instaladas**; baixar do Google Fonts ou do GitHub e versionar em `assets/fontes/` |
+| ElevenLabs API (Voice Design + TTS com tempos) | **Serviço externo pago** | Voz oficial e tempos de palavra | Exige plano pago, chave de API e liberar `api.elevenlabs.io` na rede |
+| Modelos 3D CC0 (Kenney, Quaternius, Poly Haven) | Download externo, gratuito | Objetos de cenário | Exige liberar esses hosts |
+| Biblioteca de SFX e música licenciada | Externo (gratuito ou pago) | Efeitos e trilha | **A decidir**. Precisa de licença válida para redes sociais, registrada por arquivo |
+| Whisper (Hugging Face) | Download externo, gratuito | Checagem opcional de sincronia | Bloqueado hoje pela rede; opcional |
+| GitHub + Git LFS | Externo | Versionamento de código, dados e assets pesados | Repositório existe; LFS a configurar |
+| Node 22 + Chromium/Playwright | Local | Não necessário nesta arquitetura (reserva para prévias HTML) | Instalados |
+
+### 15.7 O que roda localmente e o que depende de serviço externo
+
+| Etapa | Onde roda | Dependência externa |
+|---|---|---|
+| Pauta e roteiro | Local (Claude + arquivos) | — |
+| Voz (TTS) | **Externo** | ElevenLabs (rede + chave + plano) |
+| Compressão de pausas e alinhamento | Local | — |
+| Decupagem e linha do tempo | Local | — |
+| Modelagem e render dos cenários | Local (CPU) | Download inicial de modelos CC0 |
+| Rig e animação dos personagens | Local | Download inicial das fontes |
+| Inserts, rótulos, legendas, efeitos | Local | — |
+| Composição e codificação | Local | — |
+| Mixagem e master | Local | Biblioteca de SFX e música (download/licença) |
+| QA automático | Local | Whisper opcional |
+| Armazenamento | **Externo** | GitHub (+ LFS) |
+| Aprovação humana (voz, sotaque, folha de modelo, vídeo) | Você | — |
+
+Depois que fontes, modelos, SFX e música estiverem baixados e versionados, **a única dependência externa por episódio é o TTS**.
+
+### 15.8 Custos e limitações técnicas
+
+**Custos:**
+
+| Item | Custo | Observação |
+|---|---|---|
+| ElevenLabs | Assinatura mensal (o uso comercial exige plano pago) | **Preço não verificado por mim.** Conferir o plano e a cota de caracteres. Um episódio de ~300 palavras tem ~1.800 caracteres por geração, mais as regravações |
+| Música e SFX | Zero (bibliotecas CC0 ou de licença livre) ou assinatura (bibliotecas comerciais) | Decisão sua; a licença precisa cobrir as plataformas de publicação |
+| Modelos 3D, fontes, Blender, skia, FFmpeg | Zero | Licenças CC0, OFL, GPL, BSD e LGPL, compatíveis com uso comercial do vídeo |
+| GitHub LFS | Zero até a cota gratuita; pago acima dela | Conferir a cota atual da conta |
+| Processamento | Incluído no ambiente | Ver as limitações abaixo |
+
+**Limitações:**
+1. **Sem GPU:** os cenários viram fundos estáticos em camadas (15.1). Estimativa de render: 30–90 s por fundo em Cycles CPU, ~47 planos, ou seja, 0,5–1,5 h por episódio só de fundos, menos quando planos reaproveitam o mesmo cenário. **A medir no teste.**
+2. **CPU de 4 núcleos e 15 GB de RAM:** a composição 2D em skia é estimada em 0,1–0,3 s por quadro, ou 5–15 min para 2.730 quadros (91 s a 30 qps). **A medir.**
+3. **Ambiente efêmero:** o container é descartado quando a sessão para. Tudo precisa ser commitado e enviado ao GitHub ao fim de cada etapa. Renders intermediários podem ser recriados a partir dos dados.
+4. **Rede restrita:** a ElevenLabs, os sites de modelos CC0, o Google Fonts e o Hugging Face precisam ser liberados nas configurações do ambiente.
+5. **Eu não escuto áudio:** sotaque, naturalidade e mixagem precisam de aprovação humana. Eu confiro só os números (loudness, pausas, tom, sincronia).
+6. **Animação limitada por design:** o rig recortado entrega o nível base das referências com consistência total. O nível ação (corridas, golpes) dá mais trabalho por plano e deve ficar concentrado nos momentos de poder.
+7. **Detalhe dos cenários:** cenários ricos em objetos dependem da biblioteca CC0. Montar tudo do zero por script é possível, mas lento.
+8. **Sotaque gaúcho:** não é garantido pelo TTS (ver ID-001).
+
+### 15.9 Geração do vídeo final em 1080×1920
+
+1. O compositor lê `montagem.json` e, para cada quadro (30 qps), monta as camadas do plano:
+   - fundo em camadas → personagens → efeitos;
+   - câmera virtual (transformação e paralaxe) aplicada sobre a área de 1350×2400, recortando 1080×1920;
+   - acabamento comum: gradação (sombra Lab b ≈ −10, alta luz b ≈ +18), vinheta (~0,57), bloom, grão;
+   - por cima: rótulos, legendas e, por último, a marca d'água **"MODO CURIOSO"**, fora da gradação.
+2. Os quadros saem em RGB 8 bits por pipe direto para o FFmpeg, sem gravar milhares de PNG:
+   `ffmpeg -f rawvideo -pix_fmt rgb24 -s 1080x1920 -r 30 -i - -i mix.wav -c:v libx264 -preset slow -crf 18 -profile:v high -pix_fmt yuv420p -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 192k -ar 48000 -movflags +faststart MC_<serie>_<ep>_v<n>.mp4`
+3. Áudio (`mix.wav`) feito antes, com FFmpeg:
+   - voz com pausas comprimidas;
+   - música com ducking (`sidechaincompress`);
+   - SFX nos quadros da linha do tempo;
+   - `loudnorm` em duas passadas para −14 LUFS e limitador de pico real em −1 dBTP.
+4. QA automático com `tools/analise`: duração, cortes/min, plano mediano, movimento de câmera, vinheta, cor, loudness, legendas (posição, palavras, amarelo), grafia da marca d'água. O relatório sai em `qa_relatorio.json`.
+5. Folha de contato do episódio para a minha revisão visual e a sua aprovação final.
+
+## 16. Decisões pendentes (suas)
+
+1. **Aprovar a arquitetura da seção 15**, em especial o motor híbrido (Blender para fundos + rig 2D em skia + compositor próprio).
+2. **Voz:** direção decidida (ID-001). Falta contratar o plano, aprovar a amostra no teste da seção 1.5 de `IDENTIDADE_OFICIAL.md` e liberar o acesso (rede e chave de API).
+3. **Rede do ambiente:** liberar `api.elevenlabs.io` e os hosts de assets (modelos CC0, fontes). Liberar o Hugging Face é opcional (checagem de sincronia com Whisper).
+4. **Música e SFX:** escolher a biblioteca (CC0/gratuita ou assinatura comercial) com licença válida para as plataformas de publicação.
+5. **Quem desenha o rig dos personagens:** eu, por código, com iterações sobre a folha de modelo, ou um ilustrador (SVG em camadas).
+6. **Git LFS** para os assets pesados e os MP4 de referência.
+7. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial. Desde 25/11/2026, a cópia do skill alinhada à identidade oficial está em `skills/modo-curioso-padrao/SKILL.md`.
+
+## 17. Próxima etapa proposta (sem gerar o vídeo completo)
+
+1. Teste técnico de 10 s: 1 cenário, o Heitor, 5 planos, legenda, câmera e mix. Serve para validar a arquitetura da seção 15 de ponta a ponta, **medir os tempos reais de render** (15.8) e passar pelo QA automático. Depende das decisões 1–3 da seção 16.
 2. Folha de modelo do Heitor nas 4 vistas e 9 expressões, para aprovação.
 3. Só depois disso: o primeiro episódio completo.
