@@ -139,10 +139,11 @@ def _guardar(chave, m):
     _CACHE[chave] = m; return m
 
 
-def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0, detalhe=0.0):
+def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0, detalhe=0.0, faixas_x=()):
     """detalhe (E2, 0 = igual à E1): pedrisco graúdo visível, desgaste em manchas médias (óleo, borracha), malha de
-    fissuras finas — para o asfalto não ficar liso em plano próximo."""
-    chave = ("asfalto", cor, escala, desgaste, sujeira, umidade, detalhe)
+    fissuras finas — para o asfalto não ficar liso em plano próximo.
+    faixas_x: centros (x, m) das faixas de rolamento: mancha escura de óleo no meio de cada faixa (só pista reta ao longo de y)."""
+    chave = ("asfalto", cor, escala, desgaste, sujeira, umidade, detalhe, tuple(faixas_x))
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("asfalto"); v = t.coord("Object")
@@ -159,20 +160,37 @@ def asfalto(cor="#46464a", escala=1.0, desgaste=0.5, sujeira=0.4, umidade=0.0, d
     t.l(vor.outputs["Distance"], rach.inputs["Value"])
     base = t.mistura(base, lin("#141415"), rach.outputs["Result"])
     if detalhe > 0:
+        # o ruído do Blender fica quase sempre entre 0,3 e 0,7: as rampas abaixo são centradas nessa faixa
         pedra = t.ruido(v, 55 * escala, 1.0, 0.4)                                   # pedrisco graúdo, claro
-        base = t.mistura(base, _escurece(cor, 1.9), t.mat_valor(pedra, -1.9 * detalhe, 0.75 * detalhe))
+        base = t.mistura(base, _escurece(cor, 1.9), t.mat_valor(pedra, -3.3 * detalhe, 2.4 * detalhe))
         oleo = t.ruido(v, 0.45 * escala, 3.0, 0.6, distorcao=0.6)                    # manchas médias (óleo, borracha)
-        base = t.mistura(base, _escurece(cor, 0.55), t.mat_valor(oleo, -0.9 * detalhe, 0.55 * detalhe))
+        base = t.mistura(base, _escurece(cor, 0.42), t.mat_valor(oleo, -2.2 * detalhe, 2.2 * detalhe))
         claro = t.ruido(v, 0.8 * escala, 2.0, 0.5)                                   # asfalto lavado/ressecado (mais claro)
-        base = t.mistura(base, _escurece(cor, 1.35), t.mat_valor(claro, -0.9 * detalhe, 0.5 * detalhe))
+        base = t.mistura(base, _escurece(cor, 1.6), t.mat_valor(claro, -1.6 * detalhe, 1.6 * detalhe))
         vf = t.n("ShaderNodeTexVoronoi", feature="DISTANCE_TO_EDGE", Scale=1.6 * escala); t.l(v, vf.inputs["Vector"])
-        fis = t.n("ShaderNodeMapRange"); fis.inputs["From Min"].default_value = 0.0; fis.inputs["From Max"].default_value = 0.006
-        fis.inputs["To Min"].default_value = 0.55 * detalhe; fis.inputs["To Max"].default_value = 0.0
+        fis = t.n("ShaderNodeMapRange"); fis.inputs["From Min"].default_value = 0.0; fis.inputs["From Max"].default_value = 0.022
+        fis.inputs["To Min"].default_value = 0.85 * detalhe; fis.inputs["To Max"].default_value = 0.0
         t.l(vf.outputs["Distance"], fis.inputs["Value"])
         msk = t.ruido(v, 0.7 * escala, 2.0, 0.5)                                    # fissuras só em parte da pista
-        fm = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(fis.outputs["Result"], fm.inputs[0]); t.l(t.mat_valor(msk, -1.5, 2.0), fm.inputs[1])
+        fm = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(fis.outputs["Result"], fm.inputs[0]); t.l(t.mat_valor(msk, -3.3, 3.4), fm.inputs[1])
         fc = t.n("ShaderNodeClamp"); t.l(fm.outputs[0], fc.inputs["Value"])
         base = t.mistura(base, lin("#1a1a1c"), fc.outputs["Result"])
+        if faixas_x:   # óleo pingado no centro de cada faixa (faixa escura contínua, com falhas)
+            sx = t.n("ShaderNodeSeparateXYZ"); t.l(v, sx.inputs["Vector"]); soma = None
+            for xc in faixas_x:
+                d = t.n("ShaderNodeMath", operation="SUBTRACT"); t.l(sx.outputs["X"], d.inputs[0]); d.inputs[1].default_value = xc
+                a = t.n("ShaderNodeMath", operation="ABSOLUTE"); t.l(d.outputs[0], a.inputs[0])
+                b = t.n("ShaderNodeMapRange", interpolation_type="SMOOTHSTEP"); b.inputs["From Min"].default_value = 0.12
+                b.inputs["From Max"].default_value = 0.5; b.inputs["To Min"].default_value = 1.0; b.inputs["To Max"].default_value = 0.0
+                t.l(a.outputs[0], b.inputs["Value"])
+                if soma is None:
+                    soma = b.outputs["Result"]
+                else:
+                    mx_ = t.n("ShaderNodeMath", operation="MAXIMUM"); t.l(soma, mx_.inputs[0]); t.l(b.outputs["Result"], mx_.inputs[1]); soma = mx_.outputs[0]
+            fal = t.ruido(v, 0.9 * escala, 3.0, 0.6)
+            k = t.n("ShaderNodeMath", operation="MULTIPLY"); t.l(soma, k.inputs[0]); t.l(t.mat_valor(fal, -0.6 * detalhe, 1.6 * detalhe), k.inputs[1])
+            kc = t.n("ShaderNodeClamp"); t.l(k.outputs[0], kc.inputs["Value"])
+            base = t.mistura(base, _escurece(cor, 0.5), kc.outputs["Result"])
     if umidade > 0:
         _umidade(t, base, 0.88, umidade, v)
     else:
@@ -201,9 +219,9 @@ def concreto(cor="#a9a397", escala=1.0, desgaste=0.4, sujeira=0.3, placa_m=(1.0,
         base = t.mistura(base, _escurece(cor, 0.78), t.mat_valor(cel.outputs["Distance"], -0.2 * detalhe, 0.55 * detalhe))   # placa a placa
         base = t.mistura(base, _escurece(cor, 1.18), t.mat_valor(cel.outputs["Color"], -0.6 * detalhe, 0.6 * detalhe))
         gr = t.ruido(v, 70 * escala, 2.0, 0.7)                                       # granulado
-        base = t.mistura(base, _escurece(cor, 0.8), t.mat_valor(gr, -1.2 * detalhe, 0.6 * detalhe))
+        base = t.mistura(base, _escurece(cor, 0.8), t.mat_valor(gr, -0.8 * detalhe, 1.6 * detalhe))
         mc = t.ruido(v, 5.0 * escala, 3.0, 0.6)                                      # manchas pequenas (chiclete, goteira)
-        base = t.mistura(base, _escurece(cor, 0.62), t.mat_valor(mc, -2.4 * detalhe, 0.45 * detalhe))
+        base = t.mistura(base, _escurece(cor, 0.62), t.mat_valor(mc, -2.85 * detalhe, 1.75 * detalhe))
     base = t.sujeira_base(base, sujeira, 0.25)
     _umidade(t, base, 0.88, umidade, v)
     junta = t.n("ShaderNodeMath", operation="SUBTRACT"); junta.inputs[0].default_value = 1.0; t.l(br.outputs["Factor"], junta.inputs[1])

@@ -56,7 +56,8 @@ def _grupo(nome, objs, loc, rot_z, col):
 def rua_trecho(ctx, p, rng, col):
     y0, y1 = p["y0"], p["y1"]; Lp = p.get("largura_pista", 7.0); C = p.get("largura_calcada", 3.2); um = p.get("umidade", 0.0)
     m = _mats(um); nome = p.get("nome", f"trecho_{int(y0)}")
-    G.caixa(nome + "_pista", (-Lp / 2 + SARJ, y0, -0.05), (Lp / 2 - SARJ, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55), umidade=um, detalhe=p.get("detalhe_asfalto", 1.0)), col)
+    G.caixa(nome + "_pista", (-Lp / 2 + SARJ, y0, -0.05), (Lp / 2 - SARJ, y1, 0.0), M.asfalto(desgaste=p.get("desgaste", 0.55), umidade=um, detalhe=p.get("detalhe_asfalto", 1.0),
+                                                                           faixas_x=(-(Lp / 2 - SARJ) / 2, (Lp / 2 - SARJ) / 2)), col)
     for s in (-1, 1):
         xa, xb = sorted((s * (Lp / 2 - SARJ), s * Lp / 2))
         G.caixa(f"{nome}_sarjeta{s}", (xa, y0, -0.05), (xb, y1, 0.004), m["sarjeta"], col)
