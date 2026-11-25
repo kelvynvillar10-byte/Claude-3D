@@ -44,5 +44,13 @@ Cada teste tem `*_folha.jpg` (1 ciclo quadro a quadro) e `*_sobreposicao.png` (o
 6. **Blender CPU:** não afeta estes testes (personagem 2D, ~4 s para renderizar 100 quadros). Para levar o Heitor a um cenário 3D, segue valendo o plano da arquitetura: fundos estáticos do Blender em camadas e personagem no skia, com âncoras 3D → 2D.
 7. **Naturalidade:** as métricas garantem pé plantado, continuidade e oposição braço/perna. A avaliação de "natural" é visual e cabe ao diretor.
 
+## Adendo (F3): correção do escorço, autorizada pelo diretor
+A limitação 2 vinha, em parte, de um erro do rig: o osso filho herdava o escorço do pai. Corrigido em `esqueleto()`.
+- **Perfil:** métricas idênticas às aprovadas.
+- **Frente e costas:** o pé de apoio, descontada a profundidade intencional, parte de 0,22 H, igual ao perfil (antes partia de 0,234 a 0,264 H). O tênis não é mais achatado.
+- **Profundidade:** o pé mais perto da câmera aparece até 0,07 H mais baixo, simétrico em torno do chão.
+
+Vídeos e `f2_metricas.json` foram regenerados. Detalhes em `F3_RELATORIO.md`.
+
 ## Próxima fase (só com autorização): F3
 Mãos e gestos animados: dedos individuais em movimento (T4), segurar e soltar um objeto com IK do braço até o objeto (T5), acenar e apontar (T6), reações. Na F4: expressões animadas (T7), teste em cena (T8) e relatório final.

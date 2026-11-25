@@ -28,8 +28,8 @@
    "graus_por_quadro": 2.19
   },
   "pe_mais_baixo_H": [
-   0.253,
-   0.286
+   0.151,
+   0.246
   ]
  },
  "T2_caminhada_costas": {
@@ -42,8 +42,8 @@
    "graus_por_quadro": 2.19
   },
   "pe_mais_baixo_H": [
-   0.201,
-   0.322
+   0.189,
+   0.272
   ]
  },
  "T3_corrida_perfil": {

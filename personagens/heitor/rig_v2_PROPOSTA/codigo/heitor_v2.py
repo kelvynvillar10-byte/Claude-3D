@@ -121,17 +121,25 @@ def esqueleto(pose, vista):
     M["tronco"] = _rot(base, 0, 0, pose["tronco"])
     resp = 1 + 0.012 * pose.get("respira", 0.0)
     M["cabeca"] = _rot(M["tronco"], 0, PESCOCO_Y * resp, pose["cabeca"])
+    # ESCORÇO: o osso encurta no próprio eixo (escala y local) e o filho nasce na ponta ENCURTADA do pai,
+    # mas NÃO herda a escala do pai (cada osso tem só o próprio escorço; mão e pé nunca são achatados).
+    def filho(pai_sem_esc, esc_pai, comp_pai, ang, esc=1.0):
+        return _rot(pai_sem_esc, 0, comp_pai * esc_pai, ang, esc)
     for s in ("d", "e"):
         bx, ba = L[f"braco_{s}"]
-        M[f"braco_{s}"] = _rot(M["tronco"], bx, OMBRO_Y * resp, ba + pose[f"braco_{s}"], pose.get(f"esc_braco_{s}", 1.0))
-        M[f"antebraco_{s}"] = _rot(M[f"braco_{s}"], 0, OSS["braco"], pose[f"antebraco_{s}"], pose.get(f"esc_antebraco_{s}", 1.0))
-        ea = pose.get(f"esc_antebraco_{s}", 1.0)
-        M[f"mao_{s}"] = _rot(M[f"antebraco_{s}"], 0, OSS["antebraco"], pose[f"mao_{s}"], 1.0 / ea if ea else 1.0)
+        eb, ea = pose.get(f"esc_braco_{s}", 1.0), pose.get(f"esc_antebraco_{s}", 1.0)
+        b0 = _rot(M["tronco"], bx, OMBRO_Y * resp, ba + pose[f"braco_{s}"])
+        M[f"braco_{s}"] = _rot(M["tronco"], bx, OMBRO_Y * resp, ba + pose[f"braco_{s}"], eb)
+        a0 = filho(b0, eb, OSS["braco"], pose[f"antebraco_{s}"])
+        M[f"antebraco_{s}"] = filho(b0, eb, OSS["braco"], pose[f"antebraco_{s}"], ea)
+        M[f"mao_{s}"] = filho(a0, ea, OSS["antebraco"], pose[f"mao_{s}"])
         cx, ca = L[f"coxa_{s}"]
-        M[f"coxa_{s}"] = _rot(base, cx, 0.02 + pose.get(f"_prof_{s}", 0.0), ca + pose[f"coxa_{s}"], pose.get(f"esc_coxa_{s}", 1.0))
-        M[f"canela_{s}"] = _rot(M[f"coxa_{s}"], 0, OSS["coxa"], pose[f"canela_{s}"], pose.get(f"esc_canela_{s}", 1.0))
-        ec = pose.get(f"esc_canela_{s}", 1.0)
-        M[f"pe_{s}"] = _rot(M[f"canela_{s}"], 0, OSS["canela"], pose[f"pe_{s}"], 1.0 / ec if ec else 1.0)
+        ec_, ek = pose.get(f"esc_coxa_{s}", 1.0), pose.get(f"esc_canela_{s}", 1.0)
+        c0 = _rot(base, cx, 0.02 + pose.get(f"_prof_{s}", 0.0), ca + pose[f"coxa_{s}"])
+        M[f"coxa_{s}"] = _rot(base, cx, 0.02 + pose.get(f"_prof_{s}", 0.0), ca + pose[f"coxa_{s}"], ec_)
+        k0 = filho(c0, ec_, OSS["coxa"], pose[f"canela_{s}"])
+        M[f"canela_{s}"] = filho(c0, ec_, OSS["coxa"], pose[f"canela_{s}"], ek)
+        M[f"pe_{s}"] = filho(k0, ek, OSS["canela"], pose[f"pe_{s}"])
     return M
 
 

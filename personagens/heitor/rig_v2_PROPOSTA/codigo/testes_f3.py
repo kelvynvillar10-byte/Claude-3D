@@ -255,10 +255,10 @@ def t6b():
         # agachar (y>0): a pelve desce y e as pernas encurtam exatamente y (escorço do joelho que vem para a câmera),
         # então os pés ficam no chão. Pular (y<0): o corpo inteiro sobe (os pés saem do chão).
         pose["raiz"] = [0.0, max(0.0, y)]
-        if y > 0:   # só a canela encurta: no rig, a escala da coxa é herdada pela canela e pelo pé (ver relatório)
-            k = 1 - y / H.OSS["canela"]
+        if y > 0:   # coxa e canela encurtam por igual (escorço dos joelhos vindo para a câmera)
+            k = 1 - y / (H.OSS["coxa"] + H.OSS["canela"])
             for s in ("d", "e"):
-                pose[f"esc_canela_{s}"] = k
+                pose[f"esc_coxa_{s}"] = k; pose[f"esc_canela_{s}"] = k
         M = H.esqueleto(pose, vista); tz = M["pe_d"].mapXY(0, 0).y()   # tornozelo (mundo, H, y para baixo)
         if 0.86 <= tt <= 1.05:   # evento: "estouro" (desenho próprio)
             for i in range(12):
