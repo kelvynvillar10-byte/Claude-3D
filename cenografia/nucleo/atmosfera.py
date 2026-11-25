@@ -34,24 +34,35 @@ class Atmosfera:
         # linha do horizonte na placa (a câmera pode estar levemente inclinada)
         pitch = math.asin(max(-1.0, min(1.0, I["dir"][2]))); self.y_horiz = I["cy"] + I["f_px"] * math.tan(pitch)
         yy = np.arange(H, dtype=np.float32)[:, None]
-        sobe = np.clip((self.y_horiz - yy) / (0.55 * H), 0, 1)                       # 0 no horizonte → 1 no alto
+        # nuvens só acima do horizonte: some suavemente perto dele (névoa do horizonte) e cresce para o alto
+        sobe = np.clip((self.y_horiz - 0.04 * H - yy) / (0.30 * H), 0, 1); sobe = sobe * sobe * (3 - 2 * sobe)
         self.camadas = []
-        for k, (esc, ach, vel) in enumerate(((900, 3.2, deriva_px_s[0]), (620, 2.6, deriva_px_s[1]), (420, 2.0, deriva_px_s[2]))):
-            cob = self.c["cobertura"] * (0.85 + 0.1 * k)
+        for k, (esc, ach, vel) in enumerate(((900, 3.0, deriva_px_s[0]), (620, 2.4, deriva_px_s[1]), (420, 1.9, deriva_px_s[2]))):
+            cob = min(0.97, self.c["cobertura"] * (0.75 + 0.15 * k))
             d = C2.campo_nuvens(H, W, semente * 31 + k, escala_px=esc, cobertura=cob, achatamento=ach)
-            d = d * np.clip(sobe * 1.6 + 0.15 * k, 0, 1) ** 0.8
-            self.camadas.append((d.astype(np.float32), vel))
+            self.camadas.append(((d * sobe).astype(np.float32), vel))
         self.sol_tela = C2.direcao_sol_na_tela(I, placa.m.get("sol_dir", [0.6, 0.6, 0.3]))
         # nível de luz do céu (para as nuvens ficarem no mesmo "brilho" do céu renderizado)
-        L = placa.iluminar("ceu", placa.m["pesos_padrao"]); topo = L[: int(self.y_horiz * 0.8)]
+        # GANHO DO CÉU: o céu físico sai perto do teto do mapeamento de tons (lavado, sem cor). Ele é escurecido
+        # ~0,9 stop antes das nuvens — o céu ganha cor e as nuvens ganham contraste. Só o céu visto pela câmera muda
+        # (a luz que ele joga na cena continua a do render).
+        self.ganho_ceu = 0.55 if not placa.m.get("noite") else 1.0
+        L = placa.iluminar("ceu", placa.m["pesos_padrao"]) * self.ganho_ceu; topo = L[: int(self.y_horiz * 0.8)]
         self.ceu_medio = topo.reshape(-1, 3).mean(0).astype(np.float32) if topo.size else np.full(3, 0.5, np.float32)
         lum = float(self.ceu_medio @ np.array([0.2126, 0.7152, 0.0722], np.float32))
         sol_cor = hexlin({"manha": "#ffe2bf", "meio_dia": "#fff4e6", "tarde_dourada": "#ffc98a", "crepusculo": "#ff8a55", "noite": "#9fb4ff"}[self.preset])
-        cinza = np.full(3, lum, np.float32)
-        base_sombra = self.ceu_medio * (1 - self.c["ceu_cinza"]) + cinza * self.c["ceu_cinza"]
-        self.cor_luz = (sol_cor * lum * (1.9 if not self.noite else 1.3) * (0.55 + 0.45 * self.c["sol"])).astype(np.float32)
-        self.cor_sombra = (base_sombra * (0.82 if self.clima in ("limpo",) else 0.7)).astype(np.float32)
-        self.cor_borda = (sol_cor * lum * 1.2 * self.c["sol"]).astype(np.float32)
+        roxo = np.array([0.62, 0.58, 0.85], np.float32)                     # sombras roxo-azuladas (alvo do skill)
+        cinza = self.c["ceu_cinza"]; sol = self.c["sol"]
+        # O céu já está perto do teto do mapeamento de tons: a nuvem só "lê" se o miolo for BEM mais escuro que o céu
+        # (≈ 30–45 % dele) e o lado do sol um pouco mais claro e quente.
+        self.cor_luz = (self.ceu_medio * 0.5 + sol_cor * lum * (1.1 if not self.noite else 0.5) * (0.4 + 0.6 * sol)).astype(np.float32)
+        sombra_ceu = (self.ceu_medio * 0.42 + roxo * lum * 0.18)
+        self.cor_sombra = (sombra_ceu * (1 - cinza) + np.full(3, lum * 0.42, np.float32) * cinza).astype(np.float32)
+        if self.noite:
+            self.cor_sombra = (self.ceu_medio * 0.55).astype(np.float32)
+        self.cor_borda = (sol_cor * lum * 0.9 * sol * (1 - cinza)).astype(np.float32)
+        if cinza > 0.3:   # encoberto: o "teto" de nuvens é cinza e mais escuro que o céu; o lado iluminado, cinza-claro
+            self.cor_luz = (np.full(3, lum * 0.78, np.float32) * cinza + self.cor_luz * (1 - cinza)).astype(np.float32)
         if self.noite:
             self.estrelas_cache = None
 
@@ -79,7 +90,7 @@ class Atmosfera:
     # ------------------------------------------------------------------ céu (nuvens, lua, estrelas)
     def ceu(self, t):
         def aplicar(L):
-            H, W = L.shape[:2]; out = L
+            H, W = L.shape[:2]; out = L * self.ganho_ceu
             if self.noite:
                 if self.estrelas_cache is None or abs(self.estrelas_cache[0] - t) > 1e-6:
                     est = C2.estrelas(H, W, self.semente + 7, t=t) * (1 - min(1.0, self.c["cobertura"] * 1.1))

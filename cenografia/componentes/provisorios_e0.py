@@ -84,9 +84,9 @@ def poste(ctx, p, rng, col):
     ponta = (x + lado * 1.3, y, alt + 0.05)
     G.cilindro_eixo(f"poste_braco_{x}_{y}", (x, y, alt - 0.1), ponta, 0.045, metal, col)
     G.caixa(f"poste_lum_{x}_{y}", (ponta[0] - 0.28, y - 0.14, alt - 0.08), (ponta[0] + 0.28, y + 0.14, alt + 0.06), metal, col, chanfro=0.02)
-    lamp = G.caixa(f"poste_lamp_{x}_{y}", (ponta[0] - 0.22, y - 0.1, alt - 0.1), (ponta[0] + 0.22, y + 0.1, alt - 0.08), M.emissor("#ffd8a0", 18.0), col)
+    lamp = G.caixa(f"poste_lamp_{x}_{y}", (ponta[0] - 0.22, y - 0.1, alt - 0.1), (ponta[0] + 0.22, y + 0.1, alt - 0.08), M.emissor("#ffe8c8", 18.0), col)
     lamp.lightgroup = "artificial"
-    L.luz_ponto(f"poste_luz_{x}_{y}", (ponta[0], y, alt - 0.2), p.get("watts", 650), "#ffcf96", "artificial", raio=0.15,
+    L.luz_ponto(f"poste_luz_{x}_{y}", (ponta[0], y, alt - 0.2), p.get("watts", 650), "#ffe3bd", "artificial", raio=0.15,
                 tipo="SPOT", alvo=(ponta[0], y, 0), angulo=120)
 
 

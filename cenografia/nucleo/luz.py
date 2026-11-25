@@ -24,10 +24,10 @@ PRESETS = {
     "manha": dict(sol_elev=20.0, sol_azim=-135.0, sol_forca=4.4, sol_cor="#ffe2bf", sol_raio=0.9,
                   ceu_forca=0.5, ar=1.0, aerosol=1.4, ozonio=1.0, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 0.0, "efeito": 0.0}),
     "crepusculo": dict(sol_elev=1.5, sol_azim=60.0, sol_forca=1.6, sol_cor="#ff7a45", sol_raio=1.5, ceu_elev=-1.2,
-                       ceu_forca=1.6, ar=1.0, aerosol=3.0, ozonio=1.2, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 1.0, "efeito": 0.0}),
+                       ceu_forca=1.05, ar=1.0, aerosol=3.0, ozonio=1.2, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 1.0, "efeito": 0.0}),
     # noite: céu em degradê azul-escuro (o céu físico fica preto abaixo do horizonte) + LUA como luz direcional fria
     "noite": dict(sol_elev=38.0, sol_azim=-40.0, sol_forca=0.22, sol_cor="#9fb4ff", sol_raio=0.6, noite=True,
-                  ceu_cor_alto="#06102a", ceu_cor_horizonte="#1d2d55", ceu_forca=0.9, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 1.4, "efeito": 0.0}),
+                  ceu_cor_alto="#06102a", ceu_cor_horizonte="#1d2d55", ceu_forca=0.9, pesos={"ceu": 1.0, "sol": 1.0, "artificial": 0.9, "efeito": 0.0}),
 }
 
 

@@ -7,7 +7,13 @@
   "altura": 1920,
   "overscan": 0.25,
   "amostras": 64,
-  "amostras_por_camada": {}
+  "amostras_por_camada": {
+   "ceu": 4,
+   "longe": 16,
+   "meio": 24,
+   "perto": 24,
+   "frente": 16
+  }
  },
  "camera": {
   "pos": [

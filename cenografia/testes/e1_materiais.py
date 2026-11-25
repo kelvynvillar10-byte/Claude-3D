@@ -35,8 +35,8 @@ def render(amostras=64, lado_px=1600):
     for i, (_, nome, params) in enumerate(AMOSTRAS):
         c, l = i % COLS, i // COLS
         x = (c - (COLS - 1) / 2) * PASSO; z = ((LIN - 1) / 2 - l) * PASSO + 2.0
-        o = G.caixa(f"amostra_{i}", (x - PAINEL / 2, -0.04, z - PAINEL / 2), (x + PAINEL / 2, 0.04, z + PAINEL / 2), M.por_nome(nome, **params), col, chanfro=0.025)
-        o.rotation_euler = (math.radians(-18), 0, 0)
+        o = G.caixa(f"amostra_{i}", (-PAINEL / 2, -0.04, -PAINEL / 2), (PAINEL / 2, 0.04, PAINEL / 2), M.por_nome(nome, **params), col, chanfro=0.025)
+        o.location = (x, 0.0, z); o.rotation_euler = (math.radians(-18), 0, 0)   # gira em torno do centro do painel
     G.caixa("fundo", (-4, 0.6, -1), (4, 0.7, 5), M.pintura("#2b2f38", rug=0.9), col)
     L.ceu_e_sol("tarde_dourada")
     camd = bpy.data.cameras.new("cam"); camd.lens = 85; camd.sensor_fit = "VERTICAL"; camd.sensor_height = 24
@@ -64,8 +64,8 @@ def medir_e_rotular(centros, lado_px):
         rec = img[int(cy) - meio:int(cy) + meio, int(cx) - meio:int(cx) + meio]
         hsv = cv2.cvtColor(rec, cv2.COLOR_RGB2HSV); g = cv2.cvtColor(rec, cv2.COLOR_RGB2GRAY).astype(np.float32)
         detalhe = float(cv2.Laplacian(g, cv2.CV_32F).std())
-        res[rot] = {"saturacao_pct": round(100 * hsv[..., 1].mean() / 255, 1), "brilho_pct": round(100 * g.mean() / 255, 1),
-                    "variacao_luminancia_pct": round(100 * g.std() / 255, 1), "detalhe_laplaciano": round(detalhe, 1)}
+        res[rot] = {"saturacao_pct": round(float(100 * hsv[..., 1].mean() / 255), 1), "brilho_pct": round(float(100 * g.mean() / 255), 1),
+                    "variacao_luminancia_pct": round(float(100 * g.std() / 255), 1), "detalhe_laplaciano": round(detalhe, 1)}
     a = np.dstack([img, np.full(img.shape[:2], 255, np.uint8)]).copy(); s = skia.Surface(a); c = s.getCanvas()
     f = skia.Font(skia.Typeface.MakeFromFile(str(RAIZ / "assets/fontes/Nunito-ExtraBold.ttf")), 26)
     for (rot, _, _), (cx, cy) in zip(AMOSTRAS, centros):

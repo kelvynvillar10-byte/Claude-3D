@@ -1,0 +1,101 @@
+{
+ "render_s": 119.8,
+ "amostras": {
+  "asfalto": {
+   "saturacao_pct": 44.6,
+   "brilho_pct": 22.0,
+   "variacao_luminancia_pct": 1.0,
+   "detalhe_laplaciano": 7.3
+  },
+  "asfalto molhado": {
+   "saturacao_pct": 51.1,
+   "brilho_pct": 20.6,
+   "variacao_luminancia_pct": 1.6,
+   "detalhe_laplaciano": 5.2
+  },
+  "concreto (placas)": {
+   "saturacao_pct": 22.6,
+   "brilho_pct": 49.7,
+   "variacao_luminancia_pct": 3.6,
+   "detalhe_laplaciano": 4.3
+  },
+  "calçada portuguesa": {
+   "saturacao_pct": 22.6,
+   "brilho_pct": 52.1,
+   "variacao_luminancia_pct": 15.8,
+   "detalhe_laplaciano": 23.0
+  },
+  "ladrilho hidráulico": {
+   "saturacao_pct": 27.8,
+   "brilho_pct": 50.5,
+   "variacao_luminancia_pct": 14.7,
+   "detalhe_laplaciano": 17.6
+  },
+  "reboco amarelo-ocre": {
+   "saturacao_pct": 65.1,
+   "brilho_pct": 46.3,
+   "variacao_luminancia_pct": 1.2,
+   "detalhe_laplaciano": 2.0
+  },
+  "reboco verde-água": {
+   "saturacao_pct": 60.9,
+   "brilho_pct": 43.5,
+   "variacao_luminancia_pct": 1.3,
+   "detalhe_laplaciano": 2.1
+  },
+  "tijolo à vista": {
+   "saturacao_pct": 32.2,
+   "brilho_pct": 33.9,
+   "variacao_luminancia_pct": 11.1,
+   "detalhe_laplaciano": 24.9
+  },
+  "pastilha": {
+   "saturacao_pct": 48.8,
+   "brilho_pct": 51.3,
+   "variacao_luminancia_pct": 5.6,
+   "detalhe_laplaciano": 22.6
+  },
+  "azulejo": {
+   "saturacao_pct": 16.3,
+   "brilho_pct": 65.7,
+   "variacao_luminancia_pct": 1.5,
+   "detalhe_laplaciano": 3.6
+  },
+  "telha cerâmica": {
+   "saturacao_pct": 51.4,
+   "brilho_pct": 27.7,
+   "variacao_luminancia_pct": 2.6,
+   "detalhe_laplaciano": 3.3
+  },
+  "concreto aparente": {
+   "saturacao_pct": 28.0,
+   "brilho_pct": 44.3,
+   "variacao_luminancia_pct": 1.4,
+   "detalhe_laplaciano": 2.7
+  },
+  "metal + ferrugem": {
+   "saturacao_pct": 57.9,
+   "brilho_pct": 28.8,
+   "variacao_luminancia_pct": 3.1,
+   "detalhe_laplaciano": 4.3
+  },
+  "madeira pintada": {
+   "saturacao_pct": 47.7,
+   "brilho_pct": 35.4,
+   "variacao_luminancia_pct": 1.2,
+   "detalhe_laplaciano": 2.3
+  },
+  "grama": {
+   "saturacao_pct": 47.5,
+   "brilho_pct": 30.8,
+   "variacao_luminancia_pct": 1.8,
+   "detalhe_laplaciano": 7.8
+  },
+  "folhagem": {
+   "saturacao_pct": 45.5,
+   "brilho_pct": 28.7,
+   "variacao_luminancia_pct": 1.6,
+   "detalhe_laplaciano": 3.1
+  }
+ }
+}

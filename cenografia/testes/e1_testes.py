@@ -27,9 +27,9 @@ REC = RAIZ / "cenografia" / "receitas" / "e1_calcada.json"
 HORARIOS = ["manha", "meio_dia", "tarde_dourada", "crepusculo", "noite"]
 NOMES_H = {"manha": "manhã", "meio_dia": "meio-dia", "tarde_dourada": "tarde dourada", "crepusculo": "crepúsculo", "noite": "noite"}
 CLIMAS_ORD = ["limpo", "nublado", "neblina", "chuva"]
-AMOSTRAS_CAMADA = None      # definido pelo experimento de amostras (ver relatório); None = usa o valor da receita
+AMOSTRAS_CAMADA = None      # a receita já traz as amostras por camada escolhidas no experimento (A: 4/16/24/24/16)
 GRADE = dict(T0.GRADE)
-EXPOSICAO = {"manha": -0.55, "meio_dia": -0.75, "tarde_dourada": -0.6, "crepusculo": -0.2, "noite": 0.6}
+EXPOSICAO = {"manha": -0.55, "meio_dia": -0.75, "tarde_dourada": -0.6, "crepusculo": -0.35, "noite": 0.0}
 FPS = 30; W, H = 1080, 1920
 res = {}
 

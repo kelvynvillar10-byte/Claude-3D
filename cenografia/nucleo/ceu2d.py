@@ -29,30 +29,39 @@ def fbm(h, w, escala_px, oitavas, rng, rug=0.55):
 
 
 def campo_nuvens(h, w, semente, escala_px=520.0, cobertura=0.45, achatamento=2.4, distorcao=0.35):
-    """Densidade 0–1 de nuvens (estilizadas: bordas definidas, miolo macio). Mais 'cumulus' com cobertura baixa."""
+    """Densidade 0–1 de nuvens estilizadas tipo cumulus: corpo de baixa frequência + bordas 'fofas' (ruído
+    ondulado de alta frequência que recorta o contorno), achatadas na vertical (perspectiva do céu: o campo é
+    gerado 'achatamento' vezes mais alto e comprimido para a altura do quadro)."""
     rng = np.random.default_rng(semente)
-    hh = int(h / achatamento) + 8                                 # nuvens achatadas na vertical (perspectiva do céu)
-    wx = fbm(hh, w, escala_px * 0.6, 3, rng); wy = fbm(hh, w, escala_px * 0.6, 3, rng)
-    base = fbm(hh, w, escala_px, 5, rng)
-    xx, yy = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(hh, dtype=np.float32))
-    d = cv2.remap(base, xx + (wx - 0.5) * escala_px * distorcao, yy + (wy - 0.5) * escala_px * distorcao * 0.5,
-                  cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-    limiar = 1.0 - cobertura
-    d = np.clip((d - limiar * 0.62 - 0.19) / 0.16, 0, 1)
-    d = d * d * (3 - 2 * d)
-    return cv2.resize(d, (w, h), interpolation=cv2.INTER_CUBIC)
+    hh = int(h * achatamento / 4) + 8; ww = int(w / 4) + 8          # gera em 1/4 da resolução (rápido) e amplia
+    e = escala_px / 4
+    wx = fbm(hh, ww, e * 0.7, 3, rng); wy = fbm(hh, ww, e * 0.7, 3, rng)
+    corpo = fbm(hh, ww, e, 4, rng, rug=0.5)
+    fofo = np.abs(fbm(hh, ww, e * 0.22, 3, rng, rug=0.6) * 2 - 1)    # "billow": ondas arredondadas
+    xx, yy = np.meshgrid(np.arange(ww, dtype=np.float32), np.arange(hh, dtype=np.float32))
+    d = cv2.remap(corpo, xx + (wx - 0.5) * e * distorcao, yy + (wy - 0.5) * e * distorcao * 0.5, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    d = d - 0.22 * fofo
+    # limiar pelo PERCENTIL: a fração de céu coberta é a pedida, qualquer que seja a estatística do ruído
+    lim = float(np.quantile(d, 1.0 - cobertura)); faixa = max(1e-3, float(np.std(d)) * 0.35)
+    d = np.clip((d - lim) / faixa, 0, 1); d = d * d * (3 - 2 * d)
+    return cv2.resize(d, (w, h), interpolation=cv2.INTER_CUBIC).clip(0, 1)
 
 
-def iluminar_nuvens(dens, sol_tela_dir, cor_luz, cor_sombra, cor_borda, espessura_px=28.0):
-    """Lado virado para o sol mais claro (diferença de densidade deslocada), miolo na cor de sombra, borda fina
-    contra o sol com 'prata' (luz atravessando a borda)."""
+def iluminar_nuvens(dens, sol_tela_dir, cor_luz, cor_sombra, cor_borda, espessura_px=60.0):
+    """Volume estilizado: a densidade BORRADA é tratada como altura; o lado virado para o sol (gradiente) fica claro,
+    o miolo e a base ficam na cor de sombra; borda fina 'prateada' onde a nuvem é rala."""
     dx, dy = sol_tela_dir
+    sig = max(2.0, espessura_px / 3)
+    alt = cv2.GaussianBlur(dens, (0, 0), sig)
     M = np.float32([[1, 0, dx * espessura_px], [0, 1, dy * espessura_px]])
-    deslocada = cv2.warpAffine(dens, M, (dens.shape[1], dens.shape[0]), borderMode=cv2.BORDER_REFLECT)
-    luz = np.clip(dens - deslocada + 0.55, 0, 1)[..., None]
-    borda = np.clip(dens * (1 - dens) * 4, 0, 1)[..., None]
-    cor = cor_sombra * (1 - luz) + cor_luz * luz
-    cor = cor + cor_borda * borda * 0.6
+    deslocada = cv2.warpAffine(alt, M, (dens.shape[1], dens.shape[0]), borderMode=cv2.BORDER_REFLECT)
+    luz = np.clip((alt - deslocada) * 3.0 + 0.35, 0, 1)
+    base = np.clip(1.0 - alt * 1.25, 0, 1) * 0.35                    # base mais escura (nuvem "pesada" embaixo)
+    luz = np.clip(luz - base * 0.5, 0, 1)
+    luz = np.maximum(luz, np.clip(1 - dens * 1.6, 0, 1) * 0.85)[..., None]   # nuvem rala deixa a luz passar: borda clara
+    luz = luz * luz * (3 - 2 * luz)
+    borda = np.clip(dens * (1 - dens) * 4, 0, 1)[..., None] * 0.35
+    cor = cor_sombra * (1 - luz) + cor_luz * luz + cor_borda * borda
     return cor.astype(np.float32), dens.astype(np.float32)
 
 
@@ -99,10 +108,10 @@ def chuva(h, w, semente, t, intensidade=1.0, vento=0.18, profundidades=((0.25, 0
     rng = np.random.default_rng(semente); img = np.zeros((h, w), np.float32)
     for esc, bri, n in profundidades:
         n = int(n * intensidade)
-        x0 = rng.random(n) * w; y0 = rng.random(n) * h; vel = (2600 + rng.random(n) * 900) * esc
+        x0 = rng.random(n) * w; y0 = rng.random(n) * h; vel = (2600 + rng.random(n) * 900) * esc * h / 2400
         comp = vel / 48.0; y = (y0 + vel * t) % (h + comp) - comp; x = (x0 + vel * vento * t) % w
-        esp = max(1, int(round(2.2 * esc)))
+        esp = max(1, int(round(1.6 * esc * h / 2400)))
         for xi, yi, ci in zip(x, y, comp):
-            cv2.line(img, (int(xi), int(yi)), (int(xi + ci * vento), int(yi + ci)), float(bri) * 0.35, esp, cv2.LINE_AA)
+            cv2.line(img, (int(xi), int(yi)), (int(xi + ci * vento), int(yi + ci)), float(bri) * 0.22, esp, cv2.LINE_AA)
     img = cv2.GaussianBlur(img, (0, 0), 0.7)
     return img[..., None] * np.array([0.8, 0.85, 0.95], np.float32), np.clip(img * 1.6, 0, 0.8)
