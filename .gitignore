@@ -1,0 +1,9 @@
+# ambiente local (recriado por ambiente/instalar.sh)
+.venv/
+__pycache__/
+*.pyc
+# saídas temporárias de render e teste
+_tmp/
+renders/
+producoes/*/planos/
+producoes/*/_cache/

@@ -1,0 +1,5 @@
+# Só ambiente/ e assets/fontes/ entram na imagem; o resto é montado em /studio.
+*
+!ambiente/
+!assets/fontes/
+ambiente/docker/certs/*.crt.bak

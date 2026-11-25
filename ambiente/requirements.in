@@ -1,0 +1,10 @@
+# Dependências diretas (entrada para "uv pip compile").
+numpy
+pillow
+scipy
+opencv-python-headless
+rapidocr-onnxruntime
+librosa
+skia-python==144.1
+bpy==5.3.0
+fonttools

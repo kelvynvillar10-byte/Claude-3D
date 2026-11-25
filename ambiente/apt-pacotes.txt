@@ -1,0 +1,24 @@
+# Pacotes de sistema (Ubuntu 24.04). Um por linha. Versões exatas registradas em VERSOES.md.
+ffmpeg
+git
+git-lfs
+curl
+ca-certificates
+python3-pip
+# bibliotecas gráficas exigidas por skia-python e bpy (Blender) sem GPU
+libegl1
+libgl1
+libgles2
+libglx-mesa0
+libgomp1
+libxi6
+libxxf86vm1
+libxfixes3
+libxrender1
+libxkbcommon0
+libsm6
+libice6
+libx11-6
+libxext6
+libfontconfig1
+libfreetype6

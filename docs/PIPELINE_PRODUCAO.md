@@ -164,6 +164,8 @@ Observação: hoje os 13 MP4 (~190 MB) estão versionados direto no Git, na raiz
 
 ## 14. Ferramentas: o que existe neste ambiente (verificado)
 
+> **Atualização de 25/11/2026:** o ambiente agora é reproduzível e versionado em `ambiente/` (instalação, versões exatas, verificação, restauração) e no `Dockerfile`. Versões atuais em `ambiente/VERSOES.md`. A tabela abaixo é o levantamento original da Etapa 1. O Python do projeto passou a ser o 3.13.14 gerenciado pelo uv, num ambiente virtual `.venv`.
+
 | Ferramenta | Situação |
 |---|---|
 | FFmpeg / FFprobe 6.1.1 | Disponível. Decodifica H.264 e HEVC dos 13 MP4. |
@@ -221,7 +223,7 @@ Princípio: **tudo vem de arquivos de dados versionados** (roteiro, linha do tem
 **Restrição decisiva: não há GPU neste ambiente** (nenhum `/dev/dri`, nenhuma placa NVIDIA). Por isso:
 - **o Blender não renderiza animação quadro a quadro.** Ele renderiza **um fundo estático por plano**, maior que a tela e separado em 2–3 camadas de profundidade (fundo, meio, primeiro plano);
 - o movimento de câmera é feito no compositor, como transformação 2D dessas camadas, com paralaxe entre elas. Isso reproduz o que as referências fazem: push-in lento em 74 % dos planos, pan, tilt, crash-zoom;
-- EEVEE (o motor rápido do Blender) precisa de GPU/OpenGL e não está previsto. Se o teste mostrar que funciona em modo software, ele vira opção.
+- EEVEE (o motor rápido do Blender) **funciona em modo software** neste ambiente, mas é lento: 51 s numa cena mínima, contra ~1 s do Cycles. Fica fora do pipeline, salvo se o teste técnico mostrar vantagem em cenas reais.
 
 **Alternativa descartada:** render 3D completo da animação (personagens 3D). É lento demais sem GPU (estimativa: horas por vídeo) e se afasta do estilo 2D chapado definido no Manual de Direção de Arte.
 
@@ -287,9 +289,9 @@ Princípio: **tudo vem de arquivos de dados versionados** (roteiro, linha do tem
 | FFmpeg 6.1.1 | Local | Codificação, mixagem, loudness, análise | Instalado |
 | Python 3.13, NumPy, Pillow | Local | Compositor, scripts | Instalados |
 | OpenCV, RapidOCR, librosa | Local (pip) | QA automático (câmera, legendas, voz) | Instalados nesta sessão |
-| skia-python 144.1 | Local (pip) | Render 2D (personagens, inserts, rótulos, legendas, composição) | Compatível (verificado); a instalar |
-| bpy 5.3.0 (Blender) | Local (pip) | Render 3D dos cenários | Compatível (verificado); a instalar e testar |
-| Fontes Roboto Condensed e Nunito | Arquivos (licença OFL) | Legenda, marca d'água, estampa, rótulos | **Não instaladas**; baixar do Google Fonts ou do GitHub e versionar em `assets/fontes/` |
+| skia-python 144.1 | Local (pip) | Render 2D (personagens, inserts, rótulos, legendas, composição) | **Instalado e testado** (25/11/2026) |
+| bpy 5.3.0 (Blender) | Local (pip) | Render 3D dos cenários | **Instalado e testado**: Cycles CPU em ~1 s numa cena mínima de 270×480 |
+| Fontes Roboto Condensed e Nunito | Arquivos (licença OFL) | Legenda, marca d'água, estampa, rótulos | **Versionadas** em `assets/fontes/`, com instâncias estáticas ExtraBold (800) e hashes |
 | ElevenLabs API (Voice Design + TTS com tempos) | **Serviço externo pago** | Voz oficial e tempos de palavra | Exige plano pago, chave de API e liberar `api.elevenlabs.io` na rede |
 | Modelos 3D CC0 (Kenney, Quaternius, Poly Haven) | Download externo, gratuito | Objetos de cenário | Exige liberar esses hosts |
 | Biblioteca de SFX e música licenciada | Externo (gratuito ou pago) | Efeitos e trilha | **A decidir**. Precisa de licença válida para redes sociais, registrada por arquivo |
