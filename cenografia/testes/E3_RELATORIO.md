@@ -1,6 +1,6 @@
 # Relatório da etapa E3 — prédios
 
-25/11/2026 · Autorizada pelo diretor junto com a aprovação da E2 ("Autorizado"). **Aguardando avaliação do diretor. A E4 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25/11/2026 · Autorizada pelo diretor junto com a aprovação da E2 ("Autorizado"). **E3 APROVADA pelo diretor em 25/11/2026; E4 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Escopo do plano aprovado: "Fachadas em 3 estilos; folha com variações por semente". A gramática de fachada segue a seção 2.4 da proposta: térreo comercial, andares, extras e topo.
 

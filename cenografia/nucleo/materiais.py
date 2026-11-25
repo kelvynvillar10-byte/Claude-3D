@@ -564,12 +564,39 @@ def listrado(cor_a="#c8382f", cor_b="#f1e9d8", largura_m=0.25, desgaste=0.3):
     return _guardar(chave, t.m)
 
 
+def pintura_automotiva(cor="#c8c8c8", metal=0.45, sujeira=0.3):
+    """E4: pintura de carro — base metálica + verniz (coat) brilhante, com poeira embaixo e leve variação."""
+    chave = ("pintura_automotiva", cor, metal, sujeira)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("pintura_automotiva"); v = t.coord("Object")
+    var = t.ruido(v, 2.0, 3.0, 0.5)
+    base = t.mistura(lin(cor), _escurece(cor, 0.9), t.mat_valor(var, -0.5, 0.6))
+    base = t.sujeira_base(base, sujeira, 0.55)
+    t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Metallic"].default_value = metal
+    t.b.inputs["Roughness"].default_value = 0.38
+    t.b.inputs["Coat Weight"].default_value = 1.0; t.b.inputs["Coat Roughness"].default_value = 0.06
+    return _guardar(chave, t.m)
+
+
+def lente(cor="#f4f2ec", forca=0.0):
+    """E4: lente de farol/lanterna — vidro colorido brilhante; com forca > 0 acende (use o grupo de luz 'artificial')."""
+    chave = ("lente", cor, forca)
+    if chave in _CACHE:
+        return _CACHE[chave]
+    t = _NT("lente"); t.b.inputs["Base Color"].default_value = lin(cor)
+    t.b.inputs["Roughness"].default_value = 0.08; t.b.inputs["Coat Weight"].default_value = 1.0
+    if forca > 0:
+        t.b.inputs["Emission Color"].default_value = lin(cor); t.b.inputs["Emission Strength"].default_value = forca
+    return _guardar(chave, t.m)
+
+
 CATALOGO = {"asfalto": asfalto, "concreto": concreto, "reboco": reboco, "tijolo": tijolo, "pintura": pintura, "vidro": vidro,
             "emissor": emissor, "borracha": borracha, "folhagem": folhagem, "terra": terra,
             "calcada_portuguesa": calcada_portuguesa, "ladrilho_hidraulico": ladrilho_hidraulico, "pastilha": pastilha,
             "azulejo": azulejo, "telha_ceramica": telha_ceramica, "concreto_aparente": concreto_aparente,
             "metal_ferrugem": metal_ferrugem, "madeira": madeira, "grama": grama,
-            "chapa_ondulada": chapa_ondulada, "listrado": listrado}
+            "chapa_ondulada": chapa_ondulada, "listrado": listrado, "pintura_automotiva": pintura_automotiva, "lente": lente}
 
 
 def por_nome(nome, **params):
