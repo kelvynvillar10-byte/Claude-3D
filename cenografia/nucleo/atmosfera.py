@@ -84,9 +84,16 @@ class Atmosfera:
         if self.clima in ("nublado", "chuva", "neblina") and not self.noite:
             cor = "#c9ced6" if self.clima != "neblina" else "#e6e8ea"
         lum_h = float(self.horizonte @ np.array([0.2126, 0.7152, 0.0722], np.float32))
+        # de dia o horizonte é muito mais claro que a cena: a névoa usa a COR do horizonte com brilho limitado a um
+        # nível de cena (senão o quadro inteiro lava); de noite/crepúsculo (céu escuro) vale o brilho real do horizonte
+        teto = 0.75
+        if lum_h > teto:
+            self_h = self.horizonte * (teto / lum_h); lum_h = teto
+        else:
+            self_h = self.horizonte
         tinta = hexlin(cor); tinta = tinta / max(1e-4, float(tinta @ np.array([0.2126, 0.7152, 0.0722], np.float32)))
         mistura = 0.35 if self.clima == "limpo" else 0.6                     # quanto do tom do clima entra
-        cor_lin = (self.horizonte * (1 - mistura) + tinta * lum_h * mistura).astype(np.float32)
+        cor_lin = (self_h * (1 - mistura) + tinta * lum_h * mistura).astype(np.float32)
         return {"cor": [float(x) for x in cor_lin], "densidade": dens * self.c["nevoa_mult"], "forca": 1.0}
 
     def grade(self, g):
