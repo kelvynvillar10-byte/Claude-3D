@@ -1,0 +1,30 @@
+{
+ "E2_2_folha_componentes": {
+  "cache": "MISS",
+  "render_total_s": 60.73,
+  "objetos": 170,
+  "qa_cena": {
+   "nada_flutuando": {
+    "malhas_verificadas": 112,
+    "flutuando": []
+   },
+   "textos": [
+    "214",
+    "215",
+    "30",
+    "R. DAS JABUTICABAS",
+    "R. VAGALUME"
+   ],
+   "medidas": {
+    "poste_": {
+     "objeto": "poste_a_-3.95_0.6",
+     "dx": 0.3,
+     "dy": 0.2,
+     "dz": 9.35,
+     "z_topo": 9.5
+    }
+   }
+  },
+  "_duracao_teste_s": 62.5
+ }
+}

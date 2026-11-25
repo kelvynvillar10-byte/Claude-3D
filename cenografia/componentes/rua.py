@@ -133,16 +133,26 @@ def rua_trecho(ctx, p, rng, col):
                 for b in range(7):
                     G.caixa(f"{nome}_grelha{s}_{int(yb)}_{b}", (xg0, yb + 0.04 + b * 0.14, 0.0), (xg1, yb + 0.1 + b * 0.14, 0.006), m["ferro"], col)
             yb += rng.uniform(18, 28)
-        # folhas secas e mato nas juntas
+        # folhas secas e mato nas juntas — apoiados na superfície real (pista, meio-fio rebaixado ou rampa da garagem)
+        def z_sup(xf, yf):
+            d = abs(xf) - Lp / 2
+            if d < 0:
+                return 0.0
+            if any(g0 <= yf <= g1 for g0, g1 in rebaixos):
+                if d < MF:
+                    return 0.03
+                if d < MF + 0.6:
+                    return 0.03 + (H_CALC - 0.03) * (d - MF) / 0.6
+            return H_CALC
         for i in range(p.get("folhas", 50)):
             xf = s * (Lp / 2 + rng.uniform(-0.25, MF + C * 0.8)); yf = rng.uniform(y0, y1)
-            zf = 0.005 if abs(xf) < Lp / 2 else H_CALC + 0.002
+            zf = z_sup(xf, yf) + (0.005 if abs(xf) < Lp / 2 else 0.002)
             o = G.caixa(f"{nome}_folha{s}_{i}", (-0.04, -0.025, 0.0), (0.04, 0.025, 0.002), rng.choice([m["folha"], m["folha2"]]), col)
             o.location = (xf, yf, zf); o.rotation_euler = (0, 0, rng.uniform(0, 6.28))   # gira em torno do próprio centro
         for i in range(p.get("mato", 10)):
             yf = rng.uniform(y0, y1); xf = s * (Lp / 2 + MF + rng.uniform(0.0, 0.05))
             o = G.esfera(f"{nome}_mato{s}_{i}", (0, 0, 0), rng.uniform(0.04, 0.09), m["mato"], col, sub=2)
-            o.location = (xf, yf, H_CALC + 0.01); o.scale = (1.0, 1.0, rng.uniform(0.5, 1.1))
+            o.location = (xf, yf, z_sup(xf, yf) + 0.01); o.scale = (1.0, 1.0, rng.uniform(0.5, 1.1))
 
 
 # ------------------------------------------------------------------ cruzamento

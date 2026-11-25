@@ -36,6 +36,8 @@ receita JSON ──► construir.py ──► Blender (Cycles CPU) ──► PLA
 | **E1 · horários** | `nucleo/luz.py` | manhã, meio-dia, tarde dourada, crepúsculo, noite (céu em degradê + lua como luz fria). Cada horário é uma placa (o sol muda de lugar) |
 | **E1 · céu e clima** | `nucleo/ceu2d.py`, `nucleo/atmosfera.py` | Nuvens 2D em 3 camadas com deriva e luz do sol; lua com fase; estrelas; chuva em 3 profundidades. Climas: limpo, nublado, neblina, chuva (chuva usa a placa com piso molhado) |
 | **E1 · tempo de render** | `construir.py` (`amostras_por_camada`) | Amostras por camada (céu 4 · longe 16 · meio 24 · perto 24 · frente 16): ~2,8 min por placa, dentro da meta |
+| **E2 · kit de rua** | `componentes/rua.py` | `rua_trecho` (asfalto com remendos, faixas, sarjeta, tampas, bocas de lobo, calçada por lote com rebaixo de garagem, piso tátil, canteiros, folhas e mato), `cruzamento` (esquinas arredondadas, zebras, faixas de retenção), `poste_concreto` (cruzeta, isoladores, luminária LED acesa no grupo artificial, transformador, número), `fiacao` (catenárias e sobras de cabo), `semaforo`, `placa_rua`, `placa_regulamentacao`, `hidrante`, `lixeira_poste` |
+| **E2 · QA da cena** | `nucleo/qa_cena.py` | Roda no Blender antes do render e vai para o manifesto: nada flutuando (raio para baixo; peças presas marcadas `suspenso`), lista exata dos textos 3D (comparada com `textos_permitidos` da receita), medidas de escala |
 
 ## Uso
 ```
@@ -50,4 +52,4 @@ quadro = P.compor(pesos={"ceu": 1, "sol": 1, "artificial": 0.25, "efeito": (6, "
                   personagem=funcao_que_desenha_o_heitor, grade={...})
 ```
 
-Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md).
+Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md) e [`testes/E2_RELATORIO.md`](testes/E2_RELATORIO.md).
