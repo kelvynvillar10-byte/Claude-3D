@@ -1,0 +1,51 @@
+{
+ "nome": "Heitor",
+ "versao": "v1-PROPOSTA",
+ "altura_cabecas": 4.0,
+ "altura_m": 1.4,
+ "vistas": [
+  "frente",
+  "costas"
+ ],
+ "expressoes": [
+  "neutro",
+  "dormindo",
+  "acordando",
+  "surpreso",
+  "assustado"
+ ],
+ "paleta": {
+  "pele": "#ffd9c2",
+  "pele_s": "#efb594",
+  "cabelo": "#3a2316",
+  "cabelo_s": "#24140a",
+  "cabelo_b": "#5c3a25",
+  "olho": "#6a3d20",
+  "pupila": "#2a160b",
+  "camisa": "#3d80d8",
+  "camisa_s": "#2b61b0",
+  "gola": "#2855a0",
+  "jeans": "#34507f",
+  "jeans_s": "#243a60",
+  "barra": "#4a6b9f",
+  "tenis": "#f6f4f0",
+  "tenis_s": "#d9d4cc",
+  "tenis_faixa": "#3d80d8",
+  "contorno": "#2a1d17",
+  "boca": "#7a3b2e",
+  "lingua": "#d9786b",
+  "branco": "#ffffff",
+  "estampa_modo": "#f2efe8",
+  "estampa_curioso": "#ffc21f"
+ },
+ "estampa": {
+  "texto": "Modo Curioso",
+  "fonte": "Nunito-ExtraBold",
+  "largura_rel_peito": 0.56,
+  "cores": {
+   "Modo": "#f2efe8",
+   "Curioso": "#ffc21f"
+  },
+  "acabamento": "serigrafia fosca, recebe a sombra do tecido"
+ }
+}

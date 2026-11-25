@@ -10,7 +10,8 @@ Responda em português do Brasil. O usuário é o diretor do estúdio. Ele aprov
 
 ## Estado atual (atualize ao fim de cada etapa)
 - Concluído: auditoria dos 13 MP4 (`docs/AUDITORIA_REFERENCIAS.md`), manuais, identidade oficial (ID-001 a ID-004), arquitetura técnica (proposta, seção 15), ambiente reproduzível (`ambiente/`, `Dockerfile`).
-- **Não iniciar o vídeo-piloto sem autorização explícita do usuário.**
+- Piloto técnico 01 (10 s) produzido em `pilotos/piloto_01_ultimo_homem/` e **aguardando avaliação do diretor**. Rig do Heitor v1 é PROPOSTA (não oficial); voz temporária espeak-ng.
+- **Não iniciar produção em escala nem novos pilotos sem autorização explícita do usuário.**
 - Pendências do usuário: aprovar a arquitetura; plano e chave da ElevenLabs; liberar hosts na rede; biblioteca de música e SFX; quem desenha o rig; Git LFS.
 
 ## Regras fixas

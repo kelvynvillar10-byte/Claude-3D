@@ -1,0 +1,197 @@
+{
+ "arquivo": "MC_piloto01_ultimo_homem_v3.mp4",
+ "especificacoes": {
+  "largura": 1080,
+  "altura": 1920,
+  "fps": 30.0,
+  "duracao_s": 10.0,
+  "video": "h264 High yuv420p",
+  "audio": "aac 48000 Hz 2 canais",
+  "quadros": 300,
+  "ok": true
+ },
+ "audio": {
+  "LUFS": -14.3,
+  "pico_real_dBTP": -1.3,
+  "LRA": 0.9,
+  "amostras_clipadas": 0,
+  "ok": true
+ },
+ "ritmo": {
+  "cortes_planejados": [
+   1.5,
+   2.7,
+   4.0,
+   5.73,
+   7.27,
+   7.8
+  ],
+  "cortes_detectados": [
+   1.5,
+   2.7,
+   4.0,
+   5.73,
+   7.27,
+   7.3,
+   7.33,
+   7.37,
+   7.8,
+   8.87,
+   8.9
+  ],
+  "plano_mediano_s": 1.5,
+  "cortes_por_min": 36.0,
+  "cortes_entre_falas": true
+ },
+ "cor": {
+  "luma": 0.318,
+  "saturacao": 0.48,
+  "vinheta": 0.618,
+  "sombra_Lab_b": -3.0,
+  "alta_luz_Lab_b": 15.6
+ },
+ "camera": {
+  "quadros_com_movimento_pct": 71
+ },
+ "ocr": {
+  "quadros_lidos": 100,
+  "marca_dagua_MODO_CURIOSO_quadros": 100,
+  "marca_dagua_pct": 100,
+  "grafias_da_marca_encontradas": {
+   "MODO CURIOSO": {
+    "n": 70,
+    "tempos": [
+     0.0,
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.5
+    ]
+   },
+   "Modo Curioso": {
+    "n": 15,
+    "tempos": [
+     0.0,
+     0.1,
+     0.2,
+     0.3,
+     0.4,
+     0.5
+    ]
+   },
+   "MODOCURIOSO": {
+    "n": 30,
+    "tempos": [
+     5.7,
+     5.8,
+     5.9,
+     6.0,
+     6.1,
+     6.2
+    ]
+   }
+  },
+  "legendas": [
+   {
+    "txt": "E SE TU",
+    "ini": 0.0,
+    "fim": 0.47,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 0.0
+   },
+   {
+    "txt": "ACORDASSE AMANHÃ",
+    "ini": 0.465,
+    "fim": 1.5,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 0.5
+   },
+   {
+    "txt": "E DESCOBRISSE",
+    "ini": 1.527,
+    "fim": 2.33,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 1.6
+   },
+   {
+    "txt": "QUE É O",
+    "ini": 2.331,
+    "fim": 2.7,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 2.4
+   },
+   {
+    "txt": "ÚLTIMO HOMEM",
+    "ini": 2.733,
+    "fim": 3.5,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 2.8
+   },
+   {
+    "txt": "DO MUNDO?!",
+    "ini": 3.497,
+    "fim": 4.0,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 3.5
+   },
+   {
+    "txt": "NENHUM CARRO.",
+    "ini": 4.105,
+    "fim": 4.96,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 4.2
+   },
+   {
+    "txt": "NENHUMA VOZ.",
+    "ini": 4.963,
+    "fim": 5.73,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 5.0
+   },
+   {
+    "txt": "OITO BILHÕES",
+    "ini": 5.827,
+    "fim": 6.68,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 5.9
+   },
+   {
+    "txt": "DE PESSOAS",
+    "ini": 6.678,
+    "fim": 7.27,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 6.7
+   },
+   {
+    "txt": "SUMIRAM.",
+    "ini": 7.298,
+    "fim": 7.8,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 7.3
+   },
+   {
+    "txt": "ATÉ QUE",
+    "ini": 7.893,
+    "fim": 8.35,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 7.9
+   },
+   {
+    "txt": "O CELULAR VIBROU.",
+    "ini": 8.347,
+    "fim": 10.0,
+    "lida_no_intervalo": true,
+    "primeira_leitura_s": 8.4
+   }
+  ],
+  "legendas_ok": 13
+ },
+ "veredito_automatico": {
+  "especificacoes": true,
+  "audio": true,
+  "marca_dagua_em_todo_quadro": true,
+  "legendas_lidas": "13/13",
+  "grafias_conflitantes": []
+ }
+}

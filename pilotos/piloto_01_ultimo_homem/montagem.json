@@ -1,0 +1,455 @@
+{
+ "fps": 30,
+ "duracao": 10.0,
+ "resolucao": [
+  1080,
+  1920
+ ],
+ "voz": "voz/voz.wav",
+ "aviso_voz": "TEMPORÁRIA (espeak-ng); a voz oficial segue a ID-001",
+ "personagem": "Heitor rig v1 (PROPOSTA)",
+ "planos": [
+  {
+   "id": "P1",
+   "nome": "Acorda",
+   "ini": 0.0,
+   "fim": 1.5,
+   "fundo": "p1_travesseiro",
+   "narra": "E se tu acordasse amanhã",
+   "vê": "close: Heitor deitado acorda e arregala os olhos",
+   "camera": {
+    "z": [
+     1.0,
+     1.1
+    ],
+    "curva": "ease_out",
+    "alvo": "cabeca",
+    "punch": [
+     {
+      "t": 1.066,
+      "amp": 0.05
+     }
+    ]
+   },
+   "personagem": {
+    "vista": "frente",
+    "pose": "deitado",
+    "luz": 1,
+    "tinta": [
+     255,
+     232,
+     205
+    ],
+    "expr": [
+     [
+      0.0,
+      "dormindo"
+     ],
+     [
+      0.62,
+      "acordando"
+     ],
+     [
+      1.066,
+      "surpreso"
+     ]
+    ]
+   },
+   "efeitos": [
+    "poeira_luz"
+   ],
+   "legenda": "topo"
+  },
+  {
+   "id": "P2",
+   "nome": "Janela",
+   "ini": 1.5,
+   "fim": 2.7,
+   "fundo": "p2_janela",
+   "narra": "e descobrisse que é o",
+   "vê": "Heitor de costas olha a cidade pela janela",
+   "camera": {
+    "z": [
+     1.0,
+     1.08
+    ],
+    "curva": "ease_in_out",
+    "alvo": "cabeca"
+   },
+   "personagem": {
+    "vista": "costas",
+    "pose": "em_pe",
+    "luz": -1,
+    "contraluz": true,
+    "tinta": [
+     150,
+     150,
+     190
+    ],
+    "expr": [
+     [
+      0.0,
+      "neutro"
+     ]
+    ]
+   },
+   "efeitos": [
+    "poeira_luz"
+   ],
+   "legenda": "baixo"
+  },
+  {
+   "id": "P3",
+   "nome": "Revelação",
+   "ini": 2.7,
+   "fim": 4.0,
+   "fundo": "p3_cidade",
+   "narra": "último homem do mundo?!",
+   "vê": "da janela, a rua inteira vazia (pull-out forte)",
+   "camera": {
+    "z": [
+     1.75,
+     1.0
+    ],
+    "curva": "ease_out",
+    "dur_mov": 0.85,
+    "centro_rel": [
+     0.52,
+     0.6
+    ]
+   },
+   "efeitos": [
+    "nevoa_forte"
+   ],
+   "legenda": "baixo"
+  },
+  {
+   "id": "P4",
+   "nome": "Rua vazia",
+   "ini": 4.0,
+   "fim": 5.733333333333333,
+   "fundo": "p4_rua",
+   "narra": "Nenhum carro. Nenhuma voz.",
+   "vê": "Heitor sozinho no meio da rua, carros abandonados",
+   "camera": {
+    "z": [
+     1.0,
+     1.07
+    ],
+    "curva": "linear",
+    "pan": [
+     -70,
+     40
+    ],
+    "alvo": "pe"
+   },
+   "personagem": {
+    "vista": "frente",
+    "pose": "em_pe",
+    "luz": 1,
+    "tinta": [
+     255,
+     226,
+     196
+    ],
+    "sombra_chao": true,
+    "expr": [
+     [
+      0.0,
+      "neutro"
+     ]
+    ],
+    "olhar": [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      4.444,
+      -1.0
+     ],
+     [
+      5.398,
+      1.0
+     ]
+    ]
+   },
+   "efeitos": [
+    "nevoa"
+   ],
+   "legenda": "baixo"
+  },
+  {
+   "id": "P5",
+   "nome": "Inserto 8 bilhões",
+   "ini": 5.733333333333333,
+   "fim": 7.266666666666667,
+   "fundo": "p5_terra",
+   "narra": "Oito bilhões de pessoas",
+   "vê": "Terra com as luzes das pessoas apagando; contador cai até 1",
+   "camera": {
+    "z": [
+     1.0,
+     1.08
+    ],
+    "curva": "ease_out"
+   },
+   "efeitos": [
+    "insert_terra"
+   ],
+   "contador": {
+    "de": 8200000000,
+    "ate": 1,
+    "t0": 6.678,
+    "t1": 7.216666666666667
+   },
+   "rotulo": {
+    "txt": "8,2 BILHÕES",
+    "sub": "PESSOAS NA TERRA · ONU, 2025"
+   },
+   "legenda": "baixo",
+   "entrada": {
+    "tipo": "fusao",
+    "dur": 0.13
+   }
+  },
+  {
+   "id": "P6",
+   "nome": "Sumiram",
+   "ini": 7.266666666666667,
+   "fim": 7.8,
+   "fundo": "p6_close",
+   "narra": "sumiram.",
+   "vê": "close do Heitor assustado; tremida de impacto",
+   "camera": {
+    "z": [
+     1.12,
+     1.0
+    ],
+    "curva": "ease_out",
+    "dur_mov": 0.2,
+    "alvo": "cabeca",
+    "tremida": {
+     "amp": 0.014,
+     "dur": 0.45
+    }
+   },
+   "personagem": {
+    "vista": "frente",
+    "pose": "em_pe",
+    "luz": 1,
+    "tinta": [
+     255,
+     228,
+     200
+    ],
+    "expr": [
+     [
+      0.0,
+      "assustado"
+     ]
+    ]
+   },
+   "legenda": "topo",
+   "entrada": {
+    "tipo": "flash",
+    "dur": 0.07
+   }
+  },
+  {
+   "id": "P7",
+   "nome": "Celular",
+   "ini": 7.8,
+   "fim": 10.0,
+   "fundo": "p7_celular",
+   "narra": "Até que o celular vibrou.",
+   "vê": "celular no asfalto acende e vibra",
+   "camera": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "curva": "ease_out",
+    "centro_rel": [
+     0.5,
+     0.5
+    ],
+    "vibra": {
+     "t": 8.868,
+     "pulsos": 3,
+     "amp": 0.004
+    }
+   },
+   "tela_acende": 8.838000000000001,
+   "legenda": "topo",
+   "exposicao": {
+    "fundo": 1.9,
+    "fundo_acesa": 0.62
+   }
+  }
+ ],
+ "legendas": [
+  {
+   "ini": 0.0,
+   "fim": 0.465,
+   "txt": "E SE TU",
+   "dest": "",
+   "pos": "topo"
+  },
+  {
+   "ini": 0.465,
+   "fim": 1.5,
+   "txt": "ACORDASSE AMANHÃ",
+   "dest": "AMANHÃ",
+   "pos": "topo"
+  },
+  {
+   "ini": 1.527,
+   "fim": 2.331,
+   "txt": "E DESCOBRISSE",
+   "dest": "",
+   "pos": "baixo"
+  },
+  {
+   "ini": 2.331,
+   "fim": 2.7,
+   "txt": "QUE É O",
+   "dest": "",
+   "pos": "baixo"
+  },
+  {
+   "ini": 2.733,
+   "fim": 3.497,
+   "txt": "ÚLTIMO HOMEM",
+   "dest": "ÚLTIMO",
+   "pos": "baixo"
+  },
+  {
+   "ini": 3.497,
+   "fim": 4.0,
+   "txt": "DO MUNDO?!",
+   "dest": "",
+   "pos": "baixo"
+  },
+  {
+   "ini": 4.105,
+   "fim": 4.963,
+   "txt": "NENHUM CARRO.",
+   "dest": "CARRO",
+   "pos": "baixo"
+  },
+  {
+   "ini": 4.963,
+   "fim": 5.733333333333333,
+   "txt": "NENHUMA VOZ.",
+   "dest": "VOZ",
+   "pos": "baixo"
+  },
+  {
+   "ini": 5.827,
+   "fim": 6.678,
+   "txt": "OITO BILHÕES",
+   "dest": "OITO BILHÕES",
+   "pos": "baixo"
+  },
+  {
+   "ini": 6.678,
+   "fim": 7.266666666666667,
+   "txt": "DE PESSOAS",
+   "dest": "",
+   "pos": "baixo"
+  },
+  {
+   "ini": 7.298,
+   "fim": 7.8,
+   "txt": "SUMIRAM.",
+   "dest": "SUMIRAM",
+   "pos": "topo"
+  },
+  {
+   "ini": 7.893,
+   "fim": 8.347000000000001,
+   "txt": "ATÉ QUE",
+   "dest": "",
+   "pos": "topo"
+  },
+  {
+   "ini": 8.347,
+   "fim": 10.0,
+   "txt": "O CELULAR VIBROU.",
+   "dest": "VIBROU",
+   "pos": "topo"
+  }
+ ],
+ "transicoes": [
+  {
+   "t": 2.7,
+   "tipo": "chicote",
+   "dur": 0.13
+  }
+ ],
+ "sfx": [
+  {
+   "t": 0.0,
+   "tipo": "ambiente",
+   "dur": 10.0
+  },
+  {
+   "t": 0.0,
+   "tipo": "trilha",
+   "dur": 7.266666666666667
+  },
+  {
+   "t": 1.066,
+   "tipo": "pop"
+  },
+  {
+   "t": 2.58,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 2.733,
+   "tipo": "impacto_grave"
+  },
+  {
+   "t": 4.0,
+   "tipo": "vento"
+  },
+  {
+   "t": 5.683333333333334,
+   "tipo": "fusao_whoosh"
+  },
+  {
+   "t": 6.678,
+   "tipo": "ticks",
+   "dur": 0.5886666666666667
+  },
+  {
+   "t": 5.733333333333333,
+   "tipo": "riser",
+   "dur": 1.5333333333333332
+  },
+  {
+   "t": 7.266666666666667,
+   "tipo": "impacto_grave"
+  },
+  {
+   "t": 7.266666666666667,
+   "tipo": "silencio_trilha"
+  },
+  {
+   "t": 8.868,
+   "tipo": "vibracao",
+   "pulsos": 3
+  }
+ ],
+ "marca_dagua": {
+  "texto": "MODO CURIOSO",
+  "fonte": "RobotoCondensed-ExtraBold",
+  "altura_px": 30,
+  "margem_dir": 40,
+  "margem_topo": 60,
+  "MODO": "#FFFFFF@60%",
+  "CURIOSO": "#ffc21f"
+ }
+}

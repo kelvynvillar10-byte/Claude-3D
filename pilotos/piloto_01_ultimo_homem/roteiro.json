@@ -1,0 +1,19 @@
+{
+  "titulo": "Piloto 01 — O último homem do mundo",
+  "voz": {"motor": "espeak-ng 1.51 (TEMPORÁRIA, ID-001 pendente)", "voz": "pt-br", "velocidade_wpm": 198, "tom": 38},
+  "blocos": [
+    {"txt": "E se tu",            "fala": "E se tu",            "dest": null,        "plano": 1},
+    {"txt": "acordasse amanhã",   "fala": "acordasse amanhã",   "dest": "amanhã",    "plano": 1},
+    {"txt": "e descobrisse",      "fala": "e descobrisse",      "dest": null,        "plano": 2},
+    {"txt": "que é o",            "fala": "que é o",            "dest": null,        "plano": 2},
+    {"txt": "último homem",       "fala": "último homem",       "dest": "último",    "plano": 2},
+    {"txt": "do mundo?!",         "fala": "do mundo?",          "dest": null,        "plano": 2},
+    {"txt": "Nenhum carro.",      "fala": "Nenhum carro.",      "dest": "carro",     "plano": 3},
+    {"txt": "Nenhuma voz.",       "fala": "Nenhuma voz.",       "dest": "voz",       "plano": 3},
+    {"txt": "Oito bilhões",       "fala": "Oito bilhões",       "dest": "Oito bilhões", "plano": 4},
+    {"txt": "de pessoas",         "fala": "de pessoas",         "dest": null,        "plano": 4},
+    {"txt": "sumiram.",           "fala": "sumiram.",           "dest": "sumiram",   "plano": 5},
+    {"txt": "Até que",            "fala": "Até que",            "dest": null,        "plano": 6},
+    {"txt": "o celular vibrou.",  "fala": "o celular vibrou.",  "dest": "vibrou",    "plano": 6}
+  ]
+}
