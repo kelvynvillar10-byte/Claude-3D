@@ -1,0 +1,54 @@
+{
+ "T4_dedos_individuais": {
+  "duracao_s": 7.85,
+  "isolamento": {
+   "polegar": {
+    "movimento_proprio_graus": 70.0,
+    "movimento_dos_outros_graus": 0.0
+   },
+   "indicador": {
+    "movimento_proprio_graus": 95.0,
+    "movimento_dos_outros_graus": 0.0
+   },
+   "medio": {
+    "movimento_proprio_graus": 95.0,
+    "movimento_dos_outros_graus": 0.0
+   },
+   "anelar": {
+    "movimento_proprio_graus": 95.0,
+    "movimento_dos_outros_graus": 0.0
+   },
+   "minimo": {
+    "movimento_proprio_graus": 95.0,
+    "movimento_dos_outros_graus": 0.0
+   }
+  },
+  "angulo_min_max": [
+   -10.0,
+   110.0
+  ],
+  "maior_variacao_graus_por_quadro": 34.9
+ },
+ "T5_segurar_soltar": {
+  "quadros_segurando": 61,
+  "pega_em_s": 1.33,
+  "solta_em_s": 3.37,
+  "distancia_bola_encaixe_enquanto_segura_max_H": 0.0,
+  "erro_ik_max_H": 0.0085,
+  "bola_atravessa_chao": false,
+  "bola_final_no_chao": true
+ },
+ "T6_acenar_apontar": {
+  "aceno_frequencia_hz_medida": 2.2,
+  "aceno_frequencia_hz_pedida": 2.2,
+  "aceno_amplitude_antebraco_graus": 24.0,
+  "apontar_erro_mira_max_graus": 0.0,
+  "apontar_quadros_medidos": 40
+ },
+ "T6b_reacoes": {
+  "antecipacao_agacha_antes_do_pulo_H": 0.109,
+  "altura_maxima_pulo_H": 0.28,
+  "overshoot_braco_comemoracao_graus": 14.9,
+  "tornozelo_no_chao_variacao_max_H": 0.0
+ }
+}

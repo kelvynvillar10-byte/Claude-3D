@@ -204,9 +204,11 @@ def _dedo_cadeia(c, comp, angs, w0, cor, cor_s, lado_luz, proj_dorso=False):
     return dobradas
 
 
-def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1):
+def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1, objeto=None):
     """Mão no sistema do osso 'mao' (origem no punho, +y para as pontas). vista: dorso | palma | lado.
-    Cinco dedos individuais: polegar (2 falanges) e indicador, médio, anelar, mínimo (3 falanges cada)."""
+    Cinco dedos individuais: polegar (2 falanges) e indicador, médio, anelar, mínimo (3 falanges cada).
+    objeto(c, vista): desenha um objeto segurado no ENCAIXE da mão (ver ENCAIXE), na camada certa:
+    dorso → atrás da mão; palma → entre a palma e os dedos; lado → na frente da palma, atrás do indicador e do polegar."""
     c.save()
     if espelho:
         c.scale(-1, 1)
@@ -225,12 +227,16 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1):
             c.rotate(-sg * (38 + 22 * ab) + sg * dedos["polegar"][0] * 0.8)
             _dedo_cadeia(c, PL, [0, sg * dedos["polegar"][1]], 0.064, C["pele"], C["pele_s"], lado_luz)
             c.restore()
+        if objeto and vista == "dorso":
+            objeto(c, vista)
         if vista == "palma":
             polegar()
         c.drawPath(palma, tinta(C["pele"])); sombra(c, palma, C["pele_s"], lado_luz, 0.25); c.drawPath(palma, contorno())
         if vista == "palma":
             for (a0, a1, q) in (((-0.06, 0.09), (0.06, 0.11), (0.0, 0.075)), ((-0.05, 0.135), (0.055, 0.15), (0.0, 0.12))):
                 pth = skia.Path(); pth.moveTo(*a0); pth.quadTo(q[0], q[1], *a1); c.drawPath(pth, traco(C["pele_s"], 0.009))
+            if objeto:
+                objeto(c, vista)
         dobradas = []
         for n in _DEDOS:
             bx, by, w, sp = _BASE_DORSO[n]; bx *= sg
@@ -253,14 +259,23 @@ def desenhar_mao(c, dedos, vista="dorso", espelho=False, lado_luz=1):
         c.save(); c.translate(-0.022, 0.18)
         _dedo_cadeia(c, OSS["dedos"]["medio"], [a * 0.95 for a in tras], 0.068, C["pele_s"], C["pele_s"], lado_luz)
         c.restore()
-        c.save(); c.translate(0.014, 0.188)
-        _dedo_cadeia(c, OSS["dedos"]["indicador"], [a * 0.95 for a in dedos["indicador"]], 0.056, C["pele"], C["pele_s"], lado_luz)
-        c.restore()
+        def indicador():
+            c.save(); c.translate(0.014, 0.188)
+            _dedo_cadeia(c, OSS["dedos"]["indicador"], [a * 0.95 for a in dedos["indicador"]], 0.056, C["pele"], C["pele_s"], lado_luz)
+            c.restore()
+        if not objeto:
+            indicador()
         c.drawPath(palma, tinta(C["pele"])); sombra(c, palma, C["pele_s"], lado_luz, 0.25); c.drawPath(palma, contorno())
+        if objeto:   # objeto na concha dos dedos: na frente da palma, atrás do indicador (o dedo abraça o objeto)
+            objeto(c, vista); indicador()
         c.save(); c.translate(0.04, 0.05); c.rotate(-24 + dedos["polegar"][0] * 0.6)
         _dedo_cadeia(c, PL, [0, dedos["polegar"][1] * 0.6], 0.06, C["pele"], C["pele_s"], lado_luz)
         c.restore()
     c.restore()
+
+
+# ponto de encaixe de um objeto segurado, no sistema da mão, por vista
+ENCAIXE = {"dorso": (0.0, 0.215), "palma": (0.0, 0.215), "lado": (-0.10, 0.17)}
 
 
 # ------------------------------------------------------------------ rosto
@@ -641,7 +656,7 @@ def desenhar(c, x_pe, y_pe, altura_px, vista="frente", direcao=1, pose=None, ros
             espelho_mao = (s == "e") if vista in ("frente", "tres_quartos", "perfil") else (s == "d")
             membro(c, [(M[f"antebraco_{s}"], forma_antebraco(), _lado_luz(M[f"antebraco_{s}"], luz_local)),
                        (M[f"braco_{s}"], forma_braco(), _lado_luz(M[f"braco_{s}"], luz_local))], C["pele"], C["pele_s"], dist)
-            com(M[f"mao_{s}"], lambda ll: desenhar_mao(c, pose[f"dedos_{s}"], mv, espelho_mao, ll))
+            com(M[f"mao_{s}"], lambda ll: desenhar_mao(c, pose[f"dedos_{s}"], mv, espelho_mao, ll, pose.get(f"objeto_{s}")))
             com(M[f"braco_{s}"], lambda ll: desenhar_manga(c, ll, dist))
     c.restore()
     return M
