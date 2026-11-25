@@ -1,0 +1,21 @@
+{
+ "T2_caminhada_perfil": {
+  "quadros": 103,
+  "ciclo_quadros": 25.8,
+  "ciclo_s": 0.86,
+  "erro_ik_max_H": 0.0,
+  "deslize_pe_apoio_max_H": 0.0,
+  "deslize_pe_apoio_pct_altura": 0.0,
+  "maior_variacao_angulo": {
+   "junta": "canela_d",
+   "graus_por_quadro": 32.87
+  },
+  "correlacao_braco_d_coxa_d": 0.845,
+  "quadros_em_voo": 0,
+  "quadros_apoio_duplo": 25,
+  "pe_mais_baixo_H": [
+   0.22,
+   0.235
+  ]
+ }
+}

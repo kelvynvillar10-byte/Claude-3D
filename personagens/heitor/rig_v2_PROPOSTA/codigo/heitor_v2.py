@@ -106,8 +106,11 @@ def pose_base(vista="frente"):
     return p
 
 
-def _rot(m, x, y, ang):
-    loc = skia.Matrix.Translate(x, y); loc.preRotate(ang); return skia.Matrix.Concat(m, loc)
+def _rot(m, x, y, ang, esc=1.0):
+    loc = skia.Matrix.Translate(x, y); loc.preRotate(ang)
+    if esc != 1.0:   # escorço: o osso encurta quando aponta para a câmera
+        loc.preScale(1.0, esc)
+    return skia.Matrix.Concat(m, loc)
 
 
 def esqueleto(pose, vista):
@@ -120,13 +123,15 @@ def esqueleto(pose, vista):
     M["cabeca"] = _rot(M["tronco"], 0, PESCOCO_Y * resp, pose["cabeca"])
     for s in ("d", "e"):
         bx, ba = L[f"braco_{s}"]
-        M[f"braco_{s}"] = _rot(M["tronco"], bx, OMBRO_Y * resp, ba + pose[f"braco_{s}"])
-        M[f"antebraco_{s}"] = _rot(M[f"braco_{s}"], 0, OSS["braco"], pose[f"antebraco_{s}"])
-        M[f"mao_{s}"] = _rot(M[f"antebraco_{s}"], 0, OSS["antebraco"], pose[f"mao_{s}"])
+        M[f"braco_{s}"] = _rot(M["tronco"], bx, OMBRO_Y * resp, ba + pose[f"braco_{s}"], pose.get(f"esc_braco_{s}", 1.0))
+        M[f"antebraco_{s}"] = _rot(M[f"braco_{s}"], 0, OSS["braco"], pose[f"antebraco_{s}"], pose.get(f"esc_antebraco_{s}", 1.0))
+        ea = pose.get(f"esc_antebraco_{s}", 1.0)
+        M[f"mao_{s}"] = _rot(M[f"antebraco_{s}"], 0, OSS["antebraco"], pose[f"mao_{s}"], 1.0 / ea if ea else 1.0)
         cx, ca = L[f"coxa_{s}"]
-        M[f"coxa_{s}"] = _rot(base, cx, 0.02, ca + pose[f"coxa_{s}"])
-        M[f"canela_{s}"] = _rot(M[f"coxa_{s}"], 0, OSS["coxa"], pose[f"canela_{s}"])
-        M[f"pe_{s}"] = _rot(M[f"canela_{s}"], 0, OSS["canela"], pose[f"pe_{s}"])
+        M[f"coxa_{s}"] = _rot(base, cx, 0.02 + pose.get(f"_prof_{s}", 0.0), ca + pose[f"coxa_{s}"], pose.get(f"esc_coxa_{s}", 1.0))
+        M[f"canela_{s}"] = _rot(M[f"coxa_{s}"], 0, OSS["coxa"], pose[f"canela_{s}"], pose.get(f"esc_canela_{s}", 1.0))
+        ec = pose.get(f"esc_canela_{s}", 1.0)
+        M[f"pe_{s}"] = _rot(M[f"canela_{s}"], 0, OSS["canela"], pose[f"pe_{s}"], 1.0 / ec if ec else 1.0)
     return M
 
 

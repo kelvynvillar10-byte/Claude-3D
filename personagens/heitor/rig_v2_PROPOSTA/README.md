@@ -1,6 +1,6 @@
 # Heitor — rig v2 (PROPOSTA)
 
-**Status: fase F1 concluída e aguardando aprovação do diretor.** Esta proposta **não está aprovada**, não substitui nenhuma referência e não altera as decisões ID-001 a ID-004. O rig v1 (`pilotos/piloto_01_ultimo_homem/`) continua intacto.
+**Status: desenho da F1 aprovado pelo diretor em 25/11/2026 como base do personagem v2; fases F2–F4 em desenvolvimento.** O rig v2 como um todo continua PROPOSTA até a aprovação final. Esta proposta **não está aprovada**, não substitui nenhuma referência e não altera as decisões ID-001 a ID-004. O rig v1 (`pilotos/piloto_01_ultimo_homem/`) continua intacto.
 
 Fonte da verdade do personagem: a especificação oficial (`docs/IDENTIDADE_OFICIAL.md` e o skill), transcrita em [`modelo.json`](modelo.json): paleta hex, proporções em H (altura da cabeça; altura total 4 H), comprimento dos ossos e limites das juntas.
 
