@@ -1,0 +1,496 @@
+{
+ "v20": {
+  "blocks": 134,
+  "blocks_pm": 69.0,
+  "words_per_block": 2.22,
+  "wpm_on_screen": 153,
+  "pct_yellow": 17,
+  "yc_med": 65,
+  "pct_top_<35": 5,
+  "pct_60_80": 93,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 44,
+  "hist10": [
+   0,
+   1,
+   5,
+   1,
+   2,
+   1,
+   89,
+   35,
+   0,
+   0
+  ],
+  "first5": [
+   "E SE TU PUDESSE",
+   "EO GOVERNO",
+   "VIESSE ATRAS",
+   "DE TI?",
+   "O GUI TAVA"
+  ],
+  "last5": [
+   "MAIS TEM",
+   "PODERES?",
+   "O GUI ATRAS",
+   "DE QUEM COPIA",
+   "NA PARTE QUATRO."
+  ]
+ },
+ "v19": {
+  "blocks": 169,
+  "blocks_pm": 77.1,
+  "words_per_block": 2.18,
+  "wpm_on_screen": 168,
+  "pct_yellow": 2,
+  "yc_med": 65,
+  "pct_top_<35": 50,
+  "pct_60_80": 50,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 43,
+  "hist10": [
+   0,
+   68,
+   14,
+   2,
+   0,
+   0,
+   21,
+   64,
+   0,
+   0
+  ],
+  "first5": [
+   "E SE TU CORRESSE",
+   "MAIS RAPIDO",
+   "QUE UMA BALA?",
+   "E O GOVERNO",
+   "TEPAGASSE"
+  ],
+  "last5": [
+   "POR DOIS MILHOES.",
+   "SEGUE AI PRAVER",
+   "O QUE O GOVERNO",
+   "FAZ COM UM CARA",
+   "QUEPARA OTEMPO."
+  ]
+ },
+ "v18": {
+  "blocks": 153,
+  "blocks_pm": 64.9,
+  "words_per_block": 2.25,
+  "wpm_on_screen": 146,
+  "pct_yellow": 0,
+  "yc_med": 52,
+  "pct_top_<35": 47,
+  "pct_60_80": 49,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 43,
+  "hist10": [
+   0,
+   72,
+   0,
+   0,
+   2,
+   4,
+   26,
+   49,
+   0,
+   0
+  ],
+  "first5": [
+   "O DAVI",
+   "E O DUDU",
+   "PASSARAM O DIA",
+   "FUGINDO",
+   "DO GOVERNO."
+  ],
+  "last5": [
+   "DAVI:",
+   "EU VI TUDO.",
+   "E NINGUEM ALI.",
+   "O RESGATE",
+   "NA PARTE SEIS."
+  ]
+ },
+ "v17": {
+  "blocks": 141,
+  "blocks_pm": 63.4,
+  "words_per_block": 2.49,
+  "wpm_on_screen": 158,
+  "pct_yellow": 45,
+  "yc_med": 74,
+  "pct_top_<35": 23,
+  "pct_60_80": 77,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 46,
+  "hist10": [
+   0,
+   29,
+   4,
+   0,
+   0,
+   0,
+   21,
+   87,
+   0,
+   0
+  ],
+  "first5": [
+   "O CAIO TEM",
+   "A MALDICAO",
+   "DO LOUCO.",
+   "O REI MAGO",
+   "TAMBEM."
+  ],
+  "last5": [
+   "O PRESO SECA",
+   "ATE O FIM.",
+   "O QUE TU FARIA",
+   "NO LUGAR DO CAIO,",
+   "E SEGUE PRA PARTE"
+  ]
+ },
+ "v16": {
+  "blocks": 149,
+  "blocks_pm": 65.3,
+  "words_per_block": 2.34,
+  "wpm_on_screen": 153,
+  "pct_yellow": 1,
+  "yc_med": 74,
+  "pct_top_<35": 25,
+  "pct_60_80": 75,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 44,
+  "hist10": [
+   0,
+   30,
+   7,
+   0,
+   0,
+   0,
+   0,
+   112,
+   0,
+   0
+  ],
+  "first5": [
+   "O CAIO ENSINOU",
+   "O REI MAGO",
+   "A DESMONTAR",
+   "GENTE.",
+   "E SO O CAIO"
+  ],
+  "last5": [
+   "COMENTA",
+   "SE TU QUER",
+   "A TEMPORADA 2,",
+   "E SEGUE",
+   "PRA NAO PERDER."
+  ]
+ },
+ "v15": {
+  "blocks": 98,
+  "blocks_pm": 63.9,
+  "words_per_block": 2.26,
+  "wpm_on_screen": 144,
+  "pct_yellow": 44,
+  "yc_med": 65,
+  "pct_top_<35": 16,
+  "pct_60_80": 84,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 47,
+  "hist10": [
+   0,
+   0,
+   16,
+   0,
+   0,
+   0,
+   59,
+   23,
+   0,
+   0
+  ],
+  "first5": [
+   "E SETUACORDASSE",
+   "AMANHA E FOSSE",
+   "DE BORRACHA?",
+   "O PEDRO FOI",
+   "DESLIGAR"
+  ],
+  "last5": [
+   "QUE NA PARTE",
+   "DOISO PEDRO",
+   "O QUE DA PRA FAZER",
+   "DE VERDADE",
+   "COM ISSO"
+  ]
+ },
+ "v13": {
+  "blocks": 89,
+  "blocks_pm": 62.1,
+  "words_per_block": 2.31,
+  "wpm_on_screen": 144,
+  "pct_yellow": 36,
+  "yc_med": 65,
+  "pct_top_<35": 25,
+  "pct_60_80": 72,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 44,
+  "hist10": [
+   0,
+   15,
+   2,
+   6,
+   2,
+   0,
+   38,
+   26,
+   0,
+   0
+  ],
+  "first5": [
+   "TU E O PEDRO",
+   "ETEMOELEMENTO",
+   "GRAVIDADE",
+   "AQUI NA ESCOLA",
+   "DE ELEMENTOS,"
+  ],
+  "last5": [
+   "JA TAVA DEITADO",
+   "DE NOVO.",
+   "QUAL'ELEMENTO",
+   "TU QUERIA,TER?",
+   "COMENTA AI"
+  ]
+ },
+ "v14": {
+  "blocks": 89,
+  "blocks_pm": 60.0,
+  "words_per_block": 2.4,
+  "wpm_on_screen": 144,
+  "pct_yellow": 43,
+  "yc_med": 73,
+  "pct_top_<35": 6,
+  "pct_60_80": 94,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 43,
+  "hist10": [
+   0,
+   4,
+   1,
+   0,
+   0,
+   0,
+   24,
+   60,
+   0,
+   0
+  ],
+  "first5": [
+   "E SE TU ACORDASSE",
+   "AMANHA",
+   "E REALMENTE",
+   "TIVESSE 1000 DE QI?",
+   "O BETO ACORDOU"
+  ],
+  "last5": [
+   "QUE NA PARTE 2",
+   "OBETO DESCOBRE",
+   "O QUE DA PRA FAZER",
+   "DE VERDADE",
+   "C0M 1000DE QI."
+  ]
+ },
+ "v12": {
+  "blocks": 87,
+  "blocks_pm": 64.0,
+  "words_per_block": 2.21,
+  "wpm_on_screen": 141,
+  "pct_yellow": 49,
+  "yc_med": 74,
+  "pct_top_<35": 16,
+  "pct_60_80": 84,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 43,
+  "hist10": [
+   0,
+   4,
+   10,
+   0,
+   0,
+   0,
+   7,
+   66,
+   0,
+   0
+  ],
+  "first5": [
+   "TUE O NICO",
+   "E TEM O ELEMENTO",
+   "VENTO",
+   "AQUI NA ESCOLA",
+   "DE ELEMENTOS,"
+  ],
+  "last5": [
+   "VOOU DE NOVO.",
+   "CURTE EFALA",
+   "NOS COMENTARIOS",
+   "QUAL ELEMENTO",
+   "VEM DEPOIS?"
+  ]
+ },
+ "v10": {
+  "blocks": 128,
+  "blocks_pm": 62.2,
+  "words_per_block": 2.45,
+  "wpm_on_screen": 152,
+  "pct_yellow": 61,
+  "yc_med": 72,
+  "pct_top_<35": 11,
+  "pct_60_80": 87,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 47,
+  "hist10": [
+   0,
+   3,
+   11,
+   0,
+   0,
+   3,
+   15,
+   96,
+   0,
+   0
+  ],
+  "first5": [
+   "UM JATO D'AGUA",
+   "CORTOU A CASA",
+   "NO MEIO.",
+   "E O GURI LA",
+   "DENTRO EO LOUCO"
+  ],
+  "last5": [
+   "COMENTA",
+   "O QUE TU ACHA",
+   "QUE VAI",
+   "ACONTECER,",
+   "ESEGUEPRA PARTE"
+  ]
+ },
+ "v07": {
+  "blocks": 93,
+  "blocks_pm": 65.3,
+  "words_per_block": 2.22,
+  "wpm_on_screen": 145,
+  "pct_yellow": 51,
+  "yc_med": 73,
+  "pct_top_<35": 4,
+  "pct_60_80": 96,
+  "letter_h_pct": 2.8,
+  "block_w_pct": 47,
+  "hist10": [
+   0,
+   0,
+   4,
+   0,
+   0,
+   0,
+   0,
+   89,
+   0,
+   0
+  ],
+  "first5": [
+   "ESETUACORDASSE",
+   "AMANHA",
+   "E REALMENTE",
+   "CONTROLASSE",
+   "O MAGNETISMO?!"
+  ],
+  "last5": [
+   "SEGUE AI PRA VER",
+   "O QUE O IGOR",
+   "FAZ DE VERDADE",
+   "COMISSOINAPARTE",
+   "DOIS."
+  ]
+ },
+ "v01": {
+  "blocks": 88,
+  "blocks_pm": 53.3,
+  "words_per_block": 2.26,
+  "wpm_on_screen": 121,
+  "pct_yellow": 36,
+  "yc_med": 65,
+  "pct_top_<35": 36,
+  "pct_60_80": 64,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 44,
+  "hist10": [
+   0,
+   20,
+   12,
+   0,
+   0,
+   0,
+   49,
+   7,
+   0,
+   0
+  ],
+  "first5": [
+   "O WILL TAVA",
+   "BORRIFANDO",
+   "A CIDADE.",
+   "QUE PARA ELE TAVA",
+   "O LEO TROUXE"
+  ],
+  "last5": [
+   "ALGUEM ACORDA",
+   "COM UM NOVO.",
+   "QUE A PROXIMA",
+   "COMECA",
+   "COM\"E SE TU ACORDASSE"
+  ]
+ },
+ "v06": {
+  "blocks": 101,
+  "blocks_pm": 70.1,
+  "words_per_block": 2.35,
+  "wpm_on_screen": 164,
+  "pct_yellow": 50,
+  "yc_med": 66,
+  "pct_top_<35": 11,
+  "pct_60_80": 89,
+  "letter_h_pct": 2.9,
+  "block_w_pct": 44,
+  "hist10": [
+   0,
+   7,
+   4,
+   0,
+   0,
+   0,
+   41,
+   49,
+   0,
+   0
+  ],
+  "first5": [
+   "DUZENTASPESSOAS",
+   "COM SEDE,",
+   "APONTANDO PRO",
+   "MESMO GURI:",
+   "O LOUCO"
+  ],
+  "last5": [
+   "\"QUEM FAZ CHOVER,",
+   "COMENTA",
+   "O QUE A VILA",
+   "FAZ COM ELE,",
+   "ESEGUEPRA PARTE"
+  ]
+ }
+}

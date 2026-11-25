@@ -139,7 +139,7 @@ Os scripts em `tools/analise/` mediram as referências. Rodados no nosso vídeo 
 | Vinheta (cantos/centro) | 0,50–0,66 | 0,39–0,67 (mediana 0,57) |
 | Sombras Lab b | < −4 (tinta azul) | −19,4 a −1,4 (mediana −11,5); 12 de 13 abaixo de −4 |
 | Loudness | −14 ± 0,5 LUFS | −13,9 a −14,3 em 12 de 13 (v16: −21,0) |
-| Legendas | 2–3 palavras/bloco, centro entre 15 % e 80 % da altura, ~40 % com destaque amarelo | ver auditoria |
+| Legendas | 2–3 palavras/bloco, centro entre 15 % e 80 % da altura, ~40 % com destaque amarelo | 64 blocos/min; 84 % entre 60 % e 80 % da altura; amarelo em 43 % (0–61 %) |
 
 O que o script não mede (aprovação humana no G8): leitura da história, humor, precisão científica, direitos autorais, expressão dos personagens.
 

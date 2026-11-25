@@ -186,7 +186,72 @@ Leitura: em 11 de 13 vídeos a cor mais frequente é um azul ou roxo escuro (som
 
 ## 5. Legendas (OCR)
 
-_Em processamento: o OCR das legendas ainda está rodando. Esta seção será atualizada._
+Método: OCR a 2 qps em 360×640. Considera-se legenda o texto em caixa alta, com altura entre 2,5 % e 6,5 % da tela e com pixels brancos ou amarelos. Blocos repetidos em quadros seguidos contam uma vez só. O OCR às vezes junta palavras ("ESETUACORDASSE"), por isso **palavras por bloco e palavras por minuto ficam subestimadas**. A 2 qps, um bloco de 0,8 s quase sempre é visto pelo menos uma vez, mas alguns blocos curtos podem escapar.
+
+### Tabela E — legendas (OCR a 2 qps)
+
+| Ref. | Blocos/min | Palavras/bloco | Palavras/min na tela | Blocos com destaque amarelo | Centro vertical (mediana) | No topo (< 35 %) | Entre 60 % e 80 % | Altura da letra | Largura do bloco |
+|---|---|---|---|---|---|---|---|---|---|
+| v01 | 53,3 | 2,26 | 121 | 36 % | 65 % | 36 % | 64 % | 2,9 % | 44 % |
+| v06 | 70,1 | 2,35 | 164 | 50 % | 66 % | 11 % | 89 % | 2,9 % | 44 % |
+| v07 | 65,3 | 2,22 | 145 | 51 % | 73 % | 4 % | 96 % | 2,8 % | 47 % |
+| v10 | 62,2 | 2,45 | 152 | 61 % | 72 % | 11 % | 87 % | 2,9 % | 47 % |
+| v12 | 64,0 | 2,21 | 141 | 49 % | 74 % | 16 % | 84 % | 2,9 % | 43 % |
+| v13 | 62,1 | 2,31 | 144 | 36 % | 65 % | 25 % | 72 % | 2,8 % | 44 % |
+| v14 | 60,0 | 2,40 | 144 | 43 % | 73 % | 6 % | 94 % | 2,9 % | 43 % |
+| v15 | 63,9 | 2,26 | 144 | 44 % | 65 % | 16 % | 84 % | 2,8 % | 47 % |
+| v16 | 65,3 | 2,34 | 153 | 1 % | 74 % | 25 % | 75 % | 2,8 % | 44 % |
+| v17 | 63,4 | 2,49 | 158 | 45 % | 74 % | 23 % | 77 % | 2,8 % | 46 % |
+| v18 | 64,9 | 2,25 | 146 | 0 % | 52 % | 47 % | 49 % | 2,8 % | 43 % |
+| v19 | 77,1 | 2,18 | 168 | 2 % | 65 % | 50 % | 50 % | 2,8 % | 43 % |
+| v20 | 69,0 | 2,22 | 153 | 17 % | 65 % | 5 % | 93 % | 2,9 % | 44 % |
+| **Mediana** | 64,0 | 2,26 | 146 | 43 % | 66 % | 16 % | 84 % | 2,8 % | 44 % |
+
+Distribuição vertical de todos os blocos (centro do texto, % da altura): 0–10 %: 0 % · 10–20 %: 17 % · 20–30 %: 6 % · 30–40 %: 1 % · 40–50 %: 0 % · 50–60 %: 1 % · 60–70 %: 26 % · 70–80 %: 50 % · 80–90 %: 0 % · 90–100 %: 0 %
+
+### Tabela F — primeiros e últimos blocos lidos por OCR
+
+| Ref. | Primeiros 5 blocos | Últimos 5 blocos |
+|---|---|---|
+| v01 | O WILL TAVA / BORRIFANDO / A CIDADE. / QUE PARA ELE TAVA / O LEO TROUXE | ALGUEM ACORDA / COM UM NOVO. / QUE A PROXIMA / COMECA / COM"E SE TU ACORDASSE |
+| v06 | DUZENTASPESSOAS / COM SEDE, / APONTANDO PRO / MESMO GURI: / O LOUCO | "QUEM FAZ CHOVER, / COMENTA / O QUE A VILA / FAZ COM ELE, / ESEGUEPRA PARTE |
+| v07 | ESETUACORDASSE / AMANHA / E REALMENTE / CONTROLASSE / O MAGNETISMO?! | SEGUE AI PRA VER / O QUE O IGOR / FAZ DE VERDADE / COMISSOINAPARTE / DOIS. |
+| v10 | UM JATO D'AGUA / CORTOU A CASA / NO MEIO. / E O GURI LA / DENTRO EO LOUCO | COMENTA / O QUE TU ACHA / QUE VAI / ACONTECER, / ESEGUEPRA PARTE |
+| v12 | TUE O NICO / E TEM O ELEMENTO / VENTO / AQUI NA ESCOLA / DE ELEMENTOS, | VOOU DE NOVO. / CURTE EFALA / NOS COMENTARIOS / QUAL ELEMENTO / VEM DEPOIS? |
+| v13 | TU E O PEDRO / ETEMOELEMENTO / GRAVIDADE / AQUI NA ESCOLA / DE ELEMENTOS, | JA TAVA DEITADO / DE NOVO. / QUAL'ELEMENTO / TU QUERIA,TER? / COMENTA AI |
+| v14 | E SE TU ACORDASSE / AMANHA / E REALMENTE / TIVESSE 1000 DE QI? / O BETO ACORDOU | QUE NA PARTE 2 / OBETO DESCOBRE / O QUE DA PRA FAZER / DE VERDADE / C0M 1000DE QI. |
+| v15 | E SETUACORDASSE / AMANHA E FOSSE / DE BORRACHA? / O PEDRO FOI / DESLIGAR | QUE NA PARTE / DOISO PEDRO / O QUE DA PRA FAZER / DE VERDADE / COM ISSO |
+| v16 | O CAIO ENSINOU / O REI MAGO / A DESMONTAR / GENTE. / E SO O CAIO | COMENTA / SE TU QUER / A TEMPORADA 2, / E SEGUE / PRA NAO PERDER. |
+| v17 | O CAIO TEM / A MALDICAO / DO LOUCO. / O REI MAGO / TAMBEM. | O PRESO SECA / ATE O FIM. / O QUE TU FARIA / NO LUGAR DO CAIO, / E SEGUE PRA PARTE |
+| v18 | O DAVI / E O DUDU / PASSARAM O DIA / FUGINDO / DO GOVERNO. | DAVI: / EU VI TUDO. / E NINGUEM ALI. / O RESGATE / NA PARTE SEIS. |
+| v19 | E SE TU CORRESSE / MAIS RAPIDO / QUE UMA BALA? / E O GOVERNO / TEPAGASSE | POR DOIS MILHOES. / SEGUE AI PRAVER / O QUE O GOVERNO / FAZ COM UM CARA / QUEPARA OTEMPO. |
+| v20 | E SE TU PUDESSE / EO GOVERNO / VIESSE ATRAS / DE TI? / O GUI TAVA | MAIS TEM / PODERES? / O GUI ATRAS / DE QUEM COPIA / NA PARTE QUATRO. |
+
+### Números na tela (detecções de OCR com algarismos, excluindo legendas)
+
+| Ref. | Rótulos numéricos distintos | Exemplos |
+|---|---|---|
+| v01 | 1 | 200 |
+| v06 | 8 | H20, H20H20, H20120, H20200, HH90, 120, RAI0., E O CA10 |
+| v07 | 18 | 0 OUTRO, 20m, 3112, 20 mir, 4x10, 4x12, 20 min, 3x12, 4±10, 410, 4112, 20kg |
+| v10 | 8 | 4.000bar, s/w006, s/w 006, 900m/s, 100 L, 100L, CO2, 04s |
+| v12 | 14 | 0,90atm, 090atm, 1,00, 343, 343m/s, 40min, 2voltasls, 3voltasls, 4voltasls, 8voltasls, 12 voltas/s, 12voltas/s |
+| v13 | 7 | 136, 125, 127, 128, 0SANGUEDESCE, +0000000000004s, +0.000000000004s |
+| v14 | 62 | TIVESSE 1000 DE QI?, TIVESSE 1000DE QI?, 0:03, 4 SEGUNDOS., 4 SEGUNDOS, 43 QUINTILHOES, 43 quintilhoes, 20 movimentos, QI 100, 15a 2023, 2012, 2011 |
+| v15 | 18 | 37°, 20°, 0,92, 30cm, 30.cm, 3cm, -10, 70%, 70 %, CLASSE4-36k, CLASSE4-36k), ELASSE4.36ky |
+| v16 | 2 | E 0 VILAO, A TEMPORADA 2, |
+| v17 | 14 | E um 0., H20, A(=CO-AlL-0, Al-0, Alo Al-0, CO-AL0, 81%, 96%, 17%, 49%, 59%, 60% |
+| v18 | 11 | 3 mm, 300km/h, x20.000, -0,5°C/s-, -0,5 °C/s-, -0,5 °C/s, -0,5 C/s, 0,02, 30 kg, 2 t, 34 °℃ |
+| v19 | 19 | 100, 21:47, 0-CAIO-PAROU, 48mil, 489mil, 1,8mi, 2,1mi, 142, 0,2, 2314, /////7, 1.400km/k |
+| v20 | 31 | LAB. OPTICA 3, LAB. OPTICA3, x20.000, Tubo Gen 3, RS 48.900, TuboGen3, R$ 48.900, Tubo Gen3, RS48.900, R$48.900, LAB.OPTICA3, AB.OPTICA3 |
+
+Leitura:
+- **Tamanho e largura batem com o Padrão:** letra com ~2,8–2,9 % da altura, bloco com ~44 % da largura, nos 13 vídeos.
+- **Posição:** 84 % dos blocos (mediana) ficam entre 60 % e 80 % da altura; ~23 % vão para o topo (10–30 %). v18 e v19 usam o topo em metade dos blocos (cenas com ação embaixo). Nenhuma legenda abaixo de 80 % nem acima de 10 %.
+- **Ritmo:** 64 blocos/min (Padrão: 68) e pelo menos 146 palavras/min na tela (subestimado; o Padrão fala em ≈195 palavras/min de narração).
+- **Destaque amarelo:** mediana de 43 % dos blocos (Padrão: 42 %), **mas não é universal**. v16, v18 e v19 (episódios de série) praticamente não usam amarelo (0–2 %), e o v20 usa pouco (17 %). Nos vídeos de parte 1 e na série medieval fica entre 36 % e 61 %. **Para o Modo Curioso adotamos o amarelo como regra (~40 %).**
+- **Números na tela:** a tabela de algarismos mostra que os rótulos numéricos são densos em v07, v12, v14, v15, v17, v18, v19 e v20, e **raros em v01 (1) e v16 (nenhum)**, que passam os números pela narração e pela legenda ("QUATRO MILHÕES", "TREZENTOS SERVIDORES"). A tabela também pega textos de cenário (relógios, preços, placas), então é uma contagem aproximada.
+- **Ganchos e finais confirmados por OCR (Tabela F):** "E SE TU ACORDASSE AMANHÃ / E REALMENTE…" (v07, v14, v15), "E SE TU CORRESSE / PUDESSE…" (v19, v20), "TU É O ___ / E TEM O ELEMENTO" (v12, v13), ação com nome (v01, v06, v10, v16, v17, v18). Finais: "SEGUE (AÍ) PRA…" e/ou "NA PARTE ___" em 11 de 13; pergunta para comentário ("COMENTA…", "NOS COMENTÁRIOS…", "O QUE TU FARIA…?") em 7 de 13 (v06, v10, v12, v13, v16, v17 e v20 com "PODERES?"). Os 13 terminam com pelo menos um dos dois.
 
 ---
 
@@ -308,8 +373,8 @@ _Em processamento: o OCR das legendas ainda está rodando. Esta seção será at
 | Eventos sonoros | 1,6/s | 1,65/s |
 | Narração contínua | sem pausas | 0 pausas ≥ 0,8 s em 11 de 13 |
 | Gancho no 1º segundo | pergunta "E se…" ou ação com nome | 13/13 (ver a Tabela do inventário) |
-| Final "segue aí" / parte / comentário | 18/20, 14/20, 7/20 | 13/13 com algum dos três |
-| Números reais com rótulo | ≥ 6 | visto em 13/13 (de 6 a mais de 10 por vídeo) |
+| Final "segue aí" / parte / comentário | 18/20, 14/20, 7/20 | "segue"/"parte" em 11/13; comentário em 7/13; 13/13 com pelo menos um |
+| Números reais com rótulo | ≥ 6 | rótulos densos em 8 de 13; v01 e v16 quase sem rótulo numérico (números só na narração e na legenda) |
 | Inserts em azul-marinho, fantasma azul, térmica, visão noturna, lupa | sim | visto (seção 6) |
 | Marca dentro do cenário, sem marca d'água fixa | sim | visto em 13/13 |
 
@@ -325,7 +390,9 @@ _Em processamento: o OCR das legendas ainda está rodando. Esta seção será at
 | Pico | −0,8 dBTP | mediana −0,7; v06 +0,3 e v20 +0,1 | Dois vídeos clipam; nosso alvo é ≤ −1 dBTP. |
 | Resolução | todos 1080×1920 | v12 é 576×1024 | O arquivo do repositório é de qualidade menor. |
 | 60/30 qps | 14/6 em 20 | 9/4 em 13 | Coerente. |
-| Legendas | ver seção 5 | ver seção 5 | — |
+| Destaque amarelo na legenda | 42 % dos blocos | mediana 43 %, mas v16, v18 e v19 com 0–2 % | Não é universal nas referências; adotamos como regra nossa. |
+| Palavras por bloco | 2,9 | 2,26 (OCR junta palavras, subestima) | Compatível com 2–3. |
+| Blocos por minuto | 68 | 64 | Compatível. |
 
 ### 7.3 Elementos recorrentes (nos 13)
 1. Personagem de cabeça grande com sobrancelha expressiva e olhos pequenos; susto = olhos brancos.

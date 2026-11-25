@@ -72,7 +72,19 @@ Ver `MANUAL_ANIMACAO.md`, seção 5. Na edição:
 - Nunca acima de 10 % (marca d'água e interface do app) nem abaixo de 85 % (interface do app).
 
 ### 5.4 Medição por OCR nos 13 MP4 [medido]
-_(preenchido ao fim do processamento de OCR; ver seção 9 da auditoria)_
+| Métrica | Medido (mediana dos 13) | Faixa | Padrão |
+|---|---|---|---|
+| Blocos por minuto | 64 | 53–77 | 68 |
+| Palavras por bloco | 2,26 (OCR subestima) | 2,18–2,49 | 2,9 |
+| Palavras/min na tela | ≥ 146 | 121–168 | ≈195 (narração) |
+| Blocos com destaque amarelo | 43 % | **0–61 %** (v16, v18, v19 quase sem amarelo) | 42 % |
+| Centro vertical | 66 % da altura | 52–74 % | terço inferior |
+| Blocos entre 60 % e 80 % | 84 % | 49–96 % | 65 % |
+| Blocos no topo (< 35 %) | 16 % | 4–50 % | ~25 % |
+| Altura da letra | 2,8 % da tela | 2,8–2,9 % | 3,1 % |
+| Largura do bloco | 44 % | 43–47 % | 46 % |
+
+Decisão para o Modo Curioso: o destaque amarelo é **obrigatório** (~40 % dos blocos), apesar de três episódios de série das referências não usarem. Isso dá identidade e ajuda a leitura dos números. Detalhes na auditoria, seção 5.
 
 ## 6. Rótulos e números na tela
 - Pelo menos **6 números reais por vídeo** [padrão], cada um com rótulo grande e linha-guia (ver o Manual de Direção de Arte, seção 5).
