@@ -11,6 +11,7 @@ Dependências: FFmpeg 6+, Python 3.11+, `numpy`, `pillow`, `opencv-python-headle
 | `ocr.py` | OCR das legendas a 2 qps (texto, posição, tamanho, pixels brancos e amarelos) | `python3 ocr.py <video.mp4> <tag> <pasta_saida>` |
 | `summarize.py` | Consolida as métricas de `analyze.py` em `summary.json` | `python3 summarize.py <pasta_trabalho>` (lê `<pasta_trabalho>/out/mNN.json`) |
 | `subs.py` | Consolida as métricas de legenda em `subs.json` | `python3 subs.py <pasta_trabalho>` |
+| `voz.py` | Acústica da narração: F0 (pYIN), faixa de entonação em semitons, sílabas/s, duração das frases, final de frase (sobe/desce), centroide espectral | `python3 voz.py <video.mp4> <tag> <pasta_saida>` (precisa de `librosa`) |
 | `tables.py`, `subs_table.py` | Geram as tabelas Markdown da auditoria | `python3 tables.py <pasta_trabalho>` |
 
 `mapa_mp4_referencias.txt` liga a tag interna (m01–m13), o arquivo MP4 e o número da referência no `index.html` (v01–v20).

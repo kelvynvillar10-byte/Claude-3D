@@ -11,7 +11,8 @@ Convenção: **[medido]** = medido por nós nos 13 MP4. **[visto]** = observado 
 1. **Nada de personagem, logo, marca ou obra de terceiros.** As referências são de outro criador (a marca "@rmhkaiser" aparece nas roupas, placas, envelopes e no cartão final dos 13 vídeos) e citam obras protegidas: o "stand" roxo e dourado de JoJo (v01, v19), o Luffy de One Piece com o chapéu de palha (v15), o filme Lucy e o jogo Clash (v14), e um cientista caricato estilo Einstein (v14). **Nós aprendemos a gramática visual, não copiamos personagens, roupas, cenários ou a marca deles.**
 2. Nunca usar foto real de criança.
 3. Guerra só em tom sério.
-4. Marca d'água em todo vídeo: "MODO CURIOSO" no canto superior direito ("MODO" branco 60 %, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). **E** a marca dentro do cenário (camiseta, placa de rua, faixa, envelope), como as referências fazem com o @ delas [visto em todos os 13].
+4. Marca d'água em todo vídeo: "MODO CURIOSO" no canto superior direito ("MODO" branco 60 %, "CURIOSO" amarelo `#ffc21f`, fonte condensada, ~30 px de altura em 1080 de largura). **E** a marca dentro do cenário (placa de rua, faixa, envelope), como as referências fazem com o @ delas [visto em todos os 13].
+6. **Marca "Modo Curioso" na camiseta de todo personagem oficial** (decisão ID-002, permanente). Especificação completa em `IDENTIDADE_OFICIAL.md`.
 5. Personagens reaproveitados entre temas, trocando só a roupa.
 
 ---
@@ -30,7 +31,7 @@ Convenção: **[medido]** = medido por nós nos 13 MP4. **[visto]** = observado 
 - **Sobrancelha grossa:** carrega a expressão. Em V = bravo; arqueada = surpreso; reta e baixa = tédio.
 - **Pálpebra meio fechada:** convencido ou entediado. É a "cara de marca" do protagonista em v14 (Beto, 1000 de QI), v12 e v19 (Will).
 - **Boca:** linha simples, "o" pequeno ou aberta com língua rosa no grito/susto. Sem dentes detalhados.
-- **Corpo:** tronco simples, membros finos tipo "tubo" com articulação implícita, mãos simples (às vezes luva). Roupa lisa com uma estampa de marca no peito.
+- **Corpo:** tronco simples, membros finos tipo "tubo" com articulação implícita, mãos simples (às vezes luva). Roupa lisa com uma estampa de marca no peito. **No Modo Curioso essa estampa é sempre "Modo Curioso"** (ID-002).
 - **Superfície:** cor chapada + **um tom de sombra suave** + contorno fino escuro opcional. Em close (v14 a 2,6 s, quadro cheio) o rosto é laranja liso, com sombra só no pescoço e no cabelo.
 - **Variação entre séries:** v01 e v06/v10 usam corpos com volume toon 3D e rosto 2D; v18, v19 e v20 são flat 2D mais limpos. **Para o Modo Curioso: rosto 2D sempre, corpo 2D recortado com sombra em um tom.**
 
@@ -59,7 +60,7 @@ Arquibancada (v12, v13), repartição (v01), feira (v16, v17): o mesmo modelo re
 | Pele | `#ffd9c2` | `#efb594` | — |
 | Cabelo (liso, franja lateral) | `#3a2316` | `#24140a` | brilho `#5c3a25` |
 | Olhos | `#6a3d20` | — | brilho branco |
-| Camiseta | `#3d80d8` | `#2b61b0` | gola `#2855a0`, selo `#ffd23f` |
+| Camiseta | `#3d80d8` | `#2b61b0` | gola `#2855a0`; estampa "Modo Curioso" ("Modo" `#f2efe8`, "Curioso" `#ffc21f`, Nunito ExtraBold), que substitui o antigo selo `#ffd23f` (ID-002) |
 | Calça jeans | `#34507f` | `#243a60` | barra dobrada `#4a6b9f` |
 | Tênis | `#f6f4f0` | — | faixa azul |
 
@@ -177,5 +178,5 @@ Tela dividida com linha de luz vertical (grafite × diamante "C = C" no v17; vel
 3. O rosto está legível (olhos, sobrancelha) e fora da área da legenda?
 4. O cenário tem objetos de contexto e profundidade (desfoque ou névoa)?
 5. O número científico tem rótulo grande?
-6. A marca MODO CURIOSO está no cenário pelo menos uma vez no vídeo?
+6. A marca MODO CURIOSO está no cenário pelo menos uma vez no vídeo? A estampa "Modo Curioso" aparece correta na camiseta (frente e 3/4), recebendo a luz do tecido?
 7. Nenhum elemento de terceiros (personagem, logo, roupa característica, marca)?

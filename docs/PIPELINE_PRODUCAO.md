@@ -59,7 +59,7 @@ Modelo de 91 s (mediana das referências). Episódios de série podem ir a 117�
 
 ## 4. Etapa 2: voz
 
-- Locução humana ou TTS em português do Brasil, com sotaque e gírias coerentes com o canal ("tu", "bah", "guri" aparecem nas referências).
+- **Decisão ID-001:** voz sintética licenciada, criada a partir de uma descrição de características gerais (sem clonar ninguém). Opção recomendada: ElevenLabs Voice Design, sujeita ao teste de amostra. Perfil alvo, proibições e protocolo de teste em `IDENTIDADE_OFICIAL.md`.
 - Pós-processamento: **só comprimir pausas** (pausa ≥ 0,8 s vira 0,42 s; pausa entre 0,18 e 0,8 s vira 0,18 s). **Nunca acelerar com rubberband/time-stretch**, porque gera eco e voz duplicada.
 - Medido nas referências: nenhuma pausa ≥ 0,8 s no meio do vídeo em 12 de 13 vídeos (detector de silêncio a −35 dB).
 - Saída obrigatória: alinhamento de palavras (`voz_palavras.json`, início e fim de cada palavra). Ele dirige legendas, cortes e SFX.
@@ -93,7 +93,7 @@ Alvos para a lista inteira (detalhe no Padrão de Edição): plano mediano de 1,
 
 | Biblioteca | Conteúdo | Formato proposto |
 |---|---|---|
-| Personagens | Heitor (elenco fixo) + coadjuvantes reutilizáveis, trocando só a roupa | Boneco 2D recortado: cada parte do corpo é uma camada com ponto de pivô (SVG/PNG em camadas). Expressões como trocas de olho, sobrancelha e boca. |
+| Personagens | Heitor (elenco fixo) + coadjuvantes reutilizáveis, trocando só a roupa; estampa "Modo Curioso" a partir do arquivo-mestre `assets/marca/camiseta_modo_curioso.svg` (ID-002) | Boneco 2D recortado: cada parte do corpo é uma camada com ponto de pivô (SVG/PNG em camadas). Expressões como trocas de olho, sobrancelha e boca. |
 | Cenários | Quarto, cozinha, escola, rua de bairro, academia, campo, vila medieval, laboratório, base noturna | 3D low-poly com materiais simples e luz motivada, renderizado como fundo (ou pintura 2.5D com camadas para paralaxe) |
 | Inserts científicos | Átomos, moléculas, neurônio, corpo holográfico, câmera térmica, visão noturna, espaço | Modelos reutilizáveis sobre fundo azul-marinho com bokeh |
 | UI/tela | Celular com app, ficha "CONFIDENCIAL", notebook de loja, notícia | Templates vetoriais com a nossa marca |
@@ -173,11 +173,11 @@ Observação: hoje os 13 MP4 (~190 MB) estão versionados direto no Git, na raiz
 | ImageMagick (`convert`) | Disponível |
 | Blender | Não instalado. `bpy` 5.3.0 existe no PyPI (Blender como módulo Python, para render 3D sem interface). A validar na próxima etapa. |
 | Whisper / reconhecimento de fala | Bloqueado: o download do modelo no Hugging Face foi recusado pela rede do ambiente |
-| TTS (voz) | Não definido. Decisão sua (seção 15) |
+| TTS (voz) | Direção decidida (ID-001); fornecedor recomendado: ElevenLabs Voice Design, a testar. O endpoint com tempos por caractere também resolve o alinhamento de legendas |
 
 ## 15. Decisões pendentes (suas)
 
-1. **Voz:** locução humana ou TTS (qual serviço e qual voz)?
+1. **Voz:** direção decidida (ID-001). Falta aprovar a amostra no teste da seção 1.5 de `IDENTIDADE_OFICIAL.md` e liberar o acesso ao fornecedor (rede e chave de API).
 2. **Motor de render:** 2D vetorial (SVG/canvas, mais rápido e consistente) ou 3D low-poly (Blender/bpy, mais próximo das referências nos cenários)? Recomendo **híbrido**: personagens 2D recortados sobre cenários 3D low-poly renderizados como fundo. É o que as referências fazem.
 3. **Rede:** liberar o Hugging Face (alinhamento de palavras com Whisper) ou usar um TTS que já devolva os tempos.
 4. **Arquivo `Padrão Modo Curioso.md`:** ele não está no repositório (detalhe na auditoria). Reenviar, ou confirmar que a versão no skill do canal é a oficial.

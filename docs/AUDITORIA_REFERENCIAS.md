@@ -2,7 +2,7 @@
 
 Modo Curioso Studio AI · 25/11/2026 · Escopo: inventário, análise visual e de áudio dos vídeos de referência, comparação com o Padrão Modo Curioso. **Nenhum vídeo foi gerado.**
 
-Documentos produzidos nesta etapa: este relatório, `MANUAL_DIRECAO_ARTE.md`, `MANUAL_ANIMACAO.md`, `PADRAO_EDICAO.md`, `PIPELINE_PRODUCAO.md` e os scripts em `tools/analise/`.
+Documentos produzidos nesta etapa: este relatório, `IDENTIDADE_OFICIAL.md` (decisões de identidade), `MANUAL_DIRECAO_ARTE.md`, `MANUAL_ANIMACAO.md`, `PADRAO_EDICAO.md`, `PIPELINE_PRODUCAO.md` e os scripts em `tools/analise/`.
 
 ---
 
@@ -433,10 +433,36 @@ Leitura:
 
 ---
 
+## 8b. Narração — análise acústica (adicionada em 25/11/2026)
+
+Medida com `tools/analise/voz.py` nos 13 MP4. Eu não escuto o áudio: sotaque e pronúncia **não** foram verificados por medição. Conclusões e perfil de voz alvo estão em `IDENTIDADE_OFICIAL.md` (ID-001).
+
+| Ref. | F0 mediano (Hz) | F0 p10–p90 (Hz) | Faixa p5–p95 (semitons) | Sílabas/s faladas | Fração com voz | Frase mediana (s) | Finais descendentes | Finais ascendentes | Centroide (Hz) |
+|---|---|---|---|---|---|---|---|---|---|
+| v01 | 108 | 66–146 | 15,2 | 5,16 | 57 % | 0,90 | 56 % | 16 % | 1224 |
+| v06 | 109 | 65–158 | 17,8 | 5,43 | 48 % | 0,72 | 41 % | 29 % | 1644 |
+| v07 | 114 | 66–162 | 17,5 | 5,51 | 66 % | 1,21 | 60 % | 19 % | 1082 |
+| v10 | 110 | 69–152 | 17,0 | 5,52 | 61 % | 0,96 | 70 % | 16 % | 1233 |
+| v12 | 116 | 68–189 | 21,4 | 5,41 | 51 % | 0,92 | 69 % | 14 % | 1294 |
+| v13 | 113 | 66–158 | 17,2 | 5,37 | 54 % | 1,15 | 59 % | 18 % | 1276 |
+| v14 | 111 | 72–161 | 17,3 | 5,56 | 66 % | 1,15 | 60 % | 23 % | 1159 |
+| v15 | 112 | 68–159 | 16,6 | 5,44 | 56 % | 0,71 | 65 % | 18 % | 1313 |
+| v16 | 106 | 71–153 | 16,3 | 5,64 | 56 % | 0,88 | 74 % | 16 % | 1238 |
+| v17 | 111 | 72–163 | 17,5 | 5,48 | 63 % | 0,89 | 54 % | 28 % | 1214 |
+| v18 | 111 | 68–145 | 15,1 | 5,64 | 64 % | 1,04 | 79 % | 7 % | 1223 |
+| v19 | 105 | 69–143 | 15,2 | 5,95 | 58 % | 0,86 | 59 % | 18 % | 1163 |
+| v20 | 112 | 71–158 | 16,8 | 5,73 | 59 % | 0,89 | 64 % | 18 % | 1155 |
+| **Mediana** | 111 | 68–158 | 17,0 | 5,51 | 58 % | 0,90 | 60 % | 18 % | 1224 |
+
+Leitura: o tom médio varia só de 105 a 116 Hz entre os 13 vídeos, o que indica **a mesma voz masculina em todas as referências**. A narração é rápida (~5,5 sílabas/s), contínua, em rajadas curtas (~0,9 s), muito expressiva (~17 semitons) e com a maioria dos finais descendentes. O vocabulário ("tu acordasse", "bah", "guri", "tava") aponta para o Rio Grande do Sul.
+
+---
+
 ## 9. Pendências para você decidir
 
 1. **Reenviar o `Padrão Modo Curioso.md`**, ou confirmar que a versão do skill é a oficial.
 2. **Enviar os 7 MP4 que faltam** (v02, v03, v04, v05, v08, v09, v11) e o **v21**, se quiser que eles entrem na análise.
 3. **Rede:** liberar o Hugging Face (para Whisper), se quiser medir a sincronia fala × legenda palavra por palavra.
 4. **Repositório:** mover os MP4 para `referencias/` com Git LFS (não feito, para não mexer nos originais sem aprovação).
-5. Decisões de produção listadas no `PIPELINE_PRODUCAO.md`, seção 15 (voz, motor de render).
+5. Decisões de produção listadas no `PIPELINE_PRODUCAO.md`, seção 15 (motor de render).
+6. **Decididas em 25/11/2026** (ver `IDENTIDADE_OFICIAL.md`): ID-001, narração com voz sintética licenciada (falta o teste de amostra); ID-002, marca "Modo Curioso" na camiseta de todos os personagens oficiais.

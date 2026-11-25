@@ -118,7 +118,7 @@ Observação honesta: sem reconhecimento de fala (o modelo Whisper foi bloqueado
 | Pausas ≥ 0,8 s no meio | nenhuma | 0 em 11 de 13; 1 em v01 e v13 | — |
 
 Regras:
-1. **Narração contínua** e rápida; só comprimir pausas, nunca acelerar (ver o Pipeline, seção 4).
+1. **Narração contínua** e rápida, com a voz oficial do canal (ID-001, `IDENTIDADE_OFICIAL.md`); só comprimir pausas, nunca acelerar (ver o Pipeline, seção 4).
 2. **Música por baixo** com ducking (−12 a −18 dB sob a voz).
 3. **SFX baixos**, por baixo da voz: whoosh no chicote, impacto na tremida, pop no rótulo e na legenda de destaque, riser antes do clímax.
 4. Master final: −14 LUFS integrado, true peak ≤ −1,0 dBTP. **Não repetir** o clip do v06/v20 nem o volume baixo do v16.
