@@ -12,6 +12,7 @@ Comandos:
 Pasta de cada narração: narracao/edicoes/<nome>/
   original/<arquivo> + original/SHA256.txt · texto.txt · analise.json · palavras_original.json · direcao_edicao.json
   voz_final.wav (48 kHz, 24 bits) · voz_final.mp3 (320 kbps) · voz_palavras.json · marcacoes.json · qa.json · relatorio.md · imagens/
+  conferencia_sincronia.mp4 (narração + legendas por palavra, para conferir a sincronia)
 """
 import json, shutil, sys
 from pathlib import Path
@@ -72,7 +73,7 @@ def analisar(caminho_audio, texto, nome, base=EDICOES):
                "tipo": ED._tipo_fronteira(texto, pal[k], pal[k + 1])} for k in range(len(pal) - 1)]
     an = {"arquivo": orig.name, "sha256": sha, "formato": AU.info(orig), "duracao_s": round(len(y) / SR, 3),
           "segmentacao": seg, "falas": falas, "silencios": sil, "respiracoes": resp,
-          "piso_ruido_db": AU.piso_ruido_db(y, sil), "cliques": AU.cliques(y), "bandas": AU.espectro_bandas(y),
+          "piso_ruido_db": AU.piso_ruido_db(y, sil), "cliques": AU.cliques(y, silencios=sil), "bandas": AU.espectro_bandas(y),
           "loudness": AU.loudness(y), "tom": AU.tom(y), "por_frase": por_frase,
           "pausas_entre_palavras": pausas,
           "pausas_suspeitas": [p for p in pausas if (p["tipo"] == "nenhuma" and p["dur"] > DE.PAUSA_INADEQUADA) or p["dur"] >= 0.8],
@@ -117,6 +118,8 @@ def finalizar(nome, sem_revisao=False, base=EDICOES):
     AU.imagem_espectro(orig, pasta / "imagens" / "original_espectro.png")
     AU.imagem_espectro(pasta / "voz_final.wav", pasta / "imagens" / "final_espectro.png")
     (pasta / "relatorio.md").write_text(relatorio(nome, an, d, ops, trat, R, med, mk, len(y) / SR, len(final) / SR))
+    import legendas_teste as LT
+    LT.main(pasta)                                   # vídeo de conferência da sincronia (narração + legendas por palavra)
     return pasta, R
 
 

@@ -170,9 +170,10 @@ def piso_ruido_db(y, silencios, sr=SR):
     return round(float(np.median(vals)), 1) if vals else None
 
 
-def cliques(y, sr=SR, razao=10.0, piso_db=-50.0):
+def cliques(y, sr=SR, razao=10.0, piso_db=-50.0, silencios=None):
     """Cliques/estalos: impulsos curtos no agudo (> 3 kHz) muito acima do nível local (média de 20 ms em volta).
-    Fricativas ("s", "x") têm agudo alto, mas espalhado; o clique é um pico isolado. Devolve tempos (s)."""
+    Só conta os que caem DENTRO das pausas (`silencios`), onde o clique é inequívoco: dentro da fala, consoantes
+    explosivas ("p", "t", "k") produzem o mesmo pico (medido na voz real: 45 falsos positivos, todos na fala)."""
     from scipy.signal import butter, sosfiltfilt
     if len(y) < sr // 10:
         return []
@@ -185,6 +186,8 @@ def cliques(y, sr=SR, razao=10.0, piso_db=-50.0):
     for i in cand:
         if not out or i / sr - out[-1] > 0.02:
             out.append(round(i / sr, 3))
+    if silencios is not None:
+        out = [c for c in out if any(a + 0.01 < c < b - 0.01 for a, b in silencios if b - a >= 0.06)]
     return out
 
 

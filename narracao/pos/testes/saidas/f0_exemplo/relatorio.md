@@ -48,13 +48,14 @@
 
 ## 4. Tratamento
 
+- ganho de entrada +1.6 dB (de -21.6 para -20 LUFS) antes da compressão
 - filtro de graves em 75 Hz (sempre: tira ronco e subgrave sem efeito na voz)
 - remoção de cliques: 1 candidato(s) detectado(s)
 - redução de ruído leve: piso nas pausas em -57.2 dBFS
 - equalização: corpo +1.5 dB em 150 Hz, lama -1.5 dB em 320 Hz, presença +1.5 dB em 3500 Hz (sem o reforço de 'ar': a sibilância já está alta)
 - de-esser: sibilância em -14.64 dB do total (acima de -16)
-- compressão moderada 2.5:1 a partir de -22 dB
-- loudness: ganho fixo até -16.0 LUFS e limitador de pico verdadeiro (sobreamostragem 4×) em -1.5 dBTP; resultado -16.0 LUFS, -1.8 dBTP; o limitador cortou no máximo 2.0 dB de pico (sem compressão dinâmica escondida)
+- compressão moderada 2.5:1 a partir de -24 dB
+- loudness: ganho fixo até -16.0 LUFS e limitador de pico verdadeiro (sobreamostragem 4×) em -1.5 dBTP; resultado -16.0 LUFS, -1.8 dBTP; limitador agindo em 0.54 % do tempo (mais de 1 dB em 0.15 %, mais de 3 dB em 0.0 %; máximo 1.8 dB, em picos isolados)
 
 ## 5. Controle de qualidade
 
@@ -67,8 +68,8 @@
 - ✅ **loudness**: -16.0 LUFS (alvo -16.0 ± 0,6)
 - ✅ **pico_verdadeiro**: -1.8 dBTP (máx. -1.5)
 - ✅ **sem_clipagem**: 0 amostra(s) em fundo de escala
-- ✅ **tom_preservado**: tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.9 semitons
-- ✅ **timbre_sem_exagero**: variação por banda (dB, final − original): graves_20_80 -2.03, corpo_80_250 +1.14, lama_250_500 -0.39, medios_500_2k -0.70, presenca_2k_5k +1.00, sibilancia_5k_10k +2.45, ar_10k_mais -0.19
+- ✅ **tom_preservado**: tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.8 semitons
+- ✅ **timbre_sem_exagero**: variação por banda (dB, final − original): graves_20_80 -1.35, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86
 - ✅ **sincronia_final**: deslocamento entre o áudio editado e o tratado: 0 amostra(s) (os tempos das palavras valem para o final)
 - ✅ **atraso_dos_filtros_compensado**: atraso medido e compensado: filtros 1200 amostra(s), loudness 0 amostra(s)
 

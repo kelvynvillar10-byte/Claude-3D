@@ -1,0 +1,1370 @@
+{
+ "duracao_s": 112.29,
+ "frases": [
+  {
+   "n": 1,
+   "intencao": "misterio",
+   "nome": "Mistério",
+   "texto": "Imagine acordar amanhã…",
+   "ini": 0.15,
+   "fim": 1.82
+  },
+  {
+   "n": 2,
+   "intencao": "surpresa",
+   "nome": "Surpresa",
+   "texto": "e descobrir que você tem apenas cinco centímetros de altura.",
+   "ini": 2.32,
+   "fim": 6.78
+  },
+  {
+   "n": 3,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Sua cama seria como um prédio.",
+   "ini": 7.13,
+   "fim": 9.11
+  },
+  {
+   "n": 4,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Seu celular pareceria uma televisão gigante.",
+   "ini": 9.41,
+   "fim": 12.6
+  },
+  {
+   "n": 5,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "E até sair do quarto poderia se transformar em uma missão impossível.",
+   "ini": 12.9,
+   "fim": 17.98
+  },
+  {
+   "n": 6,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Mas o pior ainda estaria por vir…",
+   "ini": 18.43,
+   "fim": 20.92
+  },
+  {
+   "n": 7,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Com apenas cinco centímetros, uma simples gota de água poderia parecer uma enorme esfera.",
+   "ini": 21.52,
+   "fim": 28.21
+  },
+  {
+   "n": 8,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Uma moeda no chão seria quase um obstáculo gigante.",
+   "ini": 28.59,
+   "fim": 31.82
+  },
+  {
+   "n": 9,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "E aquela escada que você sobe todos os dias?",
+   "ini": 32.12,
+   "fim": 34.74
+  },
+  {
+   "n": 10,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "Agora seria uma sequência de montanhas que você precisaria escalar.",
+   "ini": 35.14,
+   "fim": 39.29
+  },
+  {
+   "n": 11,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Mas existe um perigo ainda maior: os animais da sua própria casa.",
+   "ini": 39.84,
+   "fim": 43.96
+  },
+  {
+   "n": 12,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "Uma formiga poderia parecer um adversário enorme.",
+   "ini": 44.56,
+   "fim": 47.01
+  },
+  {
+   "n": 13,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "E um gato curioso, que antes parecia inofensivo, agora seria um verdadeiro predador.",
+   "ini": 47.46,
+   "fim": 53.33
+  },
+  {
+   "n": 14,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Um único movimento errado…",
+   "ini": 53.78,
+   "fim": 54.98
+  },
+  {
+   "n": 15,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "e você poderia acabar em uma situação desesperadora.",
+   "ini": 55.58,
+   "fim": 59.19
+  },
+  {
+   "n": 16,
+   "intencao": "surpresa",
+   "nome": "Surpresa",
+   "texto": "Só que existe algo ainda mais curioso: seu corpo não funcionaria exatamente como antes.",
+   "ini": 59.74,
+   "fim": 65.58
+  },
+  {
+   "n": 17,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Ao diminuir de tamanho, seu peso cairia muito mais rapidamente do que sua força muscular.",
+   "ini": 65.93,
+   "fim": 71.61
+  },
+  {
+   "n": 18,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "Isso significa que, proporcionalmente, você poderia ser muito mais forte do que um humano normal.",
+   "ini": 71.96,
+   "fim": 77.44
+  },
+  {
+   "n": 19,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Mas isso não resolveria todos os seus problemas.",
+   "ini": 77.89,
+   "fim": 79.91
+  },
+  {
+   "n": 20,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "Uma pequena poça poderia dificultar sua passagem.",
+   "ini": 80.41,
+   "fim": 81.49
+  },
+  {
+   "n": 21,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "Uma corrente de ar poderia desequilibrar você.",
+   "ini": 81.69,
+   "fim": 84.65
+  },
+  {
+   "n": 22,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "E até encontrar comida e água se tornaria um desafio.",
+   "ini": 84.85,
+   "fim": 87.82
+  },
+  {
+   "n": 23,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "O mundo continuaria exatamente igual…",
+   "ini": 88.27,
+   "fim": 90.03
+  },
+  {
+   "n": 24,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "mas tudo ao seu redor teria se transformado em um obstáculo gigantesco.",
+   "ini": 90.43,
+   "fim": 93.09
+  },
+  {
+   "n": 25,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "E sabe qual seria a parte mais assustadora?",
+   "ini": 93.64,
+   "fim": 96.45
+  },
+  {
+   "n": 26,
+   "intencao": "emocao",
+   "nome": "Emoção",
+   "texto": "Você não estaria em um mundo diferente.",
+   "ini": 97.0,
+   "fim": 99.68
+  },
+  {
+   "n": 27,
+   "intencao": "emocao",
+   "nome": "Emoção",
+   "texto": "Estaria exatamente no mesmo mundo de sempre…",
+   "ini": 100.13,
+   "fim": 103.77
+  },
+  {
+   "n": 28,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "Só que, dessa vez, seria você quem teria se tornado pequeno demais para ele.",
+   "ini": 104.37,
+   "fim": 109.86
+  },
+  {
+   "n": 29,
+   "intencao": "conclusao",
+   "nome": "Conclusão",
+   "texto": "MODO CURIOSO.",
+   "ini": 110.36,
+   "fim": 111.79
+  }
+ ],
+ "destaques": [
+  {
+   "frase": 2,
+   "palavra": "cinco",
+   "i": 9,
+   "ini": 4.44,
+   "fim": 5.05,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 2,
+   "palavra": "centímetros",
+   "i": 10,
+   "ini": 5.22,
+   "fim": 6.18,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 3,
+   "palavra": "prédio",
+   "i": 18,
+   "ini": 8.61,
+   "fim": 9.11,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 4,
+   "palavra": "televisão",
+   "i": 23,
+   "ini": 11.16,
+   "fim": 11.91,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 5,
+   "palavra": "impossível",
+   "i": 36,
+   "ini": 17.15,
+   "fim": 17.98,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 6,
+   "palavra": "pior",
+   "i": 39,
+   "ini": 18.69,
+   "fim": 19.12,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 7,
+   "palavra": "esfera",
+   "i": 57,
+   "ini": 27.5,
+   "fim": 28.21,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 8,
+   "palavra": "obstáculo",
+   "i": 65,
+   "ini": 30.99,
+   "fim": 31.5,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 10,
+   "palavra": "montanhas",
+   "i": 81,
+   "ini": 36.87,
+   "fim": 37.58,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 11,
+   "palavra": "perigo",
+   "i": 89,
+   "ini": 40.5,
+   "fim": 40.825,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 12,
+   "palavra": "formiga",
+   "i": 99,
+   "ini": 44.62,
+   "fim": 45.14,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 13,
+   "palavra": "predador",
+   "i": 117,
+   "ini": 52.74,
+   "fim": 53.33,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 14,
+   "palavra": "movimento",
+   "i": 120,
+   "ini": 54.25,
+   "fim": 54.59,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 15,
+   "palavra": "desesperadora",
+   "i": 129,
+   "ini": 57.98,
+   "fim": 59.19,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 16,
+   "palavra": "curioso",
+   "i": 136,
+   "ini": 61.7,
+   "fim": 62.4,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 17,
+   "palavra": "peso",
+   "i": 149,
+   "ini": 67.75,
+   "fim": 67.99,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 17,
+   "palavra": "força",
+   "i": 157,
+   "ini": 70.43,
+   "fim": 70.9,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 18,
+   "palavra": "forte",
+   "i": 168,
+   "ini": 76.13,
+   "fim": 76.57,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 20,
+   "palavra": "poça",
+   "i": 184,
+   "ini": 80.49,
+   "fim": 80.67,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 21,
+   "palavra": "desequilibrar",
+   "i": 194,
+   "ini": 83.31,
+   "fim": 84.21,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 22,
+   "palavra": "desafio",
+   "i": 205,
+   "ini": 87.25,
+   "fim": 87.82,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 24,
+   "palavra": "gigantesco",
+   "i": 222,
+   "ini": 92.81,
+   "fim": 93.09,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 25,
+   "palavra": "mais",
+   "i": 229,
+   "ini": 95.34,
+   "fim": 95.61,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 26,
+   "palavra": "diferente",
+   "i": 237,
+   "ini": 98.97,
+   "fim": 99.68,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 27,
+   "palavra": "sempre",
+   "i": 244,
+   "ini": 103.22,
+   "fim": 103.77,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 28,
+   "palavra": "pequeno",
+   "i": 255,
+   "ini": 108.38,
+   "fim": 108.93,
+   "ganho_db": 1.5
+  }
+ ],
+ "pausas": [
+  {
+   "ini": 1.82,
+   "fim": 2.32,
+   "dur": 0.5,
+   "depois_de": "amanhã",
+   "antes_de": "e",
+   "funcao": "pausa antes de surpresa"
+  },
+  {
+   "ini": 4.22,
+   "fim": 4.44,
+   "dur": 0.22,
+   "depois_de": "apenas",
+   "antes_de": "cinco",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 5.05,
+   "fim": 5.22,
+   "dur": 0.17,
+   "depois_de": "cinco",
+   "antes_de": "centímetros",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 6.78,
+   "fim": 7.13,
+   "dur": 0.35,
+   "depois_de": "altura",
+   "antes_de": "Sua",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 9.11,
+   "fim": 9.41,
+   "dur": 0.3,
+   "depois_de": "prédio",
+   "antes_de": "Seu",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 10.92,
+   "fim": 11.16,
+   "dur": 0.24,
+   "depois_de": "uma",
+   "antes_de": "televisão",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 12.6,
+   "fim": 12.9,
+   "dur": 0.3,
+   "depois_de": "gigante",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 17.98,
+   "fim": 18.43,
+   "dur": 0.45,
+   "depois_de": "impossível",
+   "antes_de": "Mas",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 19.12,
+   "fim": 19.34,
+   "dur": 0.22,
+   "depois_de": "pior",
+   "antes_de": "ainda",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 20.92,
+   "fim": 21.52,
+   "dur": 0.6,
+   "depois_de": "vir",
+   "antes_de": "Com",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 23.36,
+   "fim": 23.58,
+   "dur": 0.22,
+   "depois_de": "centímetros",
+   "antes_de": "uma",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 28.21,
+   "fim": 28.59,
+   "dur": 0.38,
+   "depois_de": "esfera",
+   "antes_de": "Uma",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 29.77,
+   "fim": 30.02,
+   "dur": 0.25,
+   "depois_de": "chão",
+   "antes_de": "seria",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 31.82,
+   "fim": 32.12,
+   "dur": 0.3,
+   "depois_de": "gigante",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 34.74,
+   "fim": 35.14,
+   "dur": 0.4,
+   "depois_de": "dias",
+   "antes_de": "Agora",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 39.29,
+   "fim": 39.84,
+   "dur": 0.55,
+   "depois_de": "escalar",
+   "antes_de": "Mas",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 41.62,
+   "fim": 41.94,
+   "dur": 0.32,
+   "depois_de": "maior",
+   "antes_de": "os",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 43.96,
+   "fim": 44.56,
+   "dur": 0.6,
+   "depois_de": "casa",
+   "antes_de": "Uma",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 47.01,
+   "fim": 47.46,
+   "dur": 0.45,
+   "depois_de": "enorme",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 48.65,
+   "fim": 48.87,
+   "dur": 0.22,
+   "depois_de": "curioso",
+   "antes_de": "que",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 50.61,
+   "fim": 50.82,
+   "dur": 0.21,
+   "depois_de": "inofensivo",
+   "antes_de": "agora",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 51.3,
+   "fim": 51.51,
+   "dur": 0.21,
+   "depois_de": "agora",
+   "antes_de": "seria",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 52.0,
+   "fim": 52.24,
+   "dur": 0.24,
+   "depois_de": "um",
+   "antes_de": "verdadeiro",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 53.33,
+   "fim": 53.78,
+   "dur": 0.45,
+   "depois_de": "predador",
+   "antes_de": "Um",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 54.98,
+   "fim": 55.58,
+   "dur": 0.6,
+   "depois_de": "errado",
+   "antes_de": "e",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 59.19,
+   "fim": 59.74,
+   "dur": 0.55,
+   "depois_de": "desesperadora",
+   "antes_de": "Só",
+   "funcao": "pausa antes de surpresa"
+  },
+  {
+   "ini": 62.4,
+   "fim": 62.6,
+   "dur": 0.2,
+   "depois_de": "curioso",
+   "antes_de": "seu",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 63.36,
+   "fim": 63.58,
+   "dur": 0.22,
+   "depois_de": "não",
+   "antes_de": "funcionaria",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 65.58,
+   "fim": 65.93,
+   "dur": 0.35,
+   "depois_de": "antes",
+   "antes_de": "Ao",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 67.26,
+   "fim": 67.45,
+   "dur": 0.19,
+   "depois_de": "tamanho",
+   "antes_de": "seu",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 71.61,
+   "fim": 71.96,
+   "dur": 0.35,
+   "depois_de": "muscular",
+   "antes_de": "Isso",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 75.42,
+   "fim": 75.66,
+   "dur": 0.24,
+   "depois_de": "poderia",
+   "antes_de": "ser",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 77.44,
+   "fim": 77.89,
+   "dur": 0.45,
+   "depois_de": "normal",
+   "antes_de": "Mas",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 79.06,
+   "fim": 79.29,
+   "dur": 0.23,
+   "depois_de": "todos",
+   "antes_de": "os",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 79.91,
+   "fim": 80.41,
+   "dur": 0.5,
+   "depois_de": "problemas",
+   "antes_de": "Uma",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 81.49,
+   "fim": 81.69,
+   "dur": 0.2,
+   "depois_de": "passagem",
+   "antes_de": "Uma",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 84.65,
+   "fim": 84.85,
+   "dur": 0.2,
+   "depois_de": "você",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 85.61,
+   "fim": 85.82,
+   "dur": 0.21,
+   "depois_de": "encontrar",
+   "antes_de": "comida",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 87.82,
+   "fim": 88.27,
+   "dur": 0.45,
+   "depois_de": "desafio",
+   "antes_de": "O",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 90.03,
+   "fim": 90.43,
+   "dur": 0.4,
+   "depois_de": "igual",
+   "antes_de": "mas",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 92.05,
+   "fim": 92.25,
+   "dur": 0.2,
+   "depois_de": "transformado",
+   "antes_de": "em",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 93.09,
+   "fim": 93.64,
+   "dur": 0.55,
+   "depois_de": "gigantesco",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 96.45,
+   "fim": 97.0,
+   "dur": 0.55,
+   "depois_de": "assustadora",
+   "antes_de": "Você",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 99.68,
+   "fim": 100.13,
+   "dur": 0.45,
+   "depois_de": "diferente",
+   "antes_de": "Estaria",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 103.77,
+   "fim": 104.37,
+   "dur": 0.6,
+   "depois_de": "sempre",
+   "antes_de": "Só",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 104.84,
+   "fim": 105.05,
+   "dur": 0.21,
+   "depois_de": "que",
+   "antes_de": "dessa",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 105.74,
+   "fim": 105.99,
+   "dur": 0.25,
+   "depois_de": "vez",
+   "antes_de": "seria",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 107.01,
+   "fim": 107.26,
+   "dur": 0.25,
+   "depois_de": "você",
+   "antes_de": "quem",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 109.86,
+   "fim": 110.36,
+   "dur": 0.5,
+   "depois_de": "ele",
+   "antes_de": "MODO",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 110.9,
+   "fim": 111.13,
+   "dur": 0.23,
+   "depois_de": "MODO",
+   "antes_de": "CURIOSO",
+   "funcao": "pausa interna"
+  }
+ ],
+ "cortes_visuais": [
+  {
+   "t": 2.07,
+   "tipo": "corte entre frases",
+   "motivo": "Mistério → Surpresa"
+  },
+  {
+   "t": 4.33,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 2"
+  },
+  {
+   "t": 6.955,
+   "tipo": "corte entre frases",
+   "motivo": "Surpresa → Curiosidade"
+  },
+  {
+   "t": 9.26,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Curiosidade"
+  },
+  {
+   "t": 12.75,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Curiosidade"
+  },
+  {
+   "t": 18.205,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Suspense"
+  },
+  {
+   "t": 21.22,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Curiosidade"
+  },
+  {
+   "t": 23.47,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 7"
+  },
+  {
+   "t": 28.4,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Curiosidade"
+  },
+  {
+   "t": 31.97,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Curiosidade"
+  },
+  {
+   "t": 34.94,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Descoberta/revelação"
+  },
+  {
+   "t": 39.565,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Suspense"
+  },
+  {
+   "t": 41.78,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 11"
+  },
+  {
+   "t": 44.26,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Tensão"
+  },
+  {
+   "t": 47.235,
+   "tipo": "corte entre frases",
+   "motivo": "Tensão → Suspense"
+  },
+  {
+   "t": 50.715,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 13"
+  },
+  {
+   "t": 53.555,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Suspense"
+  },
+  {
+   "t": 55.28,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Tensão"
+  },
+  {
+   "t": 59.465,
+   "tipo": "corte entre frases",
+   "motivo": "Tensão → Surpresa"
+  },
+  {
+   "t": 62.5,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 16"
+  },
+  {
+   "t": 65.755,
+   "tipo": "corte entre frases",
+   "motivo": "Surpresa → Explicação"
+  },
+  {
+   "t": 67.355,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 17"
+  },
+  {
+   "t": 71.785,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Descoberta/revelação"
+  },
+  {
+   "t": 75.54,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 18"
+  },
+  {
+   "t": 77.665,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Suspense"
+  },
+  {
+   "t": 80.16,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Tensão"
+  },
+  {
+   "t": 81.59,
+   "tipo": "corte entre frases",
+   "motivo": "Tensão → Tensão"
+  },
+  {
+   "t": 84.75,
+   "tipo": "corte entre frases",
+   "motivo": "Tensão → Tensão"
+  },
+  {
+   "t": 88.045,
+   "tipo": "corte entre frases",
+   "motivo": "Tensão → Suspense"
+  },
+  {
+   "t": 90.23,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Descoberta/revelação"
+  },
+  {
+   "t": 93.365,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Suspense"
+  },
+  {
+   "t": 96.725,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Emoção"
+  },
+  {
+   "t": 99.905,
+   "tipo": "corte entre frases",
+   "motivo": "Emoção → Emoção"
+  },
+  {
+   "t": 104.07,
+   "tipo": "corte entre frases",
+   "motivo": "Emoção → Descoberta/revelação"
+  },
+  {
+   "t": 107.135,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 28"
+  },
+  {
+   "t": 110.11,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Conclusão"
+  }
+ ],
+ "impactos": [
+  {
+   "t": 2.32,
+   "frase": 2,
+   "motivo": "início de surpresa"
+  },
+  {
+   "t": 4.44,
+   "frase": 2,
+   "motivo": "palavra de destaque: cinco"
+  },
+  {
+   "t": 5.22,
+   "frase": 2,
+   "motivo": "palavra de destaque: centímetros"
+  },
+  {
+   "t": 8.61,
+   "frase": 3,
+   "motivo": "palavra de destaque: prédio"
+  },
+  {
+   "t": 11.16,
+   "frase": 4,
+   "motivo": "palavra de destaque: televisão"
+  },
+  {
+   "t": 17.15,
+   "frase": 5,
+   "motivo": "palavra de destaque: impossível"
+  },
+  {
+   "t": 18.69,
+   "frase": 6,
+   "motivo": "palavra de destaque: pior"
+  },
+  {
+   "t": 27.5,
+   "frase": 7,
+   "motivo": "palavra de destaque: esfera"
+  },
+  {
+   "t": 30.99,
+   "frase": 8,
+   "motivo": "palavra de destaque: obstáculo"
+  },
+  {
+   "t": 35.14,
+   "frase": 10,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 36.87,
+   "frase": 10,
+   "motivo": "palavra de destaque: montanhas"
+  },
+  {
+   "t": 40.5,
+   "frase": 11,
+   "motivo": "palavra de destaque: perigo"
+  },
+  {
+   "t": 44.62,
+   "frase": 12,
+   "motivo": "palavra de destaque: formiga"
+  },
+  {
+   "t": 52.74,
+   "frase": 13,
+   "motivo": "palavra de destaque: predador"
+  },
+  {
+   "t": 54.25,
+   "frase": 14,
+   "motivo": "palavra de destaque: movimento"
+  },
+  {
+   "t": 57.98,
+   "frase": 15,
+   "motivo": "palavra de destaque: desesperadora"
+  },
+  {
+   "t": 59.74,
+   "frase": 16,
+   "motivo": "início de surpresa"
+  },
+  {
+   "t": 61.7,
+   "frase": 16,
+   "motivo": "palavra de destaque: curioso"
+  },
+  {
+   "t": 67.75,
+   "frase": 17,
+   "motivo": "palavra de destaque: peso"
+  },
+  {
+   "t": 70.43,
+   "frase": 17,
+   "motivo": "palavra de destaque: força"
+  },
+  {
+   "t": 71.96,
+   "frase": 18,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 76.13,
+   "frase": 18,
+   "motivo": "palavra de destaque: forte"
+  },
+  {
+   "t": 80.49,
+   "frase": 20,
+   "motivo": "palavra de destaque: poça"
+  },
+  {
+   "t": 83.31,
+   "frase": 21,
+   "motivo": "palavra de destaque: desequilibrar"
+  },
+  {
+   "t": 87.25,
+   "frase": 22,
+   "motivo": "palavra de destaque: desafio"
+  },
+  {
+   "t": 90.43,
+   "frase": 24,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 92.81,
+   "frase": 24,
+   "motivo": "palavra de destaque: gigantesco"
+  },
+  {
+   "t": 95.34,
+   "frase": 25,
+   "motivo": "palavra de destaque: mais"
+  },
+  {
+   "t": 98.97,
+   "frase": 26,
+   "motivo": "palavra de destaque: diferente"
+  },
+  {
+   "t": 103.22,
+   "frase": 27,
+   "motivo": "palavra de destaque: sempre"
+  },
+  {
+   "t": 104.37,
+   "frase": 28,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 108.38,
+   "frase": 28,
+   "motivo": "palavra de destaque: pequeno"
+  }
+ ],
+ "espacos_para_sfx": [
+  {
+   "ini": 1.82,
+   "fim": 2.32,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de surpresa"
+  },
+  {
+   "ini": 20.92,
+   "fim": 21.52,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 34.74,
+   "fim": 35.14,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 43.96,
+   "fim": 44.56,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 53.33,
+   "fim": 53.78,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 54.98,
+   "fim": 55.58,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 59.19,
+   "fim": 59.74,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de surpresa"
+  },
+  {
+   "ini": 71.61,
+   "fim": 71.96,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 79.91,
+   "fim": 80.41,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 90.03,
+   "fim": 90.43,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 96.45,
+   "fim": 97.0,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 103.77,
+   "fim": 104.37,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  }
+ ],
+ "transicoes": [
+  {
+   "t": 2.07,
+   "de": "Mistério",
+   "para": "Surpresa"
+  },
+  {
+   "t": 6.955,
+   "de": "Surpresa",
+   "para": "Curiosidade"
+  },
+  {
+   "t": 18.205,
+   "de": "Curiosidade",
+   "para": "Suspense"
+  },
+  {
+   "t": 21.22,
+   "de": "Suspense",
+   "para": "Curiosidade"
+  },
+  {
+   "t": 34.94,
+   "de": "Curiosidade",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 39.565,
+   "de": "Descoberta/revelação",
+   "para": "Suspense"
+  },
+  {
+   "t": 44.26,
+   "de": "Suspense",
+   "para": "Tensão"
+  },
+  {
+   "t": 47.235,
+   "de": "Tensão",
+   "para": "Suspense"
+  },
+  {
+   "t": 55.28,
+   "de": "Suspense",
+   "para": "Tensão"
+  },
+  {
+   "t": 59.465,
+   "de": "Tensão",
+   "para": "Surpresa"
+  },
+  {
+   "t": 65.755,
+   "de": "Surpresa",
+   "para": "Explicação"
+  },
+  {
+   "t": 71.785,
+   "de": "Explicação",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 77.665,
+   "de": "Descoberta/revelação",
+   "para": "Suspense"
+  },
+  {
+   "t": 80.16,
+   "de": "Suspense",
+   "para": "Tensão"
+  },
+  {
+   "t": 88.045,
+   "de": "Tensão",
+   "para": "Suspense"
+  },
+  {
+   "t": 90.23,
+   "de": "Suspense",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 93.365,
+   "de": "Descoberta/revelação",
+   "para": "Suspense"
+  },
+  {
+   "t": 96.725,
+   "de": "Suspense",
+   "para": "Emoção"
+  },
+  {
+   "t": 104.07,
+   "de": "Emoção",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 110.11,
+   "de": "Descoberta/revelação",
+   "para": "Conclusão"
+  }
+ ],
+ "observacao": "Tempos do áudio final. Sugestões para a edição audiovisual; nenhum efeito sonoro foi adicionado."
+}

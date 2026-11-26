@@ -11,7 +11,7 @@
   {"nome": "ar", "tipo": "prateleira_aguda", "hz": 10000, "db": 1.0}
  ],
  "de_esser": {"usar_se_sibilancia_acima_db": -16, "intensidade": 0.35, "frequencia": 0.55},
- "compressao": {"limiar_db": -22, "razao": 2.5, "ataque_ms": 12, "liberacao_ms": 140, "joelho": 4},
+ "compressao": {"nivel_entrada_lufs": -20, "limiar_db": -24, "razao": 2.5, "ataque_ms": 12, "liberacao_ms": 140, "joelho": 4},
  "loudness": {"alvo_lufs": -16.0, "pico_verdadeiro_dbtp": -1.5, "faixa_lu": 11},
  "mp3_kbps": 320,
  "observacao": "Sem mudança de tom ou de velocidade. Cada etapa condicional só entra se a medição indicar. Calibração final na F2, com a escuta do diretor."

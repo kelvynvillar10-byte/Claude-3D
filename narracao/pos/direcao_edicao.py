@@ -92,6 +92,7 @@ def rascunho(texto, palavras):
                     "pausa_antes_s": TABELA[nome]["antes"], "pausa_depois_s": TABELA[nome]["depois"],
                     "virgula_s": list(TABELA[nome]["virgula"]), "destaques": dest, "ganho_db": 0.0, "nota": ""})
     return {"versao": 1, "revisado": False, "frases": out,
+            "ajustes_pausa": {},          # {"<índice da palavra ANTES da pausa>": {"alvo_s": 0.3 | null (= manter a natural), "motivo": "…"}}
             "regras": {"teto_geral_s": TETO_GERAL, "tetos_por_intencao_s": TETO, "pausa_inicio_s": PAUSA_INICIO,
                        "pausa_final_s": PAUSA_FINAL, "pausa_sem_pontuacao_inadequada_s": PAUSA_INADEQUADA,
                        "pausa_sem_pontuacao_alvo_s": PAUSA_SEM_PONTUACAO}}
@@ -113,6 +114,14 @@ def validar(d, n_palavras):
         if abs(f.get("ganho_db", 0)) > 2.0:
             erros.append(f"frase {f['n']}: ganho de frase {f['ganho_db']} dB (permitido: ±2 dB)")
         vistos += list(range(f["palavras"][0], f["palavras"][1] + 1))
+    for k, aj in d.get("ajustes_pausa", {}).items():
+        if not str(k).isdigit() or not 0 <= int(k) < n_palavras - 1:
+            erros.append(f"ajuste de pausa em palavra inexistente: {k}")
+        a = aj.get("alvo_s")
+        if a is not None and not 0 <= a <= TETO_GERAL:
+            erros.append(f"ajuste de pausa {k}: {a} s fora de [0, {TETO_GERAL}]")
+        if not aj.get("motivo"):
+            erros.append(f"ajuste de pausa {k}: falta o motivo")
     if vistos != list(range(n_palavras)):
         erros.append("palavras faltando, repetidas ou fora de ordem nas frases")
     return erros

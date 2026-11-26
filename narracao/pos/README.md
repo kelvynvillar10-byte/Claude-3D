@@ -25,6 +25,7 @@ texto exato. Este módulo transforma esse áudio na narração final do Modo Cur
 | `voz_final.mp3` | a mesma narração em 320 kbps, para ouvir e revisar |
 | `voz_palavras.json` | início e fim de cada palavra **no áudio final** |
 | `marcacoes.json` | frases e intenções, destaques, pausas, cortes visuais, impactos, espaços para efeitos sonoros e transições |
+| `conferencia_sincronia.mp4` | narração final com legendas de 2–3 palavras tiradas do `voz_palavras.json`, para conferir a sincronia (não é a legenda final) |
 | `relatorio.md` | análise, direção, cada edição com o motivo, tratamento aplicado, QA e limitações |
 | `analise.json`, `direcao_edicao.json`, `qa.json`, `imagens/` | dados de apoio: forma de onda e espectro, antes e depois |
 
@@ -69,7 +70,7 @@ Na F2, os ajustes são calibrados com a escuta do diretor. O atraso de cada filt
 
 ## Alinhamento de palavras (sem modelos externos)
 1. O espeak-ng, via biblioteca do sistema, lê o mesmo texto e informa a amostra exata em que cada palavra começa.
-2. O DTW (MFCC) transfere esses tempos para a voz real. Em áudios longos, roda em duas escalas.
+2. O DTW (MFCC) transfere esses tempos para a voz real. Em áudios longos, roda um DTW grosso no áudio inteiro e refina em janelas sobrepostas ancoradas nele.
 3. O ajuste pelas pausas medidas garante que nenhuma palavra comece ou termine dentro de um silêncio.
 
 Precisão medida no teste F0, contra tempos verdadeiros:

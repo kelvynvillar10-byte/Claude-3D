@@ -200,6 +200,7 @@
    "nota": ""
   }
  ],
+ "ajustes_pausa": {},
  "regras": {
   "teto_geral_s": 0.7,
   "tetos_por_intencao_s": {

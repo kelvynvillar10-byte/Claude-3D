@@ -1,0 +1,797 @@
+{
+ "versao": 1,
+ "revisado": true,
+ "frases": [
+  {
+   "n": 1,
+   "texto": "Imagine acordar amanhã…",
+   "c0": 0,
+   "c1": 23,
+   "palavras": [
+    0,
+    2
+   ],
+   "intencao": "misterio",
+   "justificativa": "abertura: convite ao mistério; a reticência segura a revelação",
+   "pausa_antes_s": 0.4,
+   "pausa_depois_s": 0.4,
+   "virgula_s": [
+    0.14,
+    0.28
+   ],
+   "destaques": [],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 2,
+   "texto": "e descobrir que você tem apenas cinco centímetros de altura.",
+   "c0": 24,
+   "c1": 84,
+   "palavras": [
+    3,
+    12
+   ],
+   "intencao": "surpresa",
+   "justificativa": "revelação do tamanho: pausa antes e destaque no número",
+   "pausa_antes_s": 0.5,
+   "pausa_depois_s": 0.35,
+   "virgula_s": [
+    0.1,
+    0.2
+   ],
+   "destaques": [
+    {
+     "i": 9,
+     "w": "cinco",
+     "db": 1.5
+    },
+    {
+     "i": 10,
+     "w": "centímetros",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 3,
+   "texto": "Sua cama seria como um prédio.",
+   "c0": 85,
+   "c1": 115,
+   "palavras": [
+    13,
+    18
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "primeira imagem de escala",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 18,
+     "w": "prédio",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 4,
+   "texto": "Seu celular pareceria uma televisão gigante.",
+   "c0": 116,
+   "c1": 160,
+   "palavras": [
+    19,
+    24
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "segunda imagem de escala",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 23,
+     "w": "televisão",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 5,
+   "texto": "E até sair do quarto poderia se transformar em uma missão impossível.",
+   "c0": 161,
+   "c1": 230,
+   "palavras": [
+    25,
+    36
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "fecha a lista com a ideia da missão",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 36,
+     "w": "impossível",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 6,
+   "texto": "Mas o pior ainda estaria por vir…",
+   "c0": 231,
+   "c1": 264,
+   "palavras": [
+    37,
+    43
+   ],
+   "intencao": "suspense",
+   "justificativa": "gancho da cena 1 para a 2: pausa longa depois",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [
+    {
+     "i": 39,
+     "w": "pior",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 7,
+   "texto": "Com apenas cinco centímetros, uma simples gota de água poderia parecer uma enorme esfera.",
+   "c0": 265,
+   "c1": 354,
+   "palavras": [
+    44,
+    57
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "início da cena 2 (mundo gigante)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.38,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 57,
+     "w": "esfera",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 8,
+   "texto": "Uma moeda no chão seria quase um obstáculo gigante.",
+   "c0": 355,
+   "c1": 406,
+   "palavras": [
+    58,
+    66
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "imagem de escala",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 65,
+     "w": "obstáculo",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 9,
+   "texto": "E aquela escada que você sobe todos os dias?",
+   "c0": 407,
+   "c1": 451,
+   "palavras": [
+    67,
+    75
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "pergunta que puxa a resposta seguinte",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.4,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 10,
+   "texto": "Agora seria uma sequência de montanhas que você precisaria escalar.",
+   "c0": 452,
+   "c1": 519,
+   "palavras": [
+    76,
+    85
+   ],
+   "intencao": "descoberta",
+   "justificativa": "resposta: a escada vira montanha",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [
+    {
+     "i": 81,
+     "w": "montanhas",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 11,
+   "texto": "Mas existe um perigo ainda maior: os animais da sua própria casa.",
+   "c0": 520,
+   "c1": 585,
+   "palavras": [
+    86,
+    97
+   ],
+   "intencao": "suspense",
+   "justificativa": "virada para o perigo (cena 3)",
+   "pausa_antes_s": 0.55,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [
+    {
+     "i": 89,
+     "w": "perigo",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 12,
+   "texto": "Uma formiga poderia parecer um adversário enorme.",
+   "c0": 586,
+   "c1": 635,
+   "palavras": [
+    98,
+    104
+   ],
+   "intencao": "tensao",
+   "justificativa": "primeira ameaça",
+   "pausa_antes_s": 0.15,
+   "pausa_depois_s": 0.2,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 99,
+     "w": "formiga",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 13,
+   "texto": "E um gato curioso, que antes parecia inofensivo, agora seria um verdadeiro predador.",
+   "c0": 636,
+   "c1": 720,
+   "palavras": [
+    105,
+    117
+   ],
+   "intencao": "suspense",
+   "justificativa": "o gato como predador: ameaça maior",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [
+    {
+     "i": 117,
+     "w": "predador",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 14,
+   "texto": "Um único movimento errado…",
+   "c0": 721,
+   "c1": 747,
+   "palavras": [
+    118,
+    121
+   ],
+   "intencao": "suspense",
+   "justificativa": "frase dita bem mais baixo (−6,9 dB): sobe 2 dB para não sumir, mantendo o tom contido",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [
+    {
+     "i": 120,
+     "w": "movimento",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 2.0,
+   "nota": "nível original muito abaixo das outras frases"
+  },
+  {
+   "n": 15,
+   "texto": "e você poderia acabar em uma situação desesperadora.",
+   "c0": 748,
+   "c1": 800,
+   "palavras": [
+    122,
+    129
+   ],
+   "intencao": "tensao",
+   "justificativa": "consequência",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.55,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 129,
+     "w": "desesperadora",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 16,
+   "texto": "Só que existe algo ainda mais curioso: seu corpo não funcionaria exatamente como antes.",
+   "c0": 801,
+   "c1": 888,
+   "palavras": [
+    130,
+    143
+   ],
+   "intencao": "surpresa",
+   "justificativa": "virada para a ciência (cena 4)",
+   "pausa_antes_s": 0.5,
+   "pausa_depois_s": 0.35,
+   "virgula_s": [
+    0.1,
+    0.2
+   ],
+   "destaques": [
+    {
+     "i": 136,
+     "w": "curioso",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 17,
+   "texto": "Ao diminuir de tamanho, seu peso cairia muito mais rapidamente do que sua força muscular.",
+   "c0": 889,
+   "c1": 978,
+   "palavras": [
+    144,
+    158
+   ],
+   "intencao": "explicacao",
+   "justificativa": "a lei do quadrado-cubo",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 149,
+     "w": "peso",
+     "db": 1.5
+    },
+    {
+     "i": 157,
+     "w": "força",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 18,
+   "texto": "Isso significa que, proporcionalmente, você poderia ser muito mais forte do que um humano normal.",
+   "c0": 979,
+   "c1": 1076,
+   "palavras": [
+    159,
+    173
+   ],
+   "intencao": "descoberta",
+   "justificativa": "a consequência surpreendente",
+   "pausa_antes_s": 0.35,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [
+    {
+     "i": 168,
+     "w": "forte",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 19,
+   "texto": "Mas isso não resolveria todos os seus problemas.",
+   "c0": 1077,
+   "c1": 1125,
+   "palavras": [
+    174,
+    181
+   ],
+   "intencao": "suspense",
+   "justificativa": "ponte para a sobrevivência (cena 5)",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.5,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 20,
+   "texto": "Uma pequena poça poderia dificultar sua passagem.",
+   "c0": 1126,
+   "c1": 1175,
+   "palavras": [
+    182,
+    188
+   ],
+   "intencao": "tensao",
+   "justificativa": "obstáculo 1",
+   "pausa_antes_s": 0.15,
+   "pausa_depois_s": 0.2,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 184,
+     "w": "poça",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 21,
+   "texto": "Uma corrente de ar poderia desequilibrar você.",
+   "c0": 1176,
+   "c1": 1222,
+   "palavras": [
+    189,
+    195
+   ],
+   "intencao": "tensao",
+   "justificativa": "obstáculo 2",
+   "pausa_antes_s": 0.15,
+   "pausa_depois_s": 0.2,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 194,
+     "w": "desequilibrar",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 22,
+   "texto": "E até encontrar comida e água se tornaria um desafio.",
+   "c0": 1223,
+   "c1": 1276,
+   "palavras": [
+    196,
+    205
+   ],
+   "intencao": "tensao",
+   "justificativa": "obstáculo 3",
+   "pausa_antes_s": 0.15,
+   "pausa_depois_s": 0.35,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 205,
+     "w": "desafio",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 23,
+   "texto": "O mundo continuaria exatamente igual…",
+   "c0": 1277,
+   "c1": 1314,
+   "palavras": [
+    206,
+    210
+   ],
+   "intencao": "suspense",
+   "justificativa": "o mundo continua igual",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.4,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 24,
+   "texto": "mas tudo ao seu redor teria se transformado em um obstáculo gigantesco.",
+   "c0": 1315,
+   "c1": 1386,
+   "palavras": [
+    211,
+    222
+   ],
+   "intencao": "descoberta",
+   "justificativa": "…mas tudo virou obstáculo",
+   "pausa_antes_s": 0.4,
+   "pausa_depois_s": 0.55,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [
+    {
+     "i": 222,
+     "w": "gigantesco",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 25,
+   "texto": "E sabe qual seria a parte mais assustadora?",
+   "c0": 1387,
+   "c1": 1430,
+   "palavras": [
+    223,
+    230
+   ],
+   "intencao": "suspense",
+   "justificativa": "pergunta da revelação final (cena 6)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.55,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [
+    {
+     "i": 229,
+     "w": "mais",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 26,
+   "texto": "Você não estaria em um mundo diferente.",
+   "c0": 1431,
+   "c1": 1470,
+   "palavras": [
+    231,
+    237
+   ],
+   "intencao": "emocao",
+   "justificativa": "reflexão",
+   "pausa_antes_s": 0.4,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.14,
+    0.28
+   ],
+   "destaques": [
+    {
+     "i": 237,
+     "w": "diferente",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 27,
+   "texto": "Estaria exatamente no mesmo mundo de sempre…",
+   "c0": 1471,
+   "c1": 1515,
+   "palavras": [
+    238,
+    244
+   ],
+   "intencao": "emocao",
+   "justificativa": "reflexão; segura antes da frase final",
+   "pausa_antes_s": 0.4,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.14,
+    0.28
+   ],
+   "destaques": [
+    {
+     "i": 244,
+     "w": "sempre",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 28,
+   "texto": "Só que, dessa vez, seria você quem teria se tornado pequeno demais para ele.",
+   "c0": 1516,
+   "c1": 1592,
+   "palavras": [
+    245,
+    258
+   ],
+   "intencao": "descoberta",
+   "justificativa": "revelação final: destaque em 'pequeno'",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [
+    {
+     "i": 255,
+     "w": "pequeno",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0,
+   "nota": ""
+  },
+  {
+   "n": 29,
+   "texto": "MODO CURIOSO.",
+   "c0": 1593,
+   "c1": 1606,
+   "palavras": [
+    259,
+    260
+   ],
+   "intencao": "conclusao",
+   "justificativa": "assinatura",
+   "pausa_antes_s": 0.5,
+   "pausa_depois_s": 0.0,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [],
+   "ganho_db": 0,
+   "nota": ""
+  }
+ ],
+ "ajustes_pausa": {
+  "8": {
+   "alvo_s": 0.22,
+   "motivo": "“apenas… cinco centímetros”: pausa expressiva antes do número, encurtada de 0,30"
+  },
+  "39": {
+   "alvo_s": 0.22,
+   "motivo": "“o pior… ainda estaria por vir”: suspense intencional, mantido curto"
+  },
+  "120": {
+   "alvo_s": 0.15,
+   "motivo": "“movimento | errado”: pausa de 0,46 s sem pontuação quebrava a frase; mantida só uma respiração curta"
+  }
+ },
+ "regras": {
+  "teto_geral_s": 0.7,
+  "tetos_por_intencao_s": {
+   "suspense": 0.7,
+   "descoberta": 0.7,
+   "surpresa": 0.5,
+   "acao": 0.15
+  },
+  "pausa_inicio_s": 0.15,
+  "pausa_final_s": 0.5,
+  "pausa_sem_pontuacao_inadequada_s": 0.25,
+  "pausa_sem_pontuacao_alvo_s": 0.1
+ },
+ "revisor": "Claude (diretor de áudio), 26/11/2026"
+}

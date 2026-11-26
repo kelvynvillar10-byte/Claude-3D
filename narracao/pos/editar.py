@@ -180,6 +180,11 @@ def editar(y, sr, texto, palavras, direcao, respiracoes, limiar_db=-60.0):
             gap = y2[b:c]; d = (c - b) / sr
             tipo = _tipo_fronteira(texto, p, palavras[k + 1])
             alvo, motivo = alvo_da_pausa(tipo, d, frase_de[k], frase_de[k + 1])
+            aj = direcao.get("ajustes_pausa", {}).get(str(k))
+            if aj:                                                     # decisão da direção para esta pausa
+                alvo = d if aj.get("alvo_s") is None else min(float(aj["alvo_s"]), DE.TETO_GERAL)
+                alvo = min(alvo, DE.TETO_GERAL)
+                motivo = f"direção: {aj['motivo']} → {alvo:.2f} s"
             resp = next(([r[0] - b / sr, r[1] - b / sr] for r in respiracoes if r[0] >= b / sr - 0.01 and r[1] <= c / sr + 0.01), None)
             if abs(alvo - d) <= 0.010 and not (d < 0.02 < alvo):
                 novo, nota = gap.copy(), None

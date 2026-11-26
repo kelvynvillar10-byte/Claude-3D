@@ -74,6 +74,13 @@ def _alinhar_tamanho(y, n, atraso):
 def tratar(y, sr, medidas, pr=None):
     pr = pr or carregar_preset()
     cad, decisoes = cadeia(pr, medidas)
+    # ganho de entrada: leva a voz a um nível de referência ANTES da compressão, para o limiar do compressor valer igual
+    # para qualquer arquivo (uma voz baixa não passaria pelo compressor e sobraria tudo para o limitador)
+    ref = pr["compressao"].get("nivel_entrada_lufs", -20.0)
+    l0 = AU.loudness(y, sr)["integrado_lufs"]
+    g0 = 0.0 if l0 is None else ref - l0
+    y = (y * (10 ** (g0 / 20))).astype(np.float32)
+    decisoes.insert(0, f"ganho de entrada {g0:+.1f} dB (de {l0} para {ref} LUFS) antes da compressão")
     z, _ = AU.filtrar(y, cad, sr)
     atraso1 = _atraso(y, z, sr); z = _alinhar_tamanho(z, len(y), atraso1)
     L = pr["loudness"]
@@ -90,13 +97,23 @@ def tratar(y, sr, medidas, pr=None):
         lim, _ = AU.filtrar(g, f"aresample=192000:resampler=soxr,alimiter=limit={teto:.5f}:attack=3:release=60:level=disabled:latency=1,"
                                 f"aresample={sr}:resampler=soxr", sr)
         lim = _alinhar_tamanho(lim, len(y), _atraso(g, lim, sr))
-        reducao.append(round(float(20 * np.log10((np.abs(g).max() + 1e-9) / (np.abs(lim).max() + 1e-9))), 2))
+        w5 = int(0.005 * sr); n5 = len(g) // w5
+        env = np.abs(g[:n5 * w5]).reshape(n5, w5).max(1)
+        exc = 20 * np.log10(np.maximum(env / teto, 1.0))
+        reducao.append({"tempo_com_reducao_pct": round(float(100 * (exc > 0).mean()), 2),
+                        "tempo_acima_1db_pct": round(float(100 * (exc > 1).mean()), 2),
+                        "tempo_acima_3db_pct": round(float(100 * (exc > 3).mean()), 2), "reducao_max_db": round(float(exc.max()), 1)})
         w = lim
     medf = AU.loudness(w, sr)
     atraso2 = _atraso(z, w, sr)
+    if reducao:
+        r0 = reducao[0]
+        lim_txt = (f"limitador agindo em {r0['tempo_com_reducao_pct']} % do tempo (mais de 1 dB em {r0['tempo_acima_1db_pct']} %, "
+                   f"mais de 3 dB em {r0['tempo_acima_3db_pct']} %; máximo {r0['reducao_max_db']} dB, em picos isolados)")
+    else:
+        lim_txt = "limitador não precisou agir"
     decisoes.append(f"loudness: ganho fixo até {L['alvo_lufs']} LUFS e limitador de pico verdadeiro (sobreamostragem 4×) em "
-                    f"{L['pico_verdadeiro_dbtp']} dBTP; resultado {medf['integrado_lufs']} LUFS, {medf['pico_verdadeiro_dbtp']} dBTP; "
-                    f"o limitador cortou no máximo {max(reducao) if reducao else 0} dB de pico (sem compressão dinâmica escondida)")
+                    f"{L['pico_verdadeiro_dbtp']} dBTP; resultado {medf['integrado_lufs']} LUFS, {medf['pico_verdadeiro_dbtp']} dBTP; {lim_txt}")
     m = {"passadas_do_limitador": len(reducao), "reducao_de_pico_db": reducao, "resultado": medf}
     m2 = {}
     return w, {"cadeia": cad, "decisoes": decisoes, "atraso_filtros_amostras": int(atraso1), "atraso_loudness_amostras": int(atraso2),

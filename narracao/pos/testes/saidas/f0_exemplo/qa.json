@@ -48,12 +48,12 @@
   {
    "verificacao": "tom_preservado",
    "ok": true,
-   "detalhe": "tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.9 semitons"
+   "detalhe": "tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.8 semitons"
   },
   {
    "verificacao": "timbre_sem_exagero",
    "ok": true,
-   "detalhe": "variação por banda (dB, final − original): graves_20_80 -2.03, corpo_80_250 +1.14, lama_250_500 -0.39, medios_500_2k -0.70, presenca_2k_5k +1.00, sibilancia_5k_10k +2.45, ar_10k_mais -0.19"
+   "detalhe": "variação por banda (dB, final − original): graves_20_80 -1.35, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86"
   },
   {
    "verificacao": "sincronia_final",
@@ -81,10 +81,10 @@
   },
   "tom_final": {
    "mediana_hz": 105.1,
-   "p10_hz": 95.2,
+   "p10_hz": 95.8,
    "p90_hz": 126.4,
-   "faixa_semitons": 4.9,
-   "quadros_com_voz": 1633
+   "faixa_semitons": 4.8,
+   "quadros_com_voz": 1616
   },
   "bandas_original": {
    "graves_20_80": -36.86,
@@ -96,13 +96,13 @@
    "ar_10k_mais": -36.6
   },
   "bandas_final": {
-   "graves_20_80": -38.89,
-   "corpo_80_250": -9.38,
-   "lama_250_500": -6.27,
-   "medios_500_2k": -4.0,
-   "presenca_2k_5k": -7.22,
-   "sibilancia_5k_10k": -12.19,
-   "ar_10k_mais": -36.79
+   "graves_20_80": -38.21,
+   "corpo_80_250": -9.27,
+   "lama_250_500": -6.22,
+   "medios_500_2k": -4.06,
+   "presenca_2k_5k": -7.24,
+   "sibilancia_5k_10k": -12.1,
+   "ar_10k_mais": -35.74
   }
  }
 }
