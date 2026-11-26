@@ -1,0 +1,101 @@
+{
+ "X3_1_plantados": {
+  "costas": {
+   "deslize_max_px_por_quadro": {
+    "mao_e": 0.001,
+    "pe_d": 0.0,
+    "mao_d": 0.003,
+    "pe_e": 0.0
+   },
+   "alcance_ik_erro_max_H": 0.0001,
+   "altura_px": 900,
+   "sobe_H_por_s": 0.357
+  },
+  "perfil": {
+   "deslize_max_px_por_quadro": {
+    "mao_e": 0.0,
+    "pe_d": 0.0,
+    "mao_d": 0.0,
+    "pe_e": 0.0
+   },
+   "alcance_ik_erro_max_H": 0.0,
+   "altura_px": 900,
+   "sobe_H_por_s": 0.357
+  },
+  "_duracao_teste_s": 6.0
+ },
+ "X3_2_contatos": {
+  "escalada_costas": {
+   "mao_na_mao_pct": 100.0,
+   "pe_no_tenis_pct": 100.0,
+   "amostras": 28
+  },
+  "escalada_perfil": {
+   "mao_na_mao_pct": 100.0,
+   "pe_no_tenis_pct": 100.0,
+   "amostras": 21
+  },
+  "balanco_fio_chega_na_mao_pct": 100.0,
+  "balanco_amostras": 18,
+  "_duracao_teste_s": 1.3
+ },
+ "X3_3_juntas": {
+  "poses_verificadas": 165,
+  "violacoes": "nenhuma",
+  "_duracao_teste_s": 0.5
+ },
+ "X3_4_estampa": {
+  "mão e → alvo (2.6, -4.6)": {
+   "texto": "Modo Curioso 88",
+   "MODO_CURIOSO_lido": true
+  },
+  "mão d → alvo (-2.6, -4.6)": {
+   "texto": "Modo Curioso 80",
+   "MODO_CURIOSO_lido": true
+  },
+  "mão e → alvo (3.2, -3.0)": {
+   "texto": "Modo Curioso 38",
+   "MODO_CURIOSO_lido": true
+  },
+  "mão d → alvo (-3.2, -2.6)": {
+   "texto": "Modo Curioso 88",
+   "MODO_CURIOSO_lido": true
+  },
+  "_erro_de_mira_graus": {
+   "e (2.6, -4.6)": 0.0,
+   "d (-2.6, -4.6)": 0.0,
+   "e (3.2, -3.0)": 0.0,
+   "d (-3.2, -2.6)": 0.0
+  },
+  "_duracao_teste_s": 3.1
+ },
+ "X3_5_6_det_tempo": {
+  "escalada_mesmo_quadro_identico": true,
+  "balanco_mesmo_quadro_identico": true,
+  "tempo_desenho_cpu": {
+   "escalada_costas_ms": 13.2,
+   "escalada_perfil_ms": 13.7,
+   "balanco_ms": 10.3
+  },
+  "_duracao_teste_s": 0.9
+ },
+ "X3_7_folha": {
+  "arquivo": "saidas/X3_folha.jpg",
+  "quadros": 16,
+  "_duracao_teste_s": 0.9
+ },
+ "X3_8_video": {
+  "quadros": 366,
+  "duracao_s": 12.2,
+  "composicao_media_s": 2.41,
+  "composicao_max_s": 4.09,
+  "tempo_total_s": 922.4,
+  "_duracao_teste_s": 922.4
+ },
+ "X3_9_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 14.6
+ }
+}
