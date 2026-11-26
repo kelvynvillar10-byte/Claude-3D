@@ -298,13 +298,16 @@ class Terra(Efeito):
                 MK.desenhar(ctx, tela, self.a + [0, 0, 0.004], 1.3 * self.p.escala, self.tex_cratera, alfa=min(1.0, (t - t_imp) * 5))
             return
         faixa = (zp, 1e9) if onde == "atras" else (0, zp)
+        lista = []
         for q in self.pedacos:
             e = self._estado_pedaco(q, t)
             if e is None or e[2] <= 0:
                 continue
             zq = ctx.tela(e[0])[3]
             if faixa[0] <= zq < faixa[1]:
-                self._desenhar_pedaco(ctx, tela, q, e[0], e[1], e[2], cam_pos)
+                lista.append((zq, q, e))
+        for zq, q, e in sorted(lista, key=lambda x: -x[0]):            # do mais longe para o mais perto (pintor)
+            self._desenhar_pedaco(ctx, tela, q, e[0], e[1], e[2], cam_pos)
         if faixa[0] <= ctx.tela(self.a)[3] < faixa[1]:
             self._pilar(ctx, tela, t, cam_pos)
         self.pedras.desenhar(ctx, tela, "pedra", 1.0, z_entre=faixa); self.poeira.desenhar(ctx, tela, "poeira", 1.0, z_entre=faixa)

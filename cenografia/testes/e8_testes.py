@@ -37,7 +37,7 @@ CLIPES = [
     ("eletricidade_discreto", "eletricidade", "discreto", "manha", {"alvo": (-4.6, 8.4, 1.3)}, 3.2),
     ("eletricidade_moderado", "eletricidade", "moderado", "manha", {"alvo": (-4.15, 8.96, 2.25)}, 3.2),
     ("eletricidade_extremo", "eletricidade", "extremo", "noite", {"alvo": (-4.6, 8.8, 0.16), "alvo_no_chao": True}, 3.2),
-    ("terra_discreto", "terra", "discreto", "manha", {"origem": PE, "alvo": (-5.0, 9.6, 0.154)}, 3.2),
+    ("terra_discreto", "terra", "discreto", "manha", {"origem": PE, "alvo": (-4.35, 9.6, 0.154)}, 3.2),
     ("terra_moderado", "terra", "moderado", "noite", {"origem": PE, "alvo": (-5.75, 10.2, 0.154)}, 3.4),
     ("terra_extremo", "terra", "extremo", "manha", {"origem": PE, "alvo": (-4.55, 10.8, 0.154)}, 3.4),
 ]
@@ -231,12 +231,14 @@ def t_heitor_terra_det(PL):
                             "pixels_do_heitor_com_arco_na_frente": int(cob.sum())}
     # terra: a face de cima do pedaço (sem levantar) é o próprio fundo
     clipe = CLIPES[4]; ef, P, A, alvo = criar(clipe, PL); ctx = Contexto(P, {}, 0.0); ef.preparar(ctx); tela = Tela(P.W, P.H); erros = []
-    cam_pos = np.asarray(P.m["intrinsecos"]["pos"], float); fz = fundo(P, "manha")
-    for qd in ef.pedacos:
-        ef._desenhar_pedaco(ctx, tela, qd, qd["c"], np.zeros(3), 1.0, cam_pos)
-    if not tela.vazio():
-        a = tela.rgba[..., 3]; mm = a > 0.98
-        cor = tela.rgba[..., :3][mm] / a[mm][:, None]; erros = np.abs(cor - fz[mm]).mean(axis=1) * 255
+    cam_pos = np.asarray(P.m["intrinsecos"]["pos"], float); fz = fundo(P, clipe[3])
+    for qd in ef.pedacos:                  # um pedaço por vez (o lado de um pode cobrir o topo do vizinho)
+        tela = Tela(P.W, P.H); ef._desenhar_pedaco(ctx, tela, qd, qd["c"], np.zeros(3), 1.0, cam_pos)
+        pol = np.int32([[round(c_) for c_ in ctx.placa(qd["c"] + p_)[:2]] for p_ in qd["loc"]]); topo = np.zeros((P.H, P.W), np.uint8)
+        cv2.fillPoly(topo, [pol], 1); topo = cv2.erode(topo, np.ones((5, 5), np.uint8)) > 0     # só a face de cima, sem a borda
+        if not tela.vazio():
+            a = tela.rgba[..., 3]; mm = (a > 0.98) & topo
+            cor = tela.rgba[..., :3][mm] / a[mm][:, None]; erros = list(erros) + list(np.abs(cor - fz[mm]).mean(axis=1) * 255)
     out["terra_face_de_cima_igual_ao_fundo"] = {"pixels": int(len(erros)), "erro_medio_8bit": round(float(np.mean(erros)), 2) if len(erros) else None,
                                                 "obs": "pedaço parado no lugar: a textura recortada tem de bater com o fundo (interpolação da homografia)"}
     g = [ef._crescimento(t) for t in np.linspace(0, ef.fases.duracao, 200)]
