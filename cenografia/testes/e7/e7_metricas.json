@@ -1,0 +1,222 @@
+{
+ "E7_1_regressao": {
+  "manha_frente": {
+   "identico_ao_de_antes_da_E7": true
+  },
+  "tarde_perfil": {
+   "identico_ao_de_antes_da_E7": true
+  },
+  "noite_costas": {
+   "identico_ao_de_antes_da_E7": true
+  },
+  "placa_nova_com_albedo_mesmo_quadro": true,
+  "placa_nova_tem_albedo": true,
+  "_duracao_teste_s": 249.2
+ },
+ "E7_2_fases": {
+  "limites_s": {
+   "inicio": [
+    0.0,
+    0.24
+   ],
+   "ativacao": [
+    0.24,
+    0.66
+   ],
+   "uso": [
+    0.66,
+    1.8
+   ],
+   "impacto": [
+    1.8,
+    2.1
+   ],
+   "dissipacao": [
+    2.1,
+    2.76
+   ],
+   "encerramento": [
+    2.76,
+    3.0
+   ]
+  },
+  "pico_impacto": 1.35,
+  "maior_salto_entre_amostras_de_1ms": 0.0227,
+  "intensidades": {
+   "discreto": 0.45,
+   "moderado": 1.0,
+   "extremo": 1.8
+  },
+  "envelope_comeca_e_termina_em_zero": true,
+  "_duracao_teste_s": 0.0
+ },
+ "E7_3_particulas": {
+  "mesma_semente_identico": true,
+  "outra_semente_diferente": true,
+  "queda_livre_1s": {
+   "medido_m": 5.0541,
+   "formula_m": 5.095,
+   "erro_cm": 4.09
+  },
+  "quique_restituicao_0_5": {
+   "rebote_m": 0.245,
+   "esperado_m": 0.25
+  },
+  "arrasto_velocidade_terminal": {
+   "medido_m_s": 4.905,
+   "formula_g_sobre_k_m_s": 4.905
+  },
+  "vento_1_5_m_s": {
+   "velocidade_horizontal_m_s": 1.5
+  },
+  "_duracao_teste_s": 0.0
+ },
+ "E7_4_corda": {
+  "esticamento_max_pct": 0.731,
+  "pendulo_1m": {
+   "periodo_medido_s": 1.692,
+   "haste_uniforme_s": 1.638,
+   "pendulo_simples_s": 2.006,
+   "obs": "uma corda solta se comporta entre a haste uniforme (massa distribuída) e o pêndulo simples; dobra e amortece"
+  },
+  "_duracao_teste_s": 0.4
+ },
+ "E7_5_curva": {
+  "ponta_inicial_erro_m": 0.0,
+  "ponta_final_erro_m": 0.0,
+  "pontos_na_principal": 65,
+  "ramos": 3,
+  "mesma_semente_identica": true,
+  "outra_semente_diferente": true,
+  "redesenho": "semente = base·1000 + quadro // 2 → muda a cada 2 quadros: q0→0, q1→0, q2→1, q3→1, q4→2, q5→2",
+  "_duracao_teste_s": 0.0
+ },
+ "E7_11_registro": {
+  "plugins_do_nucleo": [
+   "demo_arco",
+   "demo_calor",
+   "demo_corda",
+   "demo_estrobo",
+   "demo_faiscas",
+   "demo_onda",
+   "demo_orbe",
+   "demo_poeira"
+  ],
+  "novo_arquivo_registrou": [
+   "poder_de_teste"
+  ],
+  "_duracao_teste_s": 0.0
+ },
+ "E7_6_luz2d": {
+  "pixels_de_ceu_alterados": 8,
+  "pixels_de_ceu": 253432,
+  "pixels_alterados_no_quadro_pct": 44.1,
+  "forca_recuperada_perto_menos_de_2m": 3.0,
+  "forca_recuperada_longe_mais_de_3m": 3.0,
+  "forca_usada": 3.0,
+  "_duracao_teste_s": 8.1
+ },
+ "E7_7_profundidade": {
+  "atras_do_hidrante": {
+   "visivel_pct": 23.4
+  },
+  "na_frente_do_hidrante": {
+   "visivel_pct": 100.0
+  },
+  "_duracao_teste_s": 1.3
+ },
+ "E7_9_protecao": {
+  "sem_protecao": {
+   "rosto": 1.0,
+   "estampa": 1.0
+  },
+  "com_protecao": {
+   "rosto": 0.35,
+   "estampa": 0.35
+  },
+  "limite": 0.35,
+  "_duracao_teste_s": 0.6
+ },
+ "E7_10_combinacao": {
+  "ganhos": {
+   "demo_faiscas": 1.0,
+   "demo_poeira": 0.5,
+   "demo_calor": 0.0
+  },
+  "registro_suprimidos": [
+   {
+    "t": 1.0,
+    "suprimidos": [
+     "demo_calor"
+    ]
+   }
+  ],
+  "_duracao_teste_s": 0.0
+ },
+ "E7_8_seguranca": {
+  "sem_governador": {
+   "flashes_total": 22,
+   "max_flashes_em_1s": 8
+  },
+  "com_governador": {
+   "flashes_total": 9,
+   "max_flashes_em_1s": 3
+  },
+  "limite_por_segundo": 3,
+  "obs": "área mínima reduzida para 5 % da tela (mais rigoroso que os 25 % da regra) para este teste",
+  "_duracao_teste_s": 525.1
+ },
+ "E7_12_video": {
+  "quadros": 702,
+  "duracao_s": 23.4,
+  "composicao_por_efeito": {
+   "demo_faiscas": {
+    "media_s": 3.32,
+    "max_s": 5.08,
+    "quadros": 84
+   },
+   "demo_arco": {
+    "media_s": 3.37,
+    "max_s": 3.72,
+    "quadros": 84
+   },
+   "demo_poeira": {
+    "media_s": 3.43,
+    "max_s": 6.2,
+    "quadros": 84
+   },
+   "demo_calor": {
+    "media_s": 2.24,
+    "max_s": 2.65,
+    "quadros": 84
+   },
+   "demo_corda": {
+    "media_s": 2.36,
+    "max_s": 2.7,
+    "quadros": 96
+   },
+   "demo_onda": {
+    "media_s": 3.69,
+    "max_s": 7.7,
+    "quadros": 84
+   },
+   "demo_orbe": {
+    "media_s": 3.82,
+    "max_s": 5.19,
+    "quadros": 96
+   },
+   "combinacao": {
+    "media_s": 4.82,
+    "max_s": 5.32,
+    "quadros": 90
+   }
+  },
+  "_duracao_teste_s": 2412.1
+ },
+ "E7_13_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 11.3
+ }
+}

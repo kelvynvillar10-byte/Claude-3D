@@ -6,7 +6,7 @@ Direção aprovada pelo diretor em 25/11/2026:
 - ambientação padrão **bairro urbano brasileiro**;
 - sem sites externos de texturas ou modelos.
 
-**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. E1 (materiais, céu e atmosfera, tempo de render) aprovada. E2 (ruas e calçadas) e E3 (prédios) aprovadas. E4 (veículos) aprovada. E5 (ambientação) aprovada. E6 (cena de prova) aprovada. **E7 (núcleo de efeitos) em andamento.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
+**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. E1 (materiais, céu e atmosfera, tempo de render) aprovada. E2 (ruas e calçadas) e E3 (prédios) aprovadas. E4 (veículos) aprovada. E5 (ambientação) aprovada. E6 (cena de prova) aprovada. **E7 (núcleo de efeitos, em `efeitos/`) concluída, aguardando aprovação.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
 
 O personagem oficial é o **Heitor rig v2** (`personagens/heitor/rig_v2/`). A cenografia **não altera o rig**: o Heitor é desenhado por cima do cenário pelo compositor, com a paleta oficial intacta. Valem as decisões ID-001 a ID-004 (`docs/IDENTIDADE_OFICIAL.md`).
 
@@ -43,6 +43,7 @@ receita JSON ──► construir.py ──► Blender (Cycles CPU) ──► PLA
 | **E5 · ambientação** | `componentes/ambientacao.py` | Árvores (frondosa, ipê amarelo/rosa, palmeira: tronco ramificado por semente, copa em aglomerados instanciados), arbusto, vaso, banco, contêiner, sacos de lixo, ponto de ônibus, banca, cones, bicicleta, mesas de bar, engradados, frutas. Espalhamento por regras: `arborizacao` (canteiros da rua + canteiros novos), `ambientacao` (faixas da calçada), `mesas_bar` (em frente a lanchonetes e padarias): apoio real, coluna livre, áreas livres, distância mínima e **teste de colisão por triângulos (BVH)** |
 | **E5 · QA "nada atravessando"** | `nucleo/qa_cena.py` | Conferência final de cada peça de ambientação contra a geometria vizinha (o chão — topo ≤ 20 cm — não conta) |
 | **E6 · cena de prova** | `receitas/e6_rua.json`, `receitas/e6_cena_prova.json`, `testes/e6_cena_prova.py` | Cenário e roteiro de câmera em receita (tomadas: horário, câmera, caminho, vista, movimento 2.5D); Heitor rig v2 andando com o ciclo do próprio rig, na velocidade do ciclo (pé sem deslizar), projetado com a geometria da câmera; corredores livres no espalhamento (`corredores`) |
+| **E7 · encaixes de efeitos** | `nucleo/compositor.py`, `nucleo/render.py` | Placa com passada de albedo; `compor(..., efeitos=mesa, deslocamento_px=...)`: luz 2D (albedo + profundidade), marcas no chão, camadas atrás/frente do personagem com profundidade por pixel, distorção, quadro de impacto, tremida. Sem efeitos, o quadro é idêntico ao de antes. O núcleo de efeitos fica em `efeitos/` |
 | **E2 · QA da cena** | `nucleo/qa_cena.py` | Roda no Blender antes do render e vai para o manifesto: nada flutuando (raio para baixo; peças presas marcadas `suspenso`), lista exata dos textos 3D (comparada com `textos_permitidos` da receita), medidas de escala |
 
 ## Uso
@@ -58,4 +59,4 @@ quadro = P.compor(pesos={"ceu": 1, "sol": 1, "artificial": 0.25, "efeito": (6, "
                   personagem=funcao_que_desenha_o_heitor, grade={...})
 ```
 
-Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md) e [`testes/E2_RELATORIO.md`](testes/E2_RELATORIO.md) e [`testes/E3_RELATORIO.md`](testes/E3_RELATORIO.md) e [`testes/E4_RELATORIO.md`](testes/E4_RELATORIO.md) e [`testes/E5_RELATORIO.md`](testes/E5_RELATORIO.md) e [`testes/E6_RELATORIO.md`](testes/E6_RELATORIO.md).
+Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md) e [`testes/E2_RELATORIO.md`](testes/E2_RELATORIO.md) e [`testes/E3_RELATORIO.md`](testes/E3_RELATORIO.md) e [`testes/E4_RELATORIO.md`](testes/E4_RELATORIO.md) e [`testes/E5_RELATORIO.md`](testes/E5_RELATORIO.md) e [`testes/E6_RELATORIO.md`](testes/E6_RELATORIO.md) e [`testes/E7_RELATORIO.md`](testes/E7_RELATORIO.md).
