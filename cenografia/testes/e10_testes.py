@@ -49,7 +49,7 @@ def planos(r):
         "A_despertar": {"cam": {"pos": [0.95, 1.08, zA + 0.022], "alvo": [1.0, 1.9, zA + 0.11], "lente_mm": 20},
                         "heitor": [0.99, 1.30, zA], "abertura": 4.0, "rosto": "surpresa",
                         "rotulo": "em cima do edredom: os travesseiros viram montanhas"},
-        "B_cama_predio": {"cam": {"pos": [0.20, 0.02, 0.012], "alvo": [0.62, 0.40, 0.50], "lente_mm": 14},
+        "B_cama_predio": {"cam": {"pos": [0.20, 0.02, 0.012], "alvo": [0.62, 0.40, 0.30], "lente_mm": 14},
                           "heitor": [0.37, 0.21, 0.0], "abertura": 5.6, "rosto": "surpresa",
                           "rotulo": "do chão: a cama vira um prédio de 14 m na escala dele"},
         "C_moeda": {"cam": {"pos": [-0.42, -0.815, 0.05], "alvo": [-0.335, -0.62, 0.006], "lente_mm": 28},
