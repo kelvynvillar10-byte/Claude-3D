@@ -1,0 +1,165 @@
+{
+ "A4_cor": {
+  "seda": "#ece3c6",
+  "delta_E_camiseta": 76.7,
+  "delta_E_ar_do_voo": 23.8,
+  "delta_E_eletricidade": 44.8,
+  "delta_E_estampa_modo": 12.4,
+  "_duracao_teste_s": 0.0
+ },
+ "A3_contatos": {
+  "aranha_discreto": {
+   "fio_sai_da_mao_pct": 100.0,
+   "amostras": 13,
+   "fio_chega_na_ancora_erro_px_max": 0.0,
+   "falhas": []
+  },
+  "aranha_moderado": {
+   "fio_sai_da_mao_pct": 100.0,
+   "amostras": 11,
+   "fio_chega_na_ancora_erro_px_max": 0.0,
+   "falhas": []
+  },
+  "aranha_extremo": {
+   "fio_sai_da_mao_pct": 100.0,
+   "amostras": 10,
+   "fio_chega_na_ancora_erro_px_max": "rede: âncoras no plano da parede",
+   "falhas": []
+  },
+  "_duracao_teste_s": 2.7
+ },
+ "A2_ordem": {
+  "discreto": {
+   "energia_pico": 0.0019,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0015,
+    "uso": 0.0016,
+    "impacto": 0.0016,
+    "dissipacao": 0.0006,
+    "encerramento": 0.0005
+   }
+  },
+  "moderado": {
+   "energia_pico": 0.012,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0017,
+    "uso": 0.002,
+    "impacto": 0.0069,
+    "dissipacao": 0.0008,
+    "encerramento": 0.0007
+   }
+  },
+  "extremo": {
+   "energia_pico": 0.0282,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0031,
+    "uso": 0.0033,
+    "impacto": 0.0155,
+    "dissipacao": 0.0013,
+    "encerramento": 0.0011
+   }
+  },
+  "discreto_menor_que_moderado_menor_que_extremo": true,
+  "_duracao_teste_s": 88.9
+ },
+ "A7_A8_heitor_det": {
+  "paleta_heitor": {
+   "pixels_sem_efeito_na_frente": 93234,
+   "identicos_pct": 99.97,
+   "diferenca_max_8bit": 1,
+   "pixels_do_heitor_com_fio_na_frente": 1646
+  },
+  "mesmo_quadro_duas_vezes_identico": true,
+  "_duracao_teste_s": 18.0
+ },
+ "A9_regressao": {
+  "cena_de_prova_identica_a_referencia": {
+   "manha_frente": true,
+   "tarde_perfil": true,
+   "noite_costas": true
+  },
+  "_duracao_teste_s": 26.6
+ },
+ "A1_video": {
+  "aranha_discreto": {
+   "quadros": 100,
+   "composicao_media_s": 3.54,
+   "composicao_max_s": 4.76,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0005,
+    "uso": 0.0012,
+    "impacto": 0.0012,
+    "dissipacao": 0.0008,
+    "encerramento": 0.0007
+   },
+   "energia_pico": 0.0012,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.0,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "aranha_moderado": {
+   "quadros": 110,
+   "composicao_media_s": 3.36,
+   "composicao_max_s": 4.95,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0016,
+    "uso": 0.002,
+    "impacto": 0.002,
+    "dissipacao": 0.0008,
+    "encerramento": 0.0007
+   },
+   "energia_pico": 0.0023,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "aranha_extremo": {
+   "quadros": 133,
+   "composicao_media_s": 5.16,
+   "composicao_max_s": 6.88,
+   "energia_media_por_fase": {
+    "inicio": 0.0001,
+    "ativacao": 0.0033,
+    "uso": 0.0058,
+    "impacto": 0.007,
+    "dissipacao": 0.007,
+    "encerramento": 0.007
+   },
+   "energia_pico": 0.007,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 1,
+    "max_flashes_em_1s": 1
+   }
+  },
+  "_flashes_video_inteiro": {
+   "flashes_total": 2,
+   "max_flashes_em_1s": 1
+  },
+  "_duracao_teste_s": 1436.6
+ },
+ "A10_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 13.8
+ }
+}
