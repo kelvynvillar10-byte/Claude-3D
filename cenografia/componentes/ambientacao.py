@@ -57,11 +57,11 @@ def _aglomerado(variante):
     me = bpy.data.meshes.get(nome)
     if me is not None:
         return me
-    bm = bmesh.new(); bmesh.ops.create_icosphere(bm, subdivisions=4, radius=1.0)
+    bm = bmesh.new(); bmesh.ops.create_icosphere(bm, subdivisions=3, radius=1.0)   # 642 vértices: colisão e render mais leves
     off = Vector((variante * 7.31, variante * 3.17, variante * 5.73))
     for v in bm.verts:
         n = v.co.normalized()
-        d = 0.34 * noise.fractal(n * 1.5 + off, 0.8, 2.0, 3) + 0.035 * noise.noise(n * 5.0 + off)
+        d = 0.34 * noise.fractal(n * 1.5 + off, 0.8, 2.0, 3) + 0.02 * noise.noise(n * 4.0 + off)
         v.co = n * (1.0 + d)
         v.co.z *= 0.78                                   # aglomerados mais largos que altos
     for f in bm.faces:
