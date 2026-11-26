@@ -28,7 +28,8 @@ def textura(tipo, semente=1):
             for _ in range(2):
                 fenda(x, y, a + rng.uniform(-1, 1), L * 0.55, w * 0.6, nivel - 1)
     for k in range(rng.integers(5, 8)):
-        fenda(TEX / 2, TEX / 2, 2 * math.pi * k / 6 + rng.uniform(-0.3, 0.3), TEX * 0.32, 4.0, 2)
+        fenda(TEX / 2, TEX / 2, 2 * math.pi * k / 6 + rng.uniform(-0.3, 0.3), TEX * 0.36, 9.0, 2)
+    cv.drawCircle(TEX / 2, TEX / 2, TEX * 0.07, skia.Paint(AntiAlias=True, Color=skia.Color(18, 14, 12)))   # afundamento no centro
     img = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
     return img
 

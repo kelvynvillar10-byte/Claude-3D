@@ -21,12 +21,9 @@ def proteger(camada, ctx):
     rosto, estampa = mascaras(ctx); m = (rosto | estampa)
     if not m.any():
         return camada
-    a = camada["rgba"][..., 3]
-    fator = np.where(m & (a > LIMITE), LIMITE / np.maximum(a, 1e-6), 1.0).astype(np.float32)
-    camada["rgba"] *= fator[..., None]
-    add = camada["add"]; lum = add.max(axis=2)
-    f2 = np.where(m & (lum > LIMITE), LIMITE / np.maximum(lum, 1e-6), 1.0).astype(np.float32)
-    camada["add"] = add * f2[..., None]
+    total = camada["rgba"][..., 3] + camada["add"].max(axis=2)          # cobertura somada (cobrir + brilhar)
+    fator = np.where(m & (total > LIMITE), LIMITE / np.maximum(total, 1e-6), 1.0).astype(np.float32)
+    camada["rgba"] *= fator[..., None]; camada["add"] *= fator[..., None]
     return camada
 
 

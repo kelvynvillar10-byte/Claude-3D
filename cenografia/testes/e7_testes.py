@@ -196,8 +196,10 @@ def t_luz2d(PL):
     # queda com a distância, no linear: luz extra da camada 'perto' ÷ albedo × (d² + r²) deve ser ≈ forca·cos (constante)
     X, n = P.geometria_camada("perto"); alb = P.camadas["perto"]["albedo"]; ex = P.luz_extra("perto", m1.efeitos[0].luzes(None))
     d = np.asarray(pos, np.float32)[None, None, :] - X; d2 = (d * d).sum(2); cosl = np.maximum(0, (n * d).sum(2) / np.sqrt(d2))
-    ok = (P.camadas["perto"]["alfa"] > 0.5) & (alb.mean(2) > 0.05) & (cosl > 0.2)
-    k = (ex.mean(2) / np.maximum(alb.mean(2), 1e-6) * (d2 + 0.09) / np.maximum(cosl, 1e-6))[ok]
+    ok = (P.camadas["perto"]["alfa"] > 0.5) & (alb[..., 1] > 0.05) & (cosl > 0.2)
+    from cenografia.nucleo.compositor import cor_lin
+    cor_g = float(cor_lin((0.5, 0.8, 1.0))[1])                                   # canal verde
+    k = (ex[..., 1] / np.maximum(alb[..., 1], 1e-6) / cor_g * (d2 + 0.09) / np.maximum(cosl, 1e-6))[ok]
     prox = (d2[ok] < 4); longe = (d2[ok] > 9)
     return {"pixels_de_ceu_alterados": int((dif[ceu] > 0).sum()), "pixels_de_ceu": int(ceu.sum()),
             "pixels_alterados_no_quadro_pct": round(100 * float((dif > 2).mean()), 1),
@@ -280,11 +282,11 @@ def t_registro():
 # ------------------------------------------------------------------ E7-12: vídeo de demonstração
 CENAS = [
     ("faíscas (partículas, gravidade, quique, luz 2D)", "manha", "demo_faiscas", dict(cor="#ffb347", duracao=2.8, direcao=(0.7, -0.6, 0.0)), {}),
-    ("arco fractal mão ↔ fachada (redesenho a cada 2 quadros)", "manha", "demo_arco", dict(cor="#b9a7ff", duracao=2.8), {"alvo": (-6.85, 8.2, 1.9)}),
+    ("arco fractal da mão até a fachada (redesenho a cada 2 quadros)", "manha", "demo_arco", dict(cor="#b9a7ff", duracao=2.8), {"alvo": (-6.85, 8.2, 1.9)}),
     ("poeira (cobre; atrás e na frente conforme a profundidade)", "manha", "demo_poeira", dict(cor="#cdb48c", duracao=2.8), {"origem": (-5.0, 7.0, 0.16)}),
     ("calor (distorção) + fumaça", "manha", "demo_calor", dict(duracao=2.8), {"origem": (-4.4, 8.8, 0.25)}),
     ("corda com física (presa na fachada; a mão solta no impacto)", "manha", "demo_corda", dict(cor="#f2efe8", duracao=3.2), {"ancora": (-6.85, 7.4, 3.4)}),
-    ("onda de choque + tremida + rachadura + quadro de impacto", "manha", "demo_onda", dict(duracao=2.8), {"origem": (-4.9, 8.2, 0.16)}),
+    ("onda de choque + tremida + rachadura + quadro de impacto", "manha", "demo_onda", dict(duracao=2.8), {"origem": (-4.6, 4.4, 0.16)}),
     ("orbe de luz à noite (luz 2D no cenário + rastro)", "noite", "demo_orbe", dict(cor="#7fd4ff", duracao=3.2), {"centro": (-5.3, 8.6, 1.5), "raio": 1.5}),
     ("combinação: faíscas (dominante) + orbe (secundário ×0,5)", "noite", None, None, {}),
 ]

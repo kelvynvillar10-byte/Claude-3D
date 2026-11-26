@@ -47,10 +47,12 @@ def analisar_flashes(quadros_lum, fps=30, delta=0.1, area=0.25):
             trans.append((i, 1))
         elif desce.mean() > area:
             trans.append((i, -1))
-    flashes = []
-    for (i, d), (j, e) in zip(trans, trans[1:]):
-        if d != e:
-            flashes.append(j)
+    flashes = []; i = 0                 # flash = PAR de variações opostas (sobe+desce): pares sem sobreposição
+    while i < len(trans) - 1:
+        if trans[i][1] != trans[i + 1][1]:
+            flashes.append(trans[i + 1][0]); i += 2
+        else:
+            i += 1
     pior = 0
     for k in flashes:
         pior = max(pior, sum(1 for m in flashes if k <= m < k + fps))

@@ -85,7 +85,7 @@ class Arco(Efeito):
 
     def desenhar(self, ctx, onde, tela):
         if onde == "frente" and ctx.personagem and self.ativo(ctx):
-            CV.desenhar(ctx, tela, self._curvas(ctx), self.p.cor, largura_m=0.005 * self.p.escala, forca=self.forca(ctx))
+            CV.desenhar(ctx, tela, self._curvas(ctx), self.p.cor, largura_m=0.0028 * self.p.escala, forca=min(1.0, self.forca(ctx)) * 0.85)
 
 
 @efeito("demo_poeira")
@@ -100,7 +100,7 @@ class Poeira(_ComSimulacao):
         t = k / ctx.fps; fase, _ = self.fases.em(t); f = self.fases.envelope(t) * self.p.fator * self.ganho
         if fase in ("ativacao", "uso", "impacto"):
             n = int((9 if fase == "impacto" else 2) * f)
-            self.s.emitir(n, self.kw["origem"], (0, 0, 0.6), dispersao=0.9, vida=(1.4, 2.6), tam=(0.12, 0.25) if self.kw.get("estilo") != "fumaca" else (0.08, 0.16),
+            self.s.emitir(2 * n, self.kw["origem"], (0, 0, 0.6), dispersao=0.9, vida=(1.4, 2.6), tam=(0.07, 0.14) if self.kw.get("estilo") != "fumaca" else (0.08, 0.16),
                           cor=_rgb(self.p.cor), raio_origem=0.25 * self.p.escala)
         self.s.passo()
 
@@ -132,11 +132,11 @@ class Orbe(Efeito):
         zp = self._z_personagem(ctx) if ctx.personagem else 1e9
         if (onde == "frente") != (z < zp):
             return
-        f = self.forca(ctx); r = 0.09 * ctx.px_por_m(z) * s
+        f = self.forca(ctx); r = 0.05 * ctx.px_por_m(z) * s
         hist = [self._pos(max(0.0, t - k / ctx.fps)) for k in range(14, -1, -1)]
-        RS.fita(ctx, tela, hist, self.p.cor, largura_m=0.1, alfa=0.6 * min(f, 1.0))
-        tela.mancha(x, y, r * 4.0, np.array(_rgb(self.p.cor)) * 0.35 * f, 1.0, z, "add")
-        tela.mancha(x, y, r, np.array([1.0, 1.0, 1.0]) * min(1.2, f), 1.0, z, "add")
+        RS.fita(ctx, tela, hist, self.p.cor, largura_m=0.06, alfa=0.5 * min(f, 1.0))
+        tela.mancha(x, y, r * 5.0, np.array(_rgb(self.p.cor)) * 0.22 * min(f, 1.0), 1.0, z, "add")
+        tela.mancha(x, y, r, np.array([0.85, 0.95, 1.0]) * 0.8 * min(1.0, f), 1.0, z, "add")
 
     def _z_personagem(self, ctx):
         return ctx.personagem["pe_tela"][3]
@@ -153,7 +153,7 @@ class Onda(_ComSimulacao):
     def _passo(self, ctx, k):
         t = k / ctx.fps; t_imp = self.fases.inicio_de("impacto")
         if abs(t - t_imp) < 0.5 / ctx.fps:
-            self.s.emitir(int(40 * self.p.fator), self.kw["origem"], (0, 0, 0.4), dispersao=1.6, vida=(1.0, 2.0), tam=(0.12, 0.22),
+            self.s.emitir(int(70 * self.p.fator), self.kw["origem"], (0, 0, 0.6), dispersao=2.0, vida=(1.0, 2.2), tam=(0.1, 0.2),
                           cor=(0.78, 0.72, 0.62), raio_origem=0.2)
         self.s.passo()
 
@@ -166,7 +166,7 @@ class Onda(_ComSimulacao):
             return None
         x, y, s, z = ctx.tela(self.kw["origem"]); px = ctx.px_por_m(z) * s
         return DS.onda_de_choque(ctx.P, (x, y), raio_px=ti * 7.0 * px * self.p.velocidade, largura_px=0.35 * px,
-                                 amplitude_px=14 * self.p.fator * self.ganho * (1 - ti / 0.6))
+                                 amplitude_px=32 * self.p.fator * self.ganho * (1 - ti / 0.6))
 
     def tremida(self, ctx):
         return TR.tremida(self._t_imp(ctx), duracao=0.4, amplitude_px=0.014 * 1080 * min(1.0, self.p.fator), semente=self.p.semente)
@@ -179,8 +179,14 @@ class Onda(_ComSimulacao):
         return None
 
     def desenhar(self, ctx, onde, tela):
-        if onde == "chao" and self._t_imp(ctx) >= 0:          # a rachadura fica até o fim
-            MK.desenhar(ctx, tela, self.kw["origem"], 0.9 * self.p.escala, self.tex, alfa=min(1.0, self._t_imp(ctx) * 8))
+        ti = self._t_imp(ctx)
+        if onde == "chao" and ti >= 0:                          # a rachadura fica até o fim
+            MK.desenhar(ctx, tela, self.kw["origem"], 1.3 * self.p.escala, self.tex, alfa=min(1.0, ti * 8))
+            if ti <= 0.6:                                        # anel de poeira clara acompanhando a onda, no chão
+                ox, oy, oz = self.kw["origem"]; r = ti * 7.0 * self.p.velocidade
+                for k in range(36):
+                    a = 2 * math.pi * k / 36; x, y, s, z = ctx.tela((ox + r * math.cos(a), oy + r * math.sin(a), oz + 0.05))
+                    tela.mancha(x, y, 0.18 * ctx.px_por_m(z) * s, (0.93, 0.9, 0.84), 0.35 * (1 - ti / 0.6), z, "alpha")
         zp = ctx.personagem["pe_tela"][3] if ctx.personagem else 1e9
         if onde == "atras":
             self.s.desenhar(ctx, tela, "poeira", 1.0, z_entre=(zp, 1e9))

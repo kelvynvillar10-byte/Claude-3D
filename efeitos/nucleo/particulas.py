@@ -79,7 +79,7 @@ class Sistema:
                 tela.mancha(x, y, r * 2.6, self.cor[i] * a * 0.25, 1.0, z, "add")       # halo
             elif estilo in ("poeira", "fumaca"):
                 cresce = 1 + (2.5 if estilo == "fumaca" else 1.2) * vida
-                a = ganho * (0.55 if estilo == "fumaca" else 0.45) * math.sin(math.pi * min(1.0, vida * 1.1)) ** 0.8
+                a = ganho * (0.5 if estilo == "fumaca" else 0.3) * math.sin(math.pi * min(1.0, vida * 1.1)) ** 0.8
                 for k in range(3):        # 3 sub-manchas defasadas: borda irregular (não é bola)
                     ang = self.fase[i] + k * 2.1; dd = r * cresce * 0.35
                     tela.mancha(x + dd * math.cos(ang), y + dd * math.sin(ang) * 0.6, r * cresce * (0.8 + 0.15 * k), self.cor[i], a * 0.5, z, "alpha")
