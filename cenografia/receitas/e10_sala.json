@@ -1,0 +1,22 @@
+{
+ "nome": "e10_sala",
+ "descricao": "EP01 (5 cm): sala de manhã (sofá, mesa de centro, tapete, planta, quadro), em escala real, para os planos MACRO do gato e da aranha (personagens 2D entram no compositor).",
+ "semente": 13,
+ "saida": {"largura": 1080, "altura": 1920, "overscan": 0.25, "amostras": 64,
+           "amostras_por_camada": {"ceu": 2, "longe": 24, "meio": 32, "perto": 32}},
+ "camera": {"pos": [0.15, -0.6, 0.03], "alvo": [0.6, 0.3, 0.15], "lente_mm": 18},
+ "luz": {"preset": "manha"},
+ "camadas": ["ceu", "longe", "meio", "perto"],
+ "ancoras": {},
+ "textos_permitidos": [],
+ "componentes": [
+  {"tipo": "camera_macro", "camada": "meio", "params": {"foco_m": 0.2, "abertura_f": 4.0}},
+  {"tipo": "quarto", "camada": "longe", "params": {"x0": -1.9, "x1": 2.1, "y0": -1.9, "y1": 1.9, "cor_parede": "#ecdcc0", "tons_piso": ["#8d5f3c", "#7d5233", "#9b6a44"], "cor_cortina": "#cfe3d6"}},
+  {"tipo": "sofa", "camada": "meio", "params": {"x": 0.3, "y": 1.4, "cor": "#7a6a9a"}},
+  {"tipo": "mesa_centro", "camada": "meio", "params": {"x": 0.3, "y": 0.45}},
+  {"tipo": "tapete", "camada": "perto", "params": {"x0": -0.9, "y0": -0.1, "x1": 1.4, "y1": 1.0, "cor": "#d8c6a0", "cor_listra": "#9a6a44"}},
+  {"tipo": "mobiliario", "camada": "meio", "params": {"tipo": "vaso", "x": -1.45, "y": 1.45, "z": 0.0}},
+  {"tipo": "quadro", "camada": "longe", "params": {"x": 0.3, "y": 1.9, "z": 1.55, "largura": 0.8, "altura": 0.55}},
+  {"tipo": "poeira", "camada": "perto", "params": {"area": [1.5, 1.2, 2.05, 1.85], "n": 60}}
+ ]
+}

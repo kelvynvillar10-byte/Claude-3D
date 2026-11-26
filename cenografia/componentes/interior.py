@@ -42,7 +42,12 @@ def tecido(cor="#e9e4da", trama_por_m=900.0, rug=0.85, estampa=None):
     t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = rug
     if "Sheen Weight" in t.b.inputs:
         t.b.inputs["Sheen Weight"].default_value = 0.35
-    t.l(t.relevo(trama.outputs[0], 0.25, 0.0004), t.b.inputs["Normal"])
+    # a trama só existe de perto: entre 0,6 m e 1,5 m da câmera o relevo some (de longe ela vira moiré)
+    cam = t.n("ShaderNodeCameraData")
+    fade = t.n("ShaderNodeMapRange"); fade.inputs["From Min"].default_value = 0.6; fade.inputs["From Max"].default_value = 1.5
+    fade.inputs["To Min"].default_value = 0.25; fade.inputs["To Max"].default_value = 0.0; t.l(cam.outputs["View Distance"], fade.inputs["Value"])
+    bp = t.n("ShaderNodeBump"); bp.inputs["Distance"].default_value = 0.0004
+    t.l(fade.outputs["Result"], bp.inputs["Strength"]); t.l(trama.outputs[0], bp.inputs["Height"]); t.l(bp.outputs["Normal"], t.b.inputs["Normal"])
     return M._guardar(chave, t.m)
 
 
@@ -458,3 +463,74 @@ def estante(ctx, p, rng, col):
                 objs.append(G.caixa(f"livro_e_{k}_{xx:.3f}", (xx, y - 0.19, z + 0.022), (xx + w, y - 0.03, z + 0.022 + hh),
                                     plastico(cores[rng.randrange(6)], 0.55), col, chanfro=0.0012)); xx += w + 0.002
     _marcar(objs, suspenso=True)
+
+
+# ------------------------------------------------------------------ E10 parte 2: escada e sala
+@componente("escada")
+def escada(ctx, p, rng, col):
+    """Escada reta subindo em +y: degraus maciços até o chão (nada flutua), focinho com chanfro, espelho pintado,
+    paredes laterais e corrimão. Medidas reais: espelho 18 cm, piso 28 cm (NBR 9050: 16–18 cm e 28–32 cm)."""
+    x0, x1, y0 = p["x0"], p["x1"], p["y0"]; n = p.get("degraus", 8); e = p.get("espelho_m", 0.18); d = p.get("piso_m", 0.28)
+    piso_m = M.madeira(p.get("cor_piso", "#a8774c"), escala=3.0); esp_m = M.pintura(p.get("cor_espelho", "#f1ede4"), rug=0.6, desgaste=0.1)
+    for i in range(n):
+        ya, yb, zt = y0 + i * d, y0 + (i + 1) * d, (i + 1) * e
+        G.caixa(f"degrau_corpo_{i}", (x0, ya, 0), (x1, yb, zt - 0.025), esp_m, col)
+        G.caixa(f"degrau_piso_{i}", (x0, ya - 0.02, zt - 0.025), (x1, yb, zt), piso_m, col, chanfro=0.004)["suspenso"] = True
+    yf = y0 + n * d
+    G.caixa("patamar", (x0, yf, 0), (x1, yf + p.get("patamar_m", 1.0), n * e), piso_m, col, chanfro=0.004)
+    parede = M.pintura(p.get("cor_parede", "#e8d9bf"), rug=0.75, desgaste=0.1)
+    if p.get("parede_esq", True):
+        G.caixa("escada_parede_esq", (x0 - 0.12, y0 - 1.5, 0), (x0, yf + 1.0, n * e + 2.6), parede, col)
+    if p.get("parede_dir", True):
+        G.caixa("escada_parede_dir", (x1, y0 - 1.5, 0), (x1 + 0.12, yf + 1.0, n * e + 2.6), parede, col)
+    G.caixa("escada_teto", (x0 - 0.12, y0 - 1.5, n * e + 2.6), (x1 + 0.12, yf + 1.0, n * e + 2.72), M.pintura("#f1efe9", rug=0.9), col)["suspenso"] = True
+    # corrimão na parede direita (90 cm acima do focinho), com suportes
+    h = 0.9; met = M.pintura("#8c8f94", rug=0.3, metal=0.8)
+    a = (x1 - 0.06, y0 - 0.1, h + 0.0); b = (x1 - 0.06, yf, n * e + h)
+    G.cilindro_eixo("corrimao", a, b, 0.02, met, col)["suspenso"] = True
+    for k in range(3):
+        t = (k + 0.5) / 3; py = a[1] + (b[1] - a[1]) * t; pz = a[2] + (b[2] - a[2]) * t
+        G.cilindro_eixo(f"corrimao_suporte_{k}", (x1, py, pz - 0.05), (x1 - 0.06, py, pz - 0.02), 0.008, met, col)["suspenso"] = True
+    # piso de baixo (chão do corredor) diante da escada
+    G.caixa("corredor_piso", (x0 - 0.12, y0 - 1.5, -0.02), (x1 + 0.12, y0, 0.0), M.madeira(p.get("cor_corredor", "#9a6a43"), escala=3.0), col)
+
+
+@componente("sofa")
+def sofa(ctx, p, rng, col):
+    """Sofá de 3 lugares (assento a 45 cm, encosto a 85 cm), tecido com trama, almofadas soltas, pés de madeira."""
+    x, y, L, P = p["x"], p["y"], p.get("largura", 2.0), p.get("profundidade", 0.9)
+    tec = tecido(p.get("cor", "#8a6f9e"), 600); mad = M.madeira("#5a3d28", escala=2.0)
+    x0, x1, y0, y1 = x - L / 2, x + L / 2, y - P / 2, y + P / 2
+    for i, (px, py) in enumerate([(x0 + 0.08, y0 + 0.08), (x1 - 0.08, y0 + 0.08), (x0 + 0.08, y1 - 0.08), (x1 - 0.08, y1 - 0.08)]):
+        G.cilindro(f"sofa_pe_{i}", (px, py, 0), 0.022, 0.12, mad, col, lados=16, raio_topo=0.016)
+    G.caixa("sofa_base", (x0, y0, 0.12), (x1, y1, 0.32), tec, col, chanfro=0.03)["suspenso"] = True
+    G.caixa("sofa_encosto", (x0, y1 - 0.22, 0.32), (x1, y1, 0.85), tec, col, chanfro=0.05)
+    for lado, (xa, xb) in (("esq", (x0, x0 + 0.2)), ("dir", (x1 - 0.2, x1))):
+        G.caixa(f"sofa_braco_{lado}", (xa, y0, 0.32), (xb, y1 - 0.2, 0.62), tec, col, chanfro=0.05)
+    n = 3; w = (L - 0.4) / n
+    for k in range(n):
+        c = G.caixa(f"sofa_assento_{k}", (x0 + 0.2 + k * w + 0.005, y0 + 0.02, 0.32), (x0 + 0.2 + (k + 1) * w - 0.005, y1 - 0.22, 0.45), tec, col, chanfro=0.04)
+        G.deformar_ruido(c, forca=0.008, escala=0.2, semente=k)
+    for k in range(2):
+        a = G.caixa(f"sofa_almofada_{k}", (-0.22, -0.07, 0), (0.22, 0.07, 0.42), tecido(p.get("cor_almofada", "#e7c35a"), 600), col, chanfro=0.06)
+        a.location = (x0 + 0.45 + k * (L - 0.9), y1 - 0.32, 0.45); a.rotation_euler = (math.radians(-12), 0, math.radians(rng.uniform(-8, 8)))
+        a["suspenso"] = True
+
+
+@componente("mesa_centro")
+def mesa_centro(ctx, p, rng, col):
+    x, y, L, P, A = p["x"], p["y"], p.get("largura", 0.9), p.get("profundidade", 0.5), p.get("altura", 0.4)
+    m = M.madeira(p.get("cor", "#b98a5e"), escala=2.5)
+    G.caixa("mesa_tampo", (x - L / 2, y - P / 2, A - 0.03), (x + L / 2, y + P / 2, A), m, col, chanfro=0.006)["suspenso"] = True
+    for i, (px, py) in enumerate([(-1, -1), (1, -1), (-1, 1), (1, 1)]):
+        G.caixa(f"mesa_pe_{i}", (x + px * (L / 2 - 0.05) - 0.025, y + py * (P / 2 - 0.05) - 0.025, 0), (x + px * (L / 2 - 0.05) + 0.025, y + py * (P / 2 - 0.05) + 0.025, A - 0.03), m, col)
+
+
+@componente("luminaria_teto")
+def luminaria_teto(ctx, p, rng, col):
+    """Plafon redondo no teto (vidro leitoso aceso) + luz de área no grupo "artificial"."""
+    x, y, z = p["x"], p["y"], p["z"]
+    o = G.cilindro("plafon", (x, y, z - 0.06), 0.16, 0.06, M.emissor("#fff1d6", p.get("forca_vidro", 3.0)), col, lados=48, chanfro=0.01)
+    o["suspenso"] = True; o.lightgroup = "artificial"
+    L = bpy.data.lights.new("plafon_luz", "AREA"); L.shape = "DISK"; L.size = 0.3; L.energy = p.get("watts", 60.0); L.color = lin("#ffe2b8")[:3]
+    lo = bpy.data.objects.new("plafon_luz", L); bpy.context.scene.collection.objects.link(lo); lo.location = (x, y, z - 0.07); lo.lightgroup = "artificial"

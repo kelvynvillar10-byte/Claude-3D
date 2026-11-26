@@ -1,0 +1,18 @@
+{
+ "nome": "e10_escada",
+ "descricao": "EP01 (5 cm): escada interna de 10 degraus (espelho 18 cm, piso 28 cm) entre paredes, luz da manhã pelas pontas abertas e luminária no teto. Para planos MACRO.",
+ "semente": 12,
+ "saida": {"largura": 1080, "altura": 1920, "overscan": 0.25, "amostras": 64,
+           "amostras_por_camada": {"ceu": 2, "longe": 24, "meio": 32, "perto": 32}},
+ "camera": {"pos": [0.06, -0.32, 0.03], "alvo": [0.0, 0.3, 0.25], "lente_mm": 18},
+ "luz": {"preset": "manha"},
+ "camadas": ["ceu", "longe", "meio", "perto"],
+ "ancoras": {},
+ "textos_permitidos": [],
+ "componentes": [
+  {"tipo": "camera_macro", "camada": "meio", "params": {"foco_m": 0.2, "abertura_f": 4.0}},
+  {"tipo": "escada", "camada": "meio", "params": {"x0": -0.5, "x1": 0.5, "y0": 0.0, "degraus": 10}},
+  {"tipo": "luminaria_teto", "camada": "longe", "params": {"x": 0.0, "y": 1.2, "z": 4.38, "watts": 60}},
+  {"tipo": "poeira", "camada": "perto", "params": {"area": [-0.4, -0.5, 0.4, 0.0], "n": 50}}
+ ]
+}
