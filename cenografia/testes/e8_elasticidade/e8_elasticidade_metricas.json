@@ -1,0 +1,167 @@
+{
+ "L4_cor": {
+  "mola": "#ff6fb5",
+  "delta_E_camiseta": 69.1,
+  "delta_E_pele": 62.4,
+  "delta_E_eletricidade": 98.1,
+  "delta_E_ar_do_voo": 67.5,
+  "delta_E_seda_da_aranha": 72.2,
+  "delta_E_curioso_da_estampa": 104.6,
+  "_duracao_teste_s": 0.0
+ },
+ "L3_contatos": {
+  "elasticidade_discreto": {
+   "palma_no_alvo_com_mola_em_repouso_erro_px_max": 0.0,
+   "amostras": 8,
+   "vibracao_da_mola_em_volta_do_alvo_px_max": 6.3,
+   "palma_sobre_pele_pct": 100.0
+  },
+  "elasticidade_moderado": {
+   "palma_no_alvo_com_mola_em_repouso_erro_px_max": 0.0,
+   "amostras": 5,
+   "vibracao_da_mola_em_volta_do_alvo_px_max": 17.1,
+   "palma_sobre_pele_pct": 100.0
+  },
+  "elasticidade_extremo": {
+   "sola_em_relacao_ao_chao_px_min_max": [
+    0.24,
+    1.24
+   ]
+  },
+  "_duracao_teste_s": 2.6
+ },
+ "L2_ordem": {
+  "discreto": {
+   "energia_pico": 0.002,
+   "energia_media_por_fase": {
+    "inicio": 0.0014,
+    "ativacao": 0.0019,
+    "uso": 0.0018,
+    "impacto": 0.0019,
+    "dissipacao": 0.0014,
+    "encerramento": 0.0014
+   }
+  },
+  "moderado": {
+   "energia_pico": 0.0109,
+   "energia_media_por_fase": {
+    "inicio": 0.0014,
+    "ativacao": 0.003,
+    "uso": 0.0027,
+    "impacto": 0.0066,
+    "dissipacao": 0.0014,
+    "encerramento": 0.0014
+   }
+  },
+  "extremo": {
+   "energia_pico": 0.0256,
+   "energia_media_por_fase": {
+    "inicio": 0.0015,
+    "ativacao": 0.0038,
+    "uso": 0.003,
+    "impacto": 0.0142,
+    "dissipacao": 0.0014,
+    "encerramento": 0.0014
+   }
+  },
+  "discreto_menor_que_moderado_menor_que_extremo": true,
+  "_duracao_teste_s": 73.2
+ },
+ "L7_L8_heitor_det": {
+  "paleta_heitor": {
+   "pixels_sem_efeito_na_frente": 100905,
+   "identicos_pct": 100.0,
+   "diferenca_max_8bit": 0,
+   "pixels_do_heitor_com_efeito_na_frente": 0
+  },
+  "mesmo_quadro_duas_vezes_identico": true,
+  "_duracao_teste_s": 12.7
+ },
+ "L9_regressao": {
+  "cena_de_prova_identica_a_referencia": {
+   "manha_frente": true,
+   "tarde_perfil": true,
+   "noite_costas": true
+  },
+  "_duracao_teste_s": 19.3
+ },
+ "L1_video": {
+  "elasticidade_discreto": {
+   "quadros": 81,
+   "composicao_media_s": 3.32,
+   "composicao_max_s": 4.96,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0004,
+    "uso": 0.0002,
+    "impacto": 0.0005,
+    "dissipacao": 0.0,
+    "encerramento": 0.0
+   },
+   "energia_pico": 0.0006,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.35
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "elasticidade_moderado": {
+   "quadros": 84,
+   "composicao_media_s": 4.33,
+   "composicao_max_s": 6.18,
+   "energia_media_por_fase": {
+    "inicio": 0.0014,
+    "ativacao": 0.0029,
+    "uso": 0.0027,
+    "impacto": 0.0029,
+    "dissipacao": 0.0014,
+    "encerramento": 0.0014
+   },
+   "energia_pico": 0.0038,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "elasticidade_extremo": {
+   "quadros": 102,
+   "composicao_media_s": 4.27,
+   "composicao_max_s": 5.48,
+   "energia_media_por_fase": {
+    "inicio": 0.0,
+    "ativacao": 0.0008,
+    "uso": 0.0011,
+    "impacto": 0.003,
+    "dissipacao": 0.0349,
+    "encerramento": 0.015
+   },
+   "energia_pico": 0.0516,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.0,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "_flashes_video_inteiro": {
+   "flashes_total": 0,
+   "max_flashes_em_1s": 0
+  },
+  "_duracao_teste_s": 1088.9
+ },
+ "L10_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 13.3
+ }
+}
