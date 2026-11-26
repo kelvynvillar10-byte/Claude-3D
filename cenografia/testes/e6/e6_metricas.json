@@ -1,0 +1,158 @@
+{
+ "E6_1_placas": {
+  "manha_frente": {
+   "cache": "MISS",
+   "montagem_s": 40.32,
+   "render_total_s": 225.56,
+   "por_camada_s": {
+    "ceu": 8.78,
+    "longe": 35.15,
+    "meio": 101.5,
+    "perto": 16.5,
+    "frente": 12.0
+   },
+   "objetos": 3923,
+   "flutuando": 0,
+   "atravessando": 0
+  },
+  "tarde_perfil": {
+   "cache": "MISS",
+   "montagem_s": 42.4,
+   "render_total_s": 248.22,
+   "por_camada_s": {
+    "ceu": 8.61,
+    "longe": 11.41,
+    "meio": 142.47,
+    "perto": 14.04,
+    "frente": 14.66
+   },
+   "objetos": 3923,
+   "flutuando": 0,
+   "atravessando": 0
+  },
+  "noite_costas": {
+   "cache": "MISS",
+   "montagem_s": 49.07,
+   "render_total_s": 254.21,
+   "por_camada_s": {
+    "ceu": 8.49,
+    "longe": 39.26,
+    "meio": 112.04,
+    "perto": 17.07,
+    "frente": 12.7
+   },
+   "objetos": 3927,
+   "flutuando": 0,
+   "atravessando": 0
+  },
+  "_duracao_teste_s": 735.5
+ },
+ "E6_2_caminho_livre": {
+  "manha_frente": {
+   "comprimento_m": 3.78,
+   "raios": 114,
+   "obstaculos_entre_20cm_e_1_5m": {}
+  },
+  "tarde_perfil": {
+   "comprimento_m": 3.78,
+   "raios": 114,
+   "obstaculos_entre_20cm_e_1_5m": {}
+  },
+  "noite_costas": {
+   "comprimento_m": 3.78,
+   "raios": 114,
+   "obstaculos_entre_20cm_e_1_5m": {}
+  },
+  "_duracao_teste_s": 55.4
+ },
+ "E6_4_pe_de_apoio": {
+  "apoios_medidos": 14,
+  "deslize_max_px": 0.09,
+  "deslize_medio_px": 0.08,
+  "obs": "px na placa (1350 de largura); ponto de referência parado no mundo, mesmo movimento de câmera",
+  "_duracao_teste_s": 1.8
+ },
+ "E6_5_integridade": {
+  "paleta": {
+   "manha_frente": {
+    "pixels_medidos": 38709,
+    "identicos_pct": 100.0,
+    "cobertos_por_algo_mais_perto": 0
+   },
+   "tarde_perfil": {
+    "pixels_medidos": 56510,
+    "identicos_pct": 100.0,
+    "cobertos_por_algo_mais_perto": 0
+   },
+   "noite_costas": {
+    "pixels_medidos": 82959,
+    "identicos_pct": 100.0,
+    "cobertos_por_algo_mais_perto": 0
+   }
+  },
+  "mesmo_quadro_duas_vezes_identico": true,
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "velocidade_m_s": 0.63,
+  "_duracao_teste_s": 27.4
+ },
+ "E6_3_video": {
+  "quadros": 510,
+  "duracao_s": 17.0,
+  "fps": 30,
+  "composicao_media_s": 2.01,
+  "composicao_max_s": 4.74,
+  "diferenca_media_entre_quadros_8bit": 3.28,
+  "maior_diferenca_entre_quadros_8bit": 4.57,
+  "altura_heitor_px": {
+   "manha_frente": [
+    370.5,
+    549.2
+   ],
+   "tarde_perfil": [
+    586.1,
+    586.1
+   ],
+   "noite_costas": [
+    470.0,
+    800.3
+   ]
+  },
+  "quadros_com_heitor_parcialmente_coberto": {
+   "manha_frente": 0,
+   "tarde_perfil": 6,
+   "noite_costas": 0
+  },
+  "medidas_cor_quadro_40pct": {
+   "manha_frente": {
+    "brilho_pct": 50.5,
+    "saturacao_pct": 38.8,
+    "contraste_pct": 16.6,
+    "vinheta_pct": 79.1,
+    "sombras_a": 7.1,
+    "sombras_b": -19.1,
+    "altas_luzes_b": 12.6
+   },
+   "tarde_perfil": {
+    "brilho_pct": 42.9,
+    "saturacao_pct": 48.2,
+    "contraste_pct": 17.8,
+    "vinheta_pct": 48.0,
+    "sombras_a": 5.5,
+    "sombras_b": -10.8,
+    "altas_luzes_b": 25.7
+   },
+   "noite_costas": {
+    "brilho_pct": 30.1,
+    "saturacao_pct": 48.0,
+    "contraste_pct": 13.0,
+    "vinheta_pct": 83.2,
+    "sombras_a": 13.5,
+    "sombras_b": -19.8,
+    "altas_luzes_b": 31.7
+   }
+  },
+  "_duracao_teste_s": 1041.1
+ }
+}
