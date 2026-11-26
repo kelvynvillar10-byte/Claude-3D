@@ -1,0 +1,215 @@
+{
+ "nome": "e10_quarto_gota",
+ "descricao": "EP01: o mesmo quarto + uma gota grande (2,8 cm) derramada no chão, para o plano da gota-obstáculo.",
+ "semente": 11,
+ "saida": {
+  "largura": 1080,
+  "altura": 1920,
+  "overscan": 0.25,
+  "amostras": 64,
+  "amostras_por_camada": {
+   "ceu": 2,
+   "longe": 24,
+   "meio": 32,
+   "perto": 32
+  }
+ },
+ "camera": {
+  "pos": [
+   0.95,
+   0.62,
+   0.535
+  ],
+  "alvo": [
+   0.95,
+   1.9,
+   0.56
+  ],
+  "lente_mm": 24
+ },
+ "luz": {
+  "preset": "manha"
+ },
+ "camadas": [
+  "ceu",
+  "longe",
+  "meio",
+  "perto"
+ ],
+ "ancoras": {},
+ "textos_permitidos": [],
+ "componentes": [
+  {
+   "tipo": "camera_macro",
+   "camada": "meio",
+   "params": {
+    "foco_m": 0.16,
+    "abertura_f": 4.0
+   }
+  },
+  {
+   "tipo": "quarto",
+   "camada": "longe",
+   "params": {
+    "cor_parede": "#cfe0e6"
+   }
+  },
+  {
+   "tipo": "cama",
+   "camada": "meio",
+   "params": {
+    "x0": 0.55,
+    "x1": 1.5,
+    "y0": -0.3,
+    "y1": 1.85,
+    "cor_edredom": "#5b8fd0"
+   }
+  },
+  {
+   "tipo": "criado_mudo",
+   "camada": "meio",
+   "params": {
+    "x": 0.2,
+    "y": 1.6
+   }
+  },
+  {
+   "tipo": "celular",
+   "camada": "meio",
+   "params": {
+    "x": 0.12,
+    "y": 1.5,
+    "z": 0.55,
+    "giro_graus": 45
+   }
+  },
+  {
+   "tipo": "estante",
+   "camada": "longe",
+   "params": {
+    "x0": -1.6,
+    "x1": -0.7,
+    "y": 1.9,
+    "z0": 1.25
+   }
+  },
+  {
+   "tipo": "quadro",
+   "camada": "longe",
+   "params": {
+    "x": 1.0,
+    "y": 1.9,
+    "z": 1.55
+   }
+  },
+  {
+   "tipo": "tapete",
+   "camada": "perto",
+   "params": {
+    "x0": -0.6,
+    "y0": -0.3,
+    "x1": 0.45,
+    "y1": 1.0
+   }
+  },
+  {
+   "tipo": "chinelos",
+   "camada": "perto",
+   "params": {
+    "x": 0.1,
+    "y": 0.25,
+    "giro_graus": 10
+   }
+  },
+  {
+   "tipo": "carrinho",
+   "camada": "perto",
+   "params": {
+    "x": -0.9,
+    "y": 0.6,
+    "giro_graus": 35
+   }
+  },
+  {
+   "tipo": "moeda",
+   "camada": "perto",
+   "params": {
+    "nome": "a",
+    "x": -0.3615,
+    "y": -0.6428
+   }
+  },
+  {
+   "tipo": "gota",
+   "camada": "perto",
+   "params": {
+    "nome": "a",
+    "x": -0.255,
+    "y": -0.6,
+    "raio_m": 0.0022
+   }
+  },
+  {
+   "tipo": "gota",
+   "camada": "perto",
+   "params": {
+    "nome": "b",
+    "x": -0.27,
+    "y": -0.575,
+    "raio_m": 0.0012
+   }
+  },
+  {
+   "tipo": "poca",
+   "camada": "perto",
+   "params": {
+    "nome": "a",
+    "x": -0.42,
+    "y": -0.42,
+    "raio_m": 0.06
+   }
+  },
+  {
+   "tipo": "migalhas",
+   "camada": "perto",
+   "params": {
+    "area": [
+     -0.38,
+     -0.7,
+     -0.2,
+     -0.52
+    ],
+    "n": 16,
+    "grande": [
+     -0.345,
+     -0.585,
+     0.007
+    ]
+   }
+  },
+  {
+   "tipo": "poeira",
+   "camada": "perto",
+   "params": {
+    "area": [
+     -0.5,
+     -0.85,
+     0.4,
+     -0.45
+    ],
+    "n": 70
+   }
+  },
+  {
+   "tipo": "gota",
+   "camada": "perto",
+   "params": {
+    "nome": "grande",
+    "x": 0.95,
+    "y": -0.95,
+    "raio_m": 0.014,
+    "achatamento": 0.55
+   }
+  }
+ ]
+}

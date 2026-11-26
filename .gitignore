@@ -16,3 +16,5 @@ producoes/*/_cache/
 .env.*
 
 cenografia/testes/e10_rapido/
+
+producoes/*/_cache/

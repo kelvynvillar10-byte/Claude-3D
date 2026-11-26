@@ -101,9 +101,9 @@ def quadro(t):
     b = _ease((t - 0.3) / 0.35)
     if t > 0.28:
         a = int(255 * min(1, (t - 0.28) / 0.05))
-        _barra(cv, 120, H * 0.70, 840, 54, _log(b, 21952), (230, 90, 70), "PESO", "÷ 21.952" if b > 0.6 else "", a)
-        _barra(cv, 120, H * 0.80, 840, 54, _log(b, 784), (90, 200, 120), "FORÇA", "÷ 784" if b > 0.6 else "", a)
-        _texto(cv, "barras em escala logarítmica", W / 2, H * 0.865, 30, (190, 205, 240), a=a)
+        _barra(cv, 120, H * 0.725, 840, 54, _log(b, 21952), (230, 90, 70), "PESO", "÷ 21.952" if b > 0.6 else "", a)
+        _barra(cv, 120, H * 0.815, 840, 54, _log(b, 784), (90, 200, 120), "FORÇA", "÷ 784" if b > 0.6 else "", a)
+        _texto(cv, "barras em escala logarítmica", W / 2, H * 0.875, 30, (190, 205, 240), a=a)
     # 3) resultado
     r = _ease((t - 0.65) / 0.2)
     if r > 0:

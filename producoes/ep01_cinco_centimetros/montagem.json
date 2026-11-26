@@ -1,0 +1,2004 @@
+{
+ "episodio": "EP01 — E se você acordasse com apenas 5 centímetros?",
+ "fps": 30,
+ "duracao": 113.4,
+ "resolucao": [
+  1080,
+  1920
+ ],
+ "voz": "narracao/edicoes/ep01_narracao/voz_final.wav",
+ "planos": [
+  {
+   "id": "S01",
+   "fim": 1.98,
+   "placa": "A_despertar",
+   "cam": {
+    "zoom": [
+     1.1,
+     1.16
+    ]
+   },
+   "ease": "saida",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "dormindo"
+     ],
+     [
+      0.9,
+      "sonolento"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 0.0
+  },
+  {
+   "id": "S02",
+   "fim": 3.7,
+   "placa": "A_despertar",
+   "cam": {
+    "zoom": [
+     1.2,
+     1.45
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "sonolento"
+     ],
+     [
+      0.35,
+      "surpresa"
+     ]
+    ],
+    "pose": "susto"
+   },
+   "efeitos": {
+    "tremida": [
+     0.35,
+     0.7
+    ]
+   },
+   "ini": 1.98
+  },
+  {
+   "id": "S03",
+   "fim": 6.95,
+   "placa": "N1_abertura_alto",
+   "cam": {
+    "zoom": [
+     1.9,
+     1.0
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "pos": [
+     0.99,
+     1.3,
+     null
+    ],
+    "rostos": [
+     [
+      0,
+      "surpresa"
+     ]
+    ],
+    "pose": "susto"
+   },
+   "rotulos": [
+    {
+     "txt": "5 cm",
+     "ancora": "heitor_topo",
+     "lado": 1,
+     "regua": true
+    }
+   ],
+   "ini": 3.7
+  },
+  {
+   "id": "S04",
+   "fim": 9.45,
+   "placa": "B_cama_predio",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.12
+    ],
+    "ty": [
+     0.0,
+     0.004
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "rostos": [
+     [
+      0,
+      "surpresa"
+     ]
+    ],
+    "pose": "base"
+   },
+   "rotulos": [
+    {
+     "txt": "14 m",
+     "sub": "PRA ELE",
+     "ancora": [
+      0.55,
+      0.4,
+      0.5
+     ],
+     "lado": 1
+    }
+   ],
+   "ini": 6.95
+  },
+  {
+   "id": "S05",
+   "fim": 12.35,
+   "placa": "D_celular",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.14
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "surpresa"
+     ],
+     [
+      1.6,
+      "alegria"
+     ]
+    ],
+    "pose": "base"
+   },
+   "rotulos": [
+    {
+     "txt": "4 m",
+     "sub": "PRA ELE",
+     "ancora": [
+      0.12,
+      1.5,
+      0.7
+     ],
+     "lado": -1
+    }
+   ],
+   "ini": 9.45
+  },
+  {
+   "id": "S06",
+   "fim": 15.0,
+   "placa": "N2_chao_longe",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.1
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base",
+    "andar": {
+     "para": [
+      1.06,
+      -1.27,
+      0.0
+     ],
+     "tipo": "caminhada"
+    }
+   },
+   "ini": 12.35
+  },
+  {
+   "id": "S07",
+   "fim": 17.85,
+   "placa": "A_despertar",
+   "cam": {
+    "zoom": [
+     1.35,
+     1.5
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "preocupacao"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 15.0
+  },
+  {
+   "id": "S08",
+   "fim": 20.85,
+   "placa": "H_aranha_canto",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.08
+    ]
+   },
+   "ease": "suave",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "preocupacao"
+     ],
+     [
+      1.6,
+      "medo"
+     ]
+    ],
+    "pose": "base"
+   },
+   "extras": [
+    {
+     "tipo": "sombra_gato",
+     "x": [
+      0.95,
+      0.55
+     ],
+     "y": 0.3,
+     "alt": [
+      0.55,
+      0.75
+     ]
+    }
+   ],
+   "ini": 17.85
+  },
+  {
+   "id": "S09",
+   "fim": 23.65,
+   "placa": "N3_gota",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.12
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "surpresa"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 20.85
+  },
+  {
+   "id": "S10",
+   "fim": 27.95,
+   "placa": "N3_gota",
+   "cam": {
+    "zoom": [
+     1.25,
+     1.35
+    ],
+    "tx": [
+     0.0,
+     0.004
+    ]
+   },
+   "ease": "linear",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "perfil",
+    "pose": "base",
+    "pos": [
+     0.86,
+     -1.02,
+     0.0
+    ],
+    "andar": {
+     "para": [
+      0.915,
+      -0.985,
+      0.0
+     ],
+     "tipo": "caminhada"
+    },
+    "rostos": [
+     [
+      0,
+      "preocupacao"
+     ]
+    ]
+   },
+   "ini": 23.65
+  },
+  {
+   "id": "S11",
+   "fim": 31.55,
+   "placa": "C_moeda",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.12
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "pensativo"
+     ]
+    ],
+    "pose": "base"
+   },
+   "rotulos": [
+    {
+     "txt": "27 mm",
+     "sub": "MOEDA",
+     "ancora": [
+      -0.3615,
+      -0.6428,
+      0.003
+     ],
+     "lado": -1
+    }
+   ],
+   "ini": 27.95
+  },
+  {
+   "id": "S12",
+   "fim": 34.65,
+   "placa": "E_escada_base",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.0
+    ],
+    "ty": [
+     0.0,
+     0.01
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "ini": 31.55
+  },
+  {
+   "id": "S13",
+   "fim": 36.95,
+   "placa": "F_degrau",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.12
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "preocupacao"
+     ]
+    ],
+    "pose": "base"
+   },
+   "rotulos": [
+    {
+     "txt": "18 cm = 5 m",
+     "sub": "PRA ELE",
+     "ancora": [
+      0.22,
+      0.56,
+      0.45
+     ],
+     "lado": 1
+    }
+   ],
+   "ini": 34.65
+  },
+  {
+   "id": "S14",
+   "fim": 39.2,
+   "placa": "F_degrau",
+   "cam": {
+    "zoom": [
+     1.3,
+     1.42
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "bravo"
+     ]
+    ],
+    "pose": "maos_alto"
+   },
+   "ini": 36.95
+  },
+  {
+   "id": "S15",
+   "fim": 41.45,
+   "placa": "N6_quarto_geral",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.08
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "ini": 39.2
+  },
+  {
+   "id": "S16",
+   "fim": 43.85,
+   "placa": "G_sala_gato",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.1
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "extras": [
+    {
+     "tipo": "sombra_gato",
+     "x": [
+      0.95,
+      0.75
+     ],
+     "y": 0.62,
+     "alt": [
+      0.35,
+      0.45
+     ]
+    }
+   ],
+   "ini": 41.45
+  },
+  {
+   "id": "S17",
+   "fim": 45.3,
+   "placa": "H_aranha_canto",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.55
+    ]
+   },
+   "ease": "saida",
+   "entrada": "flash",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "medo"
+     ]
+    ],
+    "pose": "susto"
+   },
+   "extras": [
+    {
+     "tipo": "aranha",
+     "pos": [
+      1.865,
+      1.716,
+      0.0
+     ],
+     "largura_m": 0.05,
+     "fase": [
+      0.0,
+      1.2
+     ],
+     "levantar": [
+      0.0,
+      0.3
+     ]
+    }
+   ],
+   "efeitos": {
+    "tremida": [
+     0.0,
+     0.35
+    ]
+   },
+   "ini": 43.85
+  },
+  {
+   "id": "S18",
+   "fim": 46.85,
+   "placa": "H_aranha_canto",
+   "cam": {
+    "zoom": [
+     1.25,
+     1.32
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "medo"
+     ]
+    ],
+    "pose": "recuo"
+   },
+   "extras": [
+    {
+     "tipo": "aranha",
+     "pos": [
+      1.865,
+      1.716,
+      0.0
+     ],
+     "largura_m": 0.05,
+     "fase": [
+      0.0,
+      0.0
+     ],
+     "levantar": [
+      0.4,
+      1.0
+     ]
+    }
+   ],
+   "ini": 45.3
+  },
+  {
+   "id": "S19",
+   "fim": 49.35,
+   "placa": "G_sala_gato",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.1
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "extras": [
+    {
+     "tipo": "gato",
+     "pos": [
+      0.6,
+      0.06,
+      0.008
+     ],
+     "altura_m": 0.28,
+     "pose": "sentado",
+     "direcao": -1,
+     "pupila": [
+      0.1,
+      0.1
+     ]
+    }
+   ],
+   "rotulos": [
+    {
+     "txt": "≈ 7 m",
+     "sub": "PRA ELE",
+     "ancora": [
+      0.6,
+      0.06,
+      0.3
+     ],
+     "lado": 1
+    }
+   ],
+   "ini": 46.85
+  },
+  {
+   "id": "S20",
+   "fim": 51.45,
+   "placa": "G_sala_gato",
+   "cam": {
+    "zoom": [
+     1.2,
+     1.3
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "extras": [
+    {
+     "tipo": "gato",
+     "pos": [
+      0.6,
+      0.06,
+      0.008
+     ],
+     "altura_m": 0.28,
+     "pose": "sentado",
+     "direcao": -1,
+     "pupila": [
+      0.1,
+      0.5
+     ],
+     "piscar": [
+      0.8,
+      1.0
+     ]
+    }
+   ],
+   "ini": 49.35
+  },
+  {
+   "id": "S21",
+   "fim": 54.05,
+   "insert": "olho_gato",
+   "pupila": [
+    0.1,
+    1.0
+   ],
+   "zoom": [
+    1.0,
+    1.35
+   ],
+   "entrada": "corte",
+   "efeitos": {
+    "tremida": [
+     1.3,
+     1.6
+    ]
+   },
+   "ini": 51.45
+  },
+  {
+   "id": "S22",
+   "fim": 56.35,
+   "placa": "G_sala_gato",
+   "cam": {
+    "zoom": [
+     1.15,
+     1.22
+    ]
+   },
+   "ease": "suave",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "pose": "recuo"
+   },
+   "extras": [
+    {
+     "tipo": "gato",
+     "pos": [
+      0.6,
+      0.06,
+      0.008
+     ],
+     "altura_m": 0.19,
+     "pose": "agachado",
+     "direcao": -1,
+     "pupila": [
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "ini": 54.05
+  },
+  {
+   "id": "S23",
+   "fim": 58.75,
+   "placa": "G_sala_gato",
+   "cam": {
+    "zoom": [
+     1.3,
+     1.6
+    ]
+   },
+   "ease": "saida",
+   "entrada": "flash",
+   "heitor": {
+    "vista": "frente",
+    "rostos": [
+     [
+      0,
+      "medo"
+     ]
+    ],
+    "pose": "susto"
+   },
+   "extras": [
+    {
+     "tipo": "pata",
+     "garras": [
+      0.0,
+      1.0
+     ],
+     "y": [
+      -0.25,
+      0.3
+     ],
+     "x": 0.55,
+     "tam": 0.42
+    }
+   ],
+   "efeitos": {
+    "tremida": [
+     0.9,
+     1.4
+    ]
+   },
+   "ini": 56.35
+  },
+  {
+   "id": "S24",
+   "fim": 61.65,
+   "placa": "A_despertar",
+   "cam": {
+    "zoom": [
+     1.3,
+     1.45
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "pensativo"
+     ],
+     [
+      1.8,
+      "surpresa"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 58.75
+  },
+  {
+   "id": "S25",
+   "legenda_y": 0.655,
+   "fim": 65.05,
+   "insert": "quadrado_cubo",
+   "t": [
+    0.0,
+    0.3
+   ],
+   "entrada": "flash",
+   "ini": 61.65
+  },
+  {
+   "id": "S26",
+   "legenda_y": 0.655,
+   "fim": 68.05,
+   "insert": "quadrado_cubo",
+   "t": [
+    0.3,
+    0.47
+   ],
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "entrada": "corte",
+   "ini": 65.05
+  },
+  {
+   "id": "S27",
+   "legenda_y": 0.655,
+   "fim": 71.05,
+   "insert": "quadrado_cubo",
+   "t": [
+    0.47,
+    0.65
+   ],
+   "zoom": [
+    1.06,
+    1.1
+   ],
+   "entrada": "corte",
+   "ini": 68.05
+  },
+  {
+   "id": "S28",
+   "fim": 73.75,
+   "placa": "C_moeda",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.1
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "alegria"
+     ]
+    ],
+    "pose": "maos_alto"
+   },
+   "extras": [
+    {
+     "tipo": "migalha",
+     "tam": 0.026
+    }
+   ],
+   "rotulos": [
+    {
+     "txt": "× 28",
+     "sub": "MAIS FORTE (RELATIVO AO PESO)",
+     "ancora": "heitor_topo",
+     "lado": -1
+    }
+   ],
+   "ini": 71.05
+  },
+  {
+   "id": "S29",
+   "legenda_y": 0.655,
+   "fim": 76.75,
+   "insert": "quadrado_cubo",
+   "t": [
+    0.65,
+    1.0
+   ],
+   "entrada": "corte",
+   "ini": 73.75
+  },
+  {
+   "id": "S30",
+   "fim": 80.15,
+   "placa": "N3_gota",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.15
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "preocupacao"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 76.75
+  },
+  {
+   "id": "S31",
+   "fim": 83.45,
+   "placa": "N5_janela",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.08
+    ]
+   },
+   "ease": "suave",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "medo"
+     ]
+    ],
+    "pose": "equilibrio",
+    "vento": true
+   },
+   "efeitos": {
+    "vento": true,
+    "tremida": [
+     0.4,
+     2.6
+    ]
+   },
+   "ini": 80.15
+  },
+  {
+   "id": "S32",
+   "fim": 86.55,
+   "placa": "N4_poca",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.12
+    ]
+   },
+   "ease": "saida",
+   "entrada": "chicote",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "ini": 83.45
+  },
+  {
+   "id": "S33",
+   "fim": 88.95,
+   "placa": "C_moeda",
+   "cam": {
+    "zoom": [
+     1.2,
+     1.32
+    ],
+    "tx": [
+     0.0,
+     -0.004
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "pensativo"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 86.55
+  },
+  {
+   "id": "S34",
+   "fim": 91.35,
+   "placa": "N3_gota",
+   "cam": {
+    "zoom": [
+     1.3,
+     1.45
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "triste"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 88.95
+  },
+  {
+   "id": "S35",
+   "fim": 94.75,
+   "placa": "A_despertar",
+   "cam": {
+    "zoom": [
+     1.2,
+     1.45
+    ]
+   },
+   "ease": "suave",
+   "entrada": "chicote",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "pensativo"
+     ],
+     [
+      2.2,
+      "medo"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 91.35
+  },
+  {
+   "id": "S36",
+   "fim": 97.95,
+   "placa": "N6_quarto_geral",
+   "cam": {
+    "zoom": [
+     1.12,
+     1.0
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "ini": 94.75
+  },
+  {
+   "id": "S37",
+   "fim": 101.95,
+   "placa": "N2_chao_longe",
+   "cam": {
+    "zoom": [
+     1.0,
+     1.08
+    ]
+   },
+   "ease": "suave",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "costas",
+    "pose": "base"
+   },
+   "ini": 97.95
+  },
+  {
+   "id": "S38",
+   "fim": 104.65,
+   "placa": "B_cama_predio",
+   "cam": {
+    "zoom": [
+     1.25,
+     1.35
+    ]
+   },
+   "ease": "suave",
+   "entrada": "corte",
+   "heitor": {
+    "vista": "frente",
+    "rostos": [
+     [
+      0,
+      "triste"
+     ]
+    ],
+    "pose": "base"
+   },
+   "ini": 101.95
+  },
+  {
+   "id": "S39",
+   "fim": 108.05,
+   "placa": "N7_quarto_alto",
+   "cam": {
+    "zoom": [
+     3.0,
+     1.0
+    ]
+   },
+   "ease": "saida",
+   "entrada": "corte",
+   "heitor": {
+    "rostos": [
+     [
+      0,
+      "triste"
+     ]
+    ],
+    "pose": "base"
+   },
+   "efeitos": {
+    "circulo": true
+   },
+   "ini": 104.65
+  },
+  {
+   "id": "S40",
+   "fim": 110.4,
+   "insert": "card_logo",
+   "entrada": "flash",
+   "ini": 108.05
+  },
+  {
+   "id": "S41",
+   "fim": 113.4,
+   "insert": "card_cta",
+   "entrada": "corte",
+   "ini": 110.4
+  }
+ ],
+ "legendas": [
+  {
+   "ini": 0.15,
+   "fim": 2.29,
+   "txt": "IMAGINE ACORDAR AMANHÃ",
+   "dest": []
+  },
+  {
+   "ini": 2.29,
+   "fim": 3.31,
+   "txt": "E DESCOBRIR QUE",
+   "dest": []
+  },
+  {
+   "ini": 3.31,
+   "fim": 4.41,
+   "txt": "VOCÊ TEM APENAS",
+   "dest": []
+  },
+  {
+   "ini": 4.41,
+   "fim": 6.37,
+   "txt": "5 CENTÍMETROS DE",
+   "dest": [
+    "5"
+   ]
+  },
+  {
+   "ini": 6.37,
+   "fim": 7.1,
+   "txt": "ALTURA",
+   "dest": []
+  },
+  {
+   "ini": 7.1,
+   "fim": 8.18,
+   "txt": "SUA CAMA SERIA",
+   "dest": []
+  },
+  {
+   "ini": 8.18,
+   "fim": 9.3,
+   "txt": "COMO UM PRÉDIO",
+   "dest": [
+    "PRÉDIO"
+   ]
+  },
+  {
+   "ini": 9.3,
+   "fim": 10.88,
+   "txt": "SEU CELULAR PARECERIA",
+   "dest": []
+  },
+  {
+   "ini": 10.88,
+   "fim": 12.54,
+   "txt": "UMA TELEVISÃO GIGANTE",
+   "dest": [
+    "TELEVISÃO"
+   ]
+  },
+  {
+   "ini": 12.54,
+   "fim": 13.59,
+   "txt": "E ATÉ SAIR",
+   "dest": []
+  },
+  {
+   "ini": 13.59,
+   "fim": 14.74,
+   "txt": "DO QUARTO PODERIA",
+   "dest": []
+  },
+  {
+   "ini": 14.74,
+   "fim": 16.04,
+   "txt": "SE TRANSFORMAR EM",
+   "dest": []
+  },
+  {
+   "ini": 16.04,
+   "fim": 18.07,
+   "txt": "UMA MISSÃO IMPOSSÍVEL",
+   "dest": [
+    "IMPOSSÍVEL"
+   ]
+  },
+  {
+   "ini": 18.07,
+   "fim": 18.98,
+   "txt": "MAS O PIOR",
+   "dest": [
+    "PIOR"
+   ]
+  },
+  {
+   "ini": 18.98,
+   "fim": 20.33,
+   "txt": "AINDA ESTARIA POR",
+   "dest": []
+  },
+  {
+   "ini": 20.33,
+   "fim": 21.16,
+   "txt": "VIR",
+   "dest": []
+  },
+  {
+   "ini": 21.16,
+   "fim": 22.33,
+   "txt": "COM APENAS 5",
+   "dest": [
+    "5"
+   ]
+  },
+  {
+   "ini": 22.33,
+   "fim": 23.49,
+   "txt": "CENTÍMETROS",
+   "dest": [
+    "CENTÍMETROS"
+   ]
+  },
+  {
+   "ini": 23.49,
+   "fim": 24.51,
+   "txt": "UMA SIMPLES GOTA",
+   "dest": [
+    "GOTA"
+   ]
+  },
+  {
+   "ini": 24.51,
+   "fim": 25.53,
+   "txt": "DE ÁGUA PODERIA",
+   "dest": [
+    "ÁGUA"
+   ]
+  },
+  {
+   "ini": 25.53,
+   "fim": 26.45,
+   "txt": "SE TORNAR UM",
+   "dest": []
+  },
+  {
+   "ini": 26.45,
+   "fim": 28.15,
+   "txt": "OBSTÁCULO ENORME",
+   "dest": [
+    "OBSTÁCULO"
+   ]
+  },
+  {
+   "ini": 28.15,
+   "fim": 29.08,
+   "txt": "UMA MOEDA NO",
+   "dest": []
+  },
+  {
+   "ini": 29.08,
+   "fim": 29.58,
+   "txt": "CHÃO",
+   "dest": []
+  },
+  {
+   "ini": 29.58,
+   "fim": 30.74,
+   "txt": "SERIA QUASE UMA",
+   "dest": []
+  },
+  {
+   "ini": 30.74,
+   "fim": 31.68,
+   "txt": "MONTANHA",
+   "dest": [
+    "MONTANHA"
+   ]
+  },
+  {
+   "ini": 31.68,
+   "fim": 32.59,
+   "txt": "E AQUELA ESCADA",
+   "dest": [
+    "ESCADA"
+   ]
+  },
+  {
+   "ini": 32.59,
+   "fim": 33.37,
+   "txt": "QUE VOCÊ SOBE",
+   "dest": []
+  },
+  {
+   "ini": 33.37,
+   "fim": 34.9,
+   "txt": "TODOS OS DIAS?",
+   "dest": []
+  },
+  {
+   "ini": 34.93,
+   "fim": 35.77,
+   "txt": "AGORA SERIA UMA",
+   "dest": []
+  },
+  {
+   "ini": 35.77,
+   "fim": 37.22,
+   "txt": "SEQUÊNCIA DE PAREDÕES",
+   "dest": [
+    "PAREDÕES"
+   ]
+  },
+  {
+   "ini": 37.22,
+   "fim": 38.39,
+   "txt": "QUE VOCÊ PRECISARIA",
+   "dest": []
+  },
+  {
+   "ini": 38.39,
+   "fim": 39.38,
+   "txt": "ESCALAR",
+   "dest": []
+  },
+  {
+   "ini": 39.38,
+   "fim": 40.17,
+   "txt": "MAS EXISTE UM",
+   "dest": []
+  },
+  {
+   "ini": 40.17,
+   "fim": 41.48,
+   "txt": "PERIGO AINDA MAIOR",
+   "dest": [
+    "PERIGO"
+   ]
+  },
+  {
+   "ini": 41.48,
+   "fim": 42.49,
+   "txt": "OS ANIMAIS DA",
+   "dest": [
+    "ANIMAIS"
+   ]
+  },
+  {
+   "ini": 42.49,
+   "fim": 44.1,
+   "txt": "SUA PRÓPRIA CASA",
+   "dest": []
+  },
+  {
+   "ini": 44.1,
+   "fim": 45.16,
+   "txt": "UMA ARANHA PODERIA",
+   "dest": [
+    "ARANHA"
+   ]
+  },
+  {
+   "ini": 45.16,
+   "fim": 47.0,
+   "txt": "PARECER ASSUSTADORA",
+   "dest": [
+    "ASSUSTADORA"
+   ]
+  },
+  {
+   "ini": 47.0,
+   "fim": 47.63,
+   "txt": "E UM GATO",
+   "dest": [
+    "GATO"
+   ]
+  },
+  {
+   "ini": 47.63,
+   "fim": 48.41,
+   "txt": "CURIOSO",
+   "dest": [
+    "CURIOSO"
+   ]
+  },
+  {
+   "ini": 48.41,
+   "fim": 49.39,
+   "txt": "QUE ANTES PARECIA",
+   "dest": []
+  },
+  {
+   "ini": 49.39,
+   "fim": 50.63,
+   "txt": "INOFENSIVO",
+   "dest": []
+  },
+  {
+   "ini": 50.63,
+   "fim": 51.96,
+   "txt": "AGORA SERIA UM",
+   "dest": []
+  },
+  {
+   "ini": 51.96,
+   "fim": 54.18,
+   "txt": "VERDADEIRO PREDADOR",
+   "dest": [
+    "PREDADOR"
+   ]
+  },
+  {
+   "ini": 54.18,
+   "fim": 55.55,
+   "txt": "UM ÚNICO MOVIMENTO",
+   "dest": []
+  },
+  {
+   "ini": 55.55,
+   "fim": 56.54,
+   "txt": "ERRADO",
+   "dest": [
+    "ERRADO"
+   ]
+  },
+  {
+   "ini": 56.54,
+   "fim": 57.54,
+   "txt": "E VOCÊ PODERIA",
+   "dest": []
+  },
+  {
+   "ini": 57.54,
+   "fim": 58.98,
+   "txt": "ESTAR EM PERIGO",
+   "dest": [
+    "PERIGO"
+   ]
+  },
+  {
+   "ini": 58.98,
+   "fim": 59.79,
+   "txt": "SÓ QUE EXISTE",
+   "dest": []
+  },
+  {
+   "ini": 59.79,
+   "fim": 61.09,
+   "txt": "ALGO AINDA MAIS",
+   "dest": []
+  },
+  {
+   "ini": 61.09,
+   "fim": 61.84,
+   "txt": "CURIOSO",
+   "dest": [
+    "CURIOSO"
+   ]
+  },
+  {
+   "ini": 61.84,
+   "fim": 63.22,
+   "txt": "SEU CORPO TAMBÉM",
+   "dest": []
+  },
+  {
+   "ini": 63.22,
+   "fim": 65.17,
+   "txt": "MUDARIA DE COMPORTAMENTO",
+   "dest": []
+  },
+  {
+   "ini": 65.17,
+   "fim": 66.09,
+   "txt": "AO DIMINUIR DE",
+   "dest": []
+  },
+  {
+   "ini": 66.09,
+   "fim": 66.69,
+   "txt": "TAMANHO",
+   "dest": []
+  },
+  {
+   "ini": 66.69,
+   "fim": 67.81,
+   "txt": "SEU PESO CAIRIA",
+   "dest": [
+    "PESO"
+   ]
+  },
+  {
+   "ini": 67.81,
+   "fim": 69.13,
+   "txt": "MUITO MAIS RAPIDAMENTE",
+   "dest": []
+  },
+  {
+   "ini": 69.13,
+   "fim": 69.53,
+   "txt": "DO QUE A",
+   "dest": []
+  },
+  {
+   "ini": 69.53,
+   "fim": 70.33,
+   "txt": "FORÇA DOS SEUS",
+   "dest": [
+    "FORÇA"
+   ]
+  },
+  {
+   "ini": 70.33,
+   "fim": 71.2,
+   "txt": "MÚSCULOS",
+   "dest": []
+  },
+  {
+   "ini": 71.2,
+   "fim": 72.25,
+   "txt": "ISSO FARIA VOCÊ",
+   "dest": []
+  },
+  {
+   "ini": 72.25,
+   "fim": 73.69,
+   "txt": "FICAR PROPORCIONALMENTE",
+   "dest": []
+  },
+  {
+   "ini": 73.69,
+   "fim": 75.03,
+   "txt": "MAIS FORTE EM",
+   "dest": [
+    "FORTE"
+   ]
+  },
+  {
+   "ini": 75.03,
+   "fim": 76.12,
+   "txt": "RELAÇÃO AO PRÓPRIO",
+   "dest": []
+  },
+  {
+   "ini": 76.12,
+   "fim": 76.92,
+   "txt": "PESO",
+   "dest": [
+    "PESO"
+   ]
+  },
+  {
+   "ini": 76.92,
+   "fim": 78.32,
+   "txt": "MAS NÃO SIGNIFICA",
+   "dest": []
+  },
+  {
+   "ini": 78.32,
+   "fim": 80.33,
+   "txt": "QUE SERIA INVENCÍVEL",
+   "dest": [
+    "INVENCÍVEL"
+   ]
+  },
+  {
+   "ini": 80.33,
+   "fim": 81.25,
+   "txt": "UMA CORRENTE DE",
+   "dest": []
+  },
+  {
+   "ini": 81.25,
+   "fim": 82.93,
+   "txt": "AR PODERIA DESEQUILIBRAR",
+   "dest": [
+    "AR"
+   ]
+  },
+  {
+   "ini": 82.93,
+   "fim": 83.51,
+   "txt": "VOCÊ",
+   "dest": []
+  },
+  {
+   "ini": 83.51,
+   "fim": 84.85,
+   "txt": "UMA POÇA PODERIA",
+   "dest": [
+    "POÇA"
+   ]
+  },
+  {
+   "ini": 84.85,
+   "fim": 86.59,
+   "txt": "DIFICULTAR SUA PASSAGEM",
+   "dest": []
+  },
+  {
+   "ini": 86.59,
+   "fim": 87.66,
+   "txt": "E ATÉ ENCONTRAR",
+   "dest": []
+  },
+  {
+   "ini": 87.66,
+   "fim": 89.09,
+   "txt": "COMIDA E ÁGUA",
+   "dest": [
+    "COMIDA"
+   ]
+  },
+  {
+   "ini": 89.09,
+   "fim": 90.56,
+   "txt": "SE TORNARIA UM",
+   "dest": []
+  },
+  {
+   "ini": 90.56,
+   "fim": 91.57,
+   "txt": "DESAFIO",
+   "dest": []
+  },
+  {
+   "ini": 91.57,
+   "fim": 92.35,
+   "txt": "E SABE QUAL",
+   "dest": []
+  },
+  {
+   "ini": 92.35,
+   "fim": 93.21,
+   "txt": "SERIA A PARTE",
+   "dest": []
+  },
+  {
+   "ini": 93.21,
+   "fim": 94.93,
+   "txt": "MAIS ASSUSTADORA?",
+   "dest": [
+    "ASSUSTADORA"
+   ]
+  },
+  {
+   "ini": 94.93,
+   "fim": 96.11,
+   "txt": "VOCÊ NÃO ESTARIA",
+   "dest": []
+  },
+  {
+   "ini": 96.11,
+   "fim": 96.99,
+   "txt": "EM UM MUNDO",
+   "dest": [
+    "MUNDO"
+   ]
+  },
+  {
+   "ini": 96.99,
+   "fim": 98.19,
+   "txt": "DIFERENTE",
+   "dest": []
+  },
+  {
+   "ini": 98.31,
+   "fim": 99.81,
+   "txt": "ESTARIA EXATAMENTE",
+   "dest": []
+  },
+  {
+   "ini": 99.81,
+   "fim": 101.07,
+   "txt": "NO MESMO MUNDO",
+   "dest": [
+    "MUNDO"
+   ]
+  },
+  {
+   "ini": 101.07,
+   "fim": 102.3,
+   "txt": "DE SEMPRE",
+   "dest": []
+  },
+  {
+   "ini": 102.3,
+   "fim": 102.98,
+   "txt": "SÓ QUE",
+   "dest": []
+  },
+  {
+   "ini": 102.98,
+   "fim": 104.19,
+   "txt": "DESSA VEZ",
+   "dest": []
+  },
+  {
+   "ini": 104.19,
+   "fim": 105.19,
+   "txt": "SERIA VOCÊ",
+   "dest": []
+  },
+  {
+   "ini": 105.19,
+   "fim": 105.97,
+   "txt": "QUEM TERIA SE",
+   "dest": []
+  },
+  {
+   "ini": 105.97,
+   "fim": 107.33,
+   "txt": "TORNADO PEQUENO DEMAIS",
+   "dest": [
+    "PEQUENO"
+   ]
+  },
+  {
+   "ini": 107.33,
+   "fim": 108.29,
+   "txt": "PARA ELE",
+   "dest": []
+  },
+  {
+   "ini": 108.29,
+   "fim": 110.07,
+   "txt": "MODO CURIOSO",
+   "dest": [
+    "CURIOSO"
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "t": 0.0,
+   "tipo": "trilha",
+   "dur": 110.4
+  },
+  {
+   "t": 0.0,
+   "tipo": "ambiente",
+   "dur": 113.4
+  },
+  {
+   "t": 1.98,
+   "tipo": "pop"
+  },
+  {
+   "t": 3.58,
+   "tipo": "whoosh"
+  },
+  {
+   "tipo": "riser",
+   "dur": 1.2,
+   "t": 3.7
+  },
+  {
+   "t": 6.95,
+   "tipo": "pop"
+  },
+  {
+   "t": 9.45,
+   "tipo": "pop"
+  },
+  {
+   "t": 12.23,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 15.0,
+   "tipo": "pop"
+  },
+  {
+   "t": 17.85,
+   "tipo": "pop"
+  },
+  {
+   "tipo": "riser",
+   "dur": 2.4,
+   "t": 18.25
+  },
+  {
+   "t": 20.73,
+   "tipo": "whoosh"
+  },
+  {
+   "tipo": "gota",
+   "t": 21.15
+  },
+  {
+   "t": 23.65,
+   "tipo": "pop"
+  },
+  {
+   "t": 27.83,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 31.55,
+   "tipo": "pop"
+  },
+  {
+   "t": 34.65,
+   "tipo": "pop"
+  },
+  {
+   "t": 36.95,
+   "tipo": "pop"
+  },
+  {
+   "t": 39.08,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 41.45,
+   "tipo": "pop"
+  },
+  {
+   "t": 43.85,
+   "tipo": "impacto_grave"
+  },
+  {
+   "tipo": "patinhas",
+   "dur": 1.2,
+   "t": 43.95
+  },
+  {
+   "t": 45.3,
+   "tipo": "pop"
+  },
+  {
+   "t": 46.73,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 49.35,
+   "tipo": "pop"
+  },
+  {
+   "t": 51.45,
+   "tipo": "pop"
+  },
+  {
+   "tipo": "riser",
+   "dur": 1.3,
+   "t": 51.45
+  },
+  {
+   "t": 54.05,
+   "tipo": "pop"
+  },
+  {
+   "t": 56.35,
+   "tipo": "impacto_grave"
+  },
+  {
+   "tipo": "chiado_gato",
+   "t": 57.2
+  },
+  {
+   "tipo": "impacto_grave",
+   "t": 57.25
+  },
+  {
+   "t": 58.63,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 61.65,
+   "tipo": "impacto_grave"
+  },
+  {
+   "t": 65.05,
+   "tipo": "pop"
+  },
+  {
+   "t": 68.05,
+   "tipo": "pop"
+  },
+  {
+   "t": 70.93,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 73.75,
+   "tipo": "pop"
+  },
+  {
+   "t": 76.63,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 80.15,
+   "tipo": "pop"
+  },
+  {
+   "tipo": "vento",
+   "dur": 3.2,
+   "t": 80.15
+  },
+  {
+   "t": 83.33,
+   "tipo": "whoosh"
+  },
+  {
+   "tipo": "gota",
+   "t": 83.65
+  },
+  {
+   "t": 86.55,
+   "tipo": "pop"
+  },
+  {
+   "t": 88.95,
+   "tipo": "pop"
+  },
+  {
+   "t": 91.23,
+   "tipo": "whoosh"
+  },
+  {
+   "t": 94.75,
+   "tipo": "pop"
+  },
+  {
+   "t": 97.95,
+   "tipo": "pop"
+  },
+  {
+   "t": 101.95,
+   "tipo": "pop"
+  },
+  {
+   "t": 104.65,
+   "tipo": "pop"
+  },
+  {
+   "tipo": "riser",
+   "dur": 3.0,
+   "t": 104.65
+  },
+  {
+   "t": 108.05,
+   "tipo": "impacto_grave"
+  },
+  {
+   "tipo": "impacto_grave",
+   "t": 108.05
+  },
+  {
+   "t": 110.4,
+   "tipo": "pop"
+  }
+ ],
+ "marca_dagua": {
+  "texto": "MODO CURIOSO",
+  "altura_px": 30,
+  "margem_dir": 46,
+  "margem_topo": 64
+ },
+ "cta": "COMENTA AÍ: QUAL LUGAR DA SUA CASA VOCÊ TENTARIA ALCANÇAR?"
+}
