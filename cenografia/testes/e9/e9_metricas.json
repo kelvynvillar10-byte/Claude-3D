@@ -1,0 +1,99 @@
+{
+ "E9_contatos": {
+  "C2": {
+   "brilho_da_mao_sobre_a_pele_pct": 100.0,
+   "amostras": 21
+  },
+  "C3": {
+   "brilho_da_mao_sobre_a_pele_pct": 100.0,
+   "amostras": 17
+  },
+  "_duracao_teste_s": 4.5
+ },
+ "E9_determinismo": {
+  "mesmo_quadro_duas_vezes_identico": true,
+  "_duracao_teste_s": 19.8
+ },
+ "E9_regressao": {
+  "cena_de_prova_identica_a_referencia": {
+   "manha_frente": true,
+   "tarde_perfil": true,
+   "noite_costas": true
+  },
+  "_duracao_teste_s": 21.2
+ },
+ "E9_video": {
+  "C1": {
+   "combinacao": "terra (dominante) + eletricidade (secundário)",
+   "quadros": 102,
+   "regra_da_mesa": {
+    "quadros_com_2_dominantes": 0,
+    "secundario_ganho_max": 0.5,
+    "suprimidos_registrados": 91,
+    "quadros_com_3_ativos": 91
+   },
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.35
+   },
+   "flashes": {
+    "flashes_total": 1,
+    "max_flashes_em_1s": 1
+   },
+   "composicao_media_s": 6.56,
+   "composicao_max_s": 8.23,
+   "raio_sai_da_mao_erro_px_max": 0.0
+  },
+  "C2": {
+   "combinacao": "elasticidade (dominante) + eletricidade (secundário)",
+   "quadros": 84,
+   "regra_da_mesa": {
+    "quadros_com_2_dominantes": 0,
+    "secundario_ganho_max": 0.5,
+    "suprimidos_registrados": 0,
+    "quadros_com_3_ativos": 0
+   },
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   },
+   "composicao_media_s": 5.36,
+   "composicao_max_s": 9.79
+  },
+  "C3": {
+   "combinacao": "voo (dominante) + eletricidade (secundário)",
+   "quadros": 120,
+   "regra_da_mesa": {
+    "quadros_com_2_dominantes": 0,
+    "secundario_ganho_max": 0.5,
+    "suprimidos_registrados": 0,
+    "quadros_com_3_ativos": 0
+   },
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 1,
+    "max_flashes_em_1s": 1
+   },
+   "composicao_media_s": 6.69,
+   "composicao_max_s": 9.43
+  },
+  "_flashes_video_inteiro": {
+   "flashes_total": 2,
+   "max_flashes_em_1s": 1
+  },
+  "_duracao_teste_s": 1946.4
+ },
+ "E9_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 12.8
+ }
+}
