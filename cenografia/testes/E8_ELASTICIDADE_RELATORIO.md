@@ -1,6 +1,6 @@
 # Relatório da etapa E8 (parte 4): poder de elasticidade
 
-26/11/2026 · Autorizada pelo diretor junto com a aprovação da extensão X4 ("Aprovado e pode continuar").
+26/11/2026 · Autorizada pelo diretor junto com a aprovação da extensão X4 ("Aprovado e pode continuar"). **E8 parte 4 APROVADA pelo diretor em 26/11/2026** ("Aprovado e pode seguir").
 - O rig v2 não foi alterado. O Heitor é desenhado com a **X4** (estica só antebraço e coxa; a mão, a manga, a barra e o tênis são os do rig) e iluminado pela **X1**.
 - Com esta parte, os **5 poderes** da ordem aprovada estão feitos: eletricidade, terra, voo, aranha e elasticidade.
 - Nenhum episódio ou história foi produzido.
