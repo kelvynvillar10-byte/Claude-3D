@@ -44,9 +44,9 @@ PLANOS = [
      "extras": [{"tipo": "sombra_gato", "x": [0.95, 0.55], "y": 0.30, "alt": [0.55, 0.75]}]},
     # F5: gota
     {"id": "S09", "fim": 23.65, "placa": "N3_gota", "cam": {"zoom": [1.0, 1.12]}, "ease": "saida", "entrada": "chicote",
-     "heitor": {"pos": [0.919, -0.934, 0.0], "rostos": [[0, "surpresa"]], "pose": "base"}},
-    {"id": "S10", "fim": 27.95, "placa": "N3_gota", "cam": {"zoom": [1.25, 1.35], "tx": [0.0, 0.004]}, "ease": "linear", "entrada": "corte",
-     "heitor": {"vista": "perfil", "direcao": 1, "pose": "base", "pos": [0.912, -0.930, 0.0],
+     "heitor": {"pos": [0.932, -0.941, 0.0], "rostos": [[0, "surpresa"]], "pose": "base"}},
+    {"id": "S10", "fim": 27.95, "placa": "N3_gota", "cam": {"zoom": [1.0, 1.08]}, "ease": "linear", "entrada": "corte",
+     "heitor": {"vista": "perfil", "direcao": 1, "pose": "base", "pos": [0.927, -0.939, 0.0],
                 "rostos": [[0, "preocupacao"]]}},
     # F6: moeda
     {"id": "S11", "fim": 31.55, "placa": "C_moeda", "cam": {"zoom": [1.0, 1.12]}, "ease": "saida", "entrada": "chicote",
@@ -104,7 +104,7 @@ PLANOS = [
     {"id": "S29", "legenda_y": 0.655, "fim": 76.75, "insert": "quadrado_cubo", "t": [0.65, 1.0], "entrada": "corte"},
     # F17–F19: sobrevivência
     {"id": "S30", "fim": 80.15, "placa": "N3_gota", "cam": {"zoom": [1.0, 1.15]}, "ease": "saida", "entrada": "chicote",
-     "heitor": {"pos": [0.919, -0.934, 0.0], "rostos": [[0, "preocupacao"]], "pose": "base"}},
+     "heitor": {"pos": [0.932, -0.941, 0.0], "rostos": [[0, "preocupacao"]], "pose": "base"}},
     {"id": "S31", "fim": 83.45, "placa": "N5_janela", "cam": {"zoom": [1.0, 1.08]}, "ease": "suave", "entrada": "corte",
      "heitor": {"rostos": [[0, "medo"]], "pose": "equilibrio", "vento": True}, "efeitos": {"vento": True, "tremida": [0.4, 2.6]}},
     {"id": "S32", "fim": 86.55, "placa": "N4_poca", "cam": {"zoom": [1.0, 1.12]}, "ease": "saida", "entrada": "chicote",
@@ -112,7 +112,7 @@ PLANOS = [
     {"id": "S33", "fim": 88.95, "placa": "C_moeda", "cam": {"zoom": [1.2, 1.32], "tx": [0.0, -0.004]}, "ease": "saida", "entrada": "corte",
      "heitor": {"rostos": [[0, "pensativo"]], "pose": "base"}},
     {"id": "S34", "fim": 91.35, "placa": "N3_gota", "cam": {"zoom": [1.3, 1.45]}, "ease": "saida", "entrada": "corte",
-     "heitor": {"pos": [0.919, -0.934, 0.0], "rostos": [[0, "triste"]], "pose": "base"}},
+     "heitor": {"pos": [0.932, -0.941, 0.0], "rostos": [[0, "triste"]], "pose": "base"}},
     # F20–F23: revelação final
     {"id": "S35", "fim": 94.75, "placa": "A_despertar", "cam": {"zoom": [1.2, 1.45]}, "ease": "suave", "entrada": "chicote",
      "heitor": {"rostos": [[0, "pensativo"], [2.2, "medo"]], "pose": "base"}},
