@@ -14,6 +14,13 @@ def mascaras(ctx):
     estampa = np.zeros_like(rosto)
     if pc.get("vista", "frente") in ("frente", "tres_quartos"):
         estampa = (((xx - x) / (0.15 * alt)) ** 2 + ((yy - (yt + 0.37 * alt)) / (0.07 * alt)) ** 2) <= 1
+    # personagem em voo (corpo inclinado, fora do chão): o próprio poder informa onde estão o rosto e a estampa
+    if pc.get("rosto_elipse"):
+        ex, ey, rx, ry = pc["rosto_elipse"]; rosto = (((xx - ex) / rx) ** 2 + ((yy - ey) / ry) ** 2) <= 1
+    if "estampa_elipse" in pc:
+        estampa = np.zeros_like(rosto)
+        if pc["estampa_elipse"]:
+            ex, ey, rx, ry = pc["estampa_elipse"]; estampa = (((xx - ex) / rx) ** 2 + ((yy - ey) / ry) ** 2) <= 1
     return rosto, estampa
 
 

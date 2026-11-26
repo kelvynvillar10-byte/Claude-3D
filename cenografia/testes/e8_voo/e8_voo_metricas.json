@@ -1,0 +1,303 @@
+{
+ "V4_cor": {
+  "ar": {
+   "cor": "#e9f0ff",
+   "delta_E_camiseta": 60.3,
+   "delta_E_eletricidade": 35.2
+  },
+  "poeira_manha": {
+   "cor": "#a1b0b5",
+   "delta_E_camiseta": 51.6
+  },
+  "poeira_tarde": {
+   "cor": "#9f9ea1",
+   "delta_E_camiseta": 51.8
+  },
+  "poeira_noite": {
+   "cor": "#b09267",
+   "delta_E_camiseta": 78.8
+  },
+  "regra": "ΔE > 25: cor bem diferente (a partir de ~10 já se distingue)",
+  "_duracao_teste_s": 8.3
+ },
+ "V3_contatos": {
+  "voo_discreto": {
+   "pe_no_tenis_pct": 100.0,
+   "amostras_pe": 40,
+   "cabeca_na_cabeca_pct": 100.0,
+   "rastro_nasce_no_pe_erro_px_max": null,
+   "sombra_some_com_a_altura": true,
+   "sombra_altura_alfa_amostras": [
+    [
+     0.0,
+     0.429
+    ],
+    [
+     0.0,
+     0.43
+    ],
+    [
+     0.05,
+     0.422
+    ],
+    [
+     0.1,
+     0.412
+    ],
+    [
+     0.28,
+     0.383
+    ],
+    [
+     0.29,
+     0.381
+    ],
+    [
+     0.49,
+     0.347
+    ],
+    [
+     0.54,
+     0.339
+    ],
+    [
+     0.63,
+     0.323
+    ],
+    [
+     0.66,
+     0.319
+    ]
+   ],
+   "falhas": []
+  },
+  "voo_moderado": {
+   "pe_no_tenis_pct": 100.0,
+   "amostras_pe": 17,
+   "cabeca_na_cabeca_pct": 100.0,
+   "rastro_nasce_no_pe_erro_px_max": 0.0,
+   "sombra_some_com_a_altura": true,
+   "sombra_altura_alfa_amostras": [
+    [
+     0.0,
+     0.43
+    ],
+    [
+     0.46,
+     0.353
+    ],
+    [
+     0.97,
+     0.27
+    ],
+    [
+     1.1,
+     0.249
+    ],
+    [
+     1.11,
+     0.247
+    ],
+    [
+     1.26,
+     0.224
+    ],
+    [
+     1.35,
+     0.21
+    ]
+   ],
+   "falhas": []
+  },
+  "voo_extremo": {
+   "pe_no_tenis_pct": 100.0,
+   "amostras_pe": 28,
+   "cabeca_na_cabeca_pct": 100.0,
+   "rastro_nasce_no_pe_erro_px_max": 0.0,
+   "sombra_some_com_a_altura": true,
+   "sombra_altura_alfa_amostras": [
+    [
+     0.0,
+     0.43
+    ],
+    [
+     0.24,
+     0.39
+    ],
+    [
+     0.5,
+     0.346
+    ],
+    [
+     0.72,
+     0.309
+    ],
+    [
+     0.91,
+     0.279
+    ],
+    [
+     1.06,
+     0.255
+    ],
+    [
+     1.18,
+     0.237
+    ],
+    [
+     1.25,
+     0.225
+    ],
+    [
+     1.29,
+     0.219
+    ],
+    [
+     1.5,
+     0.186
+    ],
+    [
+     2.41,
+     0.061
+    ]
+   ],
+   "falhas": []
+  },
+  "_duracao_teste_s": 11.2
+ },
+ "V2_ordem": {
+  "discreto": {
+   "energia_pico": 0.0251,
+   "energia_media_por_fase": {
+    "inicio": 0.0005,
+    "ativacao": 0.0124,
+    "uso": 0.0212,
+    "impacto": 0.0167,
+    "dissipacao": 0.0178,
+    "encerramento": 0.0074
+   }
+  },
+  "moderado": {
+   "energia_pico": 0.1066,
+   "energia_media_por_fase": {
+    "inicio": 0.0007,
+    "ativacao": 0.0411,
+    "uso": 0.0405,
+    "impacto": 0.0681,
+    "dissipacao": 0.0268,
+    "encerramento": 0.0075
+   }
+  },
+  "extremo": {
+   "energia_pico": 0.2056,
+   "energia_media_por_fase": {
+    "inicio": 0.001,
+    "ativacao": 0.0667,
+    "uso": 0.0644,
+    "impacto": 0.1291,
+    "dissipacao": 0.0373,
+    "encerramento": 0.0075
+   }
+  },
+  "discreto_menor_que_moderado_menor_que_extremo": true,
+  "obs": "energia = cobertura + brilho das camadas + distorção + tremida + luz, no MESMO clipe (decolar e sair voando, tarde)",
+  "_duracao_teste_s": 338.6
+ },
+ "V7_V8_heitor_det": {
+  "paleta_heitor": {
+   "pixels_sem_efeito_na_frente": 90334,
+   "identicos_pct": 99.97,
+   "pixels_do_heitor_com_ar_na_frente": 2460,
+   "obs": "X1 desligada aqui: compara o desenho da X2 sozinho com o quadro"
+  },
+  "mesmo_quadro_duas_vezes_identico": true,
+  "_duracao_teste_s": 16.8
+ },
+ "V9_regressao": {
+  "cena_de_prova_identica_a_referencia": {
+   "manha_frente": true,
+   "tarde_perfil": true,
+   "noite_costas": true
+  },
+  "_duracao_teste_s": 30.7
+ },
+ "V1_video": {
+  "voo_discreto": {
+   "quadros": 120,
+   "composicao_media_s": 4.68,
+   "composicao_max_s": 6.1,
+   "energia_media_por_fase": {
+    "inicio": 0.0006,
+    "ativacao": 0.0199,
+    "uso": 0.0249,
+    "impacto": 0.0284,
+    "dissipacao": 0.0275,
+    "encerramento": 0.0274
+   },
+   "energia_pico": 0.0309,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.286,
+    "estampa": 0.35
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "voo_moderado": {
+   "quadros": 126,
+   "composicao_media_s": 5.23,
+   "composicao_max_s": 9.35,
+   "energia_media_por_fase": {
+    "inicio": 0.0008,
+    "ativacao": 0.0332,
+    "uso": 0.041,
+    "impacto": 0.054,
+    "dissipacao": 0.0266,
+    "encerramento": 0.0069
+   },
+   "energia_pico": 0.0843,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "voo_extremo": {
+   "quadros": 120,
+   "composicao_media_s": 6.09,
+   "composicao_max_s": 12.36,
+   "energia_media_por_fase": {
+    "inicio": 0.0016,
+    "ativacao": 0.0536,
+    "uso": 0.0895,
+    "impacto": 0.1155,
+    "dissipacao": 0.0245,
+    "encerramento": 0.003
+   },
+   "energia_pico": 0.1739,
+   "cobertura_max_rosto_estampa": {
+    "rosto": 0.35,
+    "estampa": 0.0
+   },
+   "flashes": {
+    "flashes_total": 0,
+    "max_flashes_em_1s": 0
+   }
+  },
+  "_flashes_video_inteiro": {
+   "flashes_total": 1,
+   "max_flashes_em_1s": 1
+  },
+  "_duracao_teste_s": 1978.8
+ },
+ "V10_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 12.3
+ }
+}
