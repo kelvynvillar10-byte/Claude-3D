@@ -1,4 +1,4 @@
-"""EXTENSÃO X2 (PROPOSTA, aguardando aprovação) — VOO: poses de voo, corpo inclinado e roupa e cabelo ao vento.
+"""EXTENSÃO X2 (APROVADA em 26/11/2026) — VOO: poses de voo, corpo inclinado e roupa e cabelo ao vento.
 
 NÃO altera o rig v2 (só usa a API pública: pose_base, esqueleto, desenhar, MAOS, EXPRESSOES, ik2, misturar).
 Três partes:

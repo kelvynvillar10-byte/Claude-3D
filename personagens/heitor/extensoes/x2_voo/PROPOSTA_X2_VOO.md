@@ -1,6 +1,6 @@
 # Proposta X2: voo (poses de voo, roupa e cabelo ao vento)
 
-26/11/2026 · **AGUARDANDO APROVAÇÃO DO DIRETOR.** Até lá, a extensão não entra em nenhuma produção. Nenhum episódio ou história foi produzido.
+26/11/2026 · **X2 APROVADA pelo diretor em 26/11/2026** ("Aprovado"), como proposta: inclui a barra solta sobre o cós do jeans (seção 5, item 1). O rig v2 continua intocado. Nenhum episódio ou história foi produzido.
 
 ## 1. Justificativa
 O próximo poder na ordem aprovada é o **voo**. O rig v2 hoje só anda, corre, gesticula e aponta. Para voar, o Heitor precisa de três coisas que o rig não tem:

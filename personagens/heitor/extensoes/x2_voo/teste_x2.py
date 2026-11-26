@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Testes e demonstração da EXTENSÃO X2 (voo) — PROPOSTA, aguardando aprovação.
+"""Testes e demonstração da EXTENSÃO X2 (voo) — APROVADA pelo diretor em 26/11/2026.
 
 X2_1 desenho original intacto: com × sem vento, pixel a pixel; o que mudou dentro da silhueta do rig e de que cor era
 X2_2 paleta das peças novas (mechas, barra, ondas, mangas)
