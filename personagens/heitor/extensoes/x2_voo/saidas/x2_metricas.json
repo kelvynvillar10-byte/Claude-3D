@@ -1,0 +1,320 @@
+{
+ "X2_1_intacto": {
+  "perfil · agachar": {
+   "pixels_do_rig": 121061,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "perfil · impulso": {
+   "pixels_do_rig": 111982,
+   "pixels_do_rig_cobertos": 1868,
+   "pct_coberto": 1.67,
+   "cores_cobertas": {
+    "contorno": 131,
+    "mistura": 59,
+    "jeans_s": 459,
+    "jeans": 1219
+   },
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "perfil · pairar": {
+   "pixels_do_rig": 116153,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "perfil · cruzeiro · +72°": {
+   "pixels_do_rig": 123762,
+   "pixels_do_rig_cobertos": 2246,
+   "pct_coberto": 1.81,
+   "cores_cobertas": {
+    "contorno": 176,
+    "mistura": 86,
+    "jeans": 1606,
+    "jeans_s": 378
+   },
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "perfil · cruzeiro (espelho) · +72°": {
+   "pixels_do_rig": 123768,
+   "pixels_do_rig_cobertos": 2247,
+   "pct_coberto": 1.82,
+   "cores_cobertas": {
+    "contorno": 176,
+    "mistura": 88,
+    "jeans_s": 495,
+    "jeans": 1488
+   },
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "perfil · pousar · -8°": {
+   "pixels_do_rig": 133282,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "frente · pairar": {
+   "pixels_do_rig": 176833,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "frente · impulso": {
+   "pixels_do_rig": 175642,
+   "pixels_do_rig_cobertos": 3017,
+   "pct_coberto": 1.72,
+   "cores_cobertas": {
+    "contorno": 226,
+    "mistura": 19,
+    "jeans": 2056,
+    "barra": 106,
+    "jeans_s": 610
+   },
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "frente · curva · +22°": {
+   "pixels_do_rig": 176470,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "frente · curva · -22°": {
+   "pixels_do_rig": 176522,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "costas · pairar": {
+   "pixels_do_rig": 174457,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "costas · curva · -22°": {
+   "pixels_do_rig": 175840,
+   "pixels_do_rig_cobertos": 0,
+   "pct_coberto": 0.0,
+   "cores_cobertas": {},
+   "cobriu_cor_proibida": "nenhuma"
+  },
+  "_duracao_teste_s": 1.6
+ },
+ "X2_2_paleta": {
+  "perfil · agachar": {
+   "pixels_novos": 0
+  },
+  "perfil · impulso": {
+   "pixels_novos": 1332,
+   "pct_cores_oficiais_permitidas": 98.0,
+   "pct_mistura_de_borda": 2.0,
+   "outras_cores": "nenhuma"
+  },
+  "perfil · pairar": {
+   "pixels_novos": 1149,
+   "pct_cores_oficiais_permitidas": 100.0,
+   "pct_mistura_de_borda": 0.0,
+   "outras_cores": "nenhuma"
+  },
+  "perfil · cruzeiro · +72°": {
+   "pixels_novos": 4514,
+   "pct_cores_oficiais_permitidas": 98.1,
+   "pct_mistura_de_borda": 1.9,
+   "outras_cores": "nenhuma"
+  },
+  "perfil · cruzeiro (espelho) · +72°": {
+   "pixels_novos": 4514,
+   "pct_cores_oficiais_permitidas": 98.0,
+   "pct_mistura_de_borda": 2.0,
+   "outras_cores": "nenhuma"
+  },
+  "perfil · pousar · -8°": {
+   "pixels_novos": 2479,
+   "pct_cores_oficiais_permitidas": 98.2,
+   "pct_mistura_de_borda": 1.8,
+   "outras_cores": "nenhuma"
+  },
+  "frente · pairar": {
+   "pixels_novos": 1155,
+   "pct_cores_oficiais_permitidas": 100.0,
+   "pct_mistura_de_borda": 0.0,
+   "outras_cores": "nenhuma"
+  },
+  "frente · impulso": {
+   "pixels_novos": 1059,
+   "pct_cores_oficiais_permitidas": 95.8,
+   "pct_mistura_de_borda": 4.2,
+   "outras_cores": "nenhuma"
+  },
+  "frente · curva · +22°": {
+   "pixels_novos": 2323,
+   "pct_cores_oficiais_permitidas": 96.5,
+   "pct_mistura_de_borda": 3.5,
+   "outras_cores": "nenhuma"
+  },
+  "frente · curva · -22°": {
+   "pixels_novos": 2393,
+   "pct_cores_oficiais_permitidas": 95.9,
+   "pct_mistura_de_borda": 4.1,
+   "outras_cores": "nenhuma"
+  },
+  "costas · pairar": {
+   "pixels_novos": 1210,
+   "pct_cores_oficiais_permitidas": 100.0,
+   "pct_mistura_de_borda": 0.0,
+   "outras_cores": "nenhuma"
+  },
+  "costas · curva · -22°": {
+   "pixels_novos": 2975,
+   "pct_cores_oficiais_permitidas": 96.6,
+   "pct_mistura_de_borda": 3.4,
+   "outras_cores": "nenhuma"
+  },
+  "_duracao_teste_s": 0.7
+ },
+ "X2_4_limites": {
+  "poses_verificadas": 484,
+  "violacoes": "nenhuma",
+  "_duracao_teste_s": 0.0
+ },
+ "X2_5_acrescimo": {
+  "perfil · agachar": {
+   "area_acrescentada_pct": 0.0,
+   "alcance_max_alem_da_silhueta_H": 0.0
+  },
+  "perfil · impulso": {
+   "area_acrescentada_pct": 1.5,
+   "alcance_max_alem_da_silhueta_H": 0.19
+  },
+  "perfil · pairar": {
+   "area_acrescentada_pct": 1.2,
+   "alcance_max_alem_da_silhueta_H": 0.14
+  },
+  "perfil · cruzeiro · +72°": {
+   "area_acrescentada_pct": 4.2,
+   "alcance_max_alem_da_silhueta_H": 0.3
+  },
+  "perfil · cruzeiro (espelho) · +72°": {
+   "area_acrescentada_pct": 4.2,
+   "alcance_max_alem_da_silhueta_H": 0.3
+  },
+  "perfil · pousar · -8°": {
+   "area_acrescentada_pct": 2.1,
+   "alcance_max_alem_da_silhueta_H": 0.18
+  },
+  "frente · pairar": {
+   "area_acrescentada_pct": 0.8,
+   "alcance_max_alem_da_silhueta_H": 0.12
+  },
+  "frente · impulso": {
+   "area_acrescentada_pct": 0.8,
+   "alcance_max_alem_da_silhueta_H": 0.13
+  },
+  "frente · curva · +22°": {
+   "area_acrescentada_pct": 1.6,
+   "alcance_max_alem_da_silhueta_H": 0.15
+  },
+  "frente · curva · -22°": {
+   "area_acrescentada_pct": 1.6,
+   "alcance_max_alem_da_silhueta_H": 0.15
+  },
+  "costas · pairar": {
+   "area_acrescentada_pct": 0.8,
+   "alcance_max_alem_da_silhueta_H": 0.12
+  },
+  "costas · curva · -22°": {
+   "area_acrescentada_pct": 2.0,
+   "alcance_max_alem_da_silhueta_H": 0.2
+  },
+  "_duracao_teste_s": 0.7
+ },
+ "X2_6_determinismo": {
+  "mesmo_quadro_duas_vezes": true,
+  "vento_zero_igual_sem_vento": true,
+  "sem_inclinacao_igual_ao_rig_puro": true,
+  "_duracao_teste_s": 0.1
+ },
+ "X2_7_tempo": {
+  "sem vento_ms_medio": 10.2,
+  "com vento_ms_medio": 12.0,
+  "obs": "desenho a 900 px de altura numa tela 1300×1300, incluindo a leitura do quadro",
+  "_duracao_teste_s": 0.3
+ },
+ "X2_8_folha": {
+  "arquivo": "saidas/X2_folha_poses.jpg",
+  "casos": 12,
+  "_duracao_teste_s": 3.1
+ },
+ "X2_3_estampa": {
+  "frente · pairar · sem vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · pairar · com vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · impulso · sem vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso 88",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · impulso · com vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso 88",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · curva · +22° · sem vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · curva · +22° · com vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · curva · -22° · sem vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "frente · curva · -22° · com vento": {
+   "como aparece na tela": {
+    "texto": "Modo Curioso",
+    "MODO_CURIOSO_lido": true
+   }
+  },
+  "_duracao_teste_s": 4.0
+ },
+ "X2_9_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 12.8
+ },
+ "X2_8_video": {
+  "quadros": 300,
+  "duracao_s": 10.0,
+  "composicao_media_s": 2.56,
+  "composicao_max_s": 3.62,
+  "tempo_total_s": 800.0,
+  "_duracao_teste_s": 800.6
+ }
+}
