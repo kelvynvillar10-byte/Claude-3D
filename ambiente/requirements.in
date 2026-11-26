@@ -8,3 +8,4 @@ librosa
 skia-python==144.1
 bpy==5.3.0
 fonttools
+faster-whisper

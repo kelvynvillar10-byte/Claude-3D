@@ -23,7 +23,7 @@
   {
    "verificacao": "pausas_dentro_das_regras",
    "ok": true,
-   "detalhe": "maior pausa entre palavras no final: 0.600 s (teto 0.7 s; proibido ≥ 0,8 s)"
+   "detalhe": "maior silêncio interno medido no final: 0.000 s (teto 0.7 s; proibido ≥ 0,8 s)"
   },
   {
    "verificacao": "pausas_com_fala_preservadas",

@@ -1,4 +1,11 @@
-# EP01 — E se tu acordasse com apenas 5 centímetros? (roteiro v2)
+# EP01 — E se você acordasse com apenas 5 centímetros?
+
+> **Decisão do diretor (26/11/2026):** vale a **1ª narração gerada**, em "você", cujo texto falado está em `narracao_falada.txt`,
+> transcrito pelo Whisper e conferido. Narração final em `narracao/edicoes/ep01_narracao/`: 110,2 s, −16 LUFS, QA 13/13.
+> **A decupagem passa a seguir o texto falado:** aranha em vez de formiga, "paredões", "quase uma montanha" e "invencível".
+> O roteiro v2 com "tu" fica abaixo só como referência, sem uso.
+
+# (Referência, sem uso) roteiro v2 com "tu"
 
 Decisões do diretor (26/11/2026):
 - **Duração:** caminho C, texto com cerca de 230 palavras e geração em velocidade 1,08. Meta de 75 a 90 s.

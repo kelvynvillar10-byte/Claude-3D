@@ -1,4 +1,10 @@
-"""Alinhamento de palavras SEM modelos externos (opção 1 aprovada pelo diretor).
+"""Alinhamento de palavras.
+
+PRINCIPAL (desde 26/11/2026, aprovado pelo diretor): reconhecimento de fala local com o Whisper (faster-whisper, modelo
+"medium", CPU). Ele devolve O QUE FOI FALADO e o tempo de cada palavra; o texto do roteiro (se houver) é casado com a
+transcrição e as diferenças viram relatório ("o áudio não tem exatamente o texto do roteiro"). Sem créditos, sem API.
+
+RESERVA (usado nos testes F0 e se o Whisper faltar) — sem modelos externos:
 
 1. O espeak-ng (biblioteca do sistema, via ctypes) lê o MESMO texto e informa, pelos eventos de palavra, a amostra exata
    em que cada palavra começa na voz de referência.
@@ -137,7 +143,89 @@ def mapear(ref16, real16, limite_celulas=2.5e7):
     return np.maximum.accumulate(mapa)
 
 
-# ------------------------------------------------------------------ alinhamento completo
+# ------------------------------------------------------------------ Whisper (principal)
+_MODELO = {}
+NUMEROS = {"0": "zero", "1": "um", "2": "dois", "3": "três", "4": "quatro", "5": "cinco", "6": "seis", "7": "sete", "8": "oito",
+           "9": "nove", "10": "dez", "20": "vinte", "28": "vinte e oito", "30": "trinta", "100": "cem", "1000": "mil"}
+
+
+def _whisper(nome="medium"):
+    if nome not in _MODELO:
+        import os
+        os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
+        from faster_whisper import WhisperModel
+        _MODELO[nome] = WhisperModel(nome, device="cpu", compute_type="int8", cpu_threads=os.cpu_count() or 4)
+    return _MODELO[nome]
+
+
+def transcrever(real48, sr=48000, modelo="medium"):
+    """Palavras faladas com início/fim (s) e confiança. Decodificação nossa (ffmpeg) → 16 kHz → Whisper."""
+    import librosa
+    y16 = librosa.resample(real48, orig_sr=sr, target_sr=16000).astype(np.float32)
+    segs, _ = _whisper(modelo).transcribe(y16, language="pt", word_timestamps=True, beam_size=5, vad_filter=False,
+                                          condition_on_previous_text=False)
+    return [{"w": w.word.strip(), "ini": float(w.start), "fim": float(w.end), "conf": round(float(w.probability), 3)}
+            for s in segs for w in s.words if w.word.strip()]
+
+
+def texto_da_transcricao(fala):
+    return " ".join(w["w"] for w in fala).strip()
+
+
+def _norm(w):
+    w = re.sub(r"[^\wÀ-ÖØ-öø-ÿ]", "", w.lower())
+    return NUMEROS.get(w, w)
+
+
+def comparar(texto, fala):
+    """Casa as palavras do texto com as faladas (difflib). Devolve (mapa índice_texto → índice_fala, diferenças)."""
+    import difflib
+    toks = tokens(texto)
+    a = [_norm(t["w"]) for t in toks]
+    b = [_norm(w["w"]) for w in fala]
+    sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
+    mapa, dif = {}, []
+    for op, i1, i2, j1, j2 in sm.get_opcodes():
+        if op == "equal":
+            for k in range(i2 - i1):
+                mapa[i1 + k] = j1 + k
+        else:
+            dif.append({"tipo": {"replace": "trocado", "delete": "não falado", "insert": "falado a mais"}[op],
+                        "roteiro": " ".join(t["w"] for t in toks[i1:i2]), "falado": " ".join(w["w"] for w in fala[j1:j2]),
+                        "tempo_s": round(fala[j1]["ini"], 2) if j1 < len(fala) else None})
+            if op == "replace" and i2 - i1 == j2 - j1:                 # mesma quantidade: casa posição a posição
+                for k in range(i2 - i1):
+                    mapa[i1 + k] = j1 + k
+    return mapa, dif
+
+
+def alinhar_whisper(texto, real48, falas, silencios, sr=48000, fala=None):
+    """Tempos das palavras do `texto` pela transcrição do Whisper (+ ajuste fino pelas pausas). Devolve (palavras, diferenças)."""
+    fala = fala if fala is not None else transcrever(real48, sr)
+    toks = tokens(texto)
+    mapa, dif = comparar(texto, fala)
+    ini = [fala[mapa[k]]["ini"] if k in mapa else None for k in range(len(toks))]
+    fim = [fala[mapa[k]]["fim"] if k in mapa else None for k in range(len(toks))]
+    conf = [fala[mapa[k]]["conf"] if k in mapa else None for k in range(len(toks))]
+    _interpolar(ini)
+    for k in range(len(toks)):
+        if fim[k] is None:
+            fim[k] = ini[k + 1] if k + 1 < len(toks) else (falas[-1][1] if falas else ini[k] + 0.3)
+    ini = list(np.maximum.accumulate(ini))
+    pal = [{"i": k, "w": tk["w"], "c0": tk["c0"], "c1": tk["c1"], "ini": ini[k], "fim": max(fim[k], ini[k] + 0.04),
+            "confianca": conf[k]} for k, tk in enumerate(toks)]
+    for k in range(len(pal) - 1):                                      # sem sobreposição
+        pal[k]["fim"] = min(pal[k]["fim"], pal[k + 1]["ini"])
+    if falas:                                                          # nada antes do início nem depois do fim da fala
+        pal[0]["ini"] = max(pal[0]["ini"], falas[0][0])
+        pal[-1]["fim"] = min(max(pal[-1]["fim"], pal[-1]["ini"] + 0.04), falas[-1][1])
+    _ajustar_pelas_pausas(pal, falas, silencios)
+    for p in pal:
+        p["ini"] = round(p["ini"], 3); p["fim"] = round(p["fim"], 3)
+    return pal, dif
+
+
+# ------------------------------------------------------------------ alinhamento completo (reserva, sem modelos)
 VOZES_REF = [("pt-br", 175, 50), ("pt-br+m3", 155, 38), ("pt", 168, 48)]   # conjunto: a mediana corta erros de uma voz só
 
 

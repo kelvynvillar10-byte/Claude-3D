@@ -68,16 +68,23 @@ texto exato. Este módulo transforma esse áudio na narração final do Modo Cur
 
 Na F2, os ajustes são calibrados com a escuta do diretor. O atraso de cada filtro é medido e compensado, então os tempos das palavras valem para o arquivo final.
 
-## Alinhamento de palavras (sem modelos externos)
-1. O espeak-ng, via biblioteca do sistema, lê o mesmo texto e informa a amostra exata em que cada palavra começa.
-2. O DTW (MFCC) transfere esses tempos para a voz real. Em áudios longos, roda um DTW grosso no áudio inteiro e refina em janelas sobrepostas ancoradas nele.
-3. O ajuste pelas pausas medidas garante que nenhuma palavra comece ou termine dentro de um silêncio.
+## Alinhamento de palavras
+**Principal: Whisper local** (`faster-whisper`, modelo "medium", CPU, sem API e sem créditos). Aprovado pelo diretor em 26/11/2026.
+1. Transcreve o que foi falado, com o tempo de cada palavra.
+2. Compara com o texto informado. Se o áudio não tiver exatamente o roteiro, as diferenças aparecem no terminal e no relatório. Sem texto, usa a própria transcrição.
+3. Ajusta os tempos pelas pausas medidas: nenhuma palavra começa ou termina dentro de um silêncio.
 
-Precisão medida no teste F0, contra tempos verdadeiros:
-- **teste curto:** p90 de 25 ms;
-- **teste de 2,5 min:** p90 de 13 ms, máximo de 32 ms.
+A edição só mexe no **silêncio medido** dentro de cada pausa, então as caudas das palavras ficam intactas.
 
-São vozes sintéticas diferentes entre si. Na voz real, a precisão é conferida na F1.
+Na 1ª narração real do EP01, o Whisper rodado de novo no áudio FINAL encontrou as 235 palavras, com diferença de início de 96 ms no p90.
+
+O modelo (~1,5 GB) é baixado do Hugging Face no primeiro uso de cada container novo. A rede do ambiente libera `huggingface.co`, `us.aws.cdn.hf.co` e os servidores de download do HF.
+
+**Reserva (sem modelos externos, usada no teste F0):**
+- referência do espeak-ng com tempos exatos;
+- DTW com mediana de 3 vozes, ancorado nas pausas reais.
+
+Funciona bem em vozes parecidas com a referência. Na voz real da MiniMax, errou trechos inteiros quando o texto não era exatamente o falado.
 
 ## Teste
 `.venv/bin/python narracao/pos/testes/teste_f0.py`. O teste roda o fluxo inteiro com uma narração sintética "estragada" de propósito: outra voz, tom deslocado, pausa de 1,1 s no meio da frase, ruído, clique e MP3 de 44,1 kHz. O exemplo de saída fica em `testes/saidas/f0_exemplo/`, sem o WAV.

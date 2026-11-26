@@ -21,6 +21,8 @@
 | 7 | Entusiasmo | 1.28 s | 3.12 | 5.07 st | -0.2 dB | 0.0 s | — |
 | 8 | Tensão | 2.62 s | 3.44 | 4.8 st | -0.4 dB | 0.0 s | — |
 
+Alinhamento das palavras: **espeak**.
+
 ## 2. Direção (intenção por frase)
 
 - **1. Mistério** — “E se o chão da sua casa guardasse um segredo de milhões de anos?” · destaques: segredo (+1.5 dB), milhões (+1.5 dB) · rascunho por regra (\bsegredo)
@@ -63,7 +65,7 @@
 - ✅ **palavras_intactas**: diferença máxima entre cada palavra do original (com o ganho dirigido) e a editada: 0.00e+00 (arredondamento de tempo ≤ 1 amostra)
 - ✅ **sem_aceleracao**: maior diferença de duração de uma palavra: 0.00 ms (55 palavras)
 - ✅ **tempos_coerentes**: palavras em ordem, sem sobreposição e dentro do áudio final
-- ✅ **pausas_dentro_das_regras**: maior pausa entre palavras no final: 0.600 s (teto 0.7 s; proibido ≥ 0,8 s)
+- ✅ **pausas_dentro_das_regras**: maior silêncio interno medido no final: 0.000 s (teto 0.7 s; proibido ≥ 0,8 s)
 - ✅ **pausas_com_fala_preservadas**: 0 pausa(s) não editada(s) por conter fala (listadas no relatório)
 - ✅ **loudness**: -16.0 LUFS (alvo -16.0 ± 0,6)
 - ✅ **pico_verdadeiro**: -1.8 dBTP (máx. -1.5)
@@ -79,6 +81,6 @@
 
 ## 7. Limitações
 
-- O alinhamento de palavras usa o espeak-ng como referência e DTW: precisão medida no teste F0 contra tempos verdadeiros; na voz real ela depende da semelhança entre as vozes e é conferida pela escuta do diretor.
+- Tempos das palavras pelo Whisper (reconhecimento de fala local) com ajuste pelas pausas; conferir no vídeo de conferência.
 - A edição não cria interpretação que não foi gravada: frases marcadas como monótonas precisam de nova geração.
 - Análise por medição (energia, tom, espectro); a avaliação de ouvido é do diretor.

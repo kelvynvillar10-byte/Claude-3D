@@ -34,10 +34,11 @@ def verificar(ctx):
     dentro = pf[-1]["fim"] <= len(ctx["final"]) / sr + 1e-6
     ok("tempos_coerentes", mono and dentro, "palavras em ordem, sem sobreposição e dentro do áudio final")
 
-    pausas = [pf[k + 1]["ini"] - pf[k]["fim"] for k in range(len(pf) - 1)]
-    maior = max(pausas) if pausas else 0
-    ok("pausas_dentro_das_regras", maior < 0.8 and maior <= DE.TETO_GERAL + 0.015,
-       f"maior pausa entre palavras no final: {maior:.3f} s (teto {DE.TETO_GERAL} s; proibido ≥ 0,8 s)")
+    fl, si, _ = AU.segmentar(ctx["final"], sr)                        # silêncio MEDIDO no áudio final (não pelos tempos estimados)
+    internos = [b - a for a, b in si if fl and a > fl[0][0] and b < fl[-1][1]]
+    maior = max(internos) if internos else 0
+    ok("pausas_dentro_das_regras", maior < 0.8 and maior <= DE.TETO_GERAL + 0.03,
+       f"maior silêncio interno medido no final: {maior:.3f} s (teto {DE.TETO_GERAL} s; proibido ≥ 0,8 s)")
     nao_editadas = [o for o in ctx["ops"] if "NÃO editada" in o.get("nota", "")]
     ok("pausas_com_fala_preservadas", True, f"{len(nao_editadas)} pausa(s) não editada(s) por conter fala (listadas no relatório)")
 

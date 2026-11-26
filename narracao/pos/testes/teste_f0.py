@@ -58,7 +58,7 @@ def main():
         tmp = Path(tmp)
         mp3, verd = narracao_sintetica(tmp)
         base = tmp / "edicoes"
-        pasta, an, d = PR.analisar(mp3, TEXTO, "teste_f0", base=base)
+        pasta, an, d = PR.analisar(mp3, TEXTO, "teste_f0", base=base, metodo="espeak")
         pal = json.loads((pasta / "palavras_original.json").read_text())
         # o MP3 e o pitch-shift podem atrasar o sinal: mede o atraso global contra a verdade pela 1ª palavra e desconta
         err = np.array([p["ini"] - t for p, t in zip(pal, verd)])

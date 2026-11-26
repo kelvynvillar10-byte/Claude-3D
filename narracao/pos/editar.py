@@ -151,7 +151,7 @@ def _tem_fala(gap, sr, limiar_db):
     return False
 
 
-def editar(y, sr, texto, palavras, direcao, respiracoes, limiar_db=-60.0):
+def editar(y, sr, texto, palavras, direcao, respiracoes, limiar_db=-60.0, silencios=()):
     """Devolve (áudio editado, palavras no áudio final, operações, envelope de ganho)."""
     y2, g = _ganho(y, sr, palavras, direcao)
     frase_de = {}
@@ -177,31 +177,56 @@ def editar(y, sr, texto, palavras, direcao, respiracoes, limiar_db=-60.0):
         pedacos.append(y2[a:b]); pos += b - a
         if k + 1 < len(palavras):
             c = int(palavras[k + 1]["ini"] * sr)
-            gap = y2[b:c]; d = (c - b) / sr
+            # só o SILÊNCIO medido dentro da pausa é editado; as caudas das palavras ficam intactas
+            dentro = [(max(s0, b / sr), min(s1, c / sr)) for s0, s1 in silencios if min(s1, c / sr) - max(s0, b / sr) >= 0.06]
+            if dentro:
+                s0, s1 = max(dentro, key=lambda x: x[1] - x[0]); sb, sc = int(s0 * sr), int(s1 * sr)
+            else:
+                sb = sc = None
+            d = (sc - sb) / sr if sb is not None else 0.0
             tipo = _tipo_fronteira(texto, p, palavras[k + 1])
             alvo, motivo = alvo_da_pausa(tipo, d, frase_de[k], frase_de[k + 1])
             aj = direcao.get("ajustes_pausa", {}).get(str(k))
             if aj:                                                     # decisão da direção para esta pausa
-                alvo = d if aj.get("alvo_s") is None else min(float(aj["alvo_s"]), DE.TETO_GERAL)
+                alvo = d if aj.get("alvo_s") is None else float(aj["alvo_s"])
                 alvo = min(alvo, DE.TETO_GERAL)
                 motivo = f"direção: {aj['motivo']} → {alvo:.2f} s"
-            resp = next(([r[0] - b / sr, r[1] - b / sr] for r in respiracoes if r[0] >= b / sr - 0.01 and r[1] <= c / sr + 0.01), None)
-            if abs(alvo - d) <= 0.010 and not (d < 0.02 < alvo):
-                novo, nota = gap.copy(), None
-                alvo = d
-            elif d >= 0.02 and _tem_fala(gap, sr, limiar_db):
-                novo, nota = gap.copy(), "NÃO editada: há fala dentro da pausa (provável erro de alinhamento); conferir"
-            elif d < 0.02:                                             # sem pausa natural: insere fundo no ponto de menor energia
-                novo = np.zeros(int(round(alvo * sr)), np.float32)
-                nota = "inserção sem pausa natural (fronteira sem silêncio no original)"
-                if len(gap):
-                    novo = _juntar([gap, novo], 0)[:len(novo)] if len(gap) < len(novo) else gap[:len(novo)]
+            nota = None
+            if sb is None:
+                if alvo > 0.02 and tipo != "nenhuma":                 # fronteira sem silêncio: insere pausa no ponto de menor energia
+                    seg = y2[b:c] if c > b else y2[max(0, b - int(0.03 * sr)):b + int(0.03 * sr)]
+                    base_i = b if c > b else max(0, b - int(0.03 * sr))
+                    if len(seg) > 1:
+                        e = np.abs(seg); w = max(1, int(0.005 * sr))
+                        i = base_i + int(np.argmin(np.convolve(e, np.ones(w) / w, "same")))
+                    else:
+                        i = b
+                    f5 = int(0.005 * sr)
+                    ta = y2[b:i].copy() if i >= b else np.zeros(0, np.float32); tb = y2[i:c].copy() if i >= b else y2[b:c].copy()
+                    if i < b:                                          # ponto antes do fim estimado da palavra: não corta a palavra
+                        i = b; ta = np.zeros(0, np.float32); tb = y2[b:c].copy()
+                    if len(ta) > f5:
+                        ta[-f5:] *= np.linspace(1, 0, f5)
+                    if len(tb) > f5:
+                        tb[:f5] *= np.linspace(0, 1, f5)
+                    novo = np.concatenate([ta, np.zeros(int(round(alvo * sr)), np.float32), tb])
+                    nota = "inserção: a fronteira não tinha silêncio no original"
+                else:
+                    novo = y2[b:c].copy(); alvo = d
             else:
-                novo, nota = _refazer_pausa(gap, alvo, sr, resp)
-            if abs(len(novo) / sr - d) > 0.0105 or nota:
+                gap = y2[sb:sc]
+                resp = next(([r[0] - sb / sr, r[1] - sb / sr] for r in respiracoes if r[0] >= sb / sr - 0.01 and r[1] <= sc / sr + 0.01), None)
+                if abs(alvo - d) <= 0.010:
+                    meio = gap.copy(); alvo = d
+                elif _tem_fala(gap, sr, limiar_db):
+                    meio, nota = gap.copy(), "NÃO editada: há fala dentro da pausa; conferir"
+                else:
+                    meio, nota = _refazer_pausa(gap, alvo, sr, resp)
+                novo = np.concatenate([y2[b:sb], meio, y2[sc:c]])
+            if abs((len(novo) - (c - b)) / sr) > 0.0105 or nota:
                 ops.append({"tipo": tipo, "depois_da_palavra": k, "entre": f"{p['w']} → {palavras[k + 1]['w']}",
-                            "inicio_original_s": round(b / sr, 3), "original_s": round(d, 3), "final_s": round(len(novo) / sr, 3),
-                            "motivo": motivo, **({"nota": nota} if nota else {})})
+                            "inicio_original_s": round(b / sr, 3), "original_s": round(d, 3),
+                            "final_s": round(d + (len(novo) - (c - b)) / sr, 3), "motivo": motivo, **({"nota": nota} if nota else {})})
             pedacos.append(novo); pos += len(novo)
     # pausa final
     b = int(palavras[-1]["fim"] * sr)

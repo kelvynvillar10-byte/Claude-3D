@@ -42,7 +42,7 @@
  {
   "teste": "qa:pausas_dentro_das_regras",
   "ok": true,
-  "detalhe": "maior pausa entre palavras no final: 0.600 s (teto 0.7 s; proibido ≥ 0,8 s)"
+  "detalhe": "maior silêncio interno medido no final: 0.000 s (teto 0.7 s; proibido ≥ 0,8 s)"
  },
  {
   "teste": "qa:pausas_com_fala_preservadas",
@@ -137,6 +137,6 @@
  {
   "teste": "alinhamento_audio_longo",
   "ok": true,
-  "detalhe": "158 s, 385 palavras em 8.8 s · erro médio 5 ms · p90 13 ms · máx 31 ms"
+  "detalhe": "158 s, 385 palavras em 8.7 s · erro médio 5 ms · p90 13 ms · máx 31 ms"
  }
 ]

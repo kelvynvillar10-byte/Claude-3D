@@ -635,6 +635,11 @@
    "tipo": "nenhuma"
   }
  ],
+ "alinhamento": {
+  "metodo": "espeak",
+  "diferencas_roteiro_x_fala": [],
+  "palavras_baixa_confianca": []
+ },
  "picos": {
   "amostra_max": 0.6867,
   "clipadas": 0

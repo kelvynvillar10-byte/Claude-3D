@@ -3,8 +3,9 @@
 
 Comandos:
   processar.py ficha <roteiro.txt> [--velocidade 1.08] [--saida ficha.md]   ficha de geração para o MiniMax Audio (por trecho)
-  processar.py analisar <audio> --texto <roteiro.txt> --nome <nome>
-        copia o original (intacto, com SHA-256), mede tudo, alinha as palavras e grava o RASCUNHO da direção de edição
+  processar.py analisar <audio> [--texto <roteiro.txt>] --nome <nome> [--metodo whisper|espeak]
+        copia o original (intacto, com SHA-256), mede tudo, transcreve e alinha as palavras (Whisper), compara com o roteiro
+        (se informado; sem roteiro, usa a própria transcrição) e grava o RASCUNHO da direção de edição
   processar.py finalizar <nome> [--sem-revisao]
         aplica a direção REVISADA: edição de pausas e destaques, tratamento (preset), tempos das palavras do áudio final,
         marcações, QA e relatório
@@ -36,7 +37,9 @@ def _json(caminho, obj):
     Path(caminho).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n")
 
 
-def analisar(caminho_audio, texto, nome, base=EDICOES):
+def analisar(caminho_audio, texto, nome, base=EDICOES, metodo="whisper"):
+    """`texto` = roteiro (as diferenças com o que foi falado vão para o relatório); None = usa a própria transcrição.
+    `metodo`: "whisper" (principal) ou "espeak" (reserva, sem modelos; usado no teste F0)."""
     pasta = Path(base) / nome
     (pasta / "original").mkdir(parents=True, exist_ok=True); (pasta / "imagens").mkdir(exist_ok=True)
     orig = pasta / "original" / Path(caminho_audio).name
@@ -46,11 +49,19 @@ def analisar(caminho_audio, texto, nome, base=EDICOES):
     if AU.sha256(caminho_audio) != sha:
         raise SystemExit("PARADO: já existe um original diferente com esse nome nesta pasta (o original nunca é sobrescrito)")
     (pasta / "original" / "SHA256.txt").write_text(f"{sha}  {orig.name}\n")
-    (pasta / "texto.txt").write_text(texto)
     y = AU.ler(orig)
     falas, sil, seg = AU.segmentar(y)
     resp = AU.respiracoes(y, sil)
-    pal = AL.alinhar(texto, y, falas, sil)
+    dif, fala = [], None
+    if metodo == "whisper":
+        fala = AL.transcrever(y)
+        _json(pasta / "transcricao.json", fala)
+        if texto is None:
+            texto = AL.texto_da_transcricao(fala)
+        pal, dif = AL.alinhar_whisper(texto, y, falas, sil, fala=fala)
+    else:
+        pal = AL.alinhar(texto, y, falas, sil)
+    (pasta / "texto.txt").write_text(texto)
     d = DE.rascunho(texto, pal)
     por_frase = []
     for f in d["frases"]:
@@ -77,6 +88,9 @@ def analisar(caminho_audio, texto, nome, base=EDICOES):
           "loudness": AU.loudness(y), "tom": AU.tom(y), "por_frase": por_frase,
           "pausas_entre_palavras": pausas,
           "pausas_suspeitas": [p for p in pausas if (p["tipo"] == "nenhuma" and p["dur"] > DE.PAUSA_INADEQUADA) or p["dur"] >= 0.8],
+          "alinhamento": {"metodo": metodo, "diferencas_roteiro_x_fala": dif,
+                          "palavras_baixa_confianca": [{"w": p["w"], "ini": p["ini"], "confianca": p.get("confianca")} for p in pal
+                                                        if p.get("confianca") is not None and p["confianca"] < 0.6]},
           "picos": {"amostra_max": round(float(np.abs(y).max()), 4), "clipadas": int((np.abs(y) >= 0.999).sum())}}
     _json(pasta / "analise.json", an)
     _json(pasta / "palavras_original.json", pal)
@@ -101,7 +115,7 @@ def finalizar(nome, sem_revisao=False, base=EDICOES):
     if AU.sha256(orig) != an["sha256"]:
         raise SystemExit("PARADO: o original mudou desde a análise")
     y = AU.ler(orig)
-    editado, pf, ops, g = ED.editar(y, SR, texto, pal, d, an["respiracoes"], an["segmentacao"]["limiar_db"])
+    editado, pf, ops, g = ED.editar(y, SR, texto, pal, d, an["respiracoes"], an["segmentacao"]["limiar_db"], an["silencios"])
     com_ganho = (y * (10 ** (g / 20))).astype(np.float32)
     medidas = {"cliques": an["cliques"], "piso_ruido_db": an["piso_ruido_db"], "bandas": an["bandas"]}
     pr = TR.carregar_preset()
@@ -146,6 +160,12 @@ def relatorio(nome, an, d, ops, trat, R, med, mk, dur0, dur1):
             obs.append("pausa interna longa")
         lin.append(f"| {f['n']} | {DE.NOMES[f['intencao']]} | {p.get('duracao_s')} s | {p.get('palavras_por_s')} | {p.get('variacao_tom_semitons')} st | "
                    f"{p.get('desvio_nivel_db')} dB | {p.get('maior_pausa_interna_s')} s | {'; '.join(obs) or '—'} |")
+    al = an.get("alinhamento", {})
+    lin += ["", f"Alinhamento das palavras: **{al.get('metodo', 'espeak')}**."]
+    if al.get("diferencas_roteiro_x_fala"):
+        lin += ["", "**O áudio não tem exatamente o texto do roteiro informado** (o que vale é o falado):", "",
+                "| Tempo | Tipo | Roteiro | Falado |", "|---|---|---|---|"]
+        lin += [f"| {x['tempo_s']} s | {x['tipo']} | {x['roteiro']} | {x['falado']} |" for x in al["diferencas_roteiro_x_fala"]]
     lin += ["", "## 2. Direção (intenção por frase)", ""]
     for f in d["frases"]:
         dest = ", ".join(f"{x['w']} (+{x['db']} dB)" for x in f["destaques"]) or "—"
@@ -161,8 +181,7 @@ def relatorio(nome, an, d, ops, trat, R, med, mk, dur0, dur1):
             f"{len(mk['cortes_visuais'])} cortes visuais, {len(mk['impactos'])} impactos, {len(mk['espacos_para_sfx'])} espaços para efeitos sonoros "
             f"e {len(mk['transicoes'])} transições em `marcacoes.json` (tempos do áudio final). Nenhum efeito sonoro foi adicionado.", "",
             "## 7. Limitações", "",
-            "- O alinhamento de palavras usa o espeak-ng como referência e DTW: precisão medida no teste F0 contra tempos verdadeiros; "
-            "na voz real ela depende da semelhança entre as vozes e é conferida pela escuta do diretor.",
+            "- Tempos das palavras pelo Whisper (reconhecimento de fala local) com ajuste pelas pausas; conferir no vídeo de conferência.",
             "- A edição não cria interpretação que não foi gravada: frases marcadas como monótonas precisam de nova geração.",
             "- Análise por medição (energia, tom, espectro); a avaliação de ouvido é do diretor."]
     return "\n".join(lin) + "\n"
@@ -180,7 +199,13 @@ if __name__ == "__main__":
             Path(a[a.index("--saida") + 1]).write_text(txt + "\n")
         print(txt)
     elif a[0] == "analisar":
-        pasta, an, d = analisar(a[1], Path(a[a.index("--texto") + 1]).read_text().strip(), a[a.index("--nome") + 1])
+        txt = Path(a[a.index("--texto") + 1]).read_text().strip() if "--texto" in a else None
+        met = a[a.index("--metodo") + 1] if "--metodo" in a else "whisper"
+        pasta, an, d = analisar(a[1], txt, a[a.index("--nome") + 1], metodo=met)
+        if an["alinhamento"]["diferencas_roteiro_x_fala"]:
+            print("ATENÇÃO: o áudio não tem exatamente o texto informado:")
+            for x in an["alinhamento"]["diferencas_roteiro_x_fala"]:
+                print(f"  {x['tempo_s']} s · {x['tipo']}: roteiro «{x['roteiro']}» · falado «{x['falado']}»")
         print(f"análise em {pasta}: {len(d['frases'])} frases, {len(an['pausas_suspeitas'])} pausa(s) suspeita(s); revisar direcao_edicao.json")
     elif a[0] == "finalizar":
         pasta, R = finalizar(a[1], "--sem-revisao" in a)

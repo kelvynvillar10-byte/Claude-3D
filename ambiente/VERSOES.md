@@ -1,6 +1,6 @@
 # Versões exatas do ambiente — Modo Curioso Studio AI
 
-Gerado por `ambiente/registrar_versoes.py` em 25/11/2026. Não edite à mão.
+Gerado por `ambiente/registrar_versoes.py` em 26/11/2026. Não edite à mão.
 
 ## Programas
 
@@ -13,7 +13,7 @@ Gerado por `ambiente/registrar_versoes.py` em 25/11/2026. Não edite à mão.
 | FFmpeg | 6.1.1-3ubuntu5 | apt (Ubuntu) |
 | Git | 2.43.0 | apt |
 | Git LFS | 3.4.1 | apt |
-| Blender (bpy) | 5.3.0 | PyPI (bpy) |
+| Blender (bpy) | ? | PyPI (bpy) |
 
 ## Pacotes de sistema (apt)
 
@@ -50,17 +50,29 @@ Fonte: `ambiente/requirements.lock.txt` (gerado por `uv pip compile` a partir de
 
 | Pacote | Versão |
 |---|---|
+| anyio | 4.16.0 |
 | attrs | 26.1.0 |
+| av | 19.0.2 |
 | **bpy** | 5.3.0 |
 | cattrs | 26.2.1 |
 | certifi | 2026.11.20 |
 | cffi | 2.1.1 |
 | charset-normalizer | 3.5.3 |
+| click | 8.5.1 |
 | cloudpickle | 3.1.3 |
+| ctranslate2 | 4.9.1 |
 | cython | 3.3.1 |
 | decorator | 5.3.2 |
+| **faster-whisper** | 1.2.1 |
+| filelock | 4.3.1 |
 | flatbuffers | 25.12.19 |
 | **fonttools** | 4.68.0 |
+| fsspec | 2026.9.0 |
+| h11 | 0.16.0 |
+| hf-xet | 1.8.0 |
+| httpcore2 | 2.16.2 |
+| httpx2 | 2.16.2 |
+| huggingface-hub | 2.5.0 |
 | idna | 3.20 |
 | joblib | 1.6.0 |
 | lazy-loader | 0.6 |
@@ -92,7 +104,9 @@ Fonte: `ambiente/requirements.lock.txt` (gerado por `uv pip compile` a partir de
 | soundfile | 0.14.0 |
 | soxr | 1.1.0 |
 | threadpoolctl | 3.8.0 |
+| tokenizers | 0.23.3 |
 | tqdm | 4.70.1 |
+| truststore | 0.10.5 |
 | typing-extensions | 4.16.0 |
 | urllib3 | 2.8.0 |
 | zstandard | 0.25.0 |

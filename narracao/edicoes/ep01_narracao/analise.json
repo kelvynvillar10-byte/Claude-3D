@@ -649,17 +649,17 @@
  "por_frase": [
   {
    "n": 1,
-   "ini": 0.12,
+   "ini": 0.15,
    "fim": 1.79,
-   "duracao_s": 1.67,
+   "duracao_s": 1.64,
    "palavras": 3,
-   "palavras_por_s": 1.8,
+   "palavras_por_s": 1.83,
    "tom_mediano_hz": 97.5,
    "variacao_tom_semitons": 18.26,
    "nivel_db": -28.1,
    "maior_pausa_interna_s": 0.0,
    "monotona": false,
-   "desvio_nivel_db": 1.3
+   "desvio_nivel_db": 1.1
   },
   {
    "n": 2,
@@ -673,52 +673,24 @@
    "nivel_db": -30.0,
    "maior_pausa_interna_s": 0.38,
    "monotona": false,
-   "desvio_nivel_db": -0.6
+   "desvio_nivel_db": -0.8
   },
   {
    "n": 3,
    "ini": 7.5,
-   "fim": 9.48,
-   "duracao_s": 1.98,
-   "palavras": 6,
-   "palavras_por_s": 3.03,
-   "tom_mediano_hz": 120.7,
-   "variacao_tom_semitons": 13.5,
-   "nivel_db": -28.3,
-   "maior_pausa_interna_s": 0.0,
+   "fim": 18.84,
+   "duracao_s": 11.34,
+   "palavras": 24,
+   "palavras_por_s": 2.12,
+   "tom_mediano_hz": 103.3,
+   "variacao_tom_semitons": 9.73,
+   "nivel_db": -29.3,
+   "maior_pausa_interna_s": 0.39,
    "monotona": false,
-   "desvio_nivel_db": 1.1
+   "desvio_nivel_db": -0.1
   },
   {
    "n": 4,
-   "ini": 9.75,
-   "fim": 12.94,
-   "duracao_s": 3.19,
-   "palavras": 6,
-   "palavras_por_s": 1.88,
-   "tom_mediano_hz": 109.4,
-   "variacao_tom_semitons": 4.88,
-   "nivel_db": -27.8,
-   "maior_pausa_interna_s": 0.24,
-   "monotona": false,
-   "desvio_nivel_db": 1.6
-  },
-  {
-   "n": 5,
-   "ini": 13.33,
-   "fim": 18.84,
-   "duracao_s": 5.51,
-   "palavras": 12,
-   "palavras_por_s": 2.18,
-   "tom_mediano_hz": 93.1,
-   "variacao_tom_semitons": 10.23,
-   "nivel_db": -31.0,
-   "maior_pausa_interna_s": 0.35,
-   "monotona": false,
-   "desvio_nivel_db": -1.6
-  },
-  {
-   "n": 6,
    "ini": 19.31,
    "fim": 21.91,
    "duracao_s": 2.6,
@@ -729,38 +701,38 @@
    "nivel_db": -29.8,
    "maior_pausa_interna_s": 0.33,
    "monotona": false,
-   "desvio_nivel_db": -0.4
-  },
-  {
-   "n": 7,
-   "ini": 22.35,
-   "fim": 29.18,
-   "duracao_s": 6.83,
-   "palavras": 14,
-   "palavras_por_s": 2.05,
-   "tom_mediano_hz": 99.2,
-   "variacao_tom_semitons": 10.75,
-   "nivel_db": -30.0,
-   "maior_pausa_interna_s": 0.36,
-   "monotona": false,
    "desvio_nivel_db": -0.6
   },
   {
-   "n": 8,
+   "n": 5,
+   "ini": 22.35,
+   "fim": 29.18,
+   "duracao_s": 6.83,
+   "palavras": 15,
+   "palavras_por_s": 2.2,
+   "tom_mediano_hz": 99.2,
+   "variacao_tom_semitons": 10.75,
+   "nivel_db": -30.0,
+   "maior_pausa_interna_s": 0.63,
+   "monotona": false,
+   "desvio_nivel_db": -0.8
+  },
+  {
+   "n": 6,
    "ini": 29.53,
    "fim": 32.76,
    "duracao_s": 3.23,
-   "palavras": 9,
-   "palavras_por_s": 2.79,
+   "palavras": 8,
+   "palavras_por_s": 2.48,
    "tom_mediano_hz": 114.6,
    "variacao_tom_semitons": 7.7,
    "nivel_db": -27.7,
    "maior_pausa_interna_s": 0.25,
    "monotona": false,
-   "desvio_nivel_db": 1.7
+   "desvio_nivel_db": 1.6
   },
   {
-   "n": 9,
+   "n": 7,
    "ini": 33.17,
    "fim": 35.79,
    "duracao_s": 2.62,
@@ -771,24 +743,24 @@
    "nivel_db": -30.6,
    "maior_pausa_interna_s": 0.0,
    "monotona": false,
-   "desvio_nivel_db": -1.2
+   "desvio_nivel_db": -1.4
   },
   {
-   "n": 10,
-   "ini": 36.11,
+   "n": 8,
+   "ini": 36.34,
    "fim": 40.24,
-   "duracao_s": 4.13,
+   "duracao_s": 3.9,
    "palavras": 10,
-   "palavras_por_s": 2.42,
+   "palavras_por_s": 2.56,
    "tom_mediano_hz": 106.3,
-   "variacao_tom_semitons": 6.42,
+   "variacao_tom_semitons": 6.59,
    "nivel_db": -29.4,
    "maior_pausa_interna_s": 0.1,
    "monotona": false,
-   "desvio_nivel_db": 0.0
+   "desvio_nivel_db": -0.1
   },
   {
-   "n": 11,
+   "n": 9,
    "ini": 40.65,
    "fim": 44.87,
    "duracao_s": 4.22,
@@ -799,192 +771,150 @@
    "nivel_db": -28.5,
    "maior_pausa_interna_s": 0.42,
    "monotona": false,
-   "desvio_nivel_db": 0.9
+   "desvio_nivel_db": 0.8
   },
   {
-   "n": 12,
+   "n": 10,
    "ini": 45.34,
    "fim": 47.79,
    "duracao_s": 2.45,
-   "palavras": 7,
-   "palavras_por_s": 2.86,
+   "palavras": 5,
+   "palavras_por_s": 2.04,
    "tom_mediano_hz": 90.9,
    "variacao_tom_semitons": 8.03,
    "nivel_db": -29.9,
    "maior_pausa_interna_s": 0.0,
    "monotona": false,
-   "desvio_nivel_db": -0.5
+   "desvio_nivel_db": -0.6
+  },
+  {
+   "n": 11,
+   "ini": 48.05,
+   "fim": 54.95,
+   "duracao_s": 6.9,
+   "palavras": 13,
+   "palavras_por_s": 1.88,
+   "tom_mediano_hz": 101.2,
+   "variacao_tom_semitons": 7.1,
+   "nivel_db": -31.0,
+   "maior_pausa_interna_s": 0.48,
+   "monotona": false,
+   "desvio_nivel_db": -1.8
+  },
+  {
+   "n": 12,
+   "ini": 55.41,
+   "fim": 57.32,
+   "duracao_s": 1.91,
+   "palavras": 4,
+   "palavras_por_s": 2.09,
+   "tom_mediano_hz": 119.3,
+   "variacao_tom_semitons": 15.96,
+   "nivel_db": -29.2,
+   "maior_pausa_interna_s": 0.09,
+   "monotona": false,
+   "desvio_nivel_db": 0.1
   },
   {
    "n": 13,
-   "ini": 48.05,
-   "fim": 53.92,
-   "duracao_s": 5.87,
-   "palavras": 13,
-   "palavras_por_s": 2.21,
-   "tom_mediano_hz": 99.7,
-   "variacao_tom_semitons": 7.48,
-   "nivel_db": -30.5,
-   "maior_pausa_interna_s": 0.24,
-   "monotona": false,
-   "desvio_nivel_db": -1.1
-  },
-  {
-   "n": 14,
-   "ini": 54.14,
-   "fim": 55.65,
-   "duracao_s": 1.51,
-   "palavras": 4,
-   "palavras_por_s": 2.65,
-   "tom_mediano_hz": 108.2,
-   "variacao_tom_semitons": 9.75,
-   "nivel_db": -36.3,
-   "maior_pausa_interna_s": 0.46,
-   "monotona": false,
-   "desvio_nivel_db": -6.9
-  },
-  {
-   "n": 15,
-   "ini": 55.74,
+   "ini": 57.66,
    "fim": 59.55,
-   "duracao_s": 3.81,
-   "palavras": 8,
-   "palavras_por_s": 2.1,
-   "tom_mediano_hz": 108.8,
-   "variacao_tom_semitons": 11.85,
-   "nivel_db": -29.0,
-   "maior_pausa_interna_s": 0.34,
+   "duracao_s": 1.89,
+   "palavras": 6,
+   "palavras_por_s": 3.17,
+   "tom_mediano_hz": 101.5,
+   "variacao_tom_semitons": 8.24,
+   "nivel_db": -28.8,
+   "maior_pausa_interna_s": 0.0,
    "monotona": false,
    "desvio_nivel_db": 0.4
   },
   {
-   "n": 16,
+   "n": 14,
    "ini": 59.99,
    "fim": 66.02,
    "duracao_s": 6.03,
-   "palavras": 14,
-   "palavras_por_s": 2.32,
+   "palavras": 13,
+   "palavras_por_s": 2.16,
    "tom_mediano_hz": 102.7,
    "variacao_tom_semitons": 10.0,
    "nivel_db": -29.8,
    "maior_pausa_interna_s": 0.39,
    "monotona": false,
-   "desvio_nivel_db": -0.4
+   "desvio_nivel_db": -0.6
   },
   {
-   "n": 17,
+   "n": 15,
    "ini": 66.42,
    "fim": 72.1,
    "duracao_s": 5.68,
-   "palavras": 15,
-   "palavras_por_s": 2.64,
+   "palavras": 17,
+   "palavras_por_s": 2.99,
    "tom_mediano_hz": 112.6,
    "variacao_tom_semitons": 7.9,
    "nivel_db": -29.1,
    "maior_pausa_interna_s": 0.19,
    "monotona": false,
-   "desvio_nivel_db": 0.3
+   "desvio_nivel_db": 0.1
   },
   {
-   "n": 18,
+   "n": 16,
    "ini": 72.49,
    "fim": 77.76,
    "duracao_s": 5.27,
-   "palavras": 15,
-   "palavras_por_s": 2.85,
+   "palavras": 12,
+   "palavras_por_s": 2.28,
    "tom_mediano_hz": 98.0,
    "variacao_tom_semitons": 8.3,
    "nivel_db": -29.8,
    "maior_pausa_interna_s": 0.24,
    "monotona": false,
-   "desvio_nivel_db": -0.4
-  },
-  {
-   "n": 19,
-   "ini": 78.21,
-   "fim": 80.19,
-   "duracao_s": 1.98,
-   "palavras": 8,
-   "palavras_por_s": 4.04,
-   "tom_mediano_hz": 93.1,
-   "variacao_tom_semitons": 7.99,
-   "nivel_db": -30.0,
-   "maior_pausa_interna_s": 0.23,
-   "monotona": false,
    "desvio_nivel_db": -0.6
   },
   {
-   "n": 20,
-   "ini": 80.3,
-   "fim": 81.6,
-   "duracao_s": 1.3,
-   "palavras": 7,
-   "palavras_por_s": 5.38,
-   "tom_mediano_hz": 88.6,
-   "variacao_tom_semitons": 8.21,
-   "nivel_db": -31.4,
-   "maior_pausa_interna_s": 0.44,
+   "n": 17,
+   "ini": 78.21,
+   "fim": 81.12,
+   "duracao_s": 2.91,
+   "palavras": 6,
+   "palavras_por_s": 2.06,
+   "tom_mediano_hz": 90.9,
+   "variacao_tom_semitons": 7.1,
+   "nivel_db": -30.3,
+   "maior_pausa_interna_s": 0.23,
    "monotona": false,
-   "desvio_nivel_db": -2.0
+   "desvio_nivel_db": -1.1
   },
   {
-   "n": 21,
-   "ini": 81.58,
+   "n": 18,
+   "ini": 81.56,
    "fim": 84.54,
-   "duracao_s": 2.96,
+   "duracao_s": 2.98,
    "palavras": 7,
-   "palavras_por_s": 2.36,
-   "tom_mediano_hz": 110.0,
-   "variacao_tom_semitons": 7.92,
-   "nivel_db": -28.5,
+   "palavras_por_s": 2.35,
+   "tom_mediano_hz": 109.7,
+   "variacao_tom_semitons": 7.91,
+   "nivel_db": -28.6,
    "maior_pausa_interna_s": 0.12,
    "monotona": false,
-   "desvio_nivel_db": 0.9
+   "desvio_nivel_db": 0.6
   },
   {
-   "n": 22,
+   "n": 19,
    "ini": 85.12,
-   "fim": 88.05,
-   "duracao_s": 2.93,
-   "palavras": 10,
-   "palavras_por_s": 3.41,
-   "tom_mediano_hz": 115.6,
-   "variacao_tom_semitons": 7.7,
-   "nivel_db": -28.9,
-   "maior_pausa_interna_s": 0.21,
-   "monotona": false,
-   "desvio_nivel_db": 0.5
-  },
-  {
-   "n": 23,
-   "ini": 88.54,
-   "fim": 90.26,
-   "duracao_s": 1.72,
-   "palavras": 5,
-   "palavras_por_s": 2.91,
-   "tom_mediano_hz": 126.4,
-   "variacao_tom_semitons": 9.86,
-   "nivel_db": -27.5,
-   "maior_pausa_interna_s": 0.0,
-   "monotona": false,
-   "desvio_nivel_db": 1.9
-  },
-  {
-   "n": 24,
-   "ini": 90.53,
    "fim": 93.3,
-   "duracao_s": 2.77,
-   "palavras": 12,
-   "palavras_por_s": 4.33,
-   "tom_mediano_hz": 99.2,
-   "variacao_tom_semitons": 9.08,
-   "nivel_db": -29.8,
-   "maior_pausa_interna_s": 0.26,
+   "duracao_s": 8.18,
+   "palavras": 16,
+   "palavras_por_s": 1.96,
+   "tom_mediano_hz": 108.8,
+   "variacao_tom_semitons": 11.46,
+   "nivel_db": -28.9,
+   "maior_pausa_interna_s": 0.49,
    "monotona": false,
-   "desvio_nivel_db": -0.4
+   "desvio_nivel_db": 0.4
   },
   {
-   "n": 25,
+   "n": 20,
    "ini": 93.76,
    "fim": 96.57,
    "duracao_s": 2.81,
@@ -995,38 +925,38 @@
    "nivel_db": -28.7,
    "maior_pausa_interna_s": 0.0,
    "monotona": false,
-   "desvio_nivel_db": 0.7
+   "desvio_nivel_db": 0.6
   },
   {
-   "n": 26,
+   "n": 21,
    "ini": 97.02,
-   "fim": 99.7,
-   "duracao_s": 2.68,
+   "fim": 99.68,
+   "duracao_s": 2.66,
    "palavras": 7,
-   "palavras_por_s": 2.61,
+   "palavras_por_s": 2.63,
    "tom_mediano_hz": 108.8,
    "variacao_tom_semitons": 7.58,
-   "nivel_db": -28.5,
+   "nivel_db": -28.4,
    "maior_pausa_interna_s": 0.07,
    "monotona": false,
    "desvio_nivel_db": 0.9
   },
   {
-   "n": 27,
-   "ini": 100.13,
+   "n": 22,
+   "ini": 100.38,
    "fim": 103.77,
-   "duracao_s": 3.64,
+   "duracao_s": 3.39,
    "palavras": 7,
-   "palavras_por_s": 1.92,
+   "palavras_por_s": 2.06,
    "tom_mediano_hz": 129.4,
-   "variacao_tom_semitons": 9.03,
-   "nivel_db": -28.3,
+   "variacao_tom_semitons": 9.42,
+   "nivel_db": -28.4,
    "maior_pausa_interna_s": 0.07,
    "monotona": false,
-   "desvio_nivel_db": 1.1
+   "desvio_nivel_db": 0.9
   },
   {
-   "n": 28,
+   "n": 23,
    "ini": 104.24,
    "fim": 109.74,
    "duracao_s": 5.5,
@@ -1035,12 +965,12 @@
    "tom_mediano_hz": 95.8,
    "variacao_tom_semitons": 9.21,
    "nivel_db": -30.3,
-   "maior_pausa_interna_s": 0.26,
+   "maior_pausa_interna_s": 0.53,
    "monotona": false,
-   "desvio_nivel_db": -0.9
+   "desvio_nivel_db": -1.1
   },
   {
-   "n": 29,
+   "n": 24,
    "ini": 110.1,
    "fim": 111.53,
    "duracao_s": 1.43,
@@ -1051,21 +981,21 @@
    "nivel_db": -29.0,
    "maior_pausa_interna_s": 0.23,
    "monotona": false,
-   "desvio_nivel_db": 0.4
+   "desvio_nivel_db": 0.2
   }
  ],
  "pausas_entre_palavras": [
   {
    "depois_de": "Imagine",
    "antes_de": "acordar",
-   "ini": 0.73,
+   "ini": 0.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "acordar",
    "antes_de": "amanhã",
-   "ini": 1.29,
+   "ini": 1.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1079,7 +1009,7 @@
   {
    "depois_de": "e",
    "antes_de": "descobrir",
-   "ini": 2.27,
+   "ini": 2.42,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1093,33 +1023,33 @@
   {
    "depois_de": "que",
    "antes_de": "você",
-   "ini": 3.42,
+   "ini": 3.5,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
    "antes_de": "tem",
-   "ini": 3.73,
+   "ini": 3.8,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "tem",
    "antes_de": "apenas",
-   "ini": 3.85,
+   "ini": 3.94,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "apenas",
-   "antes_de": "cinco",
+   "antes_de": "5",
    "ini": 4.38,
    "dur": 0.3,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "cinco",
+   "depois_de": "5",
    "antes_de": "centímetros",
    "ini": 5.29,
    "dur": 0.17,
@@ -1128,14 +1058,14 @@
   {
    "depois_de": "centímetros",
    "antes_de": "de",
-   "ini": 6.42,
+   "ini": 6.38,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "de",
    "antes_de": "altura",
-   "ini": 6.53,
+   "ini": 6.64,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1149,89 +1079,89 @@
   {
    "depois_de": "Sua",
    "antes_de": "cama",
-   "ini": 7.77,
+   "ini": 7.9,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "cama",
    "antes_de": "seria",
-   "ini": 8.15,
+   "ini": 8.16,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "seria",
    "antes_de": "como",
-   "ini": 8.57,
+   "ini": 8.58,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "como",
    "antes_de": "um",
-   "ini": 8.82,
+   "ini": 8.9,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "prédio",
-   "ini": 8.98,
+   "ini": 9.16,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "prédio",
-   "antes_de": "Seu",
+   "antes_de": "seu",
    "ini": 9.48,
    "dur": 0.27,
-   "tipo": "frase"
+   "tipo": "virgula"
   },
   {
-   "depois_de": "Seu",
+   "depois_de": "seu",
    "antes_de": "celular",
-   "ini": 9.93,
+   "ini": 10.0,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "celular",
    "antes_de": "pareceria",
-   "ini": 10.49,
+   "ini": 10.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "pareceria",
    "antes_de": "uma",
-   "ini": 11.22,
-   "dur": 0.0,
+   "ini": 11.23,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "uma",
    "antes_de": "televisão",
-   "ini": 11.26,
-   "dur": 0.24,
+   "ini": 11.76,
+   "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "televisão",
    "antes_de": "gigante",
-   "ini": 12.25,
+   "ini": 12.34,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "gigante",
-   "antes_de": "E",
+   "antes_de": "e",
    "ini": 12.94,
    "dur": 0.39,
-   "tipo": "frase"
+   "tipo": "virgula"
   },
   {
-   "depois_de": "E",
+   "depois_de": "e",
    "antes_de": "até",
    "ini": 13.59,
    "dur": 0.09,
@@ -1240,21 +1170,21 @@
   {
    "depois_de": "até",
    "antes_de": "sair",
-   "ini": 13.85,
+   "ini": 14.0,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "sair",
    "antes_de": "do",
-   "ini": 14.36,
+   "ini": 14.38,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "do",
    "antes_de": "quarto",
-   "ini": 14.5,
+   "ini": 14.6,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1275,7 +1205,7 @@
   {
    "depois_de": "se",
    "antes_de": "transformar",
-   "ini": 15.93,
+   "ini": 16.18,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1289,14 +1219,14 @@
   {
    "depois_de": "em",
    "antes_de": "uma",
-   "ini": 17.09,
+   "ini": 17.26,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "uma",
    "antes_de": "missão",
-   "ini": 17.32,
+   "ini": 17.44,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1317,14 +1247,14 @@
   {
    "depois_de": "Mas",
    "antes_de": "o",
-   "ini": 19.49,
+   "ini": 19.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "o",
    "antes_de": "pior",
-   "ini": 19.57,
+   "ini": 19.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1338,21 +1268,21 @@
   {
    "depois_de": "ainda",
    "antes_de": "estaria",
-   "ini": 20.77,
+   "ini": 20.96,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "estaria",
    "antes_de": "por",
-   "ini": 21.33,
+   "ini": 21.42,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "por",
    "antes_de": "vir",
-   "ini": 21.52,
+   "ini": 21.68,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1366,21 +1296,21 @@
   {
    "depois_de": "Com",
    "antes_de": "apenas",
-   "ini": 22.39,
+   "ini": 22.58,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "apenas",
-   "antes_de": "cinco",
-   "ini": 22.93,
+   "antes_de": "5",
+   "ini": 23.06,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "cinco",
+   "depois_de": "5",
    "antes_de": "centímetros",
-   "ini": 23.33,
+   "ini": 23.52,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1388,34 +1318,34 @@
    "depois_de": "centímetros",
    "antes_de": "uma",
    "ini": 24.19,
-   "dur": 0.36,
+   "dur": 0.63,
    "tipo": "virgula"
   },
   {
    "depois_de": "uma",
    "antes_de": "simples",
-   "ini": 24.77,
+   "ini": 24.94,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "simples",
    "antes_de": "gota",
-   "ini": 25.36,
+   "ini": 25.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "gota",
    "antes_de": "de",
-   "ini": 25.76,
+   "ini": 25.84,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "de",
    "antes_de": "água",
-   "ini": 25.94,
+   "ini": 26.14,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1428,34 +1358,41 @@
   },
   {
    "depois_de": "poderia",
-   "antes_de": "parecer",
-   "ini": 26.88,
+   "antes_de": "se",
+   "ini": 26.86,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "parecer",
-   "antes_de": "uma",
-   "ini": 27.65,
+   "depois_de": "se",
+   "antes_de": "tornar",
+   "ini": 27.14,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "uma",
+   "depois_de": "tornar",
+   "antes_de": "um",
+   "ini": 27.48,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "obstáculo",
+   "ini": 27.78,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "obstáculo",
    "antes_de": "enorme",
-   "ini": 27.81,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "enorme",
-   "antes_de": "esfera",
    "ini": 28.4,
    "dur": 0.07,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "esfera",
+   "depois_de": "enorme",
    "antes_de": "Uma",
    "ini": 29.18,
    "dur": 0.35,
@@ -1464,21 +1401,21 @@
   {
    "depois_de": "Uma",
    "antes_de": "moeda",
-   "ini": 29.77,
+   "ini": 29.78,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "moeda",
    "antes_de": "no",
-   "ini": 30.18,
+   "ini": 30.22,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "no",
    "antes_de": "chão",
-   "ini": 30.29,
+   "ini": 30.46,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1492,33 +1429,26 @@
   {
    "depois_de": "seria",
    "antes_de": "quase",
-   "ini": 31.35,
+   "ini": 31.34,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "quase",
-   "antes_de": "um",
-   "ini": 31.84,
+   "antes_de": "uma",
+   "ini": 31.88,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "um",
-   "antes_de": "obstáculo",
-   "ini": 31.93,
+   "depois_de": "uma",
+   "antes_de": "montanha",
+   "ini": 32.12,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "obstáculo",
-   "antes_de": "gigante",
-   "ini": 32.44,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "gigante",
+   "depois_de": "montanha",
    "antes_de": "E",
    "ini": 32.76,
    "dur": 0.41,
@@ -1527,56 +1457,56 @@
   {
    "depois_de": "E",
    "antes_de": "aquela",
-   "ini": 33.26,
+   "ini": 33.42,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "aquela",
    "antes_de": "escada",
-   "ini": 33.59,
+   "ini": 33.68,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "escada",
    "antes_de": "que",
-   "ini": 34.02,
+   "ini": 34.08,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "que",
    "antes_de": "você",
-   "ini": 34.18,
+   "ini": 34.26,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
    "antes_de": "sobe",
-   "ini": 34.47,
+   "ini": 34.56,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "sobe",
    "antes_de": "todos",
-   "ini": 34.81,
+   "ini": 34.86,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "todos",
    "antes_de": "os",
-   "ini": 35.16,
+   "ini": 35.2,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "os",
    "antes_de": "dias",
-   "ini": 35.32,
+   "ini": 35.46,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1584,27 +1514,27 @@
    "depois_de": "dias",
    "antes_de": "Agora",
    "ini": 35.79,
-   "dur": 0.32,
+   "dur": 0.55,
    "tipo": "frase"
   },
   {
    "depois_de": "Agora",
    "antes_de": "seria",
-   "ini": 36.54,
+   "ini": 36.58,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "seria",
    "antes_de": "uma",
-   "ini": 36.88,
+   "ini": 36.9,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "uma",
    "antes_de": "sequência",
-   "ini": 37.04,
+   "ini": 37.18,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1617,13 +1547,13 @@
   },
   {
    "depois_de": "de",
-   "antes_de": "montanhas",
-   "ini": 37.84,
-   "dur": -0.02,
+   "antes_de": "paredões",
+   "ini": 37.9,
+   "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "montanhas",
+   "depois_de": "paredões",
    "antes_de": "que",
    "ini": 38.53,
    "dur": 0.1,
@@ -1632,21 +1562,21 @@
   {
    "depois_de": "que",
    "antes_de": "você",
-   "ini": 38.7,
+   "ini": 38.84,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
    "antes_de": "precisaria",
-   "ini": 39.06,
+   "ini": 39.2,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "precisaria",
    "antes_de": "escalar",
-   "ini": 39.77,
+   "ini": 39.8,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1660,35 +1590,35 @@
   {
    "depois_de": "Mas",
    "antes_de": "existe",
-   "ini": 40.84,
+   "ini": 40.88,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "existe",
    "antes_de": "um",
-   "ini": 41.21,
+   "ini": 41.22,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "perigo",
-   "ini": 41.31,
+   "ini": 41.44,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "perigo",
    "antes_de": "ainda",
-   "ini": 41.635,
+   "ini": 41.74,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "ainda",
    "antes_de": "maior",
-   "ini": 41.96,
+   "ini": 42.0,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1702,35 +1632,35 @@
   {
    "depois_de": "os",
    "antes_de": "animais",
-   "ini": 43.0,
+   "ini": 43.16,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "animais",
    "antes_de": "da",
-   "ini": 43.6,
+   "ini": 43.64,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "da",
    "antes_de": "sua",
-   "ini": 43.75,
+   "ini": 43.86,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "sua",
    "antes_de": "própria",
-   "ini": 43.96,
+   "ini": 44.12,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "própria",
    "antes_de": "casa",
-   "ini": 44.44,
+   "ini": 44.48,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1743,48 +1673,34 @@
   },
   {
    "depois_de": "Uma",
-   "antes_de": "formiga",
-   "ini": 45.4,
+   "antes_de": "aranha",
+   "ini": 45.58,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "formiga",
+   "depois_de": "aranha",
    "antes_de": "poderia",
-   "ini": 45.92,
+   "ini": 45.98,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "poderia",
    "antes_de": "parecer",
-   "ini": 46.39,
+   "ini": 46.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "parecer",
-   "antes_de": "um",
-   "ini": 46.83,
+   "antes_de": "assustadora",
+   "ini": 46.88,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "um",
-   "antes_de": "adversário",
-   "ini": 46.87,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "adversário",
-   "antes_de": "enorme",
-   "ini": 47.4,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "enorme",
+   "depois_de": "assustadora",
    "antes_de": "E",
    "ini": 47.79,
    "dur": 0.26,
@@ -1793,21 +1709,21 @@
   {
    "depois_de": "E",
    "antes_de": "um",
-   "ini": 48.14,
+   "ini": 48.24,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "gato",
-   "ini": 48.3,
+   "ini": 48.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "gato",
    "antes_de": "curioso",
-   "ini": 48.6,
+   "ini": 48.68,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1821,21 +1737,21 @@
   {
    "depois_de": "que",
    "antes_de": "antes",
-   "ini": 49.57,
+   "ini": 49.66,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "antes",
    "antes_de": "parecia",
-   "ini": 49.9,
+   "ini": 49.96,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "parecia",
    "antes_de": "inofensivo",
-   "ini": 50.39,
+   "ini": 50.44,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -1843,7 +1759,7 @@
    "depois_de": "inofensivo",
    "antes_de": "agora",
    "ini": 51.2,
-   "dur": 0.21,
+   "dur": 0.48,
    "tipo": "virgula"
   },
   {
@@ -1856,110 +1772,96 @@
   {
    "depois_de": "seria",
    "antes_de": "um",
-   "ini": 52.55,
-   "dur": 0.0,
+   "ini": 52.56,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "verdadeiro",
-   "ini": 52.59,
-   "dur": 0.24,
+   "ini": 53.18,
+   "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "verdadeiro",
    "antes_de": "predador",
-   "ini": 53.33,
-   "dur": 0.0,
+   "ini": 53.92,
+   "dur": 0.22,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "predador",
    "antes_de": "Um",
-   "ini": 53.92,
-   "dur": 0.22,
+   "ini": 54.95,
+   "dur": 0.46,
    "tipo": "frase"
   },
   {
    "depois_de": "Um",
    "antes_de": "único",
-   "ini": 54.24,
-   "dur": 0.0,
+   "ini": 55.65,
+   "dur": 0.09,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "único",
    "antes_de": "movimento",
-   "ini": 54.54,
-   "dur": 0.07,
+   "ini": 56.22,
+   "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "movimento",
    "antes_de": "errado",
-   "ini": 54.95,
-   "dur": 0.46,
+   "ini": 56.78,
+   "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "errado",
    "antes_de": "e",
-   "ini": 55.65,
-   "dur": 0.09,
+   "ini": 57.32,
+   "dur": 0.34,
    "tipo": "frase"
   },
   {
    "depois_de": "e",
    "antes_de": "você",
-   "ini": 55.85,
+   "ini": 57.78,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
    "antes_de": "poderia",
-   "ini": 56.17,
+   "ini": 58.22,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "poderia",
-   "antes_de": "acabar",
-   "ini": 56.63,
+   "antes_de": "estar",
+   "ini": 58.66,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "acabar",
+   "depois_de": "estar",
    "antes_de": "em",
-   "ini": 57.21,
+   "ini": 58.96,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "em",
-   "antes_de": "uma",
-   "ini": 57.32,
-   "dur": 0.34,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "uma",
-   "antes_de": "situação",
-   "ini": 57.7,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "situação",
-   "antes_de": "desesperadora",
-   "ini": 58.34,
+   "antes_de": "perigo",
+   "ini": 59.18,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "desesperadora",
+   "depois_de": "perigo",
    "antes_de": "Só",
    "ini": 59.55,
    "dur": 0.44,
@@ -1968,42 +1870,42 @@
   {
    "depois_de": "Só",
    "antes_de": "que",
-   "ini": 60.2,
+   "ini": 60.28,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "que",
    "antes_de": "existe",
-   "ini": 60.34,
+   "ini": 60.5,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "existe",
    "antes_de": "algo",
-   "ini": 60.77,
+   "ini": 60.8,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "algo",
    "antes_de": "ainda",
-   "ini": 61.21,
+   "ini": 61.24,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "ainda",
    "antes_de": "mais",
-   "ini": 61.56,
+   "ini": 61.64,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mais",
    "antes_de": "curioso",
-   "ini": 61.95,
+   "ini": 62.1,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2017,47 +1919,40 @@
   {
    "depois_de": "seu",
    "antes_de": "corpo",
-   "ini": 63.27,
+   "ini": 63.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "corpo",
-   "antes_de": "não",
-   "ini": 63.74,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "não",
-   "antes_de": "funcionaria",
+   "antes_de": "também",
    "ini": 63.8,
    "dur": 0.22,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "funcionaria",
-   "antes_de": "exatamente",
-   "ini": 64.86,
+   "depois_de": "também",
+   "antes_de": "mudaria",
+   "ini": 64.42,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "exatamente",
-   "antes_de": "como",
-   "ini": 65.45,
+   "depois_de": "mudaria",
+   "antes_de": "de",
+   "ini": 64.96,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "como",
-   "antes_de": "antes",
-   "ini": 65.67,
+   "depois_de": "de",
+   "antes_de": "comportamento",
+   "ini": 65.3,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "antes",
+   "depois_de": "comportamento",
    "antes_de": "Ao",
    "ini": 66.02,
    "dur": 0.4,
@@ -2066,21 +1961,21 @@
   {
    "depois_de": "Ao",
    "antes_de": "diminuir",
-   "ini": 66.56,
+   "ini": 66.64,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "diminuir",
    "antes_de": "de",
-   "ini": 67.07,
+   "ini": 67.12,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "de",
    "antes_de": "tamanho",
-   "ini": 67.19,
+   "ini": 67.34,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2108,61 +2003,75 @@
   {
    "depois_de": "cairia",
    "antes_de": "muito",
-   "ini": 68.93,
+   "ini": 69.06,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "muito",
    "antes_de": "mais",
-   "ini": 69.36,
+   "ini": 69.44,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mais",
    "antes_de": "rapidamente",
-   "ini": 69.61,
+   "ini": 69.76,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "rapidamente",
    "antes_de": "do",
-   "ini": 70.34,
+   "ini": 70.38,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "do",
    "antes_de": "que",
-   "ini": 70.45,
+   "ini": 70.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "que",
-   "antes_de": "sua",
-   "ini": 70.6,
+   "antes_de": "a",
+   "ini": 70.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "sua",
+   "depois_de": "a",
    "antes_de": "força",
-   "ini": 70.92,
+   "ini": 70.78,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "força",
-   "antes_de": "muscular",
-   "ini": 71.39,
+   "antes_de": "dos",
+   "ini": 71.12,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "muscular",
+   "depois_de": "dos",
+   "antes_de": "seus",
+   "ini": 71.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "seus",
+   "antes_de": "músculos",
+   "ini": 71.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "músculos",
    "antes_de": "Isso",
    "ini": 72.1,
    "dur": 0.39,
@@ -2170,104 +2079,83 @@
   },
   {
    "depois_de": "Isso",
-   "antes_de": "significa",
-   "ini": 72.75,
+   "antes_de": "faria",
+   "ini": 72.8,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "significa",
-   "antes_de": "que",
-   "ini": 73.61,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "que",
-   "antes_de": "proporcionalmente",
-   "ini": 73.87,
-   "dur": 0.07,
-   "tipo": "virgula"
-  },
-  {
-   "depois_de": "proporcionalmente",
+   "depois_de": "faria",
    "antes_de": "você",
-   "ini": 75.07,
+   "ini": 73.2,
    "dur": 0.0,
-   "tipo": "virgula"
+   "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
-   "antes_de": "poderia",
-   "ini": 75.36,
+   "antes_de": "ficar",
+   "ini": 73.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "poderia",
-   "antes_de": "ser",
-   "ini": 75.78,
-   "dur": 0.24,
+   "depois_de": "ficar",
+   "antes_de": "proporcionalmente",
+   "ini": 73.87,
+   "dur": 0.07,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "ser",
-   "antes_de": "muito",
-   "ini": 76.06,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "muito",
+   "depois_de": "proporcionalmente",
    "antes_de": "mais",
-   "ini": 76.28,
+   "ini": 74.98,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mais",
    "antes_de": "forte",
-   "ini": 76.45,
+   "ini": 75.42,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "forte",
-   "antes_de": "do",
-   "ini": 76.89,
+   "antes_de": "em",
+   "ini": 75.78,
+   "dur": 0.24,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "relação",
+   "ini": 76.32,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "do",
-   "antes_de": "que",
+   "depois_de": "relação",
+   "antes_de": "ao",
+   "ini": 76.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ao",
+   "antes_de": "próprio",
    "ini": 76.95,
    "dur": 0.06,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "que",
-   "antes_de": "um",
-   "ini": 77.05,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "um",
-   "antes_de": "humano",
-   "ini": 77.14,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "humano",
-   "antes_de": "normal",
+   "depois_de": "próprio",
+   "antes_de": "peso",
    "ini": 77.34,
    "dur": 0.07,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "normal",
+   "depois_de": "peso",
    "antes_de": "Mas",
    "ini": 77.76,
    "dur": 0.45,
@@ -2275,127 +2163,64 @@
   },
   {
    "depois_de": "Mas",
-   "antes_de": "isso",
-   "ini": 78.38,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "isso",
    "antes_de": "não",
-   "ini": 78.47,
+   "ini": 78.44,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "não",
-   "antes_de": "resolveria",
-   "ini": 78.6,
+   "antes_de": "significa",
+   "ini": 78.74,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "resolveria",
-   "antes_de": "todos",
-   "ini": 79.2,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "todos",
-   "antes_de": "os",
+   "depois_de": "significa",
+   "antes_de": "que",
    "ini": 79.38,
    "dur": 0.23,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "os",
-   "antes_de": "seus",
-   "ini": 79.65,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "seus",
-   "antes_de": "problemas",
-   "ini": 79.8,
+   "depois_de": "que",
+   "antes_de": "seria",
+   "ini": 79.86,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "problemas",
-   "antes_de": "Uma",
+   "depois_de": "seria",
+   "antes_de": "invencível",
    "ini": 80.19,
    "dur": 0.11,
-   "tipo": "frase"
-  },
-  {
-   "depois_de": "Uma",
-   "antes_de": "pequena",
-   "ini": 80.34,
-   "dur": -0.04,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "pequena",
-   "antes_de": "poça",
-   "ini": 80.34,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "poça",
-   "antes_de": "poderia",
-   "ini": 80.48,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "poderia",
-   "antes_de": "dificultar",
-   "ini": 80.76,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "dificultar",
-   "antes_de": "sua",
+   "depois_de": "invencível",
+   "antes_de": "Uma",
    "ini": 81.12,
    "dur": 0.44,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "sua",
-   "antes_de": "passagem",
-   "ini": 81.6,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "passagem",
-   "antes_de": "Uma",
-   "ini": 81.6,
-   "dur": -0.02,
    "tipo": "frase"
   },
   {
    "depois_de": "Uma",
    "antes_de": "corrente",
-   "ini": 81.76,
+   "ini": 81.82,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "corrente",
    "antes_de": "de",
-   "ini": 82.21,
+   "ini": 82.24,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "de",
    "antes_de": "ar",
-   "ini": 82.37,
+   "ini": 82.48,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2409,208 +2234,131 @@
   {
    "depois_de": "poderia",
    "antes_de": "desequilibrar",
-   "ini": 83.2,
+   "ini": 83.26,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "desequilibrar",
    "antes_de": "você",
-   "ini": 84.1,
+   "ini": 84.16,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "você",
-   "antes_de": "E",
+   "antes_de": "Uma",
    "ini": 84.54,
    "dur": 0.58,
    "tipo": "frase"
   },
   {
-   "depois_de": "E",
-   "antes_de": "até",
-   "ini": 85.16,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "até",
-   "antes_de": "encontrar",
+   "depois_de": "Uma",
+   "antes_de": "poça",
    "ini": 85.35,
    "dur": 0.08,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "encontrar",
-   "antes_de": "comida",
+   "depois_de": "poça",
+   "antes_de": "poderia",
    "ini": 85.84,
    "dur": 0.21,
    "tipo": "nenhuma"
   },
   {
+   "depois_de": "poderia",
+   "antes_de": "dificultar",
+   "ini": 86.46,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "dificultar",
+   "antes_de": "sua",
+   "ini": 87.34,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "passagem",
+   "ini": 87.5,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "passagem",
+   "antes_de": "e",
+   "ini": 88.05,
+   "dur": 0.49,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "e",
+   "antes_de": "até",
+   "ini": 88.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "até",
+   "antes_de": "encontrar",
+   "ini": 89.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "encontrar",
+   "antes_de": "comida",
+   "ini": 89.55,
+   "dur": 0.06,
+   "tipo": "nenhuma"
+  },
+  {
    "depois_de": "comida",
    "antes_de": "e",
-   "ini": 86.29,
-   "dur": 0.0,
+   "ini": 90.26,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "e",
    "antes_de": "água",
-   "ini": 86.37,
+   "ini": 90.8,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "água",
    "antes_de": "se",
-   "ini": 86.62,
-   "dur": 0.0,
+   "ini": 91.11,
+   "dur": 0.26,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "se",
    "antes_de": "tornaria",
-   "ini": 86.73,
+   "ini": 91.68,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "tornaria",
    "antes_de": "um",
-   "ini": 87.33,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "um",
-   "antes_de": "desafio",
-   "ini": 87.48,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "desafio",
-   "antes_de": "O",
-   "ini": 88.05,
-   "dur": 0.49,
-   "tipo": "frase"
-  },
-  {
-   "depois_de": "O",
-   "antes_de": "mundo",
-   "ini": 88.58,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "mundo",
-   "antes_de": "continuaria",
-   "ini": 88.65,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "continuaria",
-   "antes_de": "exatamente",
-   "ini": 89.34,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "exatamente",
-   "antes_de": "igual",
-   "ini": 89.87,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "igual",
-   "antes_de": "mas",
-   "ini": 90.26,
-   "dur": 0.27,
-   "tipo": "frase"
-  },
-  {
-   "depois_de": "mas",
-   "antes_de": "tudo",
-   "ini": 90.84,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "tudo",
-   "antes_de": "ao",
-   "ini": 91.06,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "ao",
-   "antes_de": "seu",
-   "ini": 91.11,
-   "dur": 0.26,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "seu",
-   "antes_de": "redor",
-   "ini": 91.41,
-   "dur": -0.01,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "redor",
-   "antes_de": "teria",
-   "ini": 91.58,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "teria",
-   "antes_de": "se",
-   "ini": 91.88,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "se",
-   "antes_de": "transformado",
-   "ini": 92.06,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "transformado",
-   "antes_de": "em",
    "ini": 92.3,
    "dur": 0.2,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "em",
-   "antes_de": "um",
-   "ini": 92.54,
-   "dur": -0.04,
-   "tipo": "nenhuma"
-  },
-  {
    "depois_de": "um",
-   "antes_de": "obstáculo",
-   "ini": 92.64,
+   "antes_de": "desafio",
+   "ini": 92.84,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "obstáculo",
-   "antes_de": "gigantesco",
-   "ini": 93.02,
-   "dur": 0.0,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "gigantesco",
+   "depois_de": "desafio",
    "antes_de": "E",
    "ini": 93.3,
    "dur": 0.46,
@@ -2619,49 +2367,49 @@
   {
    "depois_de": "E",
    "antes_de": "sabe",
-   "ini": 93.87,
+   "ini": 94.04,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "sabe",
    "antes_de": "qual",
-   "ini": 94.22,
+   "ini": 94.24,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "qual",
    "antes_de": "seria",
-   "ini": 94.51,
+   "ini": 94.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "seria",
    "antes_de": "a",
-   "ini": 94.9,
+   "ini": 94.92,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "a",
    "antes_de": "parte",
-   "ini": 94.99,
+   "ini": 95.02,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "parte",
    "antes_de": "mais",
-   "ini": 95.46,
+   "ini": 95.4,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mais",
    "antes_de": "assustadora",
-   "ini": 95.73,
+   "ini": 95.86,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2675,14 +2423,14 @@
   {
    "depois_de": "Você",
    "antes_de": "não",
-   "ini": 97.32,
+   "ini": 97.36,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "não",
    "antes_de": "estaria",
-   "ini": 97.47,
+   "ini": 97.66,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2696,29 +2444,29 @@
   {
    "depois_de": "em",
    "antes_de": "um",
-   "ini": 98.3,
+   "ini": 98.48,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "mundo",
-   "ini": 98.59,
+   "ini": 98.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mundo",
    "antes_de": "diferente",
-   "ini": 98.99,
+   "ini": 99.08,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "diferente",
    "antes_de": "Estaria",
-   "ini": 99.7,
-   "dur": 0.43,
+   "ini": 99.68,
+   "dur": 0.7,
    "tipo": "frase"
   },
   {
@@ -2731,35 +2479,35 @@
   {
    "depois_de": "exatamente",
    "antes_de": "no",
-   "ini": 101.93,
+   "ini": 101.88,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "no",
    "antes_de": "mesmo",
-   "ini": 102.17,
+   "ini": 102.3,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mesmo",
    "antes_de": "mundo",
-   "ini": 102.65,
+   "ini": 102.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "mundo",
    "antes_de": "de",
-   "ini": 103.09,
+   "ini": 103.14,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "de",
    "antes_de": "sempre",
-   "ini": 103.22,
+   "ini": 103.46,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2773,7 +2521,7 @@
   {
    "depois_de": "Só",
    "antes_de": "que",
-   "ini": 104.48,
+   "ini": 104.54,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2787,7 +2535,7 @@
   {
    "depois_de": "dessa",
    "antes_de": "vez",
-   "ini": 105.25,
+   "ini": 105.28,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2795,13 +2543,13 @@
    "depois_de": "vez",
    "antes_de": "seria",
    "ini": 105.61,
-   "dur": 0.26,
+   "dur": 0.53,
    "tipo": "virgula"
   },
   {
    "depois_de": "seria",
    "antes_de": "você",
-   "ini": 106.27,
+   "ini": 106.32,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2822,14 +2570,14 @@
   {
    "depois_de": "teria",
    "antes_de": "se",
-   "ini": 107.64,
+   "ini": 107.66,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "se",
    "antes_de": "tornado",
-   "ini": 107.78,
+   "ini": 107.92,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2843,7 +2591,7 @@
   {
    "depois_de": "pequeno",
    "antes_de": "demais",
-   "ini": 108.81,
+   "ini": 108.9,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2857,7 +2605,7 @@
   {
    "depois_de": "para",
    "antes_de": "ele",
-   "ini": 109.52,
+   "ini": 109.58,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -2886,9 +2634,16 @@
   },
   {
    "depois_de": "apenas",
-   "antes_de": "cinco",
+   "antes_de": "5",
    "ini": 4.38,
    "dur": 0.3,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "pareceria",
+   "antes_de": "uma",
+   "ini": 11.23,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
@@ -2913,34 +2668,53 @@
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "movimento",
-   "antes_de": "errado",
-   "ini": 54.95,
-   "dur": 0.46,
+   "depois_de": "seria",
+   "antes_de": "um",
+   "ini": 52.56,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "em",
-   "antes_de": "uma",
-   "ini": 57.32,
-   "dur": 0.34,
+   "depois_de": "comida",
+   "antes_de": "e",
+   "ini": 90.26,
+   "dur": 0.27,
    "tipo": "nenhuma"
   },
   {
-   "depois_de": "dificultar",
-   "antes_de": "sua",
-   "ini": 81.12,
-   "dur": 0.44,
-   "tipo": "nenhuma"
-  },
-  {
-   "depois_de": "ao",
-   "antes_de": "seu",
+   "depois_de": "água",
+   "antes_de": "se",
    "ini": 91.11,
    "dur": 0.26,
    "tipo": "nenhuma"
   }
  ],
+ "alinhamento": {
+  "metodo": "whisper",
+  "diferencas_roteiro_x_fala": [],
+  "palavras_baixa_confianca": [
+   {
+    "w": "Imagine",
+    "ini": 0.15,
+    "confianca": 0.159
+   },
+   {
+    "w": "Uma",
+    "ini": 29.53,
+    "confianca": 0.22
+   },
+   {
+    "w": "e",
+    "ini": 57.66,
+    "confianca": 0.254
+   },
+   {
+    "w": "para",
+    "ini": 109.28,
+    "confianca": 0.544
+   }
+  ]
+ },
  "picos": {
   "amostra_max": 0.5762,
   "clipadas": 0
