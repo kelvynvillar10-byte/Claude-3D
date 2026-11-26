@@ -230,7 +230,7 @@ class Placa:
         s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
         personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
         fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
-        if tom_personagem is not None:          # extensão X1 (tom de luz no personagem) — só com aprovação; None = sem mudança
+        if tom_personagem is not None:          # extensão X1 (tom de luz no personagem, aprovada 26/11/2026); None = sem mudança
             fig = tom_personagem(fig, d, self, cam)
         vis = (1 - occ)[..., None]                                   # skia: RGBA pré-multiplicado
         self.ultima_oclusao = occ
@@ -264,7 +264,7 @@ class Placa:
             s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
             personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
             fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
-            if tom_personagem is not None:      # extensão X1 (tom de luz no personagem) — só com aprovação; None = sem mudança
+            if tom_personagem is not None:      # extensão X1 (tom de luz no personagem, aprovada 26/11/2026); None = sem mudança
                 fig = tom_personagem(fig, d, self, cam)
             vis = (1 - occ)[..., None]; self.ultima_oclusao = occ
             d = fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis); self.ultimo_alfa_personagem = fig[..., 3] * vis[..., 0]

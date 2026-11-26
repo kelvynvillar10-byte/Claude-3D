@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Testes e demonstração da EXTENSÃO X1 (tom de luz no personagem) — PROPOSTA, aguardando aprovação.
+"""Testes e demonstração da EXTENSÃO X1 (tom de luz no personagem) — APROVADA pelo diretor em 26/11/2026.
 
 1 desligado = idêntico (regressão do encaixe no compositor)
 2 o desenho não muda: alfa idêntico; luz neutra = mesmas cores (≤ 1/255)

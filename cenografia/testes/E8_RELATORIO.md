@@ -99,7 +99,7 @@ Os 19,6 s de vídeo levaram ~38 min de composição. As placas já estavam pront
    - pedaços desenhados juntos, um cobrindo o outro. Medido pedaço por pedaço, dá 0,0, e os pedaços passaram a ser desenhados em ordem de profundidade.
 
 ## Limitações (registradas, não escondidas)
-1. **O Heitor não recebe a luz do raio** (nem a sombra da poeira). A luz no personagem é calculada e registrada, mas não aplicada. É a **extensão de iluminação do rig, que depende da sua aprovação**, e é a limitação mais visível da eletricidade à noite.
+1. **O Heitor não recebe a luz do raio** (nem a sombra da poeira) neste vídeo. **Resolvido pela extensão X1 (tom de luz), aprovada em 26/11/2026** (`personagens/heitor/extensoes/x1_tom_de_luz/`). O vídeo da E8 aprovado fica como está; a sombra da poeira continua sem tratamento.
 2. **Pose simples:** o Heitor só aponta um braço (sem antecipação de corpo inteiro, sem passo). Gestos mais fortes, como as duas mãos ou agachar e bater no chão, precisariam de poses novas do rig, que é extensão.
 3. **Os pedaços de terra são lajes com lados lisos**, e a cratera e o queimado são decalques planos. Leem bem em plano médio; de perto parecem recorte.
 4. **Pilar com 7 faces e fendas desenhadas:** sem textura de rocha detalhada. Para planos de destaque, a proposta prevê rochas 3D pré-renderizadas.

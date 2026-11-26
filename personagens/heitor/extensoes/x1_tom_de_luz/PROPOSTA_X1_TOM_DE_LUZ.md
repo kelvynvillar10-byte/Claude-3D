@@ -1,6 +1,10 @@
 # Proposta X1: tom de luz no personagem
 
-26/11/2026 · **AGUARDANDO APROVAÇÃO DO DIRETOR.** Até lá a extensão fica **desligada em toda a produção**. O encaixe no compositor existe, mas o padrão é `tom_personagem=None`, que não muda nada.
+26/11/2026 · **X1 APROVADA pelo diretor em 26/11/2026** ("Aprovar x1, ajuste não e corrigir borda não"). Decisões:
+- **força padrão mantida** (`forca=1.0`, piso noturno 0,62), sem ajuste;
+- **a borda do compositor NÃO será corrigida** (seção 5): os quadros aprovados ficam como estão.
+
+Ligada por quem compõe (parâmetro `tom_personagem`); o padrão do compositor continua `None`, para que os quadros já aprovados não mudem. O rig v2 continua intocado.
 
 ## 1. Justificativa
 Hoje o Heitor é sempre desenhado com a mesma luz, qualquer que seja o horário ou o efeito. Isso aparece em dois casos:

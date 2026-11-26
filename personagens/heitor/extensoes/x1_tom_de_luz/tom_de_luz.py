@@ -1,4 +1,4 @@
-"""EXTENSÃO X1 (PROPOSTA) — TOM DE LUZ NO PERSONAGEM. Não altera o rig v2: atua DEPOIS do desenho, sobre a camada do
+"""EXTENSÃO X1 (APROVADA em 26/11/2026) — TOM DE LUZ NO PERSONAGEM. Não altera o rig v2: atua DEPOIS do desenho, sobre a camada do
 Heitor (RGBA), dentro do compositor (encaixe `tom_personagem`). O desenho (forma, contorno, alfa) não muda; só a luz.
 
 Formato: o mesmo que o compositor recebe (cor não pré-multiplicada, como o skia entrega).
