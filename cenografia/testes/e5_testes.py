@@ -63,7 +63,7 @@ FOLHAS = {
     "mobiliario": ({"pos": [7.5, 9.6, 2.2], "alvo": [0.0, 9.6, 1.0], "lente_mm": 20},
                    [("mobiliario", {"tipo": t, "y": y}, n) for t, y, n in
                     [("banco", -1.6, "banco"), ("conteiner", 0.6, "contêiner"), ("sacos", 2.2, "sacos de lixo"), ("ponto_onibus", 4.7, "ponto de ônibus"),
-                     ("banca", 9.0, "banca"), ("cones", 11.4, "cones"), ("bicicleta", 14.4, "bicicleta"), ("vaso", 15.9, "vaso"),
+                     ("banca", 9.0, "banca"), ("cones", 12.7, "cones"), ("bicicleta", 14.6, "bicicleta"), ("vaso", 15.9, "vaso"),
                      ("mesa_bar", 17.8, "mesa de bar"), ("engradados", 19.6, "engradados"), ("frutas", 21.4, "bancada de frutas")]]),
 }
 

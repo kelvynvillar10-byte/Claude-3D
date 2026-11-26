@@ -73,7 +73,8 @@ def nada_atravessando(cena):
     """E5: cada peça de ambientação (rótulo 'ambientacao') não pode atravessar a geometria vizinha (BVH, triângulos
     reais; o chão — topo ≤ 20 cm — não conta). O espalhamento já testa na hora de colocar; aqui é a conferência final,
     que pega também o que outro componente pôs depois."""
-    from cenografia.componentes.ambientacao import colisoes
+    from cenografia.componentes.ambientacao import colisoes, _limpar_cache
+    _limpar_cache()
     grupos = [o for o in cena.objects if o.get("ambientacao")]; ruins = []
     for g in grupos:
         hits = colisoes(cena, [g] + list(g.children_recursive), ignorar=[g["ignorar_colisao"]] if g.get("ignorar_colisao") else ())

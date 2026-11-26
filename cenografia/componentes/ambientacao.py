@@ -47,6 +47,7 @@ def _adotar(col, raiz, antes, grupo=True):
 
 def _remover(raiz):
     for o in list(raiz.children_recursive) + [raiz]:
+        k = o.as_pointer(); _CACHE_BB.pop(k, None); _CACHE_BVH.pop(k, None)
         bpy.data.objects.remove(o, do_unlink=True)
 
 
@@ -129,7 +130,7 @@ def arvore(nome, col, rng, especie="frondosa", escala=1.0, flor="amarelo"):
             s = rng.uniform(*tam) * escala
             loc = p + d * s * 0.3 + Vector((rng.uniform(-0.3, 0.3), rng.uniform(-0.3, 0.3), rng.uniform(-0.1, 0.25))) * escala
             cor = rng.choice(cores) if (especie == "frondosa" or rng.random() < 0.85) else rng.choice(FOLHAS["frondosa"])
-            _inst(f"{nome}_copa{i}", _aglomerado(rng.randint(0, 3)), loc, (s, s, s), (0, 0, rng.uniform(0, 6.28)), M.folhagem(cor, round(1.0 / max(s, 0.3), 1)), col)
+            _inst(f"{nome}_copa{i}", _aglomerado(rng.randint(0, 3)), loc, (s, s, s), (0, 0, rng.uniform(0, 6.28)), M.folhagem(cor, round(1.0 / max(s, 0.3), 1), sss=0.0), col)
             topo = max(topo, loc.z + s * 0.78); i += 1
     return topo
 
@@ -142,7 +143,7 @@ def _palmeira(nome, col, rng, escala, casca):
         _cone(bm, pts[i], pts[i + 1], 0.2 * escala * (1 - 0.25 * i / n), 0.2 * escala * (1 - 0.25 * (i + 1) / n), seg=10)
     me = bpy.data.meshes.new(nome + "_estipe"); bm.to_mesh(me); bm.free()
     o = bpy.data.objects.new(me.name, me); o.data.materials.append(M.pintura("#8a7a62", rug=0.9, desgaste=0.7)); col.objects.link(o)
-    topo = pts[-1]; folha = M.folhagem(rng.choice(FOLHAS["palmeira"]), 2.0)
+    topo = pts[-1]; folha = M.folhagem(rng.choice(FOLHAS["palmeira"]), 2.0, sss=0.0)
     for k in range(rng.randint(10, 13)):   # folhas: tiras arqueadas e pendentes, mais largas no meio
         az = 2 * math.pi * k / 12 + rng.uniform(-0.2, 0.2); L = rng.uniform(2.2, 3.0) * escala; elev = rng.uniform(0.2, 0.7)
         bmf = bmesh.new(); m = 10; lin_e, lin_d = [], []
@@ -165,7 +166,7 @@ def arbusto(nome, col, rng, raio=0.6):
     for i in range(rng.randint(3, 5)):
         s = raio * rng.uniform(0.55, 0.85); a = rng.uniform(0, 6.28); dd = rng.uniform(0, raio * 0.5)
         _inst(f"{nome}_b{i}", _aglomerado(rng.randint(0, 3)), (dd * math.cos(a), dd * math.sin(a), s * 0.62), (s, s, s), (0, 0, a),
-              M.folhagem(rng.choice(FOLHAS["arbusto"]), round(1.0 / max(s, 0.3), 1)), col)
+              M.folhagem(rng.choice(FOLHAS["arbusto"]), round(1.0 / max(s, 0.3), 1), sss=0.0), col)
     return raio * 1.4
 
 
@@ -343,7 +344,24 @@ def _superficie(cena, dg, x, y, z_de=3.0):
     return loc.z if ok else None
 
 
-def _bvh_mundo(o, dg):
+_CACHE_BB, _CACHE_BVH = {}, {}       # objetos parados: caixa e BVH calculadas uma vez (limpo a cada componente)
+
+
+def _limpar_cache():
+    _CACHE_BB.clear(); _CACHE_BVH.clear()
+
+
+def _bvh_mundo(o, dg, cache=False):
+    k = o.as_pointer()
+    if cache and k in _CACHE_BVH:
+        return _CACHE_BVH[k]
+    t = _bvh_mundo_calc(o, dg)
+    if cache:
+        _CACHE_BVH[k] = t
+    return t
+
+
+def _bvh_mundo_calc(o, dg):
     ev = o.evaluated_get(dg); me = ev.to_mesh()
     vs = [o.matrix_world @ v.co for v in me.vertices]; fs = [tuple(p.vertices) for p in me.polygons]
     ev.to_mesh_clear()
@@ -367,12 +385,15 @@ def colisoes(cena, objs_grupo, ignorar=(), chao_z=0.2):
     for o in cena.objects:
         if o.type != "MESH" or o.name in nomes:
             continue
-        a, b = _bbox([o])
+        k = o.as_pointer()
+        if k not in _CACHE_BB:
+            _CACHE_BB[k] = _bbox([o])
+        a, b = _CACHE_BB[k]
         if b.z <= chao_z or a.x > mx.x or b.x < mn.x or a.y > mx.y or b.y < mn.y or a.z > mx.z or b.z < mn.z:
             continue
         if arvs is None:
             arvs = [t for t in (_bvh_mundo(m, dg) for m in malhas) if t is not None]
-        t2 = _bvh_mundo(o, dg)
+        t2 = _bvh_mundo(o, dg, cache=True)
         if t2 is not None and any(t.overlap(t2) for t in arvs):
             hits.append(o.name)
     return hits
@@ -424,6 +445,7 @@ def c_mobiliario(ctx, p, rng, col):
 def c_arborizacao(ctx, p, rng, col):
     """Árvores nos canteiros de árvore da rua (objetos '*_terra*' já montados), por semente. Se a copa atravessar algo
     (fachada, varanda, toldo, poste), tenta uma árvore menor; se ainda atravessar, o canteiro fica com um arbusto."""
+    _limpar_cache()
     cena = ctx["cena"]; bpy.context.view_layer.update()
     especies = p.get("especies", {"frondosa": 0.6, "ipe": 0.3, "palmeira": 0.1})
     canteiros = sorted([o for o in cena.objects if "_terra" in o.name and o.type == "MESH"], key=lambda o: o.name)
@@ -489,6 +511,7 @@ def c_ambientacao(ctx, p, rng, col):
     """Espalha mobiliário nas calçadas com regras. params: faixas [[x0, y0, x1, y1, rot_graus], …] (onde pode ir, e para
     onde a peça olha), itens {tipo: quantidade}, livres [[x0, y0, x1, y1], …] (portas, garagens, faixa de pedestre,
     lugar do Heitor), dist_min (0,4)."""
+    _limpar_cache()
     cena = ctx["cena"]; bpy.context.view_layer.update()
     faixas = p["faixas"]; livres = p.get("livres", []); ocup = []; nome = p.get("nome", "amb")
     raios = {"banco": 1.0, "conteiner": 0.9, "sacos": 0.5, "ponto_onibus": 1.9, "banca": 1.7, "cones": 0.6, "bicicleta": 0.7,
@@ -510,6 +533,7 @@ def c_ambientacao(ctx, p, rng, col):
 @componente("mesas_bar")
 def c_mesas_bar(ctx, p, rng, col):
     """Mesas de bar (e engradados) na calçada em frente às lojas cujo letreiro tem um dos nomes dados."""
+    _limpar_cache()
     cena = ctx["cena"]; bpy.context.view_layer.update()
     nomes = set(p.get("lojas", ["LANCHONETE", "PADARIA"])); ocup = []; k = 0
     for t in sorted([o for o in cena.objects if o.type == "FONT" and o.data.body in nomes], key=lambda o: o.name):

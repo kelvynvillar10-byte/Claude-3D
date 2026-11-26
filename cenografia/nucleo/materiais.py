@@ -307,8 +307,9 @@ def borracha(cor="#1b1b1d"):
     return pintura(cor, rug=0.85)
 
 
-def folhagem(cor="#4f7a3a", escala=1.0):
-    chave = ("folhagem", cor, escala)
+def folhagem(cor="#4f7a3a", escala=1.0, sss=0.08):
+    """sss: espalhamento subsuperficial (luz atravessando a folha). Caro na CPU: as copas da E5 usam 0."""
+    chave = ("folhagem", cor, escala, sss)
     if chave in _CACHE:
         return _CACHE[chave]
     t = _NT("folhagem"); v = t.coord("Object")
@@ -318,7 +319,7 @@ def folhagem(cor="#4f7a3a", escala=1.0):
     base = t.mistura(base, _escurece(cor, 0.6), t.mat_valor(luz, 0.0, 0.45))
     t.l(base, t.b.inputs["Base Color"]); t.b.inputs["Roughness"].default_value = 0.75
     t.l(t.relevo(folhas.outputs["Distance"], 0.6, 0.02), t.b.inputs["Normal"])
-    t.b.inputs["Subsurface Weight"].default_value = 0.08
+    t.b.inputs["Subsurface Weight"].default_value = sss
     return _guardar(chave, t.m)
 
 
