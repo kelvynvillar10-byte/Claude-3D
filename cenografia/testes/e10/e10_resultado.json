@@ -1,0 +1,53 @@
+{
+ "planos": {
+  "A_despertar": {
+   "rotulo": "em cima do edredom: os travesseiros viram montanhas",
+   "chave": "bac408ac1821d6c8",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.224,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 363.5,
+   "heitor_dist_camera_m": 0.218,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "B_cama_predio": {
+   "rotulo": "do chão: a cama vira um prédio de 14 m na escala dele",
+   "chave": "5afd654d527fed62",
+   "cache": false,
+   "render_s": 411.6,
+   "foco_m": 0.256,
+   "abertura_f": 5.6,
+   "heitor_altura_px_placa": 355.3,
+   "heitor_dist_camera_m": 0.184,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "C_moeda": {
+   "rotulo": "no chão: moeda de 27 mm, gotas, migalhas e poeira",
+   "chave": "98f241c55e4bb30c",
+   "cache": false,
+   "render_s": 396.4,
+   "foco_m": 0.173,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 643.4,
+   "heitor_dist_camera_m": 0.178,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "D_celular": {
+   "rotulo": "no criado-mudo: o celular de pé vira um painel de 4 m",
+   "chave": "af881f2f44d5082e",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.199,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 413.1,
+   "heitor_dist_camera_m": 0.192,
+   "flutuando": [],
+   "textos_3d": []
+  }
+ },
+ "rapido": false
+}
