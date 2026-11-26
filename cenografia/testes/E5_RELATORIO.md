@@ -1,6 +1,6 @@
 # Relatório da etapa E5 — ambientação
 
-25–26/11/2026 · Autorizada pelo diretor junto com a aprovação da E4 ("Aprovar e autorizar"). **Aguardando avaliação do diretor. A E6 não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
+25–26/11/2026 · Autorizada pelo diretor junto com a aprovação da E4 ("Aprovar e autorizar"). **E5 APROVADA pelo diretor em 26/11/2026; E6 autorizada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado.
 
 Escopo do plano aprovado (seção 2.5 da proposta):
 - árvores com tronco ramificado por algoritmo e copa em aglomerados de folhas, não esferas;

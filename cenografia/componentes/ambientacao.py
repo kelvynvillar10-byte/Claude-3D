@@ -399,13 +399,15 @@ def colisoes(cena, objs_grupo, ignorar=(), chao_z=0.2):
     return hits
 
 
-def _colocar(cena, col, rng, nome, construtor, posicoes, rot_z, altura, livres, ocupados, raio, max_tent=30):
+def _colocar(cena, col, rng, nome, construtor, posicoes, rot_z, altura, livres, ocupados, raio, max_tent=30, corredores=()):
     """Tenta colocar a peça: apoio real (raio para baixo), coluna livre (raio para cima), áreas livres, distância mínima
     e, por fim, o teste de colisão com a geometria vizinha. Retorna a raiz ou None."""
     dg = bpy.context.evaluated_depsgraph_get()
     for _ in range(max_tent):
         x, y = posicoes()
         if any(a <= x <= b and c <= y <= d for a, c, b, d in livres):
+            continue
+        if any(a - raio <= x <= b + raio and c - raio <= y <= d + raio for a, c, b, d in corredores):   # a peça INTEIRA fica fora
             continue
         if any(math.hypot(x - ox, y - oy) < raio + orr for ox, oy, orr in ocupados):
             continue
@@ -509,8 +511,9 @@ def c_arborizacao(ctx, p, rng, col):
 @componente("ambientacao")
 def c_ambientacao(ctx, p, rng, col):
     """Espalha mobiliário nas calçadas com regras. params: faixas [[x0, y0, x1, y1, rot_graus], …] (onde pode ir, e para
-    onde a peça olha), itens {tipo: quantidade}, livres [[x0, y0, x1, y1], …] (portas, garagens, faixa de pedestre,
-    lugar do Heitor), dist_min (0,4)."""
+    onde a peça olha), itens {tipo: quantidade}, livres [[x0, y0, x1, y1], …] (o CENTRO da peça não pode cair ali:
+    portas, garagens, lugar do Heitor), corredores [[x0, y0, x1, y1], …] (a peça INTEIRA fica fora: caminho de
+    personagem), dist_min (0,4)."""
     _limpar_cache()
     cena = ctx["cena"]; bpy.context.view_layer.update()
     faixas = p["faixas"]; livres = p.get("livres", []); ocup = []; nome = p.get("nome", "amb")
@@ -523,7 +526,7 @@ def c_ambientacao(ctx, p, rng, col):
             fx = rng.choice(faixas)
             pos = lambda fx=fx: (rng.uniform(fx[0], fx[2]), rng.uniform(fx[1], fx[3]))
             r = _colocar(cena, col, rng, f"{nome}_{k}_{tipo}", ITENS[tipo], pos, math.radians(fx[4] if len(fx) > 4 else 0.0),
-                         ALTURA[tipo], livres, ocup, raios[tipo] + p.get("dist_min", 0.4) / 2)
+                         ALTURA[tipo], livres, ocup, raios[tipo] + p.get("dist_min", 0.4) / 2, corredores=p.get("corredores", []))
             k += 1
             if r is not None:
                 relatorio[tipo] += 1
@@ -544,10 +547,10 @@ def c_mesas_bar(ctx, p, rng, col):
                 c = base + n * rng.uniform(1.2, 2.3) + ao_longo * rng.uniform(-2.5, 2.5)
                 return c.x, c.y
             _colocar(cena, col, rng, f"{p.get('nome', 'bar')}_{k}", mesa_bar, pos, rng.uniform(0, 1.5), ALTURA["mesa_bar"],
-                     p.get("livres", []), ocup, 1.05)
+                     p.get("livres", []), ocup, 1.05, corredores=p.get("corredores", []))
             k += 1
         def pos_e():
             c = base + n * 0.5 + ao_longo * rng.uniform(-2.0, 2.0)
             return c.x, c.y
         _colocar(cena, col, rng, f"{p.get('nome', 'bar')}_eng{k}", engradados, pos_e, math.atan2(n.y, n.x), ALTURA["engradados"],
-                 p.get("livres", []), ocup, 0.45)
+                 p.get("livres", []), ocup, 0.45, corredores=p.get("corredores", []))
