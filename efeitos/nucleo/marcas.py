@@ -9,7 +9,8 @@ TEX = 256
 
 
 def textura(tipo, semente=1):
-    """RGBA pré-multiplicado (0..1), TEX×TEX: 'queimado' (mancha escura irregular) ou 'rachadura' (fendas ramificadas)."""
+    """RGBA pré-multiplicado (0..1), TEX×TEX: 'queimado' (mancha escura irregular), 'rachadura' (fendas ramificadas) ou
+    'cratera' (fundo escuro, borda de terra levantada, raios de terra jogada)."""
     rng = np.random.default_rng(semente); yy, xx = np.mgrid[0:TEX, 0:TEX].astype(np.float32) / TEX - 0.5
     r = np.sqrt(xx ** 2 + yy ** 2) * 2; ang = np.arctan2(yy, xx)
     if tipo == "queimado":
@@ -17,6 +18,15 @@ def textura(tipo, semente=1):
         a = np.clip((borda - r) / 0.35, 0, 1) ** 1.3 * 0.85
         cor = np.array([0.05, 0.04, 0.035], np.float32)
         return np.dstack([cor[None, None, :] * a[..., None], a]).astype(np.float32)
+    if tipo == "cratera":     # fundo escuro, borda levantada mais clara (terra revolvida), raios de terra jogada
+        borda = 0.62 + 0.06 * np.sin(ang * 7 + rng.uniform(0, 6))
+        fundo = np.clip((borda - r) / 0.25, 0, 1)
+        anel = np.exp(-((r - borda - 0.06) / 0.09) ** 2) * (0.8 + 0.2 * np.sin(ang * 23))
+        raios_t = np.clip(np.sin(ang * 11 + 2 * np.sin(ang * 3)) * 0.5 + 0.5, 0, 1) ** 6 * np.clip(1.15 - r, 0, 1) * (r > borda)
+        a = np.clip(fundo * 0.92 + anel * 0.8 + raios_t * 0.5, 0, 1)
+        cor = (fundo[..., None] * np.array([0.09, 0.07, 0.05]) + anel[..., None] * np.array([0.48, 0.38, 0.27])
+               + raios_t[..., None] * np.array([0.42, 0.34, 0.25])) / np.maximum(fundo + anel + raios_t, 1e-6)[..., None]
+        return np.dstack([cor * a[..., None], a]).astype(np.float32)
     s = skia.Surface(TEX, TEX); cv = s.getCanvas(); cv.clear(0)
     p = skia.Paint(AntiAlias=True, Style=skia.Paint.kStroke_Style, Color=skia.Color(18, 14, 12), StrokeCap=skia.Paint.kRound_Cap)
     def fenda(x, y, a, L, w, nivel):

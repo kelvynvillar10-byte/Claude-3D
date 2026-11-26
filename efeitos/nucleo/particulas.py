@@ -83,6 +83,9 @@ class Sistema:
                 for k in range(3):        # 3 sub-manchas defasadas: borda irregular (não é bola)
                     ang = self.fase[i] + k * 2.1; dd = r * cresce * 0.35
                     tela.mancha(x + dd * math.cos(ang), y + dd * math.sin(ang) * 0.6, r * cresce * (0.8 + 0.15 * k), self.cor[i], a * 0.5, z, "alpha")
+            elif estilo == "pedra":       # lasca de pedra/terra: disco sólido que cobre, com face clara
+                tela.mancha(x, y, max(1.2, r), self.cor[i], 1.0, z, "alpha", perfil="disco")
+                tela.mancha(x - r * 0.25, y - r * 0.3, max(0.8, r * 0.45), np.clip(self.cor[i] * 1.5, 0, 1), 0.8, z, "alpha", perfil="disco")
             else:   # brilho
                 a = ganho * math.sin(math.pi * vida); tela.mancha(x, y, r, self.cor[i] * a, 1.0, z, "add")
                 tela.mancha(x, y, r * 3, self.cor[i] * a * 0.2, 1.0, z, "add")

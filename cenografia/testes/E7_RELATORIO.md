@@ -1,6 +1,6 @@
 # Relatório da etapa E7 — núcleo de efeitos
 
-26/11/2026 · Autorizada pelo diretor junto com a aprovação da E6 ("Autorizado e aprovado"). **Aguardando avaliação do diretor. A E8 (poderes) não foi iniciada.** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado. **Nenhum poder foi feito:** os efeitos do vídeo são demonstrações de cada peça do núcleo.
+26/11/2026 · Autorizada pelo diretor junto com a aprovação da E6 ("Autorizado e aprovado"). **E7 APROVADA pelo diretor em 26/11/2026; E8 autorizada (primeiro eletricidade e terra).** Nenhum episódio ou história foi produzido. O Heitor rig v2 não foi alterado. **Nenhum poder foi feito:** os efeitos do vídeo são demonstrações de cada peça do núcleo.
 
 Escopo do plano aprovado: "partículas, curvas, luz 2D, distorção, fases e registro de plugins". Seguimos a seção 3.1 da proposta (núcleo comum aos poderes) e a 3.3 (clareza, proteção de rosto e estampa, limite de flashes).
 

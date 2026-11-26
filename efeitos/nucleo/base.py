@@ -158,6 +158,36 @@ class Tela:
             m = add_rgb.max(axis=2) > 0.01
             self.z[m] = np.minimum(self.z[m], z)
 
+    def poligonos(self, polys, z, modo="alpha"):
+        """Polígonos preenchidos (skia) numa janela só do tamanho deles: polys = [(pontos [(x, y), …], (r, g, b), alfa)]."""
+        import skia
+        xs = [p[0] for pts, _, _ in polys for p in pts]; ys = [p[1] for pts, _, _ in polys for p in pts]
+        if not xs:
+            return
+        x0, y0 = max(0, int(min(xs)) - 2), max(0, int(min(ys)) - 2); x1, y1 = min(self.W, int(max(xs)) + 3), min(self.H, int(max(ys)) + 3)
+        if x1 - x0 < 1 or y1 - y0 < 1:
+            return
+        s = skia.Surface(x1 - x0, y1 - y0); cv = s.getCanvas(); cv.clear(0)
+        for pts, cor, alfa in polys:
+            path = skia.Path(); path.moveTo(pts[0][0] - x0, pts[0][1] - y0)
+            for q in pts[1:]:
+                path.lineTo(q[0] - x0, q[1] - y0)
+            path.close()
+            cv.drawPath(path, skia.Paint(AntiAlias=True, Color4f=skia.Color4f(float(cor[0]), float(cor[1]), float(cor[2]), float(alfa))))
+        img = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
+        self.recorte(img, x0, y0, z, modo)
+
+    def recorte(self, img, x0, y0, z, modo="alpha"):
+        """Junta um recorte RGBA pré-multiplicado (h×w×4) na posição (x0, y0), com profundidade única."""
+        self._garantir(); h, w = img.shape[:2]
+        sl = (slice(y0, y0 + h), slice(x0, x0 + w)); a = img[..., 3:4]
+        if modo == "add":
+            self.add[sl] += img[..., :3]
+        else:
+            self.rgba[sl][..., :3] = img[..., :3] + self.rgba[sl][..., :3] * (1 - a)
+            self.rgba[sl][..., 3:4] = a + self.rgba[sl][..., 3:4] * (1 - a)
+        m = img[..., 3] > 0.02; zz = self.z[sl]; zz[m] = np.minimum(zz[m], z)
+
     def camada(self):
         return None if self.vazio() else {"rgba": self.rgba, "add": self.add, "z": self.z}
 
@@ -243,6 +273,10 @@ class Mesa:
         if suprimidos:
             self.registro.append({"t": round(t, 3), "suprimidos": suprimidos})
         self.ativos = [e for e in ativos if e.ganho > 0]
+        # resíduos: efeitos que já acabaram mas deixam marca (rachadura, buraco, cratera, pilar, queimado) continuam desenhados
+        self.residuais = [e for e in self.efeitos if getattr(e, "deixa_marca", False) and self.ctx.t - e.inicio > e.fases.duracao]
+        for e in self.residuais:
+            e.ganho = 0.0; e.preparar(self.ctx)
         g = self.governador.ganho(sum(e.brilho_previsto(self.ctx) for e in self.ativos), t)
         for e in self.ativos:
             e.ganho *= g
@@ -256,7 +290,7 @@ class Mesa:
 
     def desenhar(self, P, cam, onde):
         tela = Tela(P.W, P.H)
-        for e in self.ativos:
+        for e in self.ativos + getattr(self, "residuais", []):
             e.desenhar(self.ctx, onde, tela)
         cam_ = tela.camada()
         if cam_ is not None and onde == "frente" and self.protecao and self.ctx.personagem:
