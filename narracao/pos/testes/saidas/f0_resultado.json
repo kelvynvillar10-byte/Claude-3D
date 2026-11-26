@@ -2,7 +2,7 @@
  {
   "teste": "alinhamento_precisao",
   "ok": true,
-  "detalhe": "55 palavras · erro médio 9 ms · p90 25 ms · máx 95 ms (atraso global do MP3 -2 ms descontado)"
+  "detalhe": "55 palavras · erro médio 9 ms · p90 24 ms · máx 94 ms (atraso global do MP3 -3 ms descontado)"
  },
  {
   "teste": "pausa_inadequada_detectada",
@@ -72,7 +72,7 @@
  {
   "teste": "qa:timbre_sem_exagero",
   "ok": true,
-  "detalhe": "variação por banda (dB, final − original): graves_20_80 -1.35, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86"
+  "detalhe": "variação por banda (dB, final − original): graves_20_80 -1.36, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86"
  },
  {
   "teste": "qa:sincronia_final",
@@ -137,6 +137,6 @@
  {
   "teste": "alinhamento_audio_longo",
   "ok": true,
-  "detalhe": "158 s, 385 palavras em 2.5 s · erro médio 6 ms · p90 13 ms · máx 32 ms"
+  "detalhe": "158 s, 385 palavras em 8.8 s · erro médio 5 ms · p90 13 ms · máx 31 ms"
  }
 ]

@@ -69,7 +69,7 @@
 - ✅ **pico_verdadeiro**: -1.8 dBTP (máx. -1.5)
 - ✅ **sem_clipagem**: 0 amostra(s) em fundo de escala
 - ✅ **tom_preservado**: tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.8 semitons
-- ✅ **timbre_sem_exagero**: variação por banda (dB, final − original): graves_20_80 -1.35, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86
+- ✅ **timbre_sem_exagero**: variação por banda (dB, final − original): graves_20_80 -1.36, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86
 - ✅ **sincronia_final**: deslocamento entre o áudio editado e o tratado: 0 amostra(s) (os tempos das palavras valem para o final)
 - ✅ **atraso_dos_filtros_compensado**: atraso medido e compensado: filtros 1200 amostra(s), loudness 0 amostra(s)
 

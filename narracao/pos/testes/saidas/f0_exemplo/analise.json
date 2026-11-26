@@ -250,7 +250,7 @@
   {
    "depois_de": "E",
    "antes_de": "se",
-   "ini": 0.11,
+   "ini": 0.1,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -271,7 +271,7 @@
   {
    "depois_de": "chão",
    "antes_de": "da",
-   "ini": 0.61,
+   "ini": 0.6,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -334,7 +334,7 @@
   {
    "depois_de": "de",
    "antes_de": "anos",
-   "ini": 3.53,
+   "ini": 3.52,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -348,7 +348,7 @@
   {
    "depois_de": "Parece",
    "antes_de": "impossível",
-   "ini": 4.71,
+   "ini": 4.7,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -362,7 +362,7 @@
   {
    "depois_de": "mas",
    "antes_de": "aconteceu",
-   "ini": 5.85,
+   "ini": 5.84,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -376,7 +376,7 @@
   {
    "depois_de": "Em",
    "antes_de": "1991",
-   "ini": 7.21,
+   "ini": 7.2,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -390,7 +390,7 @@
   {
    "depois_de": "um",
    "antes_de": "agricultor",
-   "ini": 9.5,
+   "ini": 9.49,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -460,7 +460,7 @@
   {
    "depois_de": "algo",
    "antes_de": "duro",
-   "ini": 14.04,
+   "ini": 14.03,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -502,7 +502,7 @@
   {
    "depois_de": "percebeu",
    "antes_de": "que",
-   "ini": 17.33,
+   "ini": 17.34,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -516,7 +516,7 @@
   {
    "depois_de": "aquilo",
    "antes_de": "não",
-   "ini": 17.9,
+   "ini": 17.91,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -544,14 +544,14 @@
   {
    "depois_de": "Era",
    "antes_de": "um",
-   "ini": 19.315,
+   "ini": 19.32,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "um",
    "antes_de": "osso",
-   "ini": 19.42,
+   "ini": 19.41,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -600,7 +600,7 @@
   {
    "depois_de": "nunca",
    "antes_de": "mais",
-   "ini": 22.23,
+   "ini": 22.22,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
@@ -614,14 +614,14 @@
   {
    "depois_de": "foi",
    "antes_de": "a",
-   "ini": 22.715,
+   "ini": 22.725,
    "dur": 0.0,
    "tipo": "nenhuma"
   },
   {
    "depois_de": "a",
    "antes_de": "mesma",
-   "ini": 22.83,
+   "ini": 22.84,
    "dur": 0.0,
    "tipo": "nenhuma"
   }

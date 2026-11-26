@@ -87,7 +87,7 @@
    "frase": 2,
    "palavra": "impossível",
    "i": 15,
-   "ini": 4.91,
+   "ini": 4.9,
    "fim": 5.64,
    "ganho_db": 1.5
   },
@@ -95,7 +95,7 @@
    "frase": 3,
    "palavra": "1991",
    "i": 19,
-   "ini": 7.41,
+   "ini": 7.4,
    "fim": 9.44,
    "ganho_db": 1.5
   },
@@ -104,7 +104,7 @@
    "palavra": "nunca",
    "i": 50,
    "ini": 21.24,
-   "fim": 21.6,
+   "fim": 21.59,
    "ganho_db": 1.5
   }
  ],
@@ -215,7 +215,7 @@
    "motivo": "palavra de destaque: milhões"
   },
   {
-   "t": 4.91,
+   "t": 4.9,
    "frase": 2,
    "motivo": "palavra de destaque: impossível"
   },
@@ -225,7 +225,7 @@
    "motivo": "início de ação"
   },
   {
-   "t": 7.41,
+   "t": 7.4,
    "frase": 3,
    "motivo": "palavra de destaque: 1991"
   },

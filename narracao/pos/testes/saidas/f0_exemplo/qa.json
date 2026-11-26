@@ -53,7 +53,7 @@
   {
    "verificacao": "timbre_sem_exagero",
    "ok": true,
-   "detalhe": "variação por banda (dB, final − original): graves_20_80 -1.35, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86"
+   "detalhe": "variação por banda (dB, final − original): graves_20_80 -1.36, corpo_80_250 +1.25, lama_250_500 -0.34, medios_500_2k -0.76, presenca_2k_5k +0.98, sibilancia_5k_10k +2.54, ar_10k_mais +0.86"
   },
   {
    "verificacao": "sincronia_final",
@@ -96,7 +96,7 @@
    "ar_10k_mais": -36.6
   },
   "bandas_final": {
-   "graves_20_80": -38.21,
+   "graves_20_80": -38.22,
    "corpo_80_250": -9.27,
    "lama_250_500": -6.22,
    "medios_500_2k": -4.06,

@@ -138,24 +138,123 @@ def mapear(ref16, real16, limite_celulas=2.5e7):
 
 
 # ------------------------------------------------------------------ alinhamento completo
+VOZES_REF = [("pt-br", 175, 50), ("pt-br+m3", 155, 38), ("pt", 168, 48)]   # conjunto: a mediana corta erros de uma voz só
+
+
+def _estimativa_global(texto, real16):
+    """Início estimado de cada palavra no áudio inteiro (mediana de 3 vozes de referência)."""
+    est = []
+    for voz, vel, tom in VOZES_REF:
+        ref, ini = falar_espeak(texto, voz=voz, velocidade=vel, tom=tom)
+        m = mapear(ref, real16)
+        est.append([float(m[min(len(m) - 1, int(round(t * SR_REF / HOP)))]) * HOP / SR_REF for t in ini])
+    return np.median(np.array(est), 0)
+
+
+def _fronteiras(texto, toks):
+    """Fronteiras de pontuação entre palavras: (k = palavra antes, peso: 1 fim de frase, 0,6 vírgula, dois-pontos ou reticência)."""
+    out = []
+    for k in range(len(toks) - 1):
+        sep = texto[toks[k]["c1"]:toks[k + 1]["c0"]]
+        if re.search(r"[.!?]", sep):
+            out.append((k, 1.0))
+        elif re.search(r"[,;:—–…]", sep):                             # reticência no meio da frase nem sempre vira pausa
+            out.append((k, 0.6))
+    return out
+
+
+def _casar_pausas(fronts, est, pausas):
+    """Casa fronteiras de pontuação com pausas reais (programação dinâmica, em ordem). Devolve {k: (ini, fim) da pausa}."""
+    nB, nP = len(fronts), len(pausas)
+    INF = 1e18
+    D = np.full((nB + 1, nP + 1), INF); D[0, 0] = 0; T = np.zeros((nB + 1, nP + 1), int)
+    pul_p = lambda p: 0.15 + 0.6 * (p[1] - p[0])                       # pausa sem pontuação (acontece: "apenas… cinco")
+    for i in range(nB + 1):
+        for j in range(nP + 1):
+            if i == 0 and j == 0:
+                continue
+            best, arg = INF, 0
+            if i > 0 and j > 0:
+                k, w = fronts[i - 1]; p = pausas[j - 1]
+                t = (est[k + 1] + est[k]) / 2 if k + 1 < len(est) else est[k]
+                c = D[i - 1, j - 1] + min(abs(t - p[0]), abs(t - p[1]), abs(t - (p[0] + p[1]) / 2)) * 0.8 - w * min(p[1] - p[0], 0.6) * 0.5
+                if c < best:
+                    best, arg = c, 1
+            if i > 0:
+                c = D[i - 1, j] + fronts[i - 1][1] * 0.35                 # pontuação sem pausa
+                if c < best:
+                    best, arg = c, 2
+            if j > 0:
+                c = D[i, j - 1] + pul_p(pausas[j - 1])
+                if c < best:
+                    best, arg = c, 3
+            D[i, j] = best; T[i, j] = arg
+    i, j, casadas = nB, nP, {}
+    while i > 0 or j > 0:
+        a = T[i, j]
+        if a == 1:
+            casadas[fronts[i - 1][0]] = pausas[j - 1]; i -= 1; j -= 1
+        elif a == 2:
+            i -= 1
+        else:
+            j -= 1
+    return casadas
+
+
+def _dtw_trecho(texto_trecho, real16, sr16=SR_REF):
+    """Inícios (s, relativos ao trecho) das palavras de um trecho curto: DTW completo com 3 vozes, mediana."""
+    toks = tokens(texto_trecho)
+    if len(toks) == 1:
+        return [0.0]
+    fb = _feat(real16)
+    est = []
+    for voz, vel, tom in VOZES_REF:
+        ref, ini = falar_espeak(texto_trecho, voz=voz, velocidade=vel, tom=tom)
+        fa = _feat(ref)
+        if fa.shape[1] < 2 or fb.shape[1] < 2:
+            continue
+        m = _dtw_mapa(fa, fb)
+        est.append([float(m[min(len(m) - 1, int(round(t * SR_REF / HOP)))]) * HOP / SR_REF for t in ini])
+    if not est:
+        n = len(toks); dur = len(real16) / sr16
+        return [dur * i / n for i in range(n)]
+    v = np.median(np.array(est), 0); v[0] = 0.0
+    return list(np.maximum.accumulate(v))
+
+
 def alinhar(texto, real48, falas, silencios, sr=48000):
-    """Palavras com início e fim (s) na narração real. `falas`/`silencios` vêm de audio.segmentar."""
+    """Palavras com início e fim (s) na narração real. `falas`/`silencios` vêm de audio.segmentar.
+    1) estimativa global (DTW, mediana de 3 vozes); 2) as fronteiras de pontuação são casadas com as pausas reais e viram
+    ÂNCORAS; 3) cada trecho entre âncoras é alinhado sozinho (o erro não se propaga); 4) ajuste fino pelas pausas."""
     import librosa
     toks = tokens(texto)
     if not toks:
         return []
-    ref16, ini_ref = falar_espeak(texto)
     real16 = librosa.resample(real48, orig_sr=sr, target_sr=SR_REF)
-    mapa = mapear(ref16, real16)
-    ini = []
-    for t in ini_ref:
-        q = min(len(mapa) - 1, int(round(t * SR_REF / HOP)))
-        ini.append(float(mapa[q]) * HOP / SR_REF)
-    fim_fala = falas[-1][1] if falas else len(real48) / sr
+    est = _estimativa_global(texto, real16)
     ini_fala = falas[0][0] if falas else 0.0
-    ini[0] = min(ini[0], ini_fala) if abs(ini[0] - ini_fala) < 0.35 else ini[0]
+    fim_fala = falas[-1][1] if falas else len(real48) / sr
+    pausas = [s for s in silencios if s[0] > ini_fala and s[1] < fim_fala and s[1] - s[0] >= 0.12]
+    casadas = _casar_pausas(_fronteiras(texto, toks), est, pausas)
+    # trechos entre âncoras
+    cortes = sorted(casadas)
+    ini = [None] * len(toks)
+    inicio_trecho, k0 = ini_fala, 0
+    for k in cortes + [len(toks) - 1]:
+        k1 = k
+        fim_trecho = casadas[k][0] if k in casadas else fim_fala
+        a, b = int(inicio_trecho * SR_REF), int(fim_trecho * SR_REF)
+        txt = texto[toks[k0]["c0"]:toks[k1]["c1"]]
+        rel = _dtw_trecho(txt, real16[a:b]) if b - a > int(0.05 * SR_REF) else [0.0] * (k1 - k0 + 1)
+        for j, r in enumerate(rel[:k1 - k0 + 1]):
+            ini[k0 + j] = inicio_trecho + r
+        if k in casadas:
+            inicio_trecho, k0 = casadas[k][1], k + 1
+    _interpolar(ini)
     ini = list(np.maximum.accumulate(ini))
     fim = ini[1:] + [fim_fala]
+    for k, p in casadas.items():                                       # a palavra antes da âncora termina na pausa
+        fim[k] = p[0]
     pal = [{"i": k, "w": tk["w"], "c0": tk["c0"], "c1": tk["c1"], "ini": ini[k], "fim": fim[k]} for k, tk in enumerate(toks)]
     _ajustar_pelas_pausas(pal, falas, silencios)
     for p in pal:
