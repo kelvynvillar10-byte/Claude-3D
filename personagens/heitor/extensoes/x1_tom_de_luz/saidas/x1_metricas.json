@@ -1,0 +1,509 @@
+{
+ "X1_1_regressao": {
+  "desligado_identico_ao_de_antes": {
+   "manha_frente": true,
+   "tarde_perfil": true,
+   "noite_costas": true
+  },
+  "_duracao_teste_s": 20.1
+ },
+ "X1_2_neutro": {
+  "diferenca_maxima_8bit": 0.0,
+  "alfa_identico": true,
+  "_duracao_teste_s": 3.6
+ },
+ "X1_6_borda_compositor": {
+  "manha_frente": {
+   "pixels_de_borda": 1899,
+   "pixels_do_heitor": 43015,
+   "clareamento_medio_8bit": 23.5,
+   "clareamento_maximo_8bit": 253.0,
+   "pixels_com_mais_de_20": 1040
+  },
+  "noite_costas": {
+   "pixels_de_borda": 2477,
+   "pixels_do_heitor": 76719,
+   "clareamento_medio_8bit": 23.2,
+   "clareamento_maximo_8bit": 224.0,
+   "pixels_com_mais_de_20": 1296
+  },
+  "_duracao_teste_s": 9.6
+ },
+ "X1_3_situacoes": {
+  "manhã (cena de prova)": {
+   "multiplicador_brilho": 1.0,
+   "tinta_rgb": [
+    0.914,
+    1.032,
+    1.055
+   ],
+   "luzes_de_efeito": 0,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 13.7,
+   "contorno_pct_do_rosto": 9.63,
+   "cores": {
+    "pele": {
+     "pixels": 4866,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      249,
+      225,
+      202
+     ],
+     "delta_E": 5.8,
+     "giro_matiz_graus": 12.0
+    },
+    "camiseta": {
+     "pixels": 8180,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      58,
+      130,
+      222
+     ],
+     "delta_E": 2.2,
+     "giro_matiz_graus": 0.1
+    },
+    "cabelo": {
+     "pixels": 1050,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      57,
+      37,
+      23
+     ],
+     "delta_E": 1.7,
+     "giro_matiz_graus": 3.5
+    }
+   },
+   "tempo_extra_s": 0.79
+  },
+  "tarde dourada, perfil": {
+   "multiplicador_brilho": 1.0,
+   "tinta_rgb": [
+    1.061,
+    0.983,
+    0.956
+   ],
+   "luzes_de_efeito": 0,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 15.98,
+   "contorno_pct_do_rosto": 8.87,
+   "cores": {
+    "pele": {
+     "pixels": 5136,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      255,
+      218,
+      192
+     ],
+     "delta_E": 1.5,
+     "giro_matiz_graus": 4.1
+    },
+    "camiseta": {
+     "pixels": 6461,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      63,
+      127,
+      212
+     ],
+     "delta_E": 1.8,
+     "giro_matiz_graus": -0.5
+    },
+    "cabelo": {
+     "pixels": 1843,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      60,
+      35,
+      21
+     ],
+     "delta_E": 1.5,
+     "giro_matiz_graus": -1.6
+    }
+   },
+   "tempo_extra_s": -0.01
+  },
+  "noite, de costas": {
+   "multiplicador_brilho": 0.62,
+   "tinta_rgb": [
+    0.705,
+    0.574,
+    0.58
+   ],
+   "luzes_de_efeito": 0,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 13.45,
+   "contorno_pct_do_rosto": 10.23,
+   "cores": {
+    "pele": {
+     "pixels": 5465,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      221,
+      172,
+      155
+     ],
+     "delta_E": 16.0,
+     "giro_matiz_graus": -13.7
+    },
+    "camiseta": {
+     "pixels": 20492,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      51,
+      99,
+      170
+     ],
+     "delta_E": 14.0,
+     "giro_matiz_graus": 1.5
+    },
+    "cabelo": {
+     "pixels": 8581,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      49,
+      25,
+      15
+     ],
+     "delta_E": 4.6,
+     "giro_matiz_graus": -7.1
+    }
+   },
+   "tempo_extra_s": 0.04
+  },
+  "eletricidade moderada (manhã)": {
+   "multiplicador_brilho": 1.0,
+   "tinta_rgb": [
+    0.907,
+    1.033,
+    1.061
+   ],
+   "luzes_de_efeito": 2,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 26.12,
+   "contorno_pct_do_rosto": 18.01,
+   "cores": {
+    "pele": {
+     "pixels": 11144,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      254,
+      238,
+      215
+     ],
+     "delta_E": 10.5,
+     "giro_matiz_graus": 23.7
+    },
+    "camiseta": {
+     "pixels": 18676,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      59,
+      135,
+      230
+     ],
+     "delta_E": 4.6,
+     "giro_matiz_graus": -0.0
+    },
+    "cabelo": {
+     "pixels": 2351,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      59,
+      40,
+      26
+     ],
+     "delta_E": 3.0,
+     "giro_matiz_graus": 6.3
+    },
+    "estampa_modo": {
+     "pixels": 56,
+     "cor_sem": [
+      228,
+      230,
+      231
+     ],
+     "cor_com": [
+      224,
+      242,
+      246
+     ],
+     "delta_E": 6.6,
+     "giro_matiz_graus": -16.5,
+     "contraste_sem": 3.21,
+     "contraste_com": 3.14
+    },
+    "estampa_curioso": {
+     "pixels": 36,
+     "cor_sem": [
+      240,
+      188,
+      44
+     ],
+     "cor_com": [
+      234,
+      198,
+      48
+     ],
+     "delta_E": 7.6,
+     "giro_matiz_graus": 5.7,
+     "contraste_sem": 2.28,
+     "contraste_com": 2.18
+    }
+   },
+   "tempo_extra_s": -0.29
+  },
+  "eletricidade extrema (noite)": {
+   "multiplicador_brilho": 0.62,
+   "tinta_rgb": [
+    0.682,
+    0.57,
+    0.608
+   ],
+   "luzes_de_efeito": 2,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 27.5,
+   "contorno_pct_do_rosto": 19.95,
+   "cores": {
+    "pele": {
+     "pixels": 11236,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      229,
+      193,
+      177
+     ],
+     "delta_E": 9.2,
+     "giro_matiz_graus": -8.6
+    },
+    "camiseta": {
+     "pixels": 18680,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      54,
+      116,
+      202
+     ],
+     "delta_E": 4.5,
+     "giro_matiz_graus": 1.6
+    },
+    "cabelo": {
+     "pixels": 2333,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      49,
+      26,
+      16
+     ],
+     "delta_E": 4.3,
+     "giro_matiz_graus": -6.3
+    },
+    "estampa_modo": {
+     "pixels": 56,
+     "cor_sem": [
+      228,
+      230,
+      231
+     ],
+     "cor_com": [
+      205,
+      206,
+      213
+     ],
+     "delta_E": 8.9,
+     "giro_matiz_graus": 46.7,
+     "contraste_sem": 3.21,
+     "contraste_com": 2.97
+    },
+    "estampa_curioso": {
+     "pixels": 36,
+     "cor_sem": [
+      240,
+      188,
+      44
+     ],
+     "cor_com": [
+      218,
+      173,
+      41
+     ],
+     "delta_E": 8.2,
+     "giro_matiz_graus": 1.2,
+     "contraste_sem": 2.28,
+     "contraste_com": 2.22
+    }
+   },
+   "tempo_extra_s": -0.22
+  },
+  "terra extrema (manhã)": {
+   "multiplicador_brilho": 1.0,
+   "tinta_rgb": [
+    0.961,
+    1.005,
+    1.035
+   ],
+   "luzes_de_efeito": 0,
+   "alfa_identico": true,
+   "contorno_pct_do_personagem": 14.21,
+   "contorno_pct_do_rosto": 10.57,
+   "cores": {
+    "pele": {
+     "pixels": 11248,
+     "cor_sem": [
+      254,
+      216,
+      193
+     ],
+     "cor_com": [
+      253,
+      222,
+      201
+     ],
+     "delta_E": 3.5,
+     "giro_matiz_graus": 4.2
+    },
+    "camiseta": {
+     "pixels": 18665,
+     "cor_sem": [
+      60,
+      127,
+      215
+     ],
+     "cor_com": [
+      60,
+      129,
+      220
+     ],
+     "delta_E": 2.0,
+     "giro_matiz_graus": 0.6
+    },
+    "cabelo": {
+     "pixels": 2341,
+     "cor_sem": [
+      57,
+      34,
+      21
+     ],
+     "cor_com": [
+      59,
+      36,
+      23
+     ],
+     "delta_E": 0.8,
+     "giro_matiz_graus": 0.7
+    },
+    "estampa_modo": {
+     "pixels": 56,
+     "cor_sem": [
+      228,
+      230,
+      231
+     ],
+     "cor_com": [
+      226,
+      233,
+      237
+     ],
+     "delta_E": 2.3,
+     "giro_matiz_graus": 7.9,
+     "contraste_sem": 3.21,
+     "contraste_com": 3.17
+    },
+    "estampa_curioso": {
+     "pixels": 36,
+     "cor_sem": [
+      240,
+      188,
+      44
+     ],
+     "cor_com": [
+      236,
+      189,
+      45
+     ],
+     "delta_E": 2.1,
+     "giro_matiz_graus": 1.5,
+     "contraste_sem": 2.28,
+     "contraste_com": 2.21
+    }
+   },
+   "tempo_extra_s": 0.58
+  },
+  "_duracao_teste_s": 116.0
+ },
+ "X1_4_video": {
+  "quadros": 186,
+  "duracao_s": 6.2,
+  "tempo_total_s": 1539.6,
+  "_duracao_teste_s": 1539.6
+ },
+ "X1_5_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 19.7
+ }
+}

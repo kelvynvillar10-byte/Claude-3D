@@ -179,7 +179,8 @@ class Placa:
         return acc, alfa, 1 - livre
 
     def compor(self, pesos=None, cam=None, nevoa=None, personagem=None, profundidade_personagem=None, grade=None, semente_grao=0,
-               saida=(1080, 1920), camadas=None, espessura_m=0.25, ceu_extra=None, frente_extra=None, efeitos=None, deslocamento_px=(0, 0)):
+               saida=(1080, 1920), camadas=None, espessura_m=0.25, ceu_extra=None, frente_extra=None, efeitos=None, deslocamento_px=(0, 0),
+               tom_personagem=None):
         """Retorna o quadro final RGB uint8 (recorte central do tamanho 'saida').
         personagem: função(canvas_skia, projecao) que desenha em RGBA na resolução da placa;
         projecao(x, y, z) → (x', y', escala) aplica o mesmo movimento de câmera ao plano do personagem.
@@ -190,12 +191,13 @@ class Placa:
         ordem = [c for c in self.m["camadas"] if camadas is None or c in camadas]
         if efeitos is not None:                             # E7: núcleo de efeitos (o caminho sem efeitos não muda)
             return self._com_efeitos(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m,
-                                     ceu_extra, frente_extra, efeitos, semente_grao, saida, deslocamento_px)
+                                     ceu_extra, frente_extra, efeitos, semente_grao, saida, deslocamento_px, tom_personagem)
         if personagem is None:
             acc, _, _ = self._pilha(ordem, pesos, cam, nevoa, ceu_extra=ceu_extra)
             disp = self._tom(acc * exp, grade)
         else:
-            disp = self._com_personagem(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m, ceu_extra)
+            disp = self._com_personagem(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m, ceu_extra,
+                                        tom_personagem)
         if frente_extra is not None:                       # chuva etc.: na frente de TUDO, inclusive do personagem
             disp = frente_extra(disp)
         disp = self._final(disp, grade, semente_grao)
@@ -218,7 +220,7 @@ class Placa:
         x = lum + (x - lum) * sat
         return np.clip(_srgb(np.clip(x, 0, 1)), 0, 1).astype(np.float32)
 
-    def _com_personagem(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m, ceu_extra=None):
+    def _com_personagem(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m, ceu_extra=None, tom_personagem=None):
         """Cena inteira (mapeada) + personagem (sRGB, paleta intacta) com teste de profundidade por pixel."""
         import skia
         if D is None:
@@ -228,12 +230,14 @@ class Placa:
         s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
         personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
         fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
+        if tom_personagem is not None:          # extensão X1 (tom de luz no personagem) — só com aprovação; None = sem mudança
+            fig = tom_personagem(fig, d, self, cam)
         vis = (1 - occ)[..., None]                                   # skia: RGBA pré-multiplicado
         self.ultima_oclusao = occ
         return fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis)
 
     def _com_efeitos(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m, ceu_extra, frente_extra, ef, semente,
-                     saida, desloc):
+                     saida, desloc, tom_personagem=None):
         """Ordem: cenário (+ luz dos efeitos, antes do mapeamento de tons) → marcas no chão → efeitos ATRÁS do
         personagem → personagem → efeitos NA FRENTE → distorção → quadro de impacto (se houver) → vinheta e grão →
         recorte (deslocado pela tremida). Cada camada de efeito tem profundidade por pixel: o que está mais perto da
@@ -260,6 +264,8 @@ class Placa:
             s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
             personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
             fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
+            if tom_personagem is not None:      # extensão X1 (tom de luz no personagem) — só com aprovação; None = sem mudança
+                fig = tom_personagem(fig, d, self, cam)
             vis = (1 - occ)[..., None]; self.ultima_oclusao = occ
             d = fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis); self.ultimo_alfa_personagem = fig[..., 3] * vis[..., 0]
         d = aplicar(d, ef.desenhar(self, cam, "frente"))

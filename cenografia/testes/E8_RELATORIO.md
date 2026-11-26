@@ -2,7 +2,7 @@
 
 26/11/2026 · Autorizada pelo diretor junto com a aprovação da E7 ("Autorizado e aprovado"). Pela regra aprovada, **eletricidade e terra vêm primeiro e não mexem no rig.**
 - **Voo, aranha e elasticidade NÃO foram iniciados:** dependem de extensões do rig que precisam de aprovação específica.
-- **Aguardando avaliação do diretor.**
+- **E8 parte 1 APROVADA pelo diretor em 26/11/2026.**
 - Nenhum episódio ou história foi produzido.
 - O Heitor rig v2 não foi alterado: ele foi apenas **posado** com a API do próprio rig (`mira_braco` para apontar o braço ao alvo, com o cotovelo sempre anatômico; `mistura_expr` para a expressão de neutro → bravo).
 
