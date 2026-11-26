@@ -58,7 +58,7 @@ Funcionamento:
 | Teste | O que faz | Caracteres | Situação |
 |---|---|---|---|
 | T0 | testes sem rede | 0 | **feito: 21/21 OK** |
-| T1 | consulta de vozes, sem síntese | 0 | **feito 1×: código 1004 (não autenticou)**; sem cobrança indicada; parado aguardando o diretor |
+| T1 | consulta de vozes, sem síntese | 0 | **2 consultas, ambas código 1004 (não autenticou)**: a 1ª com a senha de login por engano, a 2ª depois de trocar pela API Secret Key; sem cobrança indicada; parado aguardando o diretor |
 | T2 | "Olá, Modo Curioso." (voz + modelo + tempos por palavra) | 18 | aguarda autorização |
 | T3 | "Olha só." com happy e surprised | 16 | aguarda autorização |
 | T4 | comparativo A, B e C | 208 | aguarda autorização |
