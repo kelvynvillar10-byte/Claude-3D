@@ -1,0 +1,216 @@
+{
+ "versao": 1,
+ "revisado": false,
+ "frases": [
+  {
+   "n": 1,
+   "texto": "E se o chão da sua casa guardasse um segredo de milhões de anos?",
+   "c0": 0,
+   "c1": 64,
+   "palavras": [
+    0,
+    13
+   ],
+   "intencao": "misterio",
+   "justificativa": "rascunho por regra (\\bsegredo)",
+   "pausa_antes_s": 0.4,
+   "pausa_depois_s": 0.4,
+   "virgula_s": [
+    0.14,
+    0.28
+   ],
+   "destaques": [
+    {
+     "i": 9,
+     "w": "segredo",
+     "db": 1.5
+    },
+    {
+     "i": 11,
+     "w": "milhões",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 2,
+   "texto": "Parece impossível, mas aconteceu.",
+   "c0": 65,
+   "c1": 98,
+   "palavras": [
+    14,
+    17
+   ],
+   "intencao": "explicacao",
+   "justificativa": "rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 15,
+     "w": "impossível",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 3,
+   "texto": "Em 1991, um agricultor cavava um poço quando a pá bateu em algo duro.",
+   "c0": 99,
+   "c1": 168,
+   "palavras": [
+    18,
+    31
+   ],
+   "intencao": "acao",
+   "justificativa": "rascunho por regra (\\bbat[eiu])",
+   "pausa_antes_s": 0.12,
+   "pausa_depois_s": 0.15,
+   "virgula_s": [
+    0.05,
+    0.12
+   ],
+   "destaques": [
+    {
+     "i": 19,
+     "w": "1991",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 4,
+   "texto": "Ele parou.",
+   "c0": 169,
+   "c1": 179,
+   "palavras": [
+    32,
+    33
+   ],
+   "intencao": "explicacao",
+   "justificativa": "rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 5,
+   "texto": "Olhou.",
+   "c0": 180,
+   "c1": 186,
+   "palavras": [
+    34,
+    34
+   ],
+   "intencao": "explicacao",
+   "justificativa": "rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 6,
+   "texto": "E percebeu que aquilo não era pedra.",
+   "c0": 187,
+   "c1": 223,
+   "palavras": [
+    35,
+    41
+   ],
+   "intencao": "descoberta",
+   "justificativa": "rascunho por regra (\\bpercebe[ur])",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 7,
+   "texto": "Era um osso gigante.",
+   "c0": 224,
+   "c1": 244,
+   "palavras": [
+    42,
+    45
+   ],
+   "intencao": "entusiasmo",
+   "justificativa": "rascunho por regra (\\bgigante)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.25,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 8,
+   "texto": "E a cidade inteira nunca mais foi a mesma.",
+   "c0": 245,
+   "c1": 287,
+   "palavras": [
+    46,
+    54
+   ],
+   "intencao": "tensao",
+   "justificativa": "rascunho por regra (\\bnunca mais\\b)",
+   "pausa_antes_s": 0.15,
+   "pausa_depois_s": 0.2,
+   "virgula_s": [
+    0.06,
+    0.15
+   ],
+   "destaques": [
+    {
+     "i": 50,
+     "w": "nunca",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  }
+ ],
+ "regras": {
+  "teto_geral_s": 0.7,
+  "tetos_por_intencao_s": {
+   "suspense": 0.7,
+   "descoberta": 0.7,
+   "surpresa": 0.5,
+   "acao": 0.15
+  },
+  "pausa_inicio_s": 0.15,
+  "pausa_final_s": 0.5,
+  "pausa_sem_pontuacao_inadequada_s": 0.25,
+  "pausa_sem_pontuacao_alvo_s": 0.1
+ }
+}

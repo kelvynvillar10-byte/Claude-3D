@@ -1,0 +1,108 @@
+{
+ "verificacoes": [
+  {
+   "verificacao": "original_preservado",
+   "ok": true,
+   "detalhe": "SHA-256 4194e1c2b3fc5b7f… igual ao registrado"
+  },
+  {
+   "verificacao": "palavras_intactas",
+   "ok": true,
+   "detalhe": "diferença máxima entre cada palavra do original (com o ganho dirigido) e a editada: 0.00e+00 (arredondamento de tempo ≤ 1 amostra)"
+  },
+  {
+   "verificacao": "sem_aceleracao",
+   "ok": true,
+   "detalhe": "maior diferença de duração de uma palavra: 0.00 ms (55 palavras)"
+  },
+  {
+   "verificacao": "tempos_coerentes",
+   "ok": true,
+   "detalhe": "palavras em ordem, sem sobreposição e dentro do áudio final"
+  },
+  {
+   "verificacao": "pausas_dentro_das_regras",
+   "ok": true,
+   "detalhe": "maior pausa entre palavras no final: 0.600 s (teto 0.7 s; proibido ≥ 0,8 s)"
+  },
+  {
+   "verificacao": "pausas_com_fala_preservadas",
+   "ok": true,
+   "detalhe": "0 pausa(s) não editada(s) por conter fala (listadas no relatório)"
+  },
+  {
+   "verificacao": "loudness",
+   "ok": true,
+   "detalhe": "-16.0 LUFS (alvo -16.0 ± 0,6)"
+  },
+  {
+   "verificacao": "pico_verdadeiro",
+   "ok": true,
+   "detalhe": "-1.8 dBTP (máx. -1.5)"
+  },
+  {
+   "verificacao": "sem_clipagem",
+   "ok": true,
+   "detalhe": "0 amostra(s) em fundo de escala"
+  },
+  {
+   "verificacao": "tom_preservado",
+   "ok": true,
+   "detalhe": "tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.9 semitons"
+  },
+  {
+   "verificacao": "timbre_sem_exagero",
+   "ok": true,
+   "detalhe": "variação por banda (dB, final − original): graves_20_80 -2.03, corpo_80_250 +1.14, lama_250_500 -0.39, medios_500_2k -0.70, presenca_2k_5k +1.00, sibilancia_5k_10k +2.45, ar_10k_mais -0.19"
+  },
+  {
+   "verificacao": "sincronia_final",
+   "ok": true,
+   "detalhe": "deslocamento entre o áudio editado e o tratado: 0 amostra(s) (os tempos das palavras valem para o final)"
+  },
+  {
+   "verificacao": "atraso_dos_filtros_compensado",
+   "ok": true,
+   "detalhe": "atraso medido e compensado: filtros 1200 amostra(s), loudness 0 amostra(s)"
+  }
+ ],
+ "medidas": {
+  "loudness_final": {
+   "integrado_lufs": -16.0,
+   "faixa_lu": 1.7,
+   "pico_verdadeiro_dbtp": -1.8
+  },
+  "tom_original": {
+   "mediana_hz": 105.1,
+   "p10_hz": 95.2,
+   "p90_hz": 125.7,
+   "faixa_semitons": 4.8,
+   "quadros_com_voz": 1637
+  },
+  "tom_final": {
+   "mediana_hz": 105.1,
+   "p10_hz": 95.2,
+   "p90_hz": 126.4,
+   "faixa_semitons": 4.9,
+   "quadros_com_voz": 1633
+  },
+  "bandas_original": {
+   "graves_20_80": -36.86,
+   "corpo_80_250": -10.52,
+   "lama_250_500": -5.88,
+   "medios_500_2k": -3.3,
+   "presenca_2k_5k": -8.22,
+   "sibilancia_5k_10k": -14.64,
+   "ar_10k_mais": -36.6
+  },
+  "bandas_final": {
+   "graves_20_80": -38.89,
+   "corpo_80_250": -9.38,
+   "lama_250_500": -6.27,
+   "medios_500_2k": -4.0,
+   "presenca_2k_5k": -7.22,
+   "sibilancia_5k_10k": -12.19,
+   "ar_10k_mais": -36.79
+  }
+ }
+}

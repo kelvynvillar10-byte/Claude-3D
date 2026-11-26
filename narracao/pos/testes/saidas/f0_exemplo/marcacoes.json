@@ -1,0 +1,302 @@
+{
+ "duracao_s": 23.15,
+ "frases": [
+  {
+   "n": 1,
+   "intencao": "misterio",
+   "nome": "Mistério",
+   "texto": "E se o chão da sua casa guardasse um segredo de milhões de anos?",
+   "ini": 0.15,
+   "fim": 4.05
+  },
+  {
+   "n": 2,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Parece impossível, mas aconteceu.",
+   "ini": 4.45,
+   "fim": 6.87
+  },
+  {
+   "n": 3,
+   "intencao": "acao",
+   "nome": "Ação",
+   "texto": "Em 1991, um agricultor cavava um poço quando a pá bateu em algo duro.",
+   "ini": 7.17,
+   "fim": 13.59
+  },
+  {
+   "n": 4,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Ele parou.",
+   "ini": 13.74,
+   "fim": 14.44
+  },
+  {
+   "n": 5,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Olhou.",
+   "ini": 14.74,
+   "fim": 15.28
+  },
+  {
+   "n": 6,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "E percebeu que aquilo não era pedra.",
+   "ini": 15.88,
+   "fim": 18.05
+  },
+  {
+   "n": 7,
+   "intencao": "entusiasmo",
+   "nome": "Entusiasmo",
+   "texto": "Era um osso gigante.",
+   "ini": 18.5,
+   "fim": 19.78
+  },
+  {
+   "n": 8,
+   "intencao": "tensao",
+   "nome": "Tensão",
+   "texto": "E a cidade inteira nunca mais foi a mesma.",
+   "ini": 20.03,
+   "fim": 22.65
+  }
+ ],
+ "destaques": [
+  {
+   "frase": 1,
+   "palavra": "segredo",
+   "i": 9,
+   "ini": 2.32,
+   "fim": 2.85,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 1,
+   "palavra": "milhões",
+   "i": 11,
+   "ini": 2.97,
+   "fim": 3.56,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 2,
+   "palavra": "impossível",
+   "i": 15,
+   "ini": 4.91,
+   "fim": 5.64,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 3,
+   "palavra": "1991",
+   "i": 19,
+   "ini": 7.41,
+   "fim": 9.44,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 8,
+   "palavra": "nunca",
+   "i": 50,
+   "ini": 21.24,
+   "fim": 21.6,
+   "ganho_db": 1.5
+  }
+ ],
+ "pausas": [
+  {
+   "ini": 4.05,
+   "fim": 4.45,
+   "dur": 0.4,
+   "depois_de": "anos",
+   "antes_de": "Parece",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 6.87,
+   "fim": 7.17,
+   "dur": 0.3,
+   "depois_de": "aconteceu",
+   "antes_de": "Em",
+   "funcao": "pausa antes de ação"
+  },
+  {
+   "ini": 13.59,
+   "fim": 13.74,
+   "dur": 0.15,
+   "depois_de": "duro",
+   "antes_de": "Ele",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 14.44,
+   "fim": 14.74,
+   "dur": 0.3,
+   "depois_de": "parou",
+   "antes_de": "Olhou",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 15.28,
+   "fim": 15.88,
+   "dur": 0.6,
+   "depois_de": "Olhou",
+   "antes_de": "E",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 18.05,
+   "fim": 18.5,
+   "dur": 0.45,
+   "depois_de": "pedra",
+   "antes_de": "Era",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 19.78,
+   "fim": 20.03,
+   "dur": 0.25,
+   "depois_de": "gigante",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  }
+ ],
+ "cortes_visuais": [
+  {
+   "t": 4.25,
+   "tipo": "corte entre frases",
+   "motivo": "Mistério → Explicação"
+  },
+  {
+   "t": 7.02,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Ação"
+  },
+  {
+   "t": 13.665,
+   "tipo": "corte entre frases",
+   "motivo": "Ação → Explicação"
+  },
+  {
+   "t": 14.59,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Explicação"
+  },
+  {
+   "t": 15.58,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Descoberta/revelação"
+  },
+  {
+   "t": 18.275,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Entusiasmo"
+  },
+  {
+   "t": 19.905,
+   "tipo": "corte entre frases",
+   "motivo": "Entusiasmo → Tensão"
+  }
+ ],
+ "impactos": [
+  {
+   "t": 2.32,
+   "frase": 1,
+   "motivo": "palavra de destaque: segredo"
+  },
+  {
+   "t": 2.97,
+   "frase": 1,
+   "motivo": "palavra de destaque: milhões"
+  },
+  {
+   "t": 4.91,
+   "frase": 2,
+   "motivo": "palavra de destaque: impossível"
+  },
+  {
+   "t": 7.17,
+   "frase": 3,
+   "motivo": "início de ação"
+  },
+  {
+   "t": 7.41,
+   "frase": 3,
+   "motivo": "palavra de destaque: 1991"
+  },
+  {
+   "t": 15.88,
+   "frase": 6,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 21.24,
+   "frase": 8,
+   "motivo": "palavra de destaque: nunca"
+  }
+ ],
+ "espacos_para_sfx": [
+  {
+   "ini": 4.05,
+   "fim": 4.45,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 6.87,
+   "fim": 7.17,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de ação"
+  },
+  {
+   "ini": 15.28,
+   "fim": 15.88,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 7.17,
+   "fim": 13.59,
+   "sugestao": "impacto ou whoosh sincronizado à palavra de ação",
+   "motivo": "frase de ação"
+  }
+ ],
+ "transicoes": [
+  {
+   "t": 4.25,
+   "de": "Mistério",
+   "para": "Explicação"
+  },
+  {
+   "t": 7.02,
+   "de": "Explicação",
+   "para": "Ação"
+  },
+  {
+   "t": 13.665,
+   "de": "Ação",
+   "para": "Explicação"
+  },
+  {
+   "t": 15.58,
+   "de": "Explicação",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 18.275,
+   "de": "Descoberta/revelação",
+   "para": "Entusiasmo"
+  },
+  {
+   "t": 19.905,
+   "de": "Entusiasmo",
+   "para": "Tensão"
+  }
+ ],
+ "observacao": "Tempos do áudio final. Sugestões para a edição audiovisual; nenhum efeito sonoro foi adicionado."
+}

@@ -61,10 +61,12 @@ Modelo de 91 s (mediana das referências). Episódios de série podem ir a 117�
 
 - **Decisão ID-001:** voz sintética licenciada, criada a partir de uma descrição de características gerais (sem clonar ninguém). Opção recomendada: ElevenLabs Voice Design, sujeita ao teste de amostra. Perfil alvo, proibições e protocolo de teste em `IDENTIDADE_OFICIAL.md`.
 - **Integração em teste (2026):** MiniMax T2A V2 (`speech-2.8-hd`) com diretor de narração, em `narracao/` (ver `narracao/README.md`). Voz candidata, não aprovada; a ID-001 só muda depois da aprovação da voz.
-- Pós-processamento: **só comprimir pausas** (pausa ≥ 0,8 s vira 0,42 s; pausa entre 0,18 e 0,8 s vira 0,18 s). **Nunca acelerar com rubberband/time-stretch**, porque gera eco e voz duplicada.
+- **Fluxo atual (aprovado pelo diretor em 26/11/2026):** o diretor gera a narração no site MiniMax Audio (voz `Portuguese_CaptivatingStoryteller`) e envia o áudio com o texto; a pós-produção em `narracao/pos/` (ver `narracao/pos/README.md`) faz análise, direção de edição por frase, pausas, destaques, tratamento (preset da assinatura sonora), tempos das palavras do áudio FINAL, marcações para a edição e QA. O original é sempre preservado.
+- Pausas na pós-produção (regra aprovada em 26/11/2026, substitui a compressão fixa anterior): pausa-alvo por intenção; suspense e revelação até 0,7 s, surpresa até 0,5 s, ação até 0,15 s; **nenhuma pausa ≥ 0,8 s**; pausa sem pontuação acima de 0,25 s é inadequada e vira 0,10 s. **Nunca acelerar com rubberband/time-stretch**, porque gera eco e voz duplicada; tom e velocidade da voz nunca são alterados.
+- Loudness da narração: −16 LUFS, pico ≤ −1,5 dBTP (a mixagem final continua em −14 LUFS e −1 dBTP).
 - Medido nas referências: nenhuma pausa ≥ 0,8 s no meio do vídeo em 12 de 13 vídeos (detector de silêncio a −35 dB).
 - Saída obrigatória: alinhamento de palavras (`voz_palavras.json`, início e fim de cada palavra). Ele dirige legendas, cortes e SFX.
-- **Pendência técnica:** o modelo de reconhecimento de fala (Whisper) não baixou neste ambiente porque o Hugging Face está bloqueado pela rede. Para alinhar palavras é preciso (a) liberar o host na rede do ambiente, (b) usar um TTS que já devolva os tempos das palavras, ou (c) usar outro serviço de alinhamento.
+- Alinhamento de palavras sem modelos externos (opção aprovada em 26/11/2026): espeak-ng como referência com tempos exatos + DTW + ajuste pelas pausas medidas (`narracao/pos/alinhar.py`). Precisão medida no teste F0 contra tempos verdadeiros (vozes sintéticas); na voz real, confirmar pela escuta. Whisper continua opcional (exige liberar o Hugging Face na rede).
 
 ## 5. Etapa 3: decupagem (`decupagem.json`)
 

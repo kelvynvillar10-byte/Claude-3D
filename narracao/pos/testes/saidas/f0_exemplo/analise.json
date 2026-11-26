@@ -1,0 +1,642 @@
+{
+ "arquivo": "narracao_teste.mp3",
+ "sha256": "4194e1c2b3fc5b7ff941900995049308978a09ba18e9c3e94b964eb985539018",
+ "formato": {
+  "formato": "mp3",
+  "codec": "mp3",
+  "taxa_hz": 44100,
+  "canais": 1,
+  "duracao_s": 23.353,
+  "bitrate": 128158
+ },
+ "duracao_s": 23.324,
+ "segmentacao": {
+  "limiar_db": -54.6,
+  "nivel_fala_p95_db": -16.6
+ },
+ "falas": [
+  [
+   0.0,
+   3.9
+  ],
+  [
+   4.25,
+   5.44
+  ],
+  [
+   5.57,
+   6.67
+  ],
+  [
+   6.97,
+   9.24
+  ],
+  [
+   9.36,
+   10.79
+  ],
+  [
+   11.86,
+   14.36
+  ],
+  [
+   14.67,
+   15.37
+  ],
+  [
+   15.73,
+   16.27
+  ],
+  [
+   16.58,
+   18.75
+  ],
+  [
+   19.07,
+   20.35
+  ],
+  [
+   20.66,
+   23.28
+  ]
+ ],
+ "silencios": [
+  [
+   3.9,
+   4.25
+  ],
+  [
+   5.44,
+   5.57
+  ],
+  [
+   6.67,
+   6.97
+  ],
+  [
+   9.24,
+   9.36
+  ],
+  [
+   10.79,
+   11.86
+  ],
+  [
+   14.36,
+   14.67
+  ],
+  [
+   15.37,
+   15.73
+  ],
+  [
+   16.27,
+   16.58
+  ],
+  [
+   18.75,
+   19.07
+  ],
+  [
+   20.35,
+   20.66
+  ],
+  [
+   23.28,
+   23.324
+  ]
+ ],
+ "respiracoes": [],
+ "piso_ruido_db": -57.2,
+ "cliques": [
+  4.118
+ ],
+ "bandas": {
+  "graves_20_80": -36.86,
+  "corpo_80_250": -10.52,
+  "lama_250_500": -5.88,
+  "medios_500_2k": -3.3,
+  "presenca_2k_5k": -8.22,
+  "sibilancia_5k_10k": -14.64,
+  "ar_10k_mais": -36.6
+ },
+ "loudness": {
+  "integrado_lufs": -22.0,
+  "faixa_lu": 2.4,
+  "pico_verdadeiro_dbtp": -3.3
+ },
+ "tom": {
+  "mediana_hz": 105.1,
+  "p10_hz": 95.2,
+  "p90_hz": 125.7,
+  "faixa_semitons": 4.8,
+  "quadros_com_voz": 1637
+ },
+ "por_frase": [
+  {
+   "n": 1,
+   "ini": 0.0,
+   "fim": 3.9,
+   "duracao_s": 3.9,
+   "palavras": 14,
+   "palavras_por_s": 3.59,
+   "tom_mediano_hz": 106.3,
+   "variacao_tom_semitons": 3.94,
+   "nivel_db": -25.8,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.3
+  },
+  {
+   "n": 2,
+   "ini": 4.25,
+   "fim": 6.67,
+   "duracao_s": 2.42,
+   "palavras": 4,
+   "palavras_por_s": 1.65,
+   "tom_mediano_hz": 100.9,
+   "variacao_tom_semitons": 6.6,
+   "nivel_db": -25.4,
+   "maior_pausa_interna_s": 0.13,
+   "monotona": false,
+   "desvio_nivel_db": 0.1
+  },
+  {
+   "n": 3,
+   "ini": 6.97,
+   "fim": 14.36,
+   "duracao_s": 7.39,
+   "palavras": 14,
+   "palavras_por_s": 1.89,
+   "tom_mediano_hz": 105.7,
+   "variacao_tom_semitons": 4.6,
+   "nivel_db": -25.0,
+   "maior_pausa_interna_s": 1.07,
+   "monotona": false,
+   "desvio_nivel_db": 0.5
+  },
+  {
+   "n": 4,
+   "ini": 14.67,
+   "fim": 15.37,
+   "duracao_s": 0.7,
+   "palavras": 2,
+   "palavras_por_s": 2.86,
+   "tom_mediano_hz": 99.7,
+   "variacao_tom_semitons": 1.5,
+   "nivel_db": -24.6,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 0.9
+  },
+  {
+   "n": 5,
+   "ini": 15.73,
+   "fim": 16.27,
+   "duracao_s": 0.54,
+   "palavras": 1,
+   "palavras_por_s": 1.85,
+   "tom_mediano_hz": 101.5,
+   "variacao_tom_semitons": 1.58,
+   "nivel_db": -22.7,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 2.8
+  },
+  {
+   "n": 6,
+   "ini": 16.58,
+   "fim": 18.75,
+   "duracao_s": 2.17,
+   "palavras": 7,
+   "palavras_por_s": 3.23,
+   "tom_mediano_hz": 103.9,
+   "variacao_tom_semitons": 8.7,
+   "nivel_db": -26.2,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.7
+  },
+  {
+   "n": 7,
+   "ini": 19.07,
+   "fim": 20.35,
+   "duracao_s": 1.28,
+   "palavras": 4,
+   "palavras_por_s": 3.12,
+   "tom_mediano_hz": 108.5,
+   "variacao_tom_semitons": 5.07,
+   "nivel_db": -25.7,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.2
+  },
+  {
+   "n": 8,
+   "ini": 20.66,
+   "fim": 23.28,
+   "duracao_s": 2.62,
+   "palavras": 9,
+   "palavras_por_s": 3.44,
+   "tom_mediano_hz": 108.2,
+   "variacao_tom_semitons": 4.8,
+   "nivel_db": -25.9,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.4
+  }
+ ],
+ "pausas_entre_palavras": [
+  {
+   "depois_de": "E",
+   "antes_de": "se",
+   "ini": 0.11,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "se",
+   "antes_de": "o",
+   "ini": 0.24,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "chão",
+   "ini": 0.33,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "chão",
+   "antes_de": "da",
+   "ini": 0.61,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "da",
+   "antes_de": "sua",
+   "ini": 0.77,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "casa",
+   "ini": 1.04,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "casa",
+   "antes_de": "guardasse",
+   "ini": 1.37,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "guardasse",
+   "antes_de": "um",
+   "ini": 1.99,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "segredo",
+   "ini": 2.17,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "segredo",
+   "antes_de": "de",
+   "ini": 2.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "de",
+   "antes_de": "milhões",
+   "ini": 2.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "milhões",
+   "antes_de": "de",
+   "ini": 3.41,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "de",
+   "antes_de": "anos",
+   "ini": 3.53,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "anos",
+   "antes_de": "Parece",
+   "ini": 3.9,
+   "dur": 0.35,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Parece",
+   "antes_de": "impossível",
+   "ini": 4.71,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "impossível",
+   "antes_de": "mas",
+   "ini": 5.44,
+   "dur": 0.13,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "mas",
+   "antes_de": "aconteceu",
+   "ini": 5.85,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "aconteceu",
+   "antes_de": "Em",
+   "ini": 6.67,
+   "dur": 0.3,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Em",
+   "antes_de": "1991",
+   "ini": 7.21,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "1991",
+   "antes_de": "um",
+   "ini": 9.24,
+   "dur": 0.12,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "agricultor",
+   "ini": 9.5,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "agricultor",
+   "antes_de": "cavava",
+   "ini": 10.35,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "cavava",
+   "antes_de": "um",
+   "ini": 10.79,
+   "dur": 1.07,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "poço",
+   "ini": 12.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "poço",
+   "antes_de": "quando",
+   "ini": 12.47,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "quando",
+   "antes_de": "a",
+   "ini": 12.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "pá",
+   "ini": 13.03,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "pá",
+   "antes_de": "bateu",
+   "ini": 13.23,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "bateu",
+   "antes_de": "em",
+   "ini": 13.6,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "algo",
+   "ini": 13.72,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "algo",
+   "antes_de": "duro",
+   "ini": 14.04,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "duro",
+   "antes_de": "Ele",
+   "ini": 14.36,
+   "dur": 0.31,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Ele",
+   "antes_de": "parou",
+   "ini": 14.87,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "parou",
+   "antes_de": "Olhou",
+   "ini": 15.37,
+   "dur": 0.36,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Olhou",
+   "antes_de": "E",
+   "ini": 16.27,
+   "dur": 0.31,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "E",
+   "antes_de": "percebeu",
+   "ini": 16.71,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "percebeu",
+   "antes_de": "que",
+   "ini": 17.33,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "que",
+   "antes_de": "aquilo",
+   "ini": 17.48,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "aquilo",
+   "antes_de": "não",
+   "ini": 17.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "não",
+   "antes_de": "era",
+   "ini": 18.08,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "era",
+   "antes_de": "pedra",
+   "ini": 18.31,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "pedra",
+   "antes_de": "Era",
+   "ini": 18.75,
+   "dur": 0.32,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Era",
+   "antes_de": "um",
+   "ini": 19.315,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "osso",
+   "ini": 19.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "osso",
+   "antes_de": "gigante",
+   "ini": 19.72,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "gigante",
+   "antes_de": "E",
+   "ini": 20.35,
+   "dur": 0.31,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "E",
+   "antes_de": "a",
+   "ini": 20.77,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "cidade",
+   "ini": 20.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "cidade",
+   "antes_de": "inteira",
+   "ini": 21.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "inteira",
+   "antes_de": "nunca",
+   "ini": 21.87,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "nunca",
+   "antes_de": "mais",
+   "ini": 22.23,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "mais",
+   "antes_de": "foi",
+   "ini": 22.5,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "foi",
+   "antes_de": "a",
+   "ini": 22.715,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "mesma",
+   "ini": 22.83,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  }
+ ],
+ "pausas_suspeitas": [
+  {
+   "depois_de": "cavava",
+   "antes_de": "um",
+   "ini": 10.79,
+   "dur": 1.07,
+   "tipo": "nenhuma"
+  }
+ ],
+ "picos": {
+  "amostra_max": 0.6867,
+  "clipadas": 0
+ }
+}

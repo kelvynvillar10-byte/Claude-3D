@@ -1,0 +1,18 @@
+{
+ "nome": "Assinatura sonora Modo Curioso — preset v1 (F0, ainda não calibrado com áudio real)",
+ "taxa_hz": 48000,
+ "filtro_graves": {"hz": 75, "polos": 2},
+ "cliques": {"usar_se_detectados": true, "janela_ms": 55, "limiar": 4},
+ "ruido": {"usar_se_piso_acima_dbfs": -65, "reducao_db": 6, "piso_db": -60},
+ "equalizacao": [
+  {"nome": "corpo", "hz": 150, "q": 0.9, "db": 1.5},
+  {"nome": "lama", "hz": 320, "q": 1.2, "db": -1.5},
+  {"nome": "presença", "hz": 3500, "q": 1.0, "db": 1.5},
+  {"nome": "ar", "tipo": "prateleira_aguda", "hz": 10000, "db": 1.0}
+ ],
+ "de_esser": {"usar_se_sibilancia_acima_db": -16, "intensidade": 0.35, "frequencia": 0.55},
+ "compressao": {"limiar_db": -22, "razao": 2.5, "ataque_ms": 12, "liberacao_ms": 140, "joelho": 4},
+ "loudness": {"alvo_lufs": -16.0, "pico_verdadeiro_dbtp": -1.5, "faixa_lu": 11},
+ "mp3_kbps": 320,
+ "observacao": "Sem mudança de tom ou de velocidade. Cada etapa condicional só entra se a medição indicar. Calibração final na F2, com a escuta do diretor."
+}

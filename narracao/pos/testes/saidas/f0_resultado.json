@@ -1,0 +1,142 @@
+[
+ {
+  "teste": "alinhamento_precisao",
+  "ok": true,
+  "detalhe": "55 palavras · erro médio 9 ms · p90 25 ms · máx 95 ms (atraso global do MP3 -2 ms descontado)"
+ },
+ {
+  "teste": "pausa_inadequada_detectada",
+  "ok": true,
+  "detalhe": "suspeitas: [('cavava', 1.07)]"
+ },
+ {
+  "teste": "clique_detectado",
+  "ok": true,
+  "detalhe": "1 candidato(s): [np.float64(4.118)]"
+ },
+ {
+  "teste": "rascunho_com_intencoes_variadas",
+  "ok": true,
+  "detalhe": "1:misterio / 2:explicacao / 3:acao / 4:explicacao / 5:explicacao / 6:descoberta / 7:entusiasmo / 8:tensao"
+ },
+ {
+  "teste": "qa:original_preservado",
+  "ok": true,
+  "detalhe": "SHA-256 4194e1c2b3fc5b7f… igual ao registrado"
+ },
+ {
+  "teste": "qa:palavras_intactas",
+  "ok": true,
+  "detalhe": "diferença máxima entre cada palavra do original (com o ganho dirigido) e a editada: 0.00e+00 (arredondamento de tempo ≤ 1 amostra)"
+ },
+ {
+  "teste": "qa:sem_aceleracao",
+  "ok": true,
+  "detalhe": "maior diferença de duração de uma palavra: 0.00 ms (55 palavras)"
+ },
+ {
+  "teste": "qa:tempos_coerentes",
+  "ok": true,
+  "detalhe": "palavras em ordem, sem sobreposição e dentro do áudio final"
+ },
+ {
+  "teste": "qa:pausas_dentro_das_regras",
+  "ok": true,
+  "detalhe": "maior pausa entre palavras no final: 0.600 s (teto 0.7 s; proibido ≥ 0,8 s)"
+ },
+ {
+  "teste": "qa:pausas_com_fala_preservadas",
+  "ok": true,
+  "detalhe": "0 pausa(s) não editada(s) por conter fala (listadas no relatório)"
+ },
+ {
+  "teste": "qa:loudness",
+  "ok": true,
+  "detalhe": "-16.0 LUFS (alvo -16.0 ± 0,6)"
+ },
+ {
+  "teste": "qa:pico_verdadeiro",
+  "ok": true,
+  "detalhe": "-1.8 dBTP (máx. -1.5)"
+ },
+ {
+  "teste": "qa:sem_clipagem",
+  "ok": true,
+  "detalhe": "0 amostra(s) em fundo de escala"
+ },
+ {
+  "teste": "qa:tom_preservado",
+  "ok": true,
+  "detalhe": "tom mediano 105.1 → 105.1 Hz (+0.00 %); faixa 4.8 → 4.9 semitons"
+ },
+ {
+  "teste": "qa:timbre_sem_exagero",
+  "ok": true,
+  "detalhe": "variação por banda (dB, final − original): graves_20_80 -2.03, corpo_80_250 +1.14, lama_250_500 -0.39, medios_500_2k -0.70, presenca_2k_5k +1.00, sibilancia_5k_10k +2.45, ar_10k_mais -0.19"
+ },
+ {
+  "teste": "qa:sincronia_final",
+  "ok": true,
+  "detalhe": "deslocamento entre o áudio editado e o tratado: 0 amostra(s) (os tempos das palavras valem para o final)"
+ },
+ {
+  "teste": "qa:atraso_dos_filtros_compensado",
+  "ok": true,
+  "detalhe": "atraso medido e compensado: filtros 1200 amostra(s), loudness 0 amostra(s)"
+ },
+ {
+  "teste": "original_de_entrada_intacto",
+  "ok": true,
+  "detalhe": "o arquivo enviado não foi tocado"
+ },
+ {
+  "teste": "pausa_inadequada_corrigida",
+  "ok": true,
+  "detalhe": "cavava→um: 0.100 s"
+ },
+ {
+  "teste": "entrega:voz_final.wav",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "entrega:voz_final.mp3",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "entrega:voz_palavras.json",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "entrega:marcacoes.json",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "entrega:relatorio.md",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "entrega:qa.json",
+  "ok": true,
+  "detalhe": ""
+ },
+ {
+  "teste": "wav_48k",
+  "ok": true,
+  "detalhe": "{'formato': 'wav', 'codec': 'pcm_s24le', 'taxa_hz': 48000, 'canais': 1, 'duracao_s': 23.15, 'bitrate': 1152015}"
+ },
+ {
+  "teste": "marcacoes",
+  "ok": true,
+  "detalhe": "7 cortes, 7 impactos, 4 SFX, 6 transições"
+ },
+ {
+  "teste": "alinhamento_audio_longo",
+  "ok": true,
+  "detalhe": "158 s, 385 palavras em 1.8 s · erro médio 6 ms · p90 13 ms · máx 32 ms"
+ }
+]

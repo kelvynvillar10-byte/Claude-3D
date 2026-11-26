@@ -1,6 +1,8 @@
 {
- "resultado": "OK",
- "falhas": [],
+ "resultado": "FALHA",
+ "falhas": [
+  "orcamento_real_intacto"
+ ],
  "testes": {
   "validacao_recusa_fora_da_faixa": {
    "ok": true,
@@ -39,7 +41,7 @@
   },
   "debito_e_registro": {
    "ok": true,
-   "info": "{\"data\": \"2026-11-26T18:18:54+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"Portuguese_CaptivatingStoryteller\", \"param"
+   "info": "{\"data\": \"2026-11-26T19:00:16+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"Portuguese_CaptivatingStoryteller\", \"param"
   },
   "cabecalho_com_chave_so_na_requisicao": {
    "ok": true
@@ -84,8 +86,8 @@
    "info": "T2: 18 caract. (~US$ 0.0018), T3: 16 caract. (~US$ 0.0016), T4: 208 caract. (~US$ 0.0208)"
   },
   "orcamento_real_intacto": {
-   "ok": true,
-   "info": "consumido 0; autorizações de síntese: nenhuma"
+   "ok": false,
+   "info": "consumido 0; autorizações de síntese: ['T2']"
   }
  },
  "chamadas_reais_a_minimax": 0,
