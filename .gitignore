@@ -14,3 +14,5 @@ producoes/*/_cache/
 # segredos locais (a chave da MiniMax nunca entra no Git)
 .env
 .env.*
+
+cenografia/testes/e10_rapido/
