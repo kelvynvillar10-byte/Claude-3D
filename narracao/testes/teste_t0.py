@@ -79,13 +79,16 @@ def main():
         MM.montar_payload("Teste <#1,5#> errado.", cfg); ok("pausa_malformada_recusada", False)
     except MM.ErroNarracao:
         ok("pausa_malformada_recusada", True)
-    c2 = json.loads(json.dumps(cfg)); c2["voz"]["voice_id"] = "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
+    c2 = json.loads(json.dumps(cfg)); c2["vozes_proibidas"] = {"voz_proibida_de_teste_0001": "teste"}
+    c2["voz"]["voice_id"] = "voz_proibida_de_teste_0001"
     try:
         MM.montar_payload("Teste.", c2); ok("voz_proibida_recusada", False)
     except MM.ErroNarracao as e:
         ok("voz_proibida_recusada", "proibida" in str(e))
     p = MM.montar_payload("Olá, Modo Curioso.", cfg)
-    ok("payload_basico", p["model"] == "speech-2.8-hd" and p["voice_setting"]["voice_id"] == "ttv-voice-2026112700223026-9zUmd7PO"
+    ok("voz_principal_sem_troca_automatica", cfg["voz"]["voice_id"] == "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
+       and cfg["troca_automatica_de_voz"] is False and p["voice_setting"]["voice_id"] == cfg["voz"]["voice_id"])
+    ok("payload_basico", p["model"] == "speech-2.8-hd" and p["voice_setting"]["voice_id"] == "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
        and p["subtitle_enable"] and p["language_boost"] == "Portuguese" and "emotion" not in p["voice_setting"], json.dumps(p["voice_setting"]))
     ok("contagem", MM.contar_caracteres("Olá, Modo Curioso.") == 18)
 

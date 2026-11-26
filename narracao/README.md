@@ -1,6 +1,6 @@
 # Narração: MiniMax T2A V2 com diretor de narração
 
-**Etapa 2 do pipeline (voz).** Em teste. **A voz `ttv-voice-2026112700223026-9zUmd7PO` é candidata, NÃO aprovada.** O clone antigo está proibido no código. Nenhum episódio ou piloto foi produzido.
+**Etapa 2 do pipeline (voz).** Em teste. **Voz principal candidata: `moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb`** (clone da conta do diretor, definido em 26/11/2026; NÃO aprovada: qualidade vocal e licença comercial não confirmadas). A voz `ttv-voice-2026112700223026-9zUmd7PO` fica como alternativa só por decisão manual; não há troca automática de voz. Nenhum episódio ou piloto foi produzido.
 
 ## Regras de economia (do diretor, embutidas no código)
 - **Nada é sintetizado sem autorização** registrada em `orcamento.json`, com o limite de caracteres de cada teste ou execução. O teto total dos testes é de 1.500 caracteres; isso é limite, não meta.
@@ -58,7 +58,7 @@ Funcionamento:
 | Teste | O que faz | Caracteres | Situação |
 |---|---|---|---|
 | T0 | testes sem rede | 0 | **feito: 21/21 OK** |
-| T1 | consulta de vozes, sem síntese | 0 | **2 consultas, ambas código 1004 (não autenticou)**: a 1ª com a senha de login por engano, a 2ª depois de trocar pela API Secret Key; sem cobrança indicada; parado aguardando o diretor |
+| T1 | consulta de vozes, sem síntese | 0 | **feito**: 1ª e 2ª com código 1004 (chave errada); 3ª e 4ª autenticaram em `api.minimax.io` (internacional). O clone `moss_audio_…` aparece em `voice_cloning`; a `ttv-…` não aparece (0 vozes de Voice Design). Sem cobrança indicada |
 | T2 | "Olá, Modo Curioso." (voz + modelo + tempos por palavra) | 18 | aguarda autorização |
 | T3 | "Olha só." com happy e surprised | 16 | aguarda autorização |
 | T4 | comparativo A, B e C | 208 | aguarda autorização |

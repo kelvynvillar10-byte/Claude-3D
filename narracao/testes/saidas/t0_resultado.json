@@ -12,9 +12,12 @@
   "voz_proibida_recusada": {
    "ok": true
   },
+  "voz_principal_sem_troca_automatica": {
+   "ok": true
+  },
   "payload_basico": {
    "ok": true,
-   "info": "{\"voice_id\": \"ttv-voice-2026112700223026-9zUmd7PO\", \"speed\": 1.0, \"vol\": 1.0, \"pitch\": 0}"
+   "info": "{\"voice_id\": \"moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb\", \"speed\": 1.0, \"vol\": 1.0, \"pitch\": 0}"
   },
   "contagem": {
    "ok": true
@@ -33,7 +36,7 @@
   },
   "debito_e_registro": {
    "ok": true,
-   "info": "{\"data\": \"2026-11-26T16:51:28+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"ttv-voice-2026112700223026-9zUmd7PO\", \"par"
+   "info": "{\"data\": \"2026-11-26T17:14:55+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"moss_audio_f28d61d6-e90b-11f1-b491-2a43200"
   },
   "cabecalho_com_chave_so_na_requisicao": {
    "ok": true

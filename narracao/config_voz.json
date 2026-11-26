@@ -10,13 +10,22 @@
  "modelo": "speech-2.8-hd",
  "modelos_permitidos": ["speech-2.8-hd", "speech-2.6-hd"],
  "voz": {
-  "voice_id": "ttv-voice-2026112700223026-9zUmd7PO",
-  "origem": "Voice Design do MiniMax (voz original, informada pelo diretor)",
-  "status": "candidata — NÃO aprovada oficialmente"
+  "voice_id": "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb",
+  "origem": "clone de voz (voice_cloning) da conta MiniMax do diretor; aparece na consulta de vozes da API (T1)",
+  "status": "candidata principal — NÃO aprovada oficialmente (qualidade vocal e licença comercial não confirmadas)",
+  "definida_pelo_diretor_em": "2026-11-26"
  },
- "vozes_proibidas": {
-  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb": "clone antigo descartado pelo diretor: não usar"
- },
+ "troca_automatica_de_voz": false,
+ "vozes_alternativas": [
+  {"voice_id": "ttv-voice-2026112700223026-9zUmd7PO",
+   "origem": "Voice Design do MiniMax (voz original, informada pelo diretor)",
+   "status": "candidata anterior; NÃO é alternativa automática: só entra por decisão manual do diretor",
+   "observacao": "presente no painel do diretor, mas não listada pela API em 26/11/2026 (provável: só aparece após a primeira síntese)"}
+ ],
+ "vozes_proibidas": {},
+ "historico_vozes": [
+  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb: proibida antes por decisão do diretor; liberada e definida como voz principal candidata pelo diretor em 26/11/2026 (escolha de configuração, não aprovação de qualidade nem de licença)"
+ ],
  "padrao_voz": {"speed": 1.0, "vol": 1.0, "pitch": 0},
  "limites": {"speed": [0.5, 2.0], "vol_max": 10.0, "pitch": [-12, 12], "texto_max_caracteres": 9999},
  "emocoes_documentadas": ["happy", "sad", "angry", "fearful", "disgusted", "surprised", "calm", "fluent", "whisper"],
