@@ -2,5 +2,11 @@
  "teto_total_caracteres": 1500,
  "consumido_caracteres": 0,
  "observacao": "Teto autorizado pelo diretor para os testes (não é meta). Cada teste só roda com a sua autorização registrada aqui. Nenhuma autorização de síntese foi dada ainda.",
- "autorizacoes": {}
+ "autorizacoes": {
+  "T1": {
+   "max_caracteres": 0,
+   "tipo": "consulta de vozes da conta, SEM síntese (uma única chamada)",
+   "autorizado_pelo_diretor": "T0 aprovado; T1 autorizado com rede só para api.minimax.io e chave como segredo de rede"
+  }
+ }
 }

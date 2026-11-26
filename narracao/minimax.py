@@ -215,7 +215,13 @@ class Cliente:
             raise ErroNarracao(self._limpar(f"consulta falhou ({type(e).__name__}). PARADO"))
         br = j.get("base_resp") or {}; cod = br.get("status_code")
         vid = self.cfg["voz"]["voice_id"]; achada = vid in json.dumps(j)
+        categorias = {k: len(v) for k, v in j.items() if isinstance(v, list)}
+        onde = [k for k, v in j.items() if isinstance(v, list) and vid in json.dumps(v)]
+        proibida = [k for k in self.cfg["vozes_proibidas"] if k in json.dumps(j)]
         self._registrar(autorizacao=autorizacao, motivo=motivo, caracteres_enviados=0, http=r.status_code,
-                        resultado=f"código {cod}: {ERROS.get(cod, br.get('status_msg', ''))}", voz_encontrada=achada, trace_id=j.get("trace_id"))
-        return {"http": r.status_code, "codigo": cod, "mensagem": br.get("status_msg"), "voz_encontrada": achada,
-                "tipos_de_voz": sorted(k for k in j if k not in ("base_resp", "trace_id"))}
+                        resultado=f"código {cod}: {ERROS.get(cod, br.get('status_msg', ''))}", voz_encontrada=achada, categoria_da_voz=onde,
+                        vozes_por_categoria=categorias, clone_antigo_ainda_na_conta=bool(proibida), host=self.cfg["host"], trace_id=j.get("trace_id"),
+                        cobranca="nenhum campo de cobrança na resposta" if not any(k in json.dumps(j).lower() for k in ("usage", "charge", "cost", "balance")) else "ver resposta")
+        return {"http": r.status_code, "codigo": cod, "mensagem": br.get("status_msg"), "voz_encontrada": achada, "categoria_da_voz": onde,
+                "vozes_por_categoria": categorias, "clone_antigo_ainda_na_conta": bool(proibida),
+                "campos_da_resposta": sorted(j.keys()), "trace_id": j.get("trace_id")}

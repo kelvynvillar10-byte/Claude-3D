@@ -170,7 +170,9 @@ def main():
     ok("simulacao_T2_T4", all(s_["caracteres_total"] > 0 for s_ in sims.values()),
        ", ".join(f"{t}: {s_['caracteres_total']} caract. (~US$ {s_['custo_estimado_usd']})" for t, s_ in sims.items()))
     orc_real = json.loads((RAIZ / "orcamento.json").read_text()); reg_real = (RAIZ / "consumo.jsonl").read_text()
-    ok("orcamento_real_intacto", orc_real["consumido_caracteres"] == 0 and orc_real["autorizacoes"] == {} and reg_real == "")
+    sintese_autorizada = {k: v for k, v in orc_real["autorizacoes"].items() if v.get("max_caracteres", 0) > 0}
+    ok("orcamento_real_intacto", orc_real["consumido_caracteres"] == 0 and not sintese_autorizada,
+       f"consumido 0; autorizações de síntese: {list(sintese_autorizada) or 'nenhuma'}")
     for f in Path(tempfile.gettempdir()).glob("narracao_t0_*"):
         shutil.rmtree(f, ignore_errors=True)
     falhou = [k for k, v in res.items() if not v["ok"]]
