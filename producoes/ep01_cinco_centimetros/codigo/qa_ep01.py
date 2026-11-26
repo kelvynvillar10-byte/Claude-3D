@@ -24,6 +24,10 @@ def main(video):
     dur = float(pr["format"]["duration"]); fps = eval(v["r_frame_rate"])
     ok("formato", (v["width"], v["height"]) == (1080, 1920) and abs(fps - 30) < 0.01 and v["codec_name"] == "h264" and a is not None,
        f"{v['width']}×{v['height']} · {fps:.2f} qps · {v['codec_name']} + {a['codec_name'] if a else 'SEM ÁUDIO'}")
+    nq = int(subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v", "-show_entries", "stream=nb_read_frames", "-of", "csv=p=0",
+                             str(video)], capture_output=True, text=True).stdout.strip())
+    ok("duracao_bate_montagem", abs(dur - M["duracao"]) < 0.1 and nq == round(M["duracao"] * 30),
+       f"vídeo {dur:.2f} s / {nq} quadros · montagem {M['duracao']:.2f} s / {round(M['duracao'] * 30)} quadros")
     ok("duracao_diretriz", 60 <= dur <= 120, f"{dur:.2f} s (diretriz do canal: 60–120 s; meta do EP01 era 75–90 s — ver relatório)")
     durs = [p["fim"] - p["ini"] for p in M["planos"]]; med = float(np.median(durs)); cpm = (len(durs) - 1) / (dur / 60)
     ok("ritmo_de_cortes", 1.2 <= med <= 3.2, f"{len(durs)} planos · plano mediano {med:.2f} s (padrão 1,7 s; faixa 1,15–2,33) · {cpm:.1f} cortes/min (padrão ~31)")

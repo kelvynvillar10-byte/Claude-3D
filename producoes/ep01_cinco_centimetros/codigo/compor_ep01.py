@@ -56,7 +56,7 @@ _PLACAS = {}
 
 def placa(nome):
     if nome not in _PLACAS:
-        if len(_PLACAS) >= 3:                                                 # libera memória (cada placa tem várias camadas EXR)
+        if len(_PLACAS) >= int(os.environ.get("MAX_PLACAS", "2")):                                                 # libera memória (cada placa tem várias camadas EXR)
             _PLACAS.pop(next(iter(_PLACAS)))
         _PLACAS[nome] = Placa(PE.pasta(nome, SPECS))
     return _PLACAS[nome]
@@ -398,6 +398,11 @@ def main():
                               env=dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1")) for i in range(trab)]
     for p in procs:
         p.wait()
+    for i in range(trab):                                                      # cada segmento tem de ter TODOS os quadros
+        nq = int(subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v", "-show_entries", "stream=nb_read_frames",
+                                 "-of", "csv=p=0", str(tmp / f"seg_{i}.mp4")], capture_output=True, text=True).stdout.strip() or 0)
+        if nq != cortes[i + 1] - cortes[i]:
+            raise SystemExit(f"PARADO: seg_{i} tem {nq} quadros (esperado {cortes[i + 1] - cortes[i]}); refazer com menos TRABALHADORES/MAX_PLACAS")
     (tmp / "lista.txt").write_text("".join(f"file '{tmp / f'seg_{i}.mp4'}'\n" for i in range(trab)))
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(tmp / "lista.txt"), "-c", "copy", str(P / "_cache" / "video_sem_audio.mp4")], check=True)
     print("ok:", P / "_cache" / "video_sem_audio.mp4")
