@@ -1,4 +1,4 @@
-"""EXTENSÃO X4 (PROPOSTA, aguardando aprovação) — ELASTICIDADE: braços e pernas que esticam (só eles).
+"""EXTENSÃO X4 (APROVADA em 26/11/2026) — ELASTICIDADE: braços e pernas que esticam (só eles).
 
 NÃO altera o rig v2. Usa o ESCORÇO do próprio rig (esc_antebraco_*, esc_coxa_*): o rig já sabe encurtar um osso no
 próprio eixo sem achatar mão nem pé (o filho não herda a escala). Com valores MAIORES que 1, o mesmo mecanismo alonga.

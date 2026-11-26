@@ -1,6 +1,6 @@
 # Proposta X4: elasticidade (braços e pernas que esticam, só eles)
 
-26/11/2026 · **AGUARDANDO APROVAÇÃO DO DIRETOR.** Até lá, a extensão não entra em nenhuma produção. Nenhum episódio ou história foi produzido.
+26/11/2026 · **X4 APROVADA pelo diretor em 26/11/2026** ("Aprovado e pode continuar"), como proposta. O rig v2 continua intocado. Nenhum episódio ou história foi produzido.
 
 ## 1. Justificativa
 A elasticidade é o último poder da ordem aprovada. Ela exige que **braços e pernas mudem de comprimento**, e o rig v2 não tem esse movimento. É a extensão mais delicada para a identidade, porque mexe na proporção do corpo. Por isso ela se limita a:

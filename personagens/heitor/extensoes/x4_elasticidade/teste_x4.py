@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Testes e demonstração da EXTENSÃO X4 (elasticidade) — PROPOSTA, aguardando aprovação.
+"""Testes e demonstração da EXTENSÃO X4 (elasticidade) — APROVADA pelo diretor em 26/11/2026.
 
 X4_1 partes intactas: mão, manga, barra da calça e tênis idênticos ao rig sem esticar (recortes comparados pixel a pixel)
 X4_2 espessura do membro esticado = a do membro normal (mesmo ponto relativo do osso)
