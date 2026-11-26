@@ -175,8 +175,12 @@ def main():
        ", ".join(f"{t}: {s_['caracteres_total']} caract. (~US$ {s_['custo_estimado_usd']})" for t, s_ in sims.items()))
     orc_real = json.loads((RAIZ / "orcamento.json").read_text()); reg_real = (RAIZ / "consumo.jsonl").read_text()
     sintese_autorizada = {k: v for k, v in orc_real["autorizacoes"].items() if v.get("max_caracteres", 0) > 0}
-    ok("orcamento_real_intacto", orc_real["consumido_caracteres"] == 0 and not sintese_autorizada,
-       f"consumido 0; autorizações de síntese: {list(sintese_autorizada) or 'nenhuma'}")
+    sinteses = [json.loads(l) for l in reg_real.splitlines() if l.strip() and "modelo" in json.loads(l)]
+    debitado = sum(r.get("caracteres_cobrados") or r.get("caracteres_enviados", 0) for r in sinteses)
+    sem_aut = [r["autorizacao"] for r in sinteses if r["autorizacao"] not in orc_real["autorizacoes"]]
+    ok("orcamento_real_coerente", orc_real["consumido_caracteres"] == debitado and orc_real["consumido_caracteres"] <= orc_real["teto_total_caracteres"]
+       and not sem_aut, f"consumido {orc_real['consumido_caracteres']} = debitado no registro {debitado}; "
+       f"{len(sinteses)} chamada(s) de síntese, todas com autorização registrada ({list(sintese_autorizada)})")
     for f in Path(tempfile.gettempdir()).glob("narracao_t0_*"):
         shutil.rmtree(f, ignore_errors=True)
     falhou = [k for k, v in res.items() if not v["ok"]]
