@@ -60,7 +60,7 @@ FOLHAS = {
                 [("arvore", {"especie": "frondosa", "y": -3.0}, "frondosa"), ("arvore", {"especie": "frondosa", "y": 5.0}, "frondosa (outra semente)"),
                  ("arvore", {"especie": "ipe", "flor": "amarelo", "y": 12.5}, "ipê amarelo"), ("arvore", {"especie": "ipe", "flor": "rosa", "y": 18.5}, "ipê rosa"),
                  ("arvore", {"especie": "palmeira", "y": 24.0}, "palmeira"), ("mobiliario", {"tipo": "arbusto", "y": 27.5, "x": 2.0}, "arbusto")]),
-    "mobiliario": ({"pos": [7.5, 9.6, 2.2], "alvo": [0.0, 9.6, 1.0], "lente_mm": 20},
+    "mobiliario": ({"pos": [12.5, 9.8, 2.3], "alvo": [0.0, 9.8, 1.0], "lente_mm": 16},
                    [("mobiliario", {"tipo": t, "y": y}, n) for t, y, n in
                     [("banco", -1.6, "banco"), ("conteiner", 0.6, "contêiner"), ("sacos", 2.2, "sacos de lixo"), ("ponto_onibus", 4.7, "ponto de ônibus"),
                      ("banca", 9.0, "banca"), ("cones", 12.7, "cones"), ("bicicleta", 14.6, "bicicleta"), ("vaso", 15.9, "vaso"),

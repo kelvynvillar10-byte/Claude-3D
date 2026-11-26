@@ -6,7 +6,7 @@ Direção aprovada pelo diretor em 25/11/2026:
 - ambientação padrão **bairro urbano brasileiro**;
 - sem sites externos de texturas ou modelos.
 
-**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. E1 (materiais, céu e atmosfera, tempo de render) aprovada. E2 (ruas e calçadas) e E3 (prédios) aprovadas. E4 (veículos) aprovada. **E5 (ambientação) em andamento.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
+**Etapas:** E0 (fundamentos) aprovada em 25/11/2026. E1 (materiais, céu e atmosfera, tempo de render) aprovada. E2 (ruas e calçadas) e E3 (prédios) aprovadas. E4 (veículos) aprovada. **E5 (ambientação) concluída, aguardando aprovação.** Os componentes de cena da E0 são provisórios; os kits detalhados vêm nas etapas E2–E5, e só com autorização.
 
 O personagem oficial é o **Heitor rig v2** (`personagens/heitor/rig_v2/`). A cenografia **não altera o rig**: o Heitor é desenhado por cima do cenário pelo compositor, com a paleta oficial intacta. Valem as decisões ID-001 a ID-004 (`docs/IDENTIDADE_OFICIAL.md`).
 
@@ -40,6 +40,8 @@ receita JSON ──► construir.py ──► Blender (Cycles CPU) ──► PLA
 | **E3 · kit de prédios** | `componentes/predios.py` | `fachada_quadra` (lotes por semente, esquina com fachada lateral, fachada no plano x ou y), `predio_residencial`, `predio_comercial`, `sobrado`, `chao`. Gramática: térreo (portaria, garagem, loja aberta/fechada, toldo, letreiro com palavra comum), andares (janelas com moldura e cortinas, varandas, ar-condicionado, varal, coluna da escada), topo (platibanda, caixa d'água, antenas, telhado cerâmico). Peças repetidas são instâncias |
 | **E3 · materiais** | `nucleo/materiais.py` | `chapa_ondulada` (porta de enrolar), `listrado` (toldo), `reboco(detalhe=…)` (repintura, tom, granulado; 0 = igual à E1) |
 | **E4 · kit de veículos** | `componentes/veiculos.py` | `veiculo` e `estacionamento`. Tipos: hatch, sedã, SUV, picape (capota marítima), furgão, ônibus urbano, moto. Carroceria por loft de seções (perfil de teto, caixa de roda em arco, planta arredondada); vidros por face; rodas instanciadas; faróis e lanternas acendem (grupo "artificial"); placas SEM caracteres; sem marca nem modelo real. Materiais `pintura_automotiva` e `lente` |
+| **E5 · ambientação** | `componentes/ambientacao.py` | Árvores (frondosa, ipê amarelo/rosa, palmeira: tronco ramificado por semente, copa em aglomerados instanciados), arbusto, vaso, banco, contêiner, sacos de lixo, ponto de ônibus, banca, cones, bicicleta, mesas de bar, engradados, frutas. Espalhamento por regras: `arborizacao` (canteiros da rua + canteiros novos), `ambientacao` (faixas da calçada), `mesas_bar` (em frente a lanchonetes e padarias): apoio real, coluna livre, áreas livres, distância mínima e **teste de colisão por triângulos (BVH)** |
+| **E5 · QA "nada atravessando"** | `nucleo/qa_cena.py` | Conferência final de cada peça de ambientação contra a geometria vizinha (o chão — topo ≤ 20 cm — não conta) |
 | **E2 · QA da cena** | `nucleo/qa_cena.py` | Roda no Blender antes do render e vai para o manifesto: nada flutuando (raio para baixo; peças presas marcadas `suspenso`), lista exata dos textos 3D (comparada com `textos_permitidos` da receita), medidas de escala |
 
 ## Uso
@@ -55,4 +57,4 @@ quadro = P.compor(pesos={"ceu": 1, "sol": 1, "artificial": 0.25, "efeito": (6, "
                   personagem=funcao_que_desenha_o_heitor, grade={...})
 ```
 
-Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md) e [`testes/E2_RELATORIO.md`](testes/E2_RELATORIO.md) e [`testes/E3_RELATORIO.md`](testes/E3_RELATORIO.md) e [`testes/E4_RELATORIO.md`](testes/E4_RELATORIO.md).
+Resultados e limitações: [`testes/E0_RELATORIO.md`](testes/E0_RELATORIO.md) e [`testes/E1_RELATORIO.md`](testes/E1_RELATORIO.md) e [`testes/E2_RELATORIO.md`](testes/E2_RELATORIO.md) e [`testes/E3_RELATORIO.md`](testes/E3_RELATORIO.md) e [`testes/E4_RELATORIO.md`](testes/E4_RELATORIO.md) e [`testes/E5_RELATORIO.md`](testes/E5_RELATORIO.md).

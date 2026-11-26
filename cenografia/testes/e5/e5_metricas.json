@@ -1,0 +1,209 @@
+{
+ "E5_1_folhas": {
+  "arvores": {
+   "render_total_s": 38.75,
+   "objetos": 238,
+   "flutuando": [],
+   "atravessando": [],
+   "textos": []
+  },
+  "mobiliario": {
+   "render_total_s": 38.13,
+   "objetos": 170,
+   "flutuando": [],
+   "atravessando": [],
+   "textos": [
+    "BANCA",
+    "ÔNIBUS"
+   ]
+  },
+  "_duracao_teste_s": 42.3
+ },
+ "E5_2_cenas": {
+  "calcada_tarde": {
+   "cache": "MISS",
+   "render_total_s": 236.33,
+   "por_camada_s": {
+    "ceu": 9.48,
+    "longe": 38.53,
+    "meio": 106.94,
+    "perto": 17.42,
+    "frente": 13.03
+   },
+   "objetos": 3947,
+   "medidas_cor": {
+    "brilho_pct": 46.8,
+    "saturacao_pct": 33.2,
+    "contraste_pct": 17.1,
+    "vinheta_pct": 79.0,
+    "sombras_a": 8.5,
+    "sombras_b": -11.7,
+    "altas_luzes_b": 15.9
+   }
+  },
+  "esquina_tarde": {
+   "cache": "MISS",
+   "render_total_s": 206.39,
+   "por_camada_s": {
+    "ceu": 9.13,
+    "longe": 52.12,
+    "meio": 65.53,
+    "perto": 13.31,
+    "frente": 10.76
+   },
+   "objetos": 3947,
+   "medidas_cor": {
+    "brilho_pct": 45.6,
+    "saturacao_pct": 27.9,
+    "contraste_pct": 13.5,
+    "vinheta_pct": 70.8,
+    "sombras_a": 8.0,
+    "sombras_b": -19.1,
+    "altas_luzes_b": 5.6
+   }
+  },
+  "rua_tarde": {
+   "cache": "MISS",
+   "render_total_s": 217.31,
+   "por_camada_s": {
+    "ceu": 8.9,
+    "longe": 33.08,
+    "meio": 98.63,
+    "perto": 14.76,
+    "frente": 12.19
+   },
+   "objetos": 3947,
+   "medidas_cor": {
+    "brilho_pct": 46.6,
+    "saturacao_pct": 38.9,
+    "contraste_pct": 17.2,
+    "vinheta_pct": 59.2,
+    "sombras_a": 7.9,
+    "sombras_b": -19.4,
+    "altas_luzes_b": 11.4
+   }
+  },
+  "calcada_noite": {
+   "cache": "MISS",
+   "render_total_s": 241.32,
+   "por_camada_s": {
+    "ceu": 8.26,
+    "longe": 40.61,
+    "meio": 114.7,
+    "perto": 17.92,
+    "frente": 12.75
+   },
+   "objetos": 3951,
+   "medidas_cor": {
+    "brilho_pct": 30.7,
+    "saturacao_pct": 48.1,
+    "contraste_pct": 14.2,
+    "vinheta_pct": 75.7,
+    "sombras_a": 13.6,
+    "sombras_b": -20.3,
+    "altas_luzes_b": 26.6
+   }
+  },
+  "_resumo": {
+   "placas_renderizadas_agora": 4,
+   "media_s": 225.3,
+   "max_s": 241.3,
+   "dentro_meta_3_5_min": 4
+  },
+  "_duracao_teste_s": 921.6
+ },
+ "E5_3_qa": {
+  "calcada_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 789,
+   "pecas_verificadas_colisao": 46,
+   "atravessando": [],
+   "textos_fora_da_lista": []
+  },
+  "esquina_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 789,
+   "pecas_verificadas_colisao": 46,
+   "atravessando": [],
+   "textos_fora_da_lista": []
+  },
+  "rua_tarde": {
+   "flutuando": [],
+   "malhas_verificadas": 789,
+   "pecas_verificadas_colisao": 46,
+   "atravessando": [],
+   "textos_fora_da_lista": []
+  },
+  "calcada_noite": {
+   "flutuando": [],
+   "malhas_verificadas": 789,
+   "pecas_verificadas_colisao": 46,
+   "atravessando": [],
+   "textos_fora_da_lista": []
+  },
+  "_resumo": {
+   "objetos_flutuando": 0,
+   "pecas_atravessando": 0,
+   "textos_fora_da_lista": [],
+   "colocado_pelo_espalhamento": {
+    "árvore em canteiro da rua": 2,
+    "árvore em canteiro novo": 8,
+    "banco": 4,
+    "vaso": 8,
+    "sacos": 6,
+    "conteiner": 2,
+    "bicicleta": 2,
+    "arbusto": 5,
+    "ponto_onibus": 1,
+    "cones": 1,
+    "frutas": 1,
+    "mesa de bar": 4,
+    "engradados": 2
+   },
+   "aglomerados_de_folhas_instanciados": 399,
+   "prototipos_de_aglomerado": 4
+  },
+  "_duracao_teste_s": 47.7
+ },
+ "E5_4_area_vazia": {
+  "E4_calcada_tarde": {
+   "blocos_fora_do_ceu": 448,
+   "blocos_vazios": 38,
+   "area_vazia_pct": 8.5
+  },
+  "E5_calcada_tarde": {
+   "blocos_fora_do_ceu": 508,
+   "blocos_vazios": 45,
+   "area_vazia_pct": 8.9
+  },
+  "E4_esquina_tarde": {
+   "blocos_fora_do_ceu": 525,
+   "blocos_vazios": 133,
+   "area_vazia_pct": 25.3
+  },
+  "E5_esquina_tarde": {
+   "blocos_fora_do_ceu": 525,
+   "blocos_vazios": 134,
+   "area_vazia_pct": 25.5
+  },
+  "_duracao_teste_s": 348.3
+ },
+ "E5_5_determinismo": {
+  "mesma_receita_mesma_geometria": true,
+  "objetos": 3947,
+  "outra_semente_geometria_diferente": true,
+  "cache_segunda_chamada": "HIT",
+  "cache_tempo_s": 2.31,
+  "_duracao_teste_s": 133.9
+ },
+ "E5_6_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "heitor_pixels_medidos": 191418,
+  "heitor_pixels_cobertos_por_algo_mais_perto": 0,
+  "heitor_pixels_identicos_pct": 100.0,
+  "heitor_maior_diferenca_8bit": 0,
+  "_duracao_teste_s": 14.2
+ }
+}
