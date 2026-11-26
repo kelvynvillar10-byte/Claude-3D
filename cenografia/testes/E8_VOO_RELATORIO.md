@@ -1,6 +1,6 @@
 # Relatório da etapa E8 (parte 2): poder de voo
 
-26/11/2026 · Autorizada pelo diretor depois da aprovação da extensão X2 ("Pode começar").
+26/11/2026 · Autorizada pelo diretor depois da aprovação da extensão X2 ("Pode começar"). **E8 parte 2 APROVADA pelo diretor em 26/11/2026** ("Pode continuar"). Os dois achados continuam em aberto, sem correção.
 - O rig v2 não foi alterado. O Heitor é desenhado pela **X2** (poses de voo, corpo inclinado, roupa e cabelo ao vento) e iluminado pela **X1** (tom de luz), as duas aprovadas.
 - **Aranha e elasticidade não foram iniciadas.**
 - Nenhum episódio ou história foi produzido.
