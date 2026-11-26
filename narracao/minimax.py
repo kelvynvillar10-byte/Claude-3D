@@ -202,7 +202,7 @@ class Cliente:
         return {"audio": audio, "legendas": legendas, "meta": meta, "do_cache": False}
 
     # ---- consulta sem síntese (T1)
-    def consultar_vozes(self, autorizacao, motivo="T1: validar chave, região e existência da voz (sem síntese)"):
+    def consultar_vozes(self, autorizacao, motivo="T1: validar chave, região e existência da voz (sem síntese)", nome=None):
         """Consulta de vozes da conta: não envia texto (0 caractere). NÃO presumimos que seja gratuita: o resultado e o
         que a API disser sobre cobrança ficam registrados para o diretor avaliar."""
         if autorizacao not in self.orcamento()["autorizacoes"]:
@@ -218,10 +218,26 @@ class Cliente:
         categorias = {k: len(v) for k, v in j.items() if isinstance(v, list)}
         onde = [k for k, v in j.items() if isinstance(v, list) and vid in json.dumps(v)]
         proibida = [k for k in self.cfg["vozes_proibidas"] if k in json.dumps(j)]
+        # vozes da conta (clones e Voice Design): guarda SÓ o ID e o nome de cada uma, e os nomes dos campos dos itens
+        da_conta = {c: [{"voice_id": v.get("voice_id"), "voice_name": v.get("voice_name")} for v in j.get(c) or [] if isinstance(v, dict)]
+                    for c in ("voice_cloning", "voice_generation")}
+        campos_itens = {c: sorted({k for v in j.get(c) or [] if isinstance(v, dict) for k in v}) for c in ("voice_cloning", "voice_generation")}
+        vs = j.get("voice_slots")
+        slots = vs if isinstance(vs, (int, float, str, type(None))) else {"tipo": type(vs).__name__, "campos": sorted(vs) if isinstance(vs, dict) else len(vs)}
+        alternativas = {a["voice_id"]: a["voice_id"] in json.dumps(j) for a in self.cfg.get("vozes_alternativas", [])}
+        extra = {"vozes_da_conta": da_conta, "campos_dos_itens": campos_itens, "voice_slots": slots, "vozes_alternativas_encontradas": alternativas}
+        if nome:
+            texto = json.dumps(j, ensure_ascii=False).lower()
+            extra["nome_procurado"] = nome
+            extra["nome_encontrado"] = nome.lower() in texto
+            extra["onde_o_nome_aparece"] = [{"categoria": c, "voice_id": v.get("voice_id"), "voice_name": v.get("voice_name")}
+                                           for c, lst in j.items() if isinstance(lst, list) for v in lst
+                                           if isinstance(v, dict) and nome.lower() in json.dumps(v, ensure_ascii=False).lower()]
         self._registrar(autorizacao=autorizacao, motivo=motivo, caracteres_enviados=0, http=r.status_code,
                         resultado=f"código {cod}: {ERROS.get(cod, br.get('status_msg', ''))}", voz_encontrada=achada, categoria_da_voz=onde,
                         vozes_por_categoria=categorias, clone_antigo_ainda_na_conta=bool(proibida), host=self.cfg["host"], trace_id=j.get("trace_id"),
-                        cobranca="nenhum campo de cobrança na resposta" if not any(k in json.dumps(j).lower() for k in ("usage", "charge", "cost", "balance")) else "ver resposta")
-        return {"http": r.status_code, "codigo": cod, "mensagem": br.get("status_msg"), "voz_encontrada": achada, "categoria_da_voz": onde,
+                        cobranca="nenhum campo de cobrança na resposta" if not any(k in json.dumps(j).lower() for k in ("usage", "charge", "cost", "balance")) else "ver resposta",
+                        **extra)
+        return {"http": r.status_code, "codigo": cod, "mensagem": br.get("status_msg"), "voz_principal": vid, "voz_encontrada": achada, "categoria_da_voz": onde,
                 "vozes_por_categoria": categorias, "clone_antigo_ainda_na_conta": bool(proibida),
-                "campos_da_resposta": sorted(j.keys()), "trace_id": j.get("trace_id")}
+                "campos_da_resposta": sorted(j.keys()), "trace_id": j.get("trace_id"), **extra}
