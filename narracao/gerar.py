@@ -202,8 +202,10 @@ if __name__ == "__main__":
             if not aut:
                 print("SIMULAÇÃO: a consulta de vozes não roda sem --autorizado T1"); sys.exit(0)
             nome = a[a.index("--nome") + 1] if "--nome" in a else None
-            motivo = "T1: validar chave, região e existência da voz (sem síntese)" + (f"; procurar o nome '{nome}'" if nome else "")
-            print(json.dumps(MM.Cliente(cfg).consultar_vozes(aut, motivo=motivo, nome=nome), ensure_ascii=False, indent=1))
+            filtro = a[a.index("--filtro") + 1] if "--filtro" in a else None
+            motivo = ("T1: validar chave, região e existência da voz (sem síntese)" + (f"; procurar o nome '{nome}'" if nome else "")
+                      + (f"; listar vozes com '{filtro}'" if filtro else ""))
+            print(json.dumps(MM.Cliente(cfg).consultar_vozes(aut, motivo=motivo, nome=nome, filtro=filtro), ensure_ascii=False, indent=1))
         elif a[0] == "gerar":
             rot = json.loads(Path(a[1]).read_text()); d = json.loads(Path(a[a.index("--direcao") + 1]).read_text())
             if not aut:

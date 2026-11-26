@@ -202,7 +202,7 @@ class Cliente:
         return {"audio": audio, "legendas": legendas, "meta": meta, "do_cache": False}
 
     # ---- consulta sem síntese (T1)
-    def consultar_vozes(self, autorizacao, motivo="T1: validar chave, região e existência da voz (sem síntese)", nome=None):
+    def consultar_vozes(self, autorizacao, motivo="T1: validar chave, região e existência da voz (sem síntese)", nome=None, filtro=None):
         """Consulta de vozes da conta: não envia texto (0 caractere). NÃO presumimos que seja gratuita: o resultado e o
         que a API disser sobre cobrança ficam registrados para o diretor avaliar."""
         if autorizacao not in self.orcamento()["autorizacoes"]:
@@ -226,6 +226,11 @@ class Cliente:
         slots = vs if isinstance(vs, (int, float, str, type(None))) else {"tipo": type(vs).__name__, "campos": sorted(vs) if isinstance(vs, dict) else len(vs)}
         alternativas = {a["voice_id"]: a["voice_id"] in json.dumps(j) for a in self.cfg.get("vozes_alternativas", [])}
         extra = {"vozes_da_conta": da_conta, "campos_dos_itens": campos_itens, "voice_slots": slots, "vozes_alternativas_encontradas": alternativas}
+        if filtro:                                         # vozes de QUALQUER categoria cujo ID ou nome contenha o filtro (só ID e nome)
+            extra["filtro"] = filtro
+            extra["vozes_com_o_filtro"] = [{"categoria": c, "voice_id": v.get("voice_id"), "voice_name": v.get("voice_name")}
+                                           for c, lst in j.items() if isinstance(lst, list) for v in lst if isinstance(v, dict)
+                                           and filtro.lower() in f"{v.get('voice_id', '')} {v.get('voice_name', '')}".lower()]
         if nome:
             texto = json.dumps(j, ensure_ascii=False).lower()
             extra["nome_procurado"] = nome
