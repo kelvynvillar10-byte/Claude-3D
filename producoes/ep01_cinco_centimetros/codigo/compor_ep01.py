@@ -128,7 +128,7 @@ def desenhista(pl, tl, dur, P, cam):
     h = pl.get("heitor")
     mundo, para = heitor_mundo(pl, tl, dur)
     pe = ET.projetar(P, mundo); topo = ET.projetar(P, (mundo[0], mundo[1], mundo[2] + ALT))
-    vista = (h or {}).get("vista", "frente"); direcao = 1
+    vista = (h or {}).get("vista", "frente"); direcao = (h or {}).get("direcao", 1)
     if vista == "perfil" and para is not None:
         direcao = 1 if ET.projetar(P, para)[0] >= pe[0] else -1
     extras = []
@@ -171,17 +171,25 @@ def tela_de_placa(P, cam, p):
 
 
 def rotulo(cv, txt, sub, ax, ay, lado):
-    bx = ax + lado * 170; by = ay - 150
+    f = skia.Font(NUNITO, 92); w = f.measureText(txt); w2 = skia.Font(NUNITO, 40).measureText(sub or "")
+    larg = max(w, w2) + 60
+    if lado > 0 and ax + 170 + larg > OW - 30:                         # o rótulo nunca sai da tela: troca de lado se precisar
+        lado = -1
+    if lado < 0 and ax - 170 - larg < 30:
+        lado = 1
+    bx = ax + lado * 170; by = max(200, ay - 150)
     lp = skia.Paint(AntiAlias=True, Color=0xFFFFFFFF, StrokeWidth=5, Style=skia.Paint.kStroke_Style, StrokeCap=skia.Paint.kRound_Cap)
     sh = skia.Paint(AntiAlias=True, Color=skia.ColorSetARGB(150, 0, 0, 0), StrokeWidth=9, Style=skia.Paint.kStroke_Style, StrokeCap=skia.Paint.kRound_Cap)
     pth = skia.Path(); pth.moveTo(ax, ay); pth.lineTo(bx, by); pth.lineTo(bx + lado * 40, by)
     cv.drawPath(pth, sh); cv.drawPath(pth, lp); cv.drawCircle(ax, ay, 9, skia.Paint(AntiAlias=True, Color=0xFFFFFFFF))
-    f = skia.Font(NUNITO, 92); w = f.measureText(txt); x0 = bx + lado * 52 if lado > 0 else bx - 52 - w
+    x0 = bx + lado * 52 if lado > 0 else bx - 52 - w
+    x0 = min(max(30, x0), OW - 30 - w)
     for st, cor in ((skia.Paint(AntiAlias=True, Color=0xFF1A110C, Style=skia.Paint.kStroke_Style, StrokeWidth=14, StrokeJoin=skia.Paint.kRound_Join), None),
                     (skia.Paint(AntiAlias=True, Color=AMARELO), None)):
         cv.drawString(txt, x0, by + 32, f, st)
     if sub:
         f2 = skia.Font(NUNITO, 40); w2 = f2.measureText(sub); x2 = x0 if lado > 0 else x0 + w - w2
+        x2 = min(max(30, x2), OW - 30 - w2)
         cv.drawString(sub, x2, by + 80, f2, skia.Paint(AntiAlias=True, Color=0xFF1A110C, Style=skia.Paint.kStroke_Style, StrokeWidth=8, StrokeJoin=skia.Paint.kRound_Join))
         cv.drawString(sub, x2, by + 80, f2, skia.Paint(AntiAlias=True, Color=0xFFFFFFFF))
 
