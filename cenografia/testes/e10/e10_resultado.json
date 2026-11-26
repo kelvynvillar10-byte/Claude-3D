@@ -47,6 +47,54 @@
    "heitor_dist_camera_m": 0.192,
    "flutuando": [],
    "textos_3d": []
+  },
+  "E_escada_base": {
+   "rotulo": "pé da escada: cada degrau de 18 cm é um paredão de 5 m na escala dele",
+   "chave": "7fd17967cb95c60b",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.277,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 371.5,
+   "heitor_dist_camera_m": 0.204,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "F_degrau": {
+   "rotulo": "no meio da escada: o próximo espelho é um muro mais alto que ele",
+   "chave": "0a9c90b7f2b22f79",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.166,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 518.5,
+   "heitor_dist_camera_m": 0.144,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "G_sala_gato": {
+   "rotulo": "sala: o gato (personagem original 2D) agachado, caçando, diante do Heitor",
+   "chave": "ee9dffdb3d79762c",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.234,
+   "abertura_f": 5.6,
+   "heitor_altura_px_placa": 314.9,
+   "heitor_dist_camera_m": 0.228,
+   "flutuando": [],
+   "textos_3d": []
+  },
+  "H_aranha_canto": {
+   "rotulo": "canto do rodapé: a aranha (personagem original 2D) atrás do Heitor",
+   "chave": "76f0661c27e3a5c1",
+   "cache": true,
+   "render_s": 0.1,
+   "foco_m": 0.222,
+   "abertura_f": 4.0,
+   "heitor_altura_px_placa": 397.0,
+   "heitor_dist_camera_m": 0.221,
+   "flutuando": [],
+   "textos_3d": []
   }
  },
  "rapido": false
