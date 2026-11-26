@@ -228,7 +228,8 @@ class Cliente:
         extra = {"vozes_da_conta": da_conta, "campos_dos_itens": campos_itens, "voice_slots": slots, "vozes_alternativas_encontradas": alternativas}
         if filtro:                                         # vozes de QUALQUER categoria cujo ID ou nome contenha o filtro (só ID e nome)
             extra["filtro"] = filtro
-            extra["vozes_com_o_filtro"] = [{"categoria": c, "voice_id": v.get("voice_id"), "voice_name": v.get("voice_name")}
+            extra["vozes_com_o_filtro"] = [{"categoria": c, "voice_id": v.get("voice_id"), "voice_name": v.get("voice_name"),
+                                            "description": v.get("description"), "created_time": v.get("created_time")}
                                            for c, lst in j.items() if isinstance(lst, list) for v in lst if isinstance(v, dict)
                                            and filtro.lower() in f"{v.get('voice_id', '')} {v.get('voice_name', '')}".lower()]
         if nome:

@@ -36,7 +36,7 @@
   },
   "debito_e_registro": {
    "ok": true,
-   "info": "{\"data\": \"2026-11-26T17:54:39+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"moss_audio_f28d61d6-e90b-11f1-b491-2a43200"
+   "info": "{\"data\": \"2026-11-26T18:11:28+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"moss_audio_f28d61d6-e90b-11f1-b491-2a43200"
   },
   "cabecalho_com_chave_so_na_requisicao": {
    "ok": true
