@@ -63,7 +63,7 @@ def planos(r):
                       "heitor": [0.215, 1.445, 0.55], "abertura": 4.0, "rosto": "surpresa",
                       "rotulo": "no criado-mudo: o celular de pé vira um painel de 4 m"},
         # ---- E10 parte 2
-        "E_escada_base": {"base": "e10_escada.json", "cam": {"pos": [0.08, -0.34, 0.05], "alvo": [0.0, 0.55, 0.62], "lente_mm": 16},
+        "E_escada_base": {"base": "e10_escada.json", "cam": {"pos": [0.08, -0.36, 0.05], "alvo": [0.0, 0.55, 0.42], "lente_mm": 16},
                           "heitor": [0.02, -0.07, 0.0], "abertura": 4.0, "rosto": None, "vista": "costas",
                           "rotulo": "pé da escada: cada degrau de 18 cm é um paredão de 5 m na escala dele"},
         "F_degrau": {"base": "e10_escada.json", "cam": {"pos": [0.10, 0.37, 0.415], "alvo": [-0.02, 0.62, 0.48], "lente_mm": 18},
@@ -71,11 +71,11 @@ def planos(r):
                      "rotulo": "no meio da escada: o próximo espelho é um muro mais alto que ele"},
         "G_sala_gato": {"base": "e10_sala.json", "cam": {"pos": [0.12, -0.62, 0.035], "alvo": [0.55, 0.35, 0.18], "lente_mm": 18},
                         "heitor": [0.2, -0.4, 0.008], "abertura": 5.6, "rosto": None, "vista": "costas",
-                        "extras": [{"tipo": "gato", "pos": [0.78, 0.12, 0.008], "altura_m": 0.19, "pose": "agachado", "direcao": -1, "pupila": 1.0}],
+                        "extras": [{"tipo": "gato", "pos": [0.50, -0.02, 0.008], "altura_m": 0.19, "pose": "agachado", "direcao": -1, "pupila": 1.0}],
                         "rotulo": "sala: o gato (personagem original 2D) agachado, caçando, diante do Heitor"},
         "H_aranha_canto": {"base": "e10_sala.json", "cam": {"pos": [1.72, 1.42, 0.022], "alvo": [2.09, 1.89, 0.05], "lente_mm": 22},
                            "heitor": [1.85, 1.60, 0.0], "abertura": 4.0, "rosto": "medo",
-                           "extras": [{"tipo": "aranha", "pos": [1.975, 1.775, 0.0], "largura_m": 0.04, "levantar_frente": 0.6}],
+                           "extras": [{"tipo": "aranha", "pos": [1.865, 1.716, 0.0], "largura_m": 0.05, "levantar_frente": 0.6}],
                            "rotulo": "canto do rodapé: a aranha (personagem original 2D) atrás do Heitor"},
     }
 
