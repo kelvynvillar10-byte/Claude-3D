@@ -1,0 +1,14 @@
+{
+ "manha_frente": {
+  "placa": "/home/user/Claude-3D/.cache/cenografia/8bd45341962cae44fd771ded08a2a93c13999062f6c5b07c038dd9ce1c5da705",
+  "sha256": "9e2735b90643b5061777ad1aa54c57013b21309363e8d0479ef32c8dcc7270f7"
+ },
+ "tarde_perfil": {
+  "placa": "/home/user/Claude-3D/.cache/cenografia/8aeff961c3e914895ce7966a7d591fbeaaac2de9c8321098cee92ebff3015556",
+  "sha256": "09cc93af12b77a112c450625a6a2e2bd11aa818f9f38f3ac627498e5ea48bbbe"
+ },
+ "noite_costas": {
+  "placa": "/home/user/Claude-3D/.cache/cenografia/8066cb6209e24b623fa182c11bba354254d615bbcfeb86895f045a221e41d513",
+  "sha256": "5d73e11c2b044987eebbf8ff449f13168c27c2b1c8c626ddaf2431653b81fea8"
+ }
+}

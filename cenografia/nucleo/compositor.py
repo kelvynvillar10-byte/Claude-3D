@@ -63,7 +63,9 @@ class Placa:
             if c != "ceu" and valido.any():   # profundidade das áreas vazias = a do pixel válido mais próximo
                 idx = ndimage.distance_transform_edt(~valido, return_distances=False, return_indices=True)
                 prof = prof[idx[0], idx[1]]
+            alb = d / "albedo.exr"
             self.camadas[c] = {"luz": luz, "alfa": alfa, "prof": prof,
+                               "albedo": ler_exr(alb)[..., :3] if (c != "ceu" and alb.exists()) else None,   # E7 (placas antigas: None)
                                "z_med": float(np.median(prof[valido])) if (c != "ceu" and valido.any()) else 5e3}
         uu, vv = np.meshgrid(np.arange(self.W, dtype=np.float32), np.arange(self.H, dtype=np.float32))
         self.u, self.v = uu - self.cx, vv - self.cy
@@ -116,28 +118,68 @@ class Placa:
         cache[chave] = L
         return L
 
-    def _pilha(self, cams, pesos, cam, nevoa, oclusao_ate_m=None, ceu_extra=None):
+    # ---------------------------------------------------------------- E7: luz 2D dos efeitos
+    def geometria_camada(self, c):
+        """Posição no mundo (m) e normal de cada pixel da camada, a partir da profundidade e da câmera (cache)."""
+        g = self.__dict__.setdefault("_cache_geo", {})
+        if c not in g:
+            I = self.m["intrinsecos"]; Z = self.camadas[c]["prof"]
+            pos, dr, cima, dx = (np.asarray(I[k], np.float32) for k in ("pos", "dir", "cima", "dir_x"))
+            raio = dr[None, None, :] + (self.u / self.f)[..., None] * dx[None, None, :] - (self.v / self.f)[..., None] * cima[None, None, :]
+            X = pos[None, None, :] + raio * Z[..., None]
+            gx = np.gradient(X, axis=1); gy = np.gradient(X, axis=0)
+            n = np.cross(gy, gx); n /= np.linalg.norm(n, axis=2, keepdims=True) + 1e-9
+            vira = (n * (pos[None, None, :] - X)).sum(2) < 0          # normal voltada para a câmera
+            n[vira] *= -1
+            g[c] = (X.astype(np.float32), n.astype(np.float32))
+        return g[c]
+
+    def luz_extra(self, c, luzes):
+        """Luz de pontos (efeitos) sobre a camada: albedo × Σ forca·cor·max(0, n·l)/(d² + raio²). Linear. Sem sombras."""
+        alb = self.camadas[c].get("albedo")
+        if not luzes or alb is None:
+            return None
+        X, n = self.geometria_camada(c); E = np.zeros_like(X)
+        for L in luzes:
+            d = np.asarray(L["pos"], np.float32)[None, None, :] - X; d2 = (d * d).sum(2)
+            lam = np.maximum(0.0, (n * d).sum(2) / np.sqrt(d2 + 1e-9)) * L.get("difusa", 1.0) + (1 - L.get("difusa", 1.0))
+            E += (L["forca"] * lam / (d2 + L.get("raio", 0.3) ** 2))[..., None] * cor_lin(L.get("cor", (1, 1, 1)))
+        return alb * E
+
+    def _pilha(self, cams, pesos, cam, nevoa, oclusao_ate_m=None, ceu_extra=None, luzes=None, frontal=False):
         """Compõe (linear, pré-multiplicado) as camadas dadas, do fundo para a frente. Retorna (rgb, alfa, oclusao):
         oclusao = cobertura (0–1) do que está MAIS PERTO da câmera que 'oclusao_ate_m' (profundidade após o movimento),
         usada para o teste de profundidade do personagem."""
         acc = np.zeros((self.H, self.W, 3), np.float32); alfa = np.zeros((self.H, self.W), np.float32)
         livre = np.ones((self.H, self.W), np.float32)
+        zf = np.full((self.H, self.W), 5e3, np.float32) if frontal else None
         for c in cams:
             L = self._iluminada(c, pesos, nevoa); a = self.camadas[c]["alfa"]
+            if luzes and c != "ceu":
+                ex = self.luz_extra(c, luzes)
+                if ex is not None:
+                    if nevoa:
+                        Z = self.camadas[c]["prof"]; ex = ex * np.exp(-nevoa["densidade"] * np.maximum(0, Z - nevoa.get("inicio_m", 0)))[..., None]
+                    L = L + ex * a[..., None]
             mx, my = self.mapa_paralaxe(c, **cam)
             L = cv2.remap(L, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
             if c == "ceu" and ceu_extra is not None:      # nuvens, lua, estrelas: entram no céu, atrás de tudo
                 L = ceu_extra(L)
             if c != "ceu":
                 a = cv2.remap(a, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
-                if oclusao_ate_m is not None:
+                if oclusao_ate_m is not None or frontal:
                     Z = cv2.remap(self.camadas[c]["prof"], mx, my, cv2.INTER_NEAREST, borderMode=cv2.BORDER_REPLICATE) - cam.get("tz", 0.0)
-                    livre *= 1 - a * (Z < oclusao_ate_m)
+                    if oclusao_ate_m is not None:
+                        livre *= 1 - a * (Z < oclusao_ate_m)
+                    if frontal:
+                        zf = np.where(a > 0.5, np.minimum(zf, Z), zf)
             acc = L + acc * (1 - a[..., None]); alfa = a + alfa * (1 - a)
+        if frontal:
+            self.ultima_prof_frontal = zf
         return acc, alfa, 1 - livre
 
     def compor(self, pesos=None, cam=None, nevoa=None, personagem=None, profundidade_personagem=None, grade=None, semente_grao=0,
-               saida=(1080, 1920), camadas=None, espessura_m=0.25, ceu_extra=None, frente_extra=None):
+               saida=(1080, 1920), camadas=None, espessura_m=0.25, ceu_extra=None, frente_extra=None, efeitos=None, deslocamento_px=(0, 0)):
         """Retorna o quadro final RGB uint8 (recorte central do tamanho 'saida').
         personagem: função(canvas_skia, projecao) que desenha em RGBA na resolução da placa;
         projecao(x, y, z) → (x', y', escala) aplica o mesmo movimento de câmera ao plano do personagem.
@@ -146,6 +188,9 @@ class Placa:
         pesos = pesos or self.m["pesos_padrao"]; cam = cam or {}; grade = grade or {}
         exp = 2.0 ** grade.get("exposicao", 0.0)
         ordem = [c for c in self.m["camadas"] if camadas is None or c in camadas]
+        if efeitos is not None:                             # E7: núcleo de efeitos (o caminho sem efeitos não muda)
+            return self._com_efeitos(pesos, cam, nevoa, personagem, profundidade_personagem, grade, exp, ordem, espessura_m,
+                                     ceu_extra, frente_extra, efeitos, semente_grao, saida, deslocamento_px)
         if personagem is None:
             acc, _, _ = self._pilha(ordem, pesos, cam, nevoa, ceu_extra=ceu_extra)
             disp = self._tom(acc * exp, grade)
@@ -186,6 +231,53 @@ class Placa:
         vis = (1 - occ)[..., None]                                   # skia: RGBA pré-multiplicado
         self.ultima_oclusao = occ
         return fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis)
+
+    def _com_efeitos(self, pesos, cam, nevoa, personagem, D, grade, exp, ordem, espessura_m, ceu_extra, frente_extra, ef, semente,
+                     saida, desloc):
+        """Ordem: cenário (+ luz dos efeitos, antes do mapeamento de tons) → marcas no chão → efeitos ATRÁS do
+        personagem → personagem → efeitos NA FRENTE → distorção → quadro de impacto (se houver) → vinheta e grão →
+        recorte (deslocado pela tremida). Cada camada de efeito tem profundidade por pixel: o que está mais perto da
+        câmera no cenário a cobre."""
+        import skia
+        luzes = ef.luzes(self, cam)
+        oc = (D - cam.get("tz", 0.0) - espessura_m) if (personagem is not None and D is not None) else None
+        acc, _, occ = self._pilha(ordem, pesos, cam, nevoa, oclusao_ate_m=oc, ceu_extra=ceu_extra, luzes=luzes, frontal=True)
+        zf = self.ultima_prof_frontal; d = self._tom(acc * exp, grade)
+
+        def aplicar(d, camada, tol=0.15):
+            if camada is None:
+                return d
+            vis = (camada["z"] <= zf + tol).astype(np.float32)[..., None]
+            if camada.get("rgba") is not None:
+                d = camada["rgba"][..., :3] * vis + d * (1 - camada["rgba"][..., 3:4] * vis)
+            if camada.get("add") is not None:
+                d = d + camada["add"] * vis
+            return d
+        d = aplicar(d, ef.desenhar(self, cam, "chao"), tol=0.35)
+        d = aplicar(d, ef.desenhar(self, cam, "atras"))
+        self.ultimo_alfa_personagem = None
+        if personagem is not None:
+            s = skia.Surface(self.W, self.H); cv = s.getCanvas(); cv.clear(0)
+            personagem(cv, lambda x, y, z: self.projetar_ponto(x, y, z, **cam))
+            fig = s.makeImageSnapshot().toarray(colorType=skia.ColorType.kRGBA_8888_ColorType).astype(np.float32) / 255.0
+            vis = (1 - occ)[..., None]; self.ultima_oclusao = occ
+            d = fig[..., :3] * vis + d * (1 - fig[..., 3:4] * vis); self.ultimo_alfa_personagem = fig[..., 3] * vis[..., 0]
+        d = aplicar(d, ef.desenhar(self, cam, "frente"))
+        dist = ef.distorcao(self, cam)
+        if dist is not None:
+            dx, dy = dist
+            d = cv2.remap(d.astype(np.float32), (self.u + self.cx + dx).astype(np.float32), (self.v + self.cy + dy).astype(np.float32),
+                          cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        imp = ef.impacto(self, self.ultimo_alfa_personagem)
+        if imp is not None:
+            d = imp
+        d = np.clip(d, 0, 1)
+        if frente_extra is not None:
+            d = frente_extra(d)
+        d = self._final(d, grade, semente)
+        W0, H0 = saida; ox, oy = desloc
+        x0 = int(np.clip((self.W - W0) // 2 + ox, 0, self.W - W0)); y0 = int(np.clip((self.H - H0) // 2 + oy, 0, self.H - H0))
+        return d[y0:y0 + H0, x0:x0 + W0]
 
     def _final(self, disp, grade, semente):
         H, W = disp.shape[:2]

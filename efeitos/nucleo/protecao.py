@@ -1,0 +1,39 @@
+"""Proteção do ROSTO e da ESTAMPA do Heitor: na camada da frente, o efeito pode cobrir no máximo 'LIMITE' (35 %) dessas
+áreas. As áreas vêm da posição do personagem (pés e topo na tela) e das proporções do rig (4 cabeças):
+rosto = elipse no quarto de cima; estampa = elipse no peito (só nas vistas frente e 3/4)."""
+import numpy as np
+
+LIMITE = 0.35
+
+
+def mascaras(ctx):
+    pc = ctx.personagem
+    x, y, _, _ = pc["pe_tela"]; _, yt, _, _ = pc["topo_tela"]; alt = y - yt
+    H, W = ctx.P.H, ctx.P.W; yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    rosto = (((xx - x) / (0.15 * alt)) ** 2 + ((yy - (yt + 0.13 * alt)) / (0.14 * alt)) ** 2) <= 1
+    estampa = np.zeros_like(rosto)
+    if pc.get("vista", "frente") in ("frente", "tres_quartos"):
+        estampa = (((xx - x) / (0.15 * alt)) ** 2 + ((yy - (yt + 0.37 * alt)) / (0.07 * alt)) ** 2) <= 1
+    return rosto, estampa
+
+
+def proteger(camada, ctx):
+    rosto, estampa = mascaras(ctx); m = (rosto | estampa)
+    if not m.any():
+        return camada
+    a = camada["rgba"][..., 3]
+    fator = np.where(m & (a > LIMITE), LIMITE / np.maximum(a, 1e-6), 1.0).astype(np.float32)
+    camada["rgba"] *= fator[..., None]
+    add = camada["add"]; lum = add.max(axis=2)
+    f2 = np.where(m & (lum > LIMITE), LIMITE / np.maximum(lum, 1e-6), 1.0).astype(np.float32)
+    camada["add"] = add * f2[..., None]
+    return camada
+
+
+def cobertura(camada, ctx):
+    """Quanto o efeito cobre rosto e estampa (média de alfa + brilho somado, 0..1)."""
+    if camada is None:
+        return {"rosto": 0.0, "estampa": 0.0}
+    rosto, estampa = mascaras(ctx)
+    cob = np.clip(camada["rgba"][..., 3] + camada["add"].max(axis=2), 0, 1)
+    return {"rosto": round(float(cob[rosto].max()) if rosto.any() else 0.0, 3), "estampa": round(float(cob[estampa].max()) if estampa.any() else 0.0, 3)}

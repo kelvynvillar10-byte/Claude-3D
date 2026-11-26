@@ -1,6 +1,6 @@
 # Relatório da etapa E6 — cena de prova
 
-26/11/2026 · Autorizada pelo diretor junto com a aprovação da E5 ("Autorizado e aprovado"). **Aguardando avaliação do diretor. A E7 não foi iniciada.** **É um vídeo de TESTE, não uma história:** não há roteiro, falas, narração nem episódio. O Heitor rig v2 não foi alterado.
+26/11/2026 · Autorizada pelo diretor junto com a aprovação da E5 ("Autorizado e aprovado"). **E6 APROVADA pelo diretor em 26/11/2026; E7 autorizada.** **É um vídeo de TESTE, não uma história:** não há roteiro, falas, narração nem episódio. O Heitor rig v2 não foi alterado.
 
 Escopo do plano aprovado: "rua de bairro montada por receita, em 3 horários, com o Heitor v2 andando e câmera em paralaxe. É um vídeo de teste, não história."
 

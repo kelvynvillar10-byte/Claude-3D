@@ -5,7 +5,7 @@ Para cada camada (céu, longe, meio, perto, frente):
   iluminando (visible_camera=False). Resultado: cada camada sai inteira, sem buracos atrás do que está na frente
   — é o que permite paralaxe 2.5D sem "rasgos".
 - o compositor do Blender grava em EXR (half float, linear): uma passada por grupo de luz (já sem ruído: OIDN com
-  albedo e normal), a imagem completa, o alfa e a profundidade.
+  albedo e normal), a imagem completa, o alfa, a profundidade e (E7) o albedo, usado pela luz 2D dos efeitos.
 """
 import time
 from pathlib import Path
@@ -44,6 +44,8 @@ def _grafo(cena, pasta, grupos):
     for g in grupos:
         fo.file_output_items.new("RGBA", f"luz_{g}"); ng.links.new(limpo(rl.outputs[f"Combined_{g}"]), fo.inputs[f"luz_{g}"])
     fo.file_output_items.new("RGBA", "imagem"); ng.links.new(limpo(rl.outputs["Image"]), fo.inputs["imagem"])
+    # E7: albedo (cor própria das superfícies) — a luz 2D dos efeitos ilumina o cenário com a cor certa
+    fo.file_output_items.new("RGBA", "albedo"); ng.links.new(rl.outputs["Denoising Albedo"], fo.inputs["albedo"])
     fo.file_output_items.new("FLOAT", "alfa"); ng.links.new(rl.outputs["Alpha"], fo.inputs["alfa"])
     fo.file_output_items.new("FLOAT", "profundidade"); ng.links.new(rl.outputs["Depth"], fo.inputs["profundidade"])
 
