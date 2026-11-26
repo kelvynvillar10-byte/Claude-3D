@@ -187,25 +187,31 @@ def t_video():
 
 # ------------------------------------------------------------------ E6-4: pé de apoio (perfil)
 def t_pe():
-    """Na tomada de perfil, o pé de apoio deve ficar parado na tela durante o apoio. Posição do tornozelo na tela =
-    posição da pelve (projeção do mundo) + deslocamento do tornozelo em relação à pelve (dados do próprio ciclo do rig)."""
+    """Deslize do pé de apoio na tomada de perfil, medido CONTRA O MUNDO: durante cada apoio, o tornozelo desenhado
+    (pelve projetada + deslocamento do ciclo do rig) é comparado com a projeção de um ponto PARADO no mundo, no lugar
+    onde esse pé pisou, com o mesmo movimento de câmera. Deslize = variação dessa diferença ao longo do apoio."""
     tom = next(t for t in PLANO["tomadas"] if t["vista"] == "perfil"); P, _, _ = placa(tom)
-    trilhas = {"d": [], "e": []}; deriva = []
+    (x0, y0), (dx, dy) = tom["caminho"]["inicio"], tom["caminho"]["direcao"]
+    trilhas = {"d": [], "e": []}; deslize = []; camera_move = []
     for k in range(int(tom["dur_s"] * FPS)):
-        t = k / FPS; e = estado(P, tom, t); x, y, _ = P.projetar_ponto(*e["pe"], **e["mov"]); _, yt, _ = P.projetar_ponto(*e["topo"], **e["mov"])
-        u = (y - yt) / 4.0
+        t = k / FPS; e = estado(P, tom, t); mov = e["mov"]
+        x, y, _ = P.projetar_ponto(*e["pe"], **mov); _, yt, _ = P.projetar_ponto(*e["topo"], **mov); u = (y - yt) / 4.0
         for s in ("d", "e"):
-            pd = e["diag"]["pernas"][s]
-            xs = x + e["direcao"] * (pd["alvo"][0] - e["diag"]["pelve_x"]) * u
+            pd = e["diag"]["pernas"][s]; desloc_H = pd["alvo"][0] - e["diag"]["pelve_x"]
+            x_des = x + e["direcao"] * desloc_H * u
             if pd["apoio"]:
-                trilhas[s].append(xs)
+                if not trilhas[s]:
+                    sm = V_M * t + desloc_H * H_M; trilhas[s] = [("ref", (x0 + dx * sm, y0 + dy * sm, Z_CALCADA))]
+                ref = projetar(P, trilhas[s][0][1]); xr, _, _ = P.projetar_ponto(*ref, **mov)
+                trilhas[s].append(x_des - xr); camera_move.append(xr)
             elif trilhas[s]:
-                if len(trilhas[s]) > 3:
-                    deriva.append(max(trilhas[s]) - min(trilhas[s]))
+                v = [d for d in trilhas[s][1:]]
+                if len(v) > 3:
+                    deslize.append(max(v) - min(v))
                 trilhas[s] = []
-    return {"apoios_medidos": len(deriva), "deriva_max_px": round(max(deriva), 2) if deriva else None,
-            "deriva_media_px": round(float(np.mean(deriva)), 2) if deriva else None,
-            "obs": "deriva na tela (1350 px de largura da placa) do tornozelo de apoio; inclui a perspectiva e o movimento de câmera"}
+    return {"apoios_medidos": len(deslize), "deslize_max_px": round(max(deslize), 2) if deslize else None,
+            "deslize_medio_px": round(float(np.mean(deslize)), 2) if deslize else None,
+            "obs": "px na placa (1350 de largura); ponto de referência parado no mundo, mesmo movimento de câmera"}
 
 
 # ------------------------------------------------------------------ E6-5: paleta do Heitor, determinismo, integridade
