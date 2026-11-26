@@ -1,4 +1,4 @@
-"""EXTENSÃO X3 (PROPOSTA, aguardando aprovação) — ARANHA: escalada, balanço no fio e gesto de lançar.
+"""EXTENSÃO X3 (APROVADA em 26/11/2026) — ARANHA: escalada, balanço no fio e gesto de lançar.
 
 NÃO altera o rig v2. Usa só a API pública do rig (pose_base, esqueleto, desenhar, MAOS, ik_braco, mira_braco, ik2,
 cotovelo_invertido) e a extensão X2 aprovada (corpo inclinado e roupa/cabelo ao vento, para o balanço).

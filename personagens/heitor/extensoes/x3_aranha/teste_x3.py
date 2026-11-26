@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Testes e demonstração da EXTENSÃO X3 (aranha) — PROPOSTA, aguardando aprovação.
+"""Testes e demonstração da EXTENSÃO X3 (aranha) — APROVADA pelo diretor em 26/11/2026.
 
 X3_1 apoios plantados: na escalada, mão/pé parado não desliza (px, no desenho), e a IK alcança a pegada (H)
 X3_2 contatos no desenho real: o ponto da pegada cai na mão (pele) ou no tênis; no balanço, o fio chega na mão
