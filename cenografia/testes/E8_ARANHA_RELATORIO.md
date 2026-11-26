@@ -1,6 +1,6 @@
 # Relatório da etapa E8 (parte 3): poder de aranha
 
-26/11/2026 · Autorizada pelo diretor depois da aprovação da extensão X3 ("Pode começar").
+26/11/2026 · Autorizada pelo diretor depois da aprovação da extensão X3 ("Pode começar"). **E8 parte 3 APROVADA pelo diretor em 26/11/2026** ("Aprovado").
 - O rig v2 não foi alterado. O Heitor é desenhado com a **X3** (escalada, balanço no fio, gesto de lançar) e a **X2** (corpo inclinado e vento) e iluminado pela **X1**. As três estão aprovadas.
 - **A elasticidade não foi iniciada.**
 - Nenhum episódio ou história foi produzido.
