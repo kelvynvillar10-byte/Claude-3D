@@ -48,7 +48,7 @@ Cada poder é **um arquivo**, registrado com `@efeito`, que usa só o núcleo da
 A mesa passou a desenhar os **resíduos** de efeitos que já acabaram mas deixam marca (`deixa_marca = True`). Antes, a rachadura, o pilar e o queimado sumiam no último quadro do efeito. Corrigido.
 
 ## Vídeo: `testes/e8/E8_poderes.mp4`
-20,2 s · 1080×1920 · 30 q/s · marca d'água "MODO CURIOSO" · legenda "poderes (teste, não é história)", com o poder, a intensidade e a **fase atual**.
+19,6 s (588 quadros) · 1080×1920 · 30 q/s · marca d'água "MODO CURIOSO" · legenda "poderes (teste, não é história)", com o poder, a intensidade e a **fase atual**.
 
 São 6 clipes na rua da E6, com leve avanço de câmera:
 
@@ -85,7 +85,7 @@ Folha com 2 quadros de cada clipe: `E8_quadros.jpg`.
 | eletricidade discreto / moderado / extremo | 3,83 / 4,42 / 4,82 s por quadro | 4,37 / 5,55 / 5,87 s |
 | terra discreto / moderado / extremo | 2,72 / 3,25 / 3,32 s por quadro | 3,32 / 3,88 / 4,29 s |
 
-Os 20 s de vídeo levaram ~38 min de composição. As placas já estavam prontas, vindas da E6 e da E7.
+Os 19,6 s de vídeo levaram ~38 min de composição. As placas já estavam prontas, vindas da E6 e da E7.
 
 ## Problemas encontrados e corrigidos
 1. **Braço cruzando o peito:** o Heitor apontava com o braço direito para alvos à direita da tela. Agora aponta com a mão do lado do alvo.
