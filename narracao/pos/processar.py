@@ -2,7 +2,7 @@
 """Pós-produção da narração do Modo Curioso (áudio gerado pelo diretor no MiniMax Audio). Nada aqui chama API nem gasta créditos.
 
 Comandos:
-  processar.py ficha <roteiro.txt> [--saida ficha.md]          ficha de geração para o MiniMax Audio (por trecho)
+  processar.py ficha <roteiro.txt> [--velocidade 1.08] [--saida ficha.md]   ficha de geração para o MiniMax Audio (por trecho)
   processar.py analisar <audio> --texto <roteiro.txt> --nome <nome>
         copia o original (intacto, com SHA-256), mede tudo, alinha as palavras e grava o RASCUNHO da direção de edição
   processar.py finalizar <nome> [--sem-revisao]
@@ -171,7 +171,8 @@ if __name__ == "__main__":
         print(__doc__); sys.exit(0)
     if a[0] == "ficha":
         cfg = json.loads((AQUI.parent / "config_voz.json").read_text())
-        txt = DE.ficha_geracao(Path(a[1]).read_text().strip(), cfg)
+        vb = float(a[a.index("--velocidade") + 1]) if "--velocidade" in a else 1.0
+        txt = DE.ficha_geracao(Path(a[1]).read_text().strip(), cfg, vb)
         if "--saida" in a:
             Path(a[a.index("--saida") + 1]).write_text(txt + "\n")
         print(txt)

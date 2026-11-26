@@ -137,6 +137,6 @@
  {
   "teste": "alinhamento_audio_longo",
   "ok": true,
-  "detalhe": "158 s, 385 palavras em 1.8 s · erro médio 6 ms · p90 13 ms · máx 32 ms"
+  "detalhe": "158 s, 385 palavras em 2.6 s · erro médio 6 ms · p90 13 ms · máx 32 ms"
  }
 ]

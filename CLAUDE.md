@@ -19,6 +19,7 @@ Responda em português do Brasil. O usuário é o diretor do estúdio. Ele aprov
 
 ## Regras fixas
 - Camiseta (e patch do figurino): exatamente "Modo Curioso". Marca d'água: exatamente "MODO CURIOSO". Marca dentro do cenário (telas, envelopes, fichas, placas): exatamente "MODO CURIOSO" (ID-004). Qualquer outra grafia reprova no QA.
+- Duração (diretriz permanente do canal, aprovada em 26/11/2026): formato principal de **1 a 2 min (60–120 s)**; vídeo longo só como formato especial, quando o tema justificar. A duração sai do potencial do tema e da necessidade narrativa: não prolongar artificialmente nem cortar informação importante só para caber em 2 min. Ritmo natural, pausas expressivas e boa retenção.
 - Nunca copiar personagens, marcas ou obras de terceiros (as referências citam JoJo, One Piece, Lucy, Clash; nós não). Nunca clonar voz sem autorização por escrito.
 - Não inventar análises: diga o que foi medido, o que foi visto e o que não pôde ser verificado.
 - Chaves de API nunca no repositório (use o mecanismo de credenciais do ambiente).

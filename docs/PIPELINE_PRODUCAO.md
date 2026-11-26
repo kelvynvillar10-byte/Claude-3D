@@ -35,6 +35,7 @@ Cada etapa entrega um arquivo versionado e passa por um portão de aprovação (
 ## 2. Etapa 0: pauta
 
 - Formato: "E se tu acordasse amanhã e ___?" (parte 1) ou continuação de série com personagem nomeado.
+- Duração (diretriz permanente do canal, aprovada em 26/11/2026): formato principal de **1 a 2 min (60–120 s)**; vídeo longo só como formato especial, quando o tema justificar. A duração sai do potencial do tema e da necessidade narrativa: não prolongar artificialmente nem cortar informação importante só para caber em 2 min. Ritmo natural, pausas expressivas e boa retenção.
 - Liste de 6 a 10 conceitos científicos, cada um com **um número real e a fonte**. Exemplos medidos nas referências: densidade 0,92 (borracha boia, v15), 343 m/s (som no ar, v12), 4.000 bar (jato d'água, v10), ×20.000 (intensificador de luz, v18/v20), 59 % de água no corpo (v17), 0,14 s (duração de um soco, v14), 1.400 km/h (bala, v19).
 - Contraste "no filme × na vida real" sempre que der.
 - Verifique as regras fixas do canal (seção 0 do Manual de Direção de Arte): nada de personagem, logo ou marca de terceiros. As referências citam JoJo (v01, v19), One Piece/Luffy (v15), o filme Lucy e o jogo Clash (v14), e caricaturas de pessoa real (cientista estilo Einstein em v14). Nós não fazemos isso.
@@ -135,7 +136,7 @@ Os scripts em `tools/analise/` mediram as referências. Rodados no nosso vídeo 
 
 | Métrica | Alvo | Referências (13 MP4) |
 |---|---|---|
-| Duração | 85–100 s (série: até 140 s) | 81–141 s |
+| Duração | 60–120 s (diretriz de 26/11/2026; especial longo quando o tema justificar) | 81–141 s |
 | Plano mediano | 1,5–2,0 s | 1,25–2,40 s (mediana 1,73) |
 | Cortes/min | 27–34 | 22,5–32,7 (mediana 28,4; detector conta 5–12 % a menos) |
 | % planos com movimento de câmera | ≥ 85 % | 86–100 % (mediana 96 %) |

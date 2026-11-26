@@ -118,7 +118,7 @@ def validar(d, n_palavras):
     return erros
 
 
-def ficha_geracao(texto, cfg_voz):
+def ficha_geracao(texto, cfg_voz, velocidade_base=1.0):
     """Ficha para o diretor gerar no MiniMax Audio: trechos com intenção, velocidade, volume, tom, emoção e pausas.
     Reaproveita o diretor de narração (velocidade/volume/tom/emoção por intenção). Não chama nenhuma API."""
     fs = frases(texto)
@@ -133,7 +133,7 @@ def ficha_geracao(texto, cfg_voz):
     for n, f in enumerate(fs, 1):
         nome, _ = classificar(f["texto"], ultima=(n == len(fs)))
         base = {"descoberta": "surpresa", "acao": "tensao", "conclusao": "explicacao"}.get(nome, nome)
-        p = DR.parametros(base)
+        p = DR.parametros(base, velocidade_base)
         emo = p["emocao_proposta"] or "automática"
         linhas.append(f"| {n} | {NOMES[nome]} | {f['texto']} | {p['speed']} | {p['vol']} | {p['pitch']:+d} | {emo} | "
                       f"{TABELA[nome]['depois']:.2f} s |")

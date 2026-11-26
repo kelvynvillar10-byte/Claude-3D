@@ -15,7 +15,7 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 - Marca d'água em todo vídeo novo: exatamente **"MODO CURIOSO"**, tudo em maiúsculas, no canto superior direito ("MODO" branco com 60 % de opacidade, "CURIOSO" em amarelo #ffc21f, fonte condensada, ~30 px em 1080 de largura), fixa do início ao fim.
 - Camiseta de TODO personagem oficial: estampa exatamente **"Modo Curioso"** (M e C maiúsculos). Nunca o @ de outro produtor nem qualquer marca de terceiros. Marca DENTRO do cenário (telas, envelopes, fichas, placas, letreiros, faixas): exatamente **"MODO CURIOSO"**, tudo em maiúsculas (ID-004).
 - Efeitos sonoros baixos, por baixo da voz.
-- Voz: só comprimir pausas (pausa ≥ 0,8 s → 0,42 s; 0,18–0,8 s → 0,18 s). NUNCA acelerar com rubberband (gera eco/voz duplicada).
+- Voz (regra de 26/11/2026): pausas dirigidas por intenção na pós-produção (`narracao/pos/`): suspense e revelação até 0,7 s, surpresa até 0,5 s, ação até 0,15 s, nunca ≥ 0,8 s; pausa sem pontuação > 0,25 s vira 0,10 s. NUNCA acelerar com rubberband (gera eco/voz duplicada) nem mudar o tom; a velocidade se ajusta na geração.
 - Personagens reutilizáveis entre temas, trocando só a roupa.
 
 ## 0.1 Identidade oficial (decisões ID-001 a ID-004, de 25/11/2026 — prevalecem sobre qualquer instrução antiga)
@@ -27,7 +27,8 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 | ID-004 | Marca dentro dos cenários (telas, envelopes, fichas, placas e elementos visuais de identificação): sempre **"MODO CURIOSO"**, tudo em maiúsculas, a partir do arquivo-mestre, legível e sem abreviação. Permanente. A única aplicação em maiúsculas e minúsculas é o vestuário dos personagens ("Modo Curioso"). |
 
 ## 1. Formato
-- Vertical 1080×1920, 30 qps (60 opcional). Duração 85–100 s (mediana 91 s); episódio de série pode ir a 120–140 s.
+- Vertical 1080×1920, 30 qps (60 opcional).
+- **Duração (diretriz permanente, 26/11/2026):** formato principal de 1 a 2 min (60–120 s); vídeo longo só como formato especial, quando o tema justificar. Definir pela força do tema e pela necessidade narrativa: não prolongar artificialmente, não cortar informação importante só para caber em 2 min. (Referências medidas: 81–141 s, mediana 91 s.)
 - ~47 planos por vídeo; 31 cortes por minuto (30–33).
 
 ## 2. Roteiro
@@ -119,7 +120,7 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 - Graves ~29 % da energia; banda de voz ~44 %.
 - ~1,6 eventos sonoros por segundo (whoosh, impacto, pop em cada corte e efeito), sempre baixos por baixo da voz.
 - Narração contínua com música de fundo e ducking.
-- Voz oficial (ID-001): voz sintética LICENCIADA, criada a partir de uma descrição de características gerais (masculina, 25–35 anos, médio-grave e quente, ~111 Hz, rápida ~5,5 sílabas/s, expressiva, português do Brasil com "tu" e vocabulário gaúcho). NUNCA clonar a voz das referências ou de qualquer pessoa sem autorização por escrito. Fornecedor recomendado: ElevenLabs Voice Design, sujeito ao teste de amostra.
+- Voz oficial (ID-001): voz sintética LICENCIADA, criada a partir de uma descrição de características gerais (masculina, 25–35 anos, médio-grave e quente, ~111 Hz, rápida ~5,5 sílabas/s, expressiva, português do Brasil com "tu" e vocabulário gaúcho). NUNCA clonar a voz das referências ou de qualquer pessoa sem autorização por escrito. Fornecedor recomendado: ElevenLabs Voice Design, sujeito ao teste de amostra. Candidata atual (26/11/2026, escolhida pelo diretor, ainda não aprovada como ID-001): MiniMax `Portuguese_CaptivatingStoryteller`, gerada pelo diretor no site MiniMax Audio e finalizada em `narracao/pos/` (−16 LUFS na narração; mix final −14 LUFS).
 
 ## 11. Checklist antes de entregar
 1. Gancho dentro do 1º segundo, quebrado em 3–5 legendas.

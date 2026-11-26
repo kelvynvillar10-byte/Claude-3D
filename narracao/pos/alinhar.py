@@ -3,7 +3,7 @@
 1. O espeak-ng (biblioteca do sistema, via ctypes) lê o MESMO texto e informa, pelos eventos de palavra, a amostra exata
    em que cada palavra começa na voz de referência.
 2. DTW (librosa) entre os MFCC da referência e os da narração real transfere esses inícios para a narração real.
-   Áudios longos: DTW grosso (40 ms) para achar a região de cada frase e DTW fino (10 ms) dentro dela.
+   Áudios longos: DTW grosso (40 ms) no áudio inteiro e DTW fino (10 ms) em janelas sobrepostas ancoradas no grosso.
 3. Ajuste pelas pausas medidas na narração real: nenhuma palavra começa ou termina dentro de um silêncio.
 A precisão é MEDIDA no teste F0 (referência espeak contra outra voz espeak com tempos verdadeiros) e informada no relatório.
 """
@@ -94,11 +94,10 @@ def _feat(y16):
     return ((f - f.mean(1, keepdims=True)) / (f.std(1, keepdims=True) + 1e-6)).astype(np.float32)
 
 
-def _dtw_mapa(fa, fb, subseq=False):
-    """DTW; devolve, para cada quadro de A, o quadro médio correspondente de B. `subseq`: A pode cair em qualquer trecho de B
-    (usado nas janelas finas, para a janela não ser obrigada a começar/terminar junto com A)."""
+def _dtw_mapa(fa, fb):
+    """DTW; devolve, para cada quadro de A, o quadro médio correspondente de B."""
     import librosa
-    _, wp = librosa.sequence.dtw(X=fa, Y=fb, metric="euclidean", backtrack=True, subseq=subseq)
+    _, wp = librosa.sequence.dtw(X=fa, Y=fb, metric="euclidean", backtrack=True)
     wp = wp[::-1]
     mapa = np.zeros(fa.shape[1])
     for i in range(fa.shape[1]):
@@ -116,20 +115,25 @@ def mapear(ref16, real16, limite_celulas=2.5e7):
     fa, fb = _feat(ref16), _feat(real16)
     if fa.shape[1] * fb.shape[1] <= limite_celulas:
         return _dtw_mapa(fa, fb)
-    k = 4                                                            # grosso: 40 ms
+    k = 4                                                            # grosso: 40 ms, no áudio inteiro
     grosso = _dtw_mapa(_pool(fa, k), _pool(fb, k)) * k
-    mapa = np.interp(np.arange(fa.shape[1]), np.arange(len(grosso)) * k, grosso)
-    # fino em janelas de ~20 s da referência, cada uma contra a região correspondente da real (±1,5 s)
-    passo = 2000; margem = 150
-    for a in range(0, fa.shape[1], passo):
-        b = min(fa.shape[1], a + passo)
-        ra = int(max(0, mapa[a] - margem)); rb = int(min(fb.shape[1], mapa[b - 1] + margem))
-        if rb - ra < 10:
-            continue
-        if rb - ra < b - a:
-            continue
-        sub = _dtw_mapa(fa[:, a:b], fb[:, ra:rb], subseq=True) + ra
-        mapa[a:b] = sub
+    grosso = np.maximum.accumulate(np.interp(np.arange(fa.shape[1]), np.arange(len(grosso)) * k, grosso))
+    # fino: janelas de ~20 s com sobreposição de 3 s, cada uma ANCORADA nas pontas pelo mapa grosso; só o miolo de cada
+    # janela é aproveitado (as pontas, onde a âncora pode errar, ficam com a janela vizinha)
+    mapa = np.full(fa.shape[1], np.nan); passo, sob = 2000, 300; a = 0
+    while a < fa.shape[1]:
+        b = min(fa.shape[1], a + passo + sob)
+        ra = int(grosso[a]); rb = int(min(fb.shape[1], grosso[b - 1] + 1))
+        if rb - ra < 2:
+            mapa[a:b] = grosso[a:b]
+        else:
+            sub = _dtw_mapa(fa[:, a:b], fb[:, ra:rb]) + ra
+            i0 = a if a == 0 else a + sob // 2; i1 = b if b == fa.shape[1] else b - sob // 2
+            mapa[i0:i1] = sub[i0 - a:i1 - a]
+        if b == fa.shape[1]:
+            break
+        a = b - sob
+    mapa = np.where(np.isnan(mapa), grosso, mapa)
     return np.maximum.accumulate(mapa)
 
 
