@@ -1,0 +1,89 @@
+{
+ "velocidade_base": 1.0,
+ "trechos": [
+  {
+   "cena": "cena_01",
+   "blocos": [
+    0,
+    1,
+    2
+   ],
+   "fala": "E se o chão da sua casa guardasse um segredo?",
+   "intencao": "curiosidade",
+   "justificativa": "revisão do Claude: abertura 'E se…?': convite à pergunta; 'segredo' aqui é gancho de curiosidade, não clima de mistério",
+   "speed": 1.05,
+   "vol": 1.0,
+   "pitch": 1,
+   "emocao_proposta": null,
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.12
+  },
+  {
+   "cena": "cena_02",
+   "blocos": [
+    3,
+    4,
+    5
+   ],
+   "fala": "Debaixo dos seus pés existem camadas de rocha antiga.",
+   "intencao": "explicacao",
+   "justificativa": "revisão do Claude: dado concreto (camadas de rocha): tom de explicação, ritmo estável",
+   "speed": 1.0,
+   "vol": 1.0,
+   "pitch": 0,
+   "emocao_proposta": null,
+   "pausa_antes": 0.0,
+   "pausa_depois": 0.12
+  },
+  {
+   "cena": "cena_02",
+   "blocos": [
+    6,
+    7
+   ],
+   "fala": "Ninguém sabe o que está lá embaixo.",
+   "intencao": "misterio",
+   "justificativa": "revisão do Claude: 'Ninguém sabe…': mistério, um pouco mais lento e grave, pausa antes",
+   "speed": 0.95,
+   "vol": 0.9,
+   "pitch": -1,
+   "emocao_proposta": "calm",
+   "pausa_antes": 0.3,
+   "pausa_depois": 0.12
+  },
+  {
+   "cena": "cena_03",
+   "blocos": [
+    8,
+    9,
+    10
+   ],
+   "fala": "Até que alguém começou a cavar...",
+   "intencao": "suspense",
+   "justificativa": "revisão do Claude: 'Até que… a cavar...': suspense, segura antes da revelação",
+   "speed": 0.93,
+   "vol": 0.95,
+   "pitch": -1,
+   "emocao_proposta": "calm",
+   "pausa_antes": 0.35,
+   "pausa_depois": 0.06
+  },
+  {
+   "cena": "cena_03",
+   "blocos": [
+    11,
+    12
+   ],
+   "fala": "E encontrou milhões de anos!",
+   "intencao": "surpresa",
+   "justificativa": "revisão do Claude: 'E encontrou milhões de anos!': revelação → surpresa (o rascunho dizia entusiasmo)",
+   "speed": 1.1,
+   "vol": 1.15,
+   "pitch": 2,
+   "emocao_proposta": "surprised",
+   "pausa_antes": 0.25,
+   "pausa_depois": 0.12
+  }
+ ],
+ "revisado": true
+}

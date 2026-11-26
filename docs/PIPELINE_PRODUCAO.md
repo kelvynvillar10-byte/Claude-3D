@@ -60,6 +60,7 @@ Modelo de 91 s (mediana das referências). Episódios de série podem ir a 117�
 ## 4. Etapa 2: voz
 
 - **Decisão ID-001:** voz sintética licenciada, criada a partir de uma descrição de características gerais (sem clonar ninguém). Opção recomendada: ElevenLabs Voice Design, sujeita ao teste de amostra. Perfil alvo, proibições e protocolo de teste em `IDENTIDADE_OFICIAL.md`.
+- **Integração em teste (2026):** MiniMax T2A V2 (`speech-2.8-hd`) com diretor de narração, em `narracao/` (ver `narracao/README.md`). Voz candidata, não aprovada; a ID-001 só muda depois da aprovação da voz.
 - Pós-processamento: **só comprimir pausas** (pausa ≥ 0,8 s vira 0,42 s; pausa entre 0,18 e 0,8 s vira 0,18 s). **Nunca acelerar com rubberband/time-stretch**, porque gera eco e voz duplicada.
 - Medido nas referências: nenhuma pausa ≥ 0,8 s no meio do vídeo em 12 de 13 vídeos (detector de silêncio a −35 dB).
 - Saída obrigatória: alinhamento de palavras (`voz_palavras.json`, início e fim de cada palavra). Ele dirige legendas, cortes e SFX.

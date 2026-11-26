@@ -10,3 +10,7 @@ producoes/*/_cache/
 
 # cenografia: placas renderizadas (cache, fora do Git)
 .cache/
+
+# segredos locais (a chave da MiniMax nunca entra no Git)
+.env
+.env.*

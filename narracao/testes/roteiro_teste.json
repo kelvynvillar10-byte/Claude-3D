@@ -1,0 +1,15 @@
+{
+ "titulo": "Roteiro de TESTE da narração (texto neutro; não é episódio nem o roteiro do vídeo de 5 cm)",
+ "cenas": [
+  {"id": "cena_01", "blocos": [
+   {"txt": "E se", "fala": "E se"}, {"txt": "o chão da sua casa", "fala": "o chão da sua casa"},
+   {"txt": "guardasse um segredo?", "fala": "guardasse um segredo?"}]},
+  {"id": "cena_02", "blocos": [
+   {"txt": "Debaixo dos seus pés", "fala": "Debaixo dos seus pés"}, {"txt": "existem camadas", "fala": "existem camadas"},
+   {"txt": "de rocha antiga.", "fala": "de rocha antiga."}, {"txt": "Ninguém sabe", "fala": "Ninguém sabe"},
+   {"txt": "o que está lá embaixo.", "fala": "o que está lá embaixo."}]},
+  {"id": "cena_03", "blocos": [
+   {"txt": "Até que", "fala": "Até que"}, {"txt": "alguém começou", "fala": "alguém começou"}, {"txt": "a cavar...", "fala": "a cavar..."},
+   {"txt": "E encontrou", "fala": "E encontrou"}, {"txt": "milhões de anos!", "fala": "milhões de anos!"}]}
+ ]
+}

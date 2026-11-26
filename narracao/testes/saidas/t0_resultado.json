@@ -1,0 +1,86 @@
+{
+ "resultado": "OK",
+ "falhas": [],
+ "testes": {
+  "validacao_recusa_fora_da_faixa": {
+   "ok": true,
+   "info": "6/6 recusados"
+  },
+  "pausa_malformada_recusada": {
+   "ok": true
+  },
+  "voz_proibida_recusada": {
+   "ok": true
+  },
+  "payload_basico": {
+   "ok": true,
+   "info": "{\"voice_id\": \"ttv-voice-2026112700223026-9zUmd7PO\", \"speed\": 1.0, \"vol\": 1.0, \"pitch\": 0}"
+  },
+  "contagem": {
+   "ok": true
+  },
+  "recusa_sem_autorizacao": {
+   "ok": true,
+   "info": "0 chamadas"
+  },
+  "recusa_acima_do_limite": {
+   "ok": true,
+   "info": "18 > 10: 0 chamadas"
+  },
+  "cache_nao_repete_chamada": {
+   "ok": true,
+   "info": "1 chamada"
+  },
+  "debito_e_registro": {
+   "ok": true,
+   "info": "{\"data\": \"2026-11-26T16:43:15+00:00\", \"autorizacao\": \"T2\", \"motivo\": \"teste\", \"modelo\": \"speech-2.8-hd\", \"voice_id\": \"ttv-voice-2026112700223026-9zUmd7PO\", \"par"
+  },
+  "cabecalho_com_chave_so_na_requisicao": {
+   "ok": true
+  },
+  "erro_api_para": {
+   "ok": true,
+   "info": "MiniMax recusou: código 2013 (parâmetros inválidos), HTTP 200. PARADO: nenhuma nova tentat"
+  },
+  "queda_de_rede_para": {
+   "ok": true,
+   "info": "debitado por segurança, sem nova tentativa"
+  },
+  "direcao_varia_parametros": {
+   "ok": true,
+   "info": "5 trechos: ['misterio', 'explicacao', 'misterio', 'suspense', 'entusiasmo']"
+  },
+  "folha_de_direcao": {
+   "ok": true,
+   "info": "194 caracteres"
+  },
+  "classificacao_exemplos": {
+   "ok": true
+  },
+  "geracao_completa_legendas_api": {
+   "ok": true,
+   "info": "['cenas', 'trechos', 'voz.mp3', 'voz.wav', 'voz_palavras.json', 'voz_registro.json']; 37 palavras; duração = trechos + pausas (14.179 s); tempos: legendas da MiniMax"
+  },
+  "geracao_repetida_usa_cache": {
+   "ok": true,
+   "info": "5 chamadas no total"
+  },
+  "geracao_completa_legendas_plano_b": {
+   "ok": true,
+   "info": "['cenas', 'trechos', 'voz.mp3', 'voz.wav', 'voz_palavras.json', 'voz_registro.json']; 37 palavras; duração = trechos + pausas (14.179 s); tempos: proporcional às letras (plano B)"
+  },
+  "chave_nunca_gravada": {
+   "ok": true,
+   "info": "0 arquivo(s) com a chave"
+  },
+  "simulacao_T2_T4": {
+   "ok": true,
+   "info": "T2: 18 caract. (~US$ 0.0018), T3: 16 caract. (~US$ 0.0016), T4: 208 caract. (~US$ 0.0208)"
+  },
+  "orcamento_real_intacto": {
+   "ok": true
+  }
+ },
+ "chamadas_reais_a_minimax": 0,
+ "creditos_gastos": 0
+}

@@ -1,0 +1,32 @@
+{
+ "fornecedor": "MiniMax T2A V2 (síncrono, HTTP)",
+ "host": "https://api.minimax.io",
+ "host_alternativo_china": "https://api.minimaxi.com",
+ "regiao_confirmada": false,
+ "caminho_t2a": "/v1/t2a_v2",
+ "caminho_consulta_vozes": "/v1/get_voice",
+ "group_id": "2124897865217090146",
+ "enviar_group_id": false,
+ "modelo": "speech-2.8-hd",
+ "modelos_permitidos": ["speech-2.8-hd", "speech-2.6-hd"],
+ "voz": {
+  "voice_id": "ttv-voice-2026112700223026-9zUmd7PO",
+  "origem": "Voice Design do MiniMax (voz original, informada pelo diretor)",
+  "status": "candidata — NÃO aprovada oficialmente"
+ },
+ "vozes_proibidas": {
+  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb": "clone antigo descartado pelo diretor: não usar"
+ },
+ "padrao_voz": {"speed": 1.0, "vol": 1.0, "pitch": 0},
+ "limites": {"speed": [0.5, 2.0], "vol_max": 10.0, "pitch": [-12, 12], "texto_max_caracteres": 9999},
+ "emocoes_documentadas": ["happy", "sad", "angry", "fearful", "disgusted", "surprised", "calm", "fluent", "whisper"],
+ "emocoes_aceitas_pela_voz": [],
+ "audio": {"sample_rate": 44100, "bitrate": 128000, "format": "mp3", "channel": 1},
+ "language_boost": "Portuguese",
+ "tempos_por_palavra": {"subtitle_enable": true, "subtitle_type": "word"},
+ "output_format": "hex",
+ "preco_referencia_usd_por_milhao_caracteres": 100,
+ "preco_confirmado": false,
+ "timeout_s": 60,
+ "fontes": ["espelho da documentação oficial (speech.md, errors.md) em github.com/hkai-ai/LLM_OFFICIAL_DOCUMENTATION", "github.com/MiniMax-AI/MiniMax-MCP"]
+}

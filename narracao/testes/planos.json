@@ -1,0 +1,12 @@
+{
+ "T2": {"objetivo": "primeira síntese: validar voz candidata + speech-2.8-hd + tempos por palavra numa única chamada",
+        "versoes": [{"id": "validacao", "texto": "Olá, Modo Curioso."}]},
+ "T3": {"objetivo": "aceitação das 2 emoções que B e C usariam, com a menor frase",
+        "versoes": [{"id": "happy", "texto": "Olha só.", "emotion": "happy"},
+                    {"id": "surprised", "texto": "Olha só.", "emotion": "surprised"}]},
+ "T4": {"objetivo": "comparativo A/B/C da mesma frase (só as 3 versões autorizadas)",
+        "observacao": "as emoções de B e C só entram se o T3 confirmar; antes disso B e C vão sem emoção",
+        "versoes": [{"id": "A", "texto": "E se o chão da sua casa guardasse um segredo de milhões de anos?", "speed": 1.0},
+                    {"id": "B", "texto": "E se o chão da sua casa guardasse um segredo de milhões de anos?", "speed": 1.10, "vol": 1.1, "pitch": 1},
+                    {"id": "C", "texto": "E se o chão da sua casa guardasse<#0.25#> um segredo<#0.25#> de milhões de anos?", "speed": 1.15, "pitch": -1}]}
+}
