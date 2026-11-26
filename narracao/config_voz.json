@@ -10,21 +10,27 @@
  "modelo": "speech-2.8-hd",
  "modelos_permitidos": ["speech-2.8-hd", "speech-2.6-hd"],
  "voz": {
-  "voice_id": "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb",
-  "origem": "clone de voz (voice_cloning) da conta MiniMax do diretor; aparece na consulta de vozes da API (T1)",
-  "status": "candidata principal — NÃO aprovada oficialmente (qualidade vocal e licença comercial não confirmadas)",
-  "definida_pelo_diretor_em": "2026-11-26"
+  "voice_id": "Portuguese_CaptivatingStoryteller",
+  "nome_na_api": "Captivating Storyteller",
+  "tipo": "voz do sistema MiniMax (system_voice)",
+  "descricao_oficial": "A captivating middle-aged male narrator's voice in Portuguese, ideal for storytelling.",
+  "origem": "escolhida pelo diretor entre as 73 vozes em português listadas pela API (narracao/vozes_portugues_minimax.json)",
+  "acesso_pela_api": "listada pela consulta de vozes em 26/11/2026 (api.minimax.io); uso em síntese ainda NÃO testado (T2)",
+  "sotaque": "não informado pela descrição oficial; conferir no T2",
+  "status": "candidata oficial escolhida pelo diretor em 26/11/2026 — síntese ainda não testada",
+  "definida_pelo_diretor_em": "2026-11-26",
+  "perfil_alvo": "masculina, brasileira, jovem-adulta na percepção, médio-grave, encorpada, cinematográfica, natural e expressiva; curiosidade, entusiasmo, suspense e emoção, sem locução comercial nem leitura robótica"
  },
  "troca_automatica_de_voz": false,
- "vozes_alternativas": [
-  {"voice_id": "ttv-voice-2026112700223026-9zUmd7PO",
-   "origem": "Voice Design do MiniMax (voz original, informada pelo diretor)",
-   "status": "candidata anterior; NÃO é alternativa automática: só entra por decisão manual do diretor",
-   "observacao": "presente no painel do diretor, mas não listada pela API em 26/11/2026 (provável: só aparece após a primeira síntese)"}
- ],
- "vozes_proibidas": {},
+ "vozes_alternativas": [],
+ "vozes_proibidas": {
+  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb": "clone (derivado da voz Matheus) retirado pelo diretor em 26/11/2026: não usar nem como substituta"
+ },
  "historico_vozes": [
-  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb: proibida antes por decisão do diretor; liberada e definida como voz principal candidata pelo diretor em 26/11/2026 (escolha de configuração, não aprovação de qualidade nem de licença)"
+  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb: proibida antes por decisão do diretor; liberada e definida como voz principal candidata pelo diretor em 26/11/2026 (escolha de configuração, não aprovação de qualidade nem de licença)",
+  "ttv-voice-2026112700223026-9zUmd7PO (Voice Design, 'Kelvyn 3' no painel): candidata anterior; não listada pela API em 26/11/2026; retirada das alternativas em 26/11/2026",
+  "Portuguese_Matureresearcher: pedida pelo diretor em 26/11/2026; não encontrada na consulta de vozes da API; não configurada",
+  "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb: voltou a ser proibida em 26/11/2026, quando o diretor escolheu Portuguese_CaptivatingStoryteller"
  ],
  "padrao_voz": {"speed": 1.0, "vol": 1.0, "pitch": 0},
  "limites": {"speed": [0.5, 2.0], "vol_max": 10.0, "pitch": [-12, 12], "texto_max_caracteres": 9999},

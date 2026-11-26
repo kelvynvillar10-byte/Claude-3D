@@ -1,6 +1,6 @@
 # Narração: MiniMax T2A V2 com diretor de narração
 
-**Etapa 2 do pipeline (voz).** Em teste. **Voz principal candidata: `moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb`** (clone da conta do diretor, definido em 26/11/2026; NÃO aprovada: qualidade vocal e licença comercial não confirmadas). A voz `ttv-voice-2026112700223026-9zUmd7PO` fica como alternativa só por decisão manual; não há troca automática de voz. Nenhum episódio ou piloto foi produzido.
+**Etapa 2 do pipeline (voz).** Em teste. **Voz candidata oficial: `Portuguese_CaptivatingStoryteller`** ("Captivating Storyteller", voz do sistema MiniMax; escolhida pelo diretor em 26/11/2026; listada pela API, síntese ainda não testada; sotaque a conferir no T2). O clone `moss_audio_f28d61d6-…` está proibido no código; não há troca automática de voz. Catálogo das 73 vozes em português com descrição oficial: `vozes_portugues_minimax.json`. Nenhum episódio ou piloto foi produzido.
 
 ## Regras de economia (do diretor, embutidas no código)
 - **Nada é sintetizado sem autorização** registrada em `orcamento.json`, com o limite de caracteres de cada teste ou execução. O teto total dos testes é de 1.500 caracteres; isso é limite, não meta.

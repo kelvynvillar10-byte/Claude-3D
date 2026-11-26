@@ -79,16 +79,17 @@ def main():
         MM.montar_payload("Teste <#1,5#> errado.", cfg); ok("pausa_malformada_recusada", False)
     except MM.ErroNarracao:
         ok("pausa_malformada_recusada", True)
-    c2 = json.loads(json.dumps(cfg)); c2["vozes_proibidas"] = {"voz_proibida_de_teste_0001": "teste"}
-    c2["voz"]["voice_id"] = "voz_proibida_de_teste_0001"
+    VOZ = "Portuguese_CaptivatingStoryteller"; CLONE = "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
+    c2 = json.loads(json.dumps(cfg)); c2["voz"]["voice_id"] = CLONE          # o clone retirado tem de ser recusado ANTES do envio
     try:
         MM.montar_payload("Teste.", c2); ok("voz_proibida_recusada", False)
     except MM.ErroNarracao as e:
-        ok("voz_proibida_recusada", "proibida" in str(e))
+        ok("voz_proibida_recusada", "proibida" in str(e) and CLONE in cfg["vozes_proibidas"])
     p = MM.montar_payload("Olá, Modo Curioso.", cfg)
-    ok("voz_principal_sem_troca_automatica", cfg["voz"]["voice_id"] == "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
-       and cfg["troca_automatica_de_voz"] is False and p["voice_setting"]["voice_id"] == cfg["voz"]["voice_id"])
-    ok("payload_basico", p["model"] == "speech-2.8-hd" and p["voice_setting"]["voice_id"] == "moss_audio_f28d61d6-e90b-11f1-b491-2a43200a7deb"
+    ok("voz_principal_sem_troca_automatica", cfg["voz"]["voice_id"] == VOZ and cfg["troca_automatica_de_voz"] is False
+       and not cfg["vozes_alternativas"] and p["voice_setting"]["voice_id"] == VOZ)
+    ok("clone_nunca_no_payload", CLONE not in json.dumps(p) and "ttv-voice" not in json.dumps(p))
+    ok("payload_basico", p["model"] == "speech-2.8-hd" and p["voice_setting"]["voice_id"] == VOZ
        and p["subtitle_enable"] and p["language_boost"] == "Portuguese" and "emotion" not in p["voice_setting"], json.dumps(p["voice_setting"]))
     ok("contagem", MM.contar_caracteres("Olá, Modo Curioso.") == 18)
 
