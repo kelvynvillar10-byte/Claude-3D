@@ -1,0 +1,166 @@
+{
+ "X4_1_partes": {
+  "alcance frente e → (3.4, -3.0)": {
+   "escorco_antebraco": 4.5,
+   "mao_iou": 1.0,
+   "mao_pixels_iguais_pct": 99.84,
+   "mao_dif_max_8bit": 32,
+   "manga_pixels_iguais_pct": 99.96,
+   "manga_dif_max_8bit": 6
+  },
+  "alcance frente d → (-3.6, -3.4)": {
+   "escorco_antebraco": 5.01,
+   "mao_iou": 1.0,
+   "mao_pixels_iguais_pct": 99.83,
+   "mao_dif_max_8bit": 32,
+   "manga_pixels_iguais_pct": 99.96,
+   "manga_dif_max_8bit": 4
+  },
+  "alcance frente e → (1.6, -6.0)": {
+   "escorco_antebraco": 5.48,
+   "mao_iou": 1.0,
+   "mao_pixels_iguais_pct": 99.46,
+   "mao_dif_max_8bit": 36,
+   "manga_pixels_iguais_pct": 99.81,
+   "manga_dif_max_8bit": 9
+  },
+  "alcance perfil d → (4.6, -2.6)": {
+   "escorco_antebraco": 7.89,
+   "mao_iou": 1.0,
+   "mao_pixels_iguais_pct": 99.82,
+   "mao_dif_max_8bit": 42,
+   "manga_pixels_iguais_pct": 100.0,
+   "manga_dif_max_8bit": 0
+  },
+  "alcance perfil d → (3.2, -5.4)": {
+   "escorco_antebraco": 6.96,
+   "mao_iou": 1.0,
+   "mao_pixels_iguais_pct": 99.59,
+   "mao_dif_max_8bit": 19,
+   "manga_pixels_iguais_pct": 99.95,
+   "manga_dif_max_8bit": 28
+  },
+  "pernas de pau frente ×1.8": {
+   "tenis_e_barra_pixels_iguais_pct": 99.996,
+   "tenis_e_barra_dif_max_8bit": 3,
+   "tenis_e_barra_pixels_diferentes": 18,
+   "tronco_e_cabeca_iguais_deslocados_pct": 99.27,
+   "subida_px": 118
+  },
+  "pernas de pau frente ×2.6": {
+   "tenis_e_barra_pixels_iguais_pct": 99.867,
+   "tenis_e_barra_dif_max_8bit": 32,
+   "tenis_e_barra_pixels_diferentes": 668,
+   "tronco_e_cabeca_iguais_deslocados_pct": 99.49,
+   "subida_px": 237
+  },
+  "pernas de pau perfil ×1.8": {
+   "tenis_e_barra_pixels_iguais_pct": 99.998,
+   "tenis_e_barra_dif_max_8bit": 3,
+   "tenis_e_barra_pixels_diferentes": 9,
+   "tronco_e_cabeca_iguais_deslocados_pct": 99.54,
+   "subida_px": 118
+  },
+  "pernas de pau perfil ×2.6": {
+   "tenis_e_barra_pixels_iguais_pct": 99.934,
+   "tenis_e_barra_dif_max_8bit": 32,
+   "tenis_e_barra_pixels_diferentes": 334,
+   "tronco_e_cabeca_iguais_deslocados_pct": 99.66,
+   "subida_px": 237
+  },
+  "_duracao_teste_s": 1.1
+ },
+ "X4_2_espessura": {
+  "frente e ×4.50": {
+   "largura_esticado_px": 33.5,
+   "largura_normal_px": 33.0,
+   "diferenca_px": 0.5
+  },
+  "frente d ×5.01": {
+   "largura_esticado_px": 33.5,
+   "largura_normal_px": 33.5,
+   "diferenca_px": 0.0
+  },
+  "perfil d ×7.89": {
+   "largura_esticado_px": 33.0,
+   "largura_normal_px": 33.0,
+   "diferenca_px": 0.0
+  },
+  "_duracao_teste_s": 0.2
+ },
+ "X4_3_volta": {
+  "alcance frente e: mola no fim": 0.0,
+  "alcance frente e: desenho identico ao rig": true,
+  "alcance frente d: mola no fim": 0.0,
+  "alcance frente d: desenho identico ao rig": true,
+  "alcance perfil d: mola no fim": 0.0,
+  "alcance perfil d: desenho identico ao rig": true,
+  "pernas de pau: desenho identico ao rig": true,
+  "_duracao_teste_s": 0.3
+ },
+ "X4_4_5_alcance_juntas": {
+  "alcance": {
+   "frente e → (3.4, -3.0)": {
+    "erro_px_a_800px": 0.0,
+    "escorco": 4.5
+   },
+   "frente d → (-3.6, -3.4)": {
+    "erro_px_a_800px": 0.0,
+    "escorco": 5.01
+   },
+   "frente e → (1.6, -6.0)": {
+    "erro_px_a_800px": 0.0,
+    "escorco": 5.48
+   },
+   "perfil d → (4.6, -2.6)": {
+    "erro_px_a_800px": 0.0,
+    "escorco": 7.89
+   },
+   "perfil d → (3.2, -5.4)": {
+    "erro_px_a_800px": 0.0,
+    "escorco": 6.96
+   }
+  },
+  "violacoes": "nenhuma",
+  "poses_verificadas": 308,
+  "_duracao_teste_s": 0.1
+ },
+ "X4_6_estampa": {
+  "e → (3.4, -3.0)": {
+   "texto": "Modo Curioso",
+   "MODO_CURIOSO_lido": true
+  },
+  "d → (-3.6, -3.4)": {
+   "texto": "Modo Curioso",
+   "MODO_CURIOSO_lido": true
+  },
+  "e → (1.6, -6.0)": {
+   "texto": "Modo Curioso",
+   "MODO_CURIOSO_lido": true
+  },
+  "_duracao_teste_s": 3.5
+ },
+ "X4_7_det_tempo": {
+  "mesmo_quadro_identico": true,
+  "calculo_da_pose_ms": 0.32,
+  "_duracao_teste_s": 0.1
+ },
+ "X4_8_folha": {
+  "arquivo": "saidas/X4_folha.jpg",
+  "_duracao_teste_s": 0.8
+ },
+ "X4_9_video": {
+  "quadros": 240,
+  "duracao_s": 8.0,
+  "composicao_media_s": 2.06,
+  "composicao_max_s": 3.25,
+  "tempo_total_s": 522.1,
+  "_duracao_teste_s": 522.1
+ },
+ "X4_10_integridade": {
+  "assinatura_rig_identidade_skill": "068bf373b53623b101e03ef7245c837c30da85b20aa9075ab8dbb4b34aec8342",
+  "alteracoes_pendentes_nesses_caminhos": "nenhuma",
+  "verificar_f1_vistas_ok": 6,
+  "_duracao_teste_s": 12.7
+ }
+}
