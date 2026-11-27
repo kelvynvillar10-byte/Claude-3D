@@ -52,3 +52,18 @@ cd personagens/heitor/rig_v2
 
 ## Decisão do diretor
 **Aprovado e autorizado (25/11/2026).** O rig v2 passa a ser o rig oficial do Heitor. Foi trocado no pipeline (`docs/PIPELINE_PRODUCAO.md`, seção 15) e no skill (`skills/modo-curioso-padrao/SKILL.md`). Nenhum vídeo de história foi iniciado: isso continua dependendo de autorização explícita.
+
+---
+
+## Versão 2.1 — ombros arredondados (27/11/2026)
+- **Pedido do diretor:** ombros mais arredondados e passagem mais natural do pescoço para o corpo.
+- **Aprovação:** proposta feita fora do rig (`personagens/heitor/propostas/ombros_redondos/`, folha antes × depois) e aprovada pelo diretor ("Melhorou assim").
+- **Mudança** (só duas formas de `codigo/heitor_v2.py`):
+  - `_forma_tronco`: do pescoço ao ombro a linha desce em curva (trapézio), sem patamar reto, com a quina do ombro redonda, nas 4 vistas;
+  - `desenhar_manga`: topo da manga em cúpula, mais baixo, continuando a curva do trapézio.
+- **O que ficou igual:** esqueleto, proporções, articulações, rosto, cabelo, estampa, cores e todas as funções de animação.
+- **Testes refeitos:**
+  - F1: 6/6 vistas OK, com alturas, paleta ≥ 96,5 % e estampa lida na frente e no 3/4;
+  - cotovelos: 0 invertidos em todos os conjuntos;
+  - folhas de modelo, expressões e articulações regeneradas.
+- **Vídeos anteriores:** o EP01 foi feito com a v2 e não muda. A v2.1 vale a partir do EP02.

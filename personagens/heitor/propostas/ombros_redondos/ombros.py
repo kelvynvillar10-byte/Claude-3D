@@ -1,4 +1,5 @@
-"""PROPOSTA (não aprovada) — ombros arredondados para o Heitor rig v2. NÃO altera o rig: troca, só dentro do bloco
+"""PROPOSTA — APROVADA em 27/11/2026 e INCORPORADA ao rig (v2.1); este arquivo fica como registro da comparação.
+(Antes:) PROPOSTA (não aprovada) — ombros arredondados para o Heitor rig v2. NÃO altera o rig: troca, só dentro do bloco
 `with ativar():`, duas formas do desenho:
 1. tronco: o topo deixa de ser uma reta com cantos vivos; desce do pescoço para os ombros numa curva suave (caimento de
    ombro) e arredonda a quina;
