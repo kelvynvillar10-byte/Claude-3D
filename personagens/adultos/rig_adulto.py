@@ -73,10 +73,11 @@ def _aplicar(H, esp):
     H.OMBRO_Y = -(P["ombro"] - P["barra_camisa"])
     H.PESCOCO_Y = -(P["pescoco"] - P["barra_camisa"])
     bx, qx = L["braco_x"], L["coxa_x"]
+    ab = L.get("braco_ang", 8.0)                      # v1.1: braços mais junto ao corpo em repouso
     H.LAYOUT = {
-        "frente": {"braco_d": (-bx, 8), "braco_e": (bx, -8), "coxa_d": (-qx, 0), "coxa_e": (qx, 0)},
-        "costas": {"braco_d": (bx, -8), "braco_e": (-bx, 8), "coxa_d": (qx, 0), "coxa_e": (-qx, 0)},
-        "tres_quartos": {"braco_d": (-bx * 0.79, 6), "braco_e": (bx * 0.70, -4), "coxa_d": (-qx * 0.8, 0), "coxa_e": (qx * 0.63, 0)},
+        "frente": {"braco_d": (-bx, ab), "braco_e": (bx, -ab), "coxa_d": (-qx, 0), "coxa_e": (qx, 0)},
+        "costas": {"braco_d": (bx, -ab), "braco_e": (-bx, ab), "coxa_d": (qx, 0), "coxa_e": (-qx, 0)},
+        "tres_quartos": {"braco_d": (-bx * 0.79, ab * 0.75), "braco_e": (bx * 0.70, -ab * 0.5), "coxa_d": (-qx * 0.8, 0), "coxa_e": (qx * 0.63, 0)},
         "perfil": {"braco_d": (-0.03, 2), "braco_e": (0.05, -2), "coxa_d": (-0.03, 0), "coxa_e": (0.06, 0)},
     }
     em = L["escala_mao"]
@@ -128,15 +129,15 @@ def _forma_tronco(H, esp, vista):
     p = skia.Path()
     if vista in ("frente", "costas", "tres_quartos"):
         k = 1.0 if vista != "tres_quartos" else 0.84
-        g = 0.14 * k
+        g = L.get("gola", 0.14) * k; qd, qc = L.get("trapezio", (0.075, 0.21))   # v1.1: trapézio desce mais devagar
         p.moveTo(-g, top - 0.025); p.lineTo(g, top - 0.025)
-        p.cubicTo(g + 0.09 * k, top - 0.02, om * k - 0.17 * k, top + 0.035, om * k - 0.085 * k, top + 0.075)
-        p.cubicTo(om * k - 0.03 * k, top + 0.10, om * k, top + 0.14, om * k, top + 0.21)
+        p.cubicTo(g + 0.09 * k, top - 0.02, om * k - 0.17 * k, top + qd * 0.45, om * k - 0.085 * k, top + qd)
+        p.cubicTo(om * k - 0.03 * k, top + qd + 0.025, om * k, top + qc - 0.07, om * k, top + qc)
         p.cubicTo(om * k + 0.01, meio, ci * k, meio * 0.5, ba * k, hem)
         p.lineTo(-ba * k, hem)
-        p.cubicTo(-ci * k, meio * 0.5, -om * k - 0.01, meio, -om * k, top + 0.21)
-        p.cubicTo(-om * k, top + 0.14, -om * k + 0.03 * k, top + 0.10, -om * k + 0.085 * k, top + 0.075)
-        p.cubicTo(-om * k + 0.17 * k, top + 0.035, -g - 0.09 * k, top - 0.02, -g, top - 0.025)
+        p.cubicTo(-ci * k, meio * 0.5, -om * k - 0.01, meio, -om * k, top + qc)
+        p.cubicTo(-om * k, top + qc - 0.07, -om * k + 0.03 * k, top + qd + 0.025, -om * k + 0.085 * k, top + qd)
+        p.cubicTo(-om * k + 0.17 * k, top + qd * 0.45, -g - 0.09 * k, top - 0.02, -g, top - 0.025)
         if vista == "tres_quartos":
             p.transform(skia.Matrix.Translate(0.02, 0))
     else:
@@ -398,7 +399,8 @@ def _desenhar_cabelo_tras(H, esp, c, vista, lado_luz):
 def _desenhar_cabeca(H, esp, c, vista, e, lado_luz):
     C = H.C
     hy = -0.58; rw, rh = H.PROP["largura_cabeca"] / 2, 0.5
-    pesc = H.rrect(-0.11, -0.12, 0.11, 0.14, 0.04)
+    pb = esp["larguras_H"].get("pescoco_baixo", 0.14)          # v1.1: pescoço desce até a gola (ombro mais baixo)
+    pesc = H.rrect(-0.11, -0.12, 0.11, pb, 0.04)
     c.drawPath(pesc, H.tinta(C["pele_s"]))
     sh = {"frente": 0.0, "tres_quartos": 0.12, "perfil": 0.26, "costas": 0.0}[vista]
 
