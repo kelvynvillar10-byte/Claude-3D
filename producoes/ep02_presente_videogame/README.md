@@ -3,7 +3,7 @@
 **Status:** produzido com autorização total do diretor (27/11/2026: "permissão para prosseguir com tudo autorizado em todos os
 processos até o término do vídeo"), **aguardando avaliação do diretor**.
 
-**Vídeo:** `export/MC_ep02_presente_videogame_v1.mp4` (1080×1920, 30 qps, H.264 + AAC, −14 LUFS).
+**Vídeo atual: `export/MC_ep02_presente_videogame_v2.mp4`** (84,4 s, 1080×1920, 30 qps, −14,0 LUFS, QA 16/16): 3ª geração da narração do diretor (escolhida por ele), braço mais baixo (rig adulto v1.1) e textos da TV inteiros no quadro. A v1 (`export/MC_ep02_presente_videogame_v1.mp4`, 88,4 s, 1ª narração) fica como histórico.
 **QA:** `saida/qa_relatorio.json` · **Folha de contato:** `saida/folha_contato_1qps.jpg` · **Mapa fala → imagem:** `saida/mapa_fala_imagem.json`.
 
 ## Decisões deste episódio
@@ -71,11 +71,10 @@ Memória: com 4 trabalhadores e 3 placas em cache por processo o container ficou
 | Identidade | marca d'água "MODO CURIOSO"; estampas "Modo Curioso"; nenhum logotipo de terceiros na imagem |
 
 ## Limitações (honestas)
-1. **Destaque amarelo nas legendas em 27 % dos blocos** (o padrão medido é ~42 %). Aumentar exige refazer todos os quadros.
+1. **Destaque amarelo nas legendas em 26–27 % dos blocos** (o padrão medido é ~42 %). Aumentar exige refazer todos os quadros.
 2. **Juca sentado de frente:** o rig é 2D, então a coxa vista de frente é só um encurtamento; em alguns planos (C1, C2) ele pode
    parecer meio "de pé na frente do sofá". De perfil (C3) e de costas (C4) lê bem.
-3. **Zoom brusco nas telas:** em P11 ("instalado") e P44 ("primeira missão") o fim do zoom corta a borda do texto da TV
-   ("INSTALADO", "CONCLUÍDA").
+3. ~~Zoom brusco nas telas cortava o texto da TV~~ — corrigido na v2.
 4. **Personagens desenhados por cima do cenário** com a profundidade do personagem mais próximo (mesmo compositor do EP01):
    quando há dois personagens em profundidades diferentes, o mais distante não é coberto pelos móveis.
 5. **Close do botão (P21, P46):** é um insert 2D (mão do rig + videogame) porque o plano da TV é estreito demais para o
@@ -84,3 +83,15 @@ Memória: com 4 trabalhadores e 3 placas em cache por processo o container ficou
 7. **Trilha e efeitos** continuam procedurais (biblioteca de música/SFX ainda é pendência do diretor).
 8. **Render:** com 3 processos, o trecho 29–59 s caiu por falta de memória na 1ª tentativa; foi refeito em partes e emendado
    (`codigo/refazer_planos.py`). Contagem final de quadros conferida: 2.652.
+
+## v2 (27/11/2026)
+- **Narração:** 3ª geração do diretor (`narracao/edicoes/ep02_narracao_v3/`, QA 13/13; 81,4 s de fala; mesma direção revisada da v1).
+  Comparação medida das três gerações em `narracao/edicoes/ep02_narracao{,_v2,_v3}/analise.json`.
+- **Linha do tempo:** a decupagem continua escrita sobre a 1ª narração e é convertida pelas palavras (`remap` em
+  `cenas_ep02.py` e `audio_ep02.py`; 233 palavras iguais): cortes, ações e efeitos ficam presos à mesma palavra.
+  `EP02_NARRACAO=ep02_narracao` refaz a v1.
+- **Rig adulto v1.1** (braço mais baixo, aprovado). **Textos da TV** (instalação e missão) dentro da faixa central.
+- **QA 16/16:** 49 planos · mediana 1,50 s · 34 cortes/min · ação em 86 % dos quadros (mín. 63 %) · câmera 100 % ·
+  48 palavras-chave no plano certo · 4.508 braços, 0 cotovelos invertidos · −14,0 LUFS / −1,5 dBTP.
+- **Render:** 9 trechos, 3 por vez; 4 trechos pararam por falta de memória e só os quadros faltantes (326) foram refeitos
+  com 2 processos e emendados; contagem final conferida (2.532 quadros).

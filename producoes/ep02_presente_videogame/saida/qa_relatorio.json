@@ -1,5 +1,5 @@
 {
- "video": "MC_ep02_presente_videogame_v1.mp4",
+ "video": "MC_ep02_presente_videogame_v2.mp4",
  "verificacoes": [
   {
    "verificacao": "formato",
@@ -9,17 +9,17 @@
   {
    "verificacao": "duracao",
    "ok": true,
-   "detalhe": "88.40 s (narração 85.36 s + cartela final); diretriz 60–120 s"
+   "detalhe": "84.39 s (narração 81.35 s + cartela final); diretriz 60–120 s"
   },
   {
    "verificacao": "ritmo",
    "ok": true,
-   "detalhe": "49 planos · mediana 1.65 s · 33 cortes/min · 13 planos entre 1,5 e 2 s · 1 acima de 3 s (referências: mediana 1,7 s, 31 cortes/min)"
+   "detalhe": "49 planos · mediana 1.50 s · 34 cortes/min · 10 planos entre 1,5 e 2 s · 2 acima de 3 s (referências: mediana 1,7 s, 31 cortes/min)"
   },
   {
    "verificacao": "movimento_personagens",
    "ok": true,
-   "detalhe": "quadros com AÇÃO visível (deslocamento, gesto, troca de pose/vista, tela animando): 87 % · plano com menos ação: 64 %"
+   "detalhe": "quadros com AÇÃO visível (deslocamento, gesto, troca de pose/vista, tela animando): 86 % · plano com menos ação: 63 %"
   },
   {
    "verificacao": "camera_em_movimento",
@@ -34,7 +34,7 @@
   {
    "verificacao": "cotovelos",
    "ok": true,
-   "detalhe": "4716 braços verificados (todas as poses de todos os quadros, Juca e Jandira), 0 invertido(s)"
+   "detalhe": "4508 braços verificados (todas as poses de todos os quadros, Juca e Jandira), 0 invertido(s)"
   },
   {
    "verificacao": "rig_heitor_intacto",
@@ -49,7 +49,7 @@
   {
    "verificacao": "loudness",
    "ok": true,
-   "detalhe": "-14.1 LUFS · pico -1.5 dBTP"
+   "detalhe": "-14.0 LUFS · pico -1.5 dBTP"
   },
   {
    "verificacao": "numeros_na_tela",
@@ -59,7 +59,7 @@
   {
    "verificacao": "legendas",
    "ok": true,
-   "detalhe": "89 blocos · média 2.6 palavras · máx 3 · destaque amarelo em 27 % dos blocos"
+   "detalhe": "92 blocos · média 2.5 palavras · máx 3 · destaque amarelo em 26 % dos blocos"
   },
   {
    "verificacao": "marca_dagua",
@@ -74,7 +74,7 @@
   {
    "verificacao": "gancho",
    "ok": true,
-   "detalhe": "pergunta 'E se…' no 1º segundo, quebrada em legendas; 1º corte em 1.85 s"
+   "detalhe": "pergunta 'E se…' no 1º segundo, quebrada em legendas; 1º corte em 1.60 s"
   },
   {
    "verificacao": "final",
@@ -84,53 +84,53 @@
  ],
  "acao_por_plano": {
   "P01": 1.0,
-  "P02": 0.725,
+  "P02": 0.773,
   "P03": 0.76,
-  "P04": 0.849,
+  "P04": 0.855,
   "P05": 1.0,
   "P06": 0.69,
-  "P07": 0.976,
+  "P07": 0.974,
   "P08": 1.0,
-  "P09": 0.895,
+  "P09": 0.917,
   "P10": 1.0,
   "P11": 1.0,
-  "P12": 0.952,
-  "P13": 0.779,
-  "P14": 0.697,
-  "P15": 0.919,
+  "P12": 0.95,
+  "P13": 0.686,
+  "P14": 0.893,
+  "P15": 0.939,
   "P16": 1.0,
-  "P17": 0.857,
+  "P17": 0.889,
   "P18": 1.0,
-  "P19": 0.944,
-  "P20": 0.911,
+  "P19": 0.971,
+  "P20": 0.929,
   "P21": 1.0,
-  "P22": 0.893,
-  "P23": 0.915,
+  "P22": 0.9,
+  "P23": 0.815,
   "P24": 1.0,
   "P25": 1.0,
   "P26": 1.0,
-  "P27": 0.796,
-  "P28": 0.811,
+  "P27": 0.872,
+  "P28": 0.844,
   "P29": 1.0,
-  "P30": 0.816,
-  "P31": 0.642,
-  "P32": 0.833,
-  "P33": 0.778,
-  "P34": 0.722,
-  "P35": 0.738,
-  "P36": 0.842,
-  "P37": 0.73,
-  "P38": 0.771,
-  "P39": 0.756,
-  "P40": 0.701,
-  "P41": 1.0,
+  "P30": 0.771,
+  "P31": 0.646,
+  "P32": 0.769,
+  "P33": 0.805,
+  "P34": 0.686,
+  "P35": 0.778,
+  "P36": 0.818,
+  "P37": 0.655,
+  "P38": 0.786,
+  "P39": 0.738,
+  "P40": 0.718,
+  "P41": 0.987,
   "P42": 1.0,
-  "P43": 0.68,
+  "P43": 0.685,
   "P44": 1.0,
-  "P45": 0.711,
+  "P45": 0.689,
   "P46": 1.0,
-  "P47": 0.821,
-  "P48": 0.739,
+  "P47": 0.837,
+  "P48": 0.63,
   "P49": 1.0
  },
  "camera_por_plano": {
@@ -162,7 +162,7 @@
   "P26": 1.0,
   "P27": 1.0,
   "P28": 1.0,
-  "P29": 0.938,
+  "P29": 0.967,
   "P30": 1.0,
   "P31": 1.0,
   "P32": 1.0,
