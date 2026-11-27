@@ -32,8 +32,9 @@ def sentado(P, vista, dy=None):
         # o joelho aparece logo abaixo do quadril e a pelve fica na altura do assento (lê como sentado, não de pé)
         for s, sg in (("d", 1), ("e", -1)):
             p[f"esc_coxa_{s}"] = 0.30; p[f"_prof_{s}"] = 0.0
-            p[f"coxa_{s}"] = -sg * 14 if vista != "costas" else sg * 14
-            p[f"canela_{s}"] = sg * 12 if vista != "costas" else -sg * 12
+            # convenção do rig: ângulo positivo leva a ponta para −x; na frente a perna d fica à esquerda da tela
+            p[f"coxa_{s}"] = sg * 14 if vista != "costas" else -sg * 14
+            p[f"canela_{s}"] = -sg * 12 if vista != "costas" else sg * 12
         pr = P.H.PROP
         p["raiz"] = [0.0, pr["barra_camisa"] - (pr["tornozelo"] + P.H.OSS["canela"] * 0.98 + P.H.OSS["coxa"] * 0.30 * 0.97 + 0.02)]
     return p

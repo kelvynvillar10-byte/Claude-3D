@@ -228,7 +228,7 @@ def insert_coracao(t, k, bpm0=72, bpm1=140):
     cv.drawCircle(cx + R * 0.5, cy + R * 0.5, R * 0.9, pt(0xFFB3223A)); cv.drawCircle(cx - R * 0.45, cy - R * 0.45, R * 0.22, pt(BRANCO, 0.5)); cv.restore()
     cv.drawPath(p, borda(ESCURO, 14))
     # eletrocardiograma
-    y0 = OH * 0.72; ecg = skia.Path(); ecg.moveTo(40, y0)
+    y0 = OH * 0.63; ecg = skia.Path(); ecg.moveTo(40, y0)
     for x in range(40, OW - 40, 6):
         u = ((x / OW) * 3 - t * f) % 1.0
         dy = (-170 if 0.10 < u < 0.13 else (120 if 0.13 < u < 0.16 else 0)) + 25 * math.exp(-((u - 0.35) * 18) ** 2)
