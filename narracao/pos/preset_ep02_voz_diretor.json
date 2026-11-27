@@ -1,0 +1,64 @@
+{
+ "nome": "Assinatura sonora Modo Curioso — preset da voz do diretor (EP02): voz grave e escura no MP3 do site; sem realce de presença/ar, agudos contidos",
+ "taxa_hz": 48000,
+ "filtro_graves": {
+  "hz": 75,
+  "polos": 2
+ },
+ "cliques": {
+  "usar_se_detectados": true,
+  "janela_ms": 55,
+  "limiar": 4
+ },
+ "ruido": {
+  "usar_se_piso_acima_dbfs": -65,
+  "reducao_db": 6,
+  "piso_db": -60
+ },
+ "equalizacao": [
+  {
+   "nome": "corpo",
+   "hz": 150,
+   "q": 0.9,
+   "db": 1.0
+  },
+  {
+   "nome": "lama",
+   "hz": 320,
+   "q": 1.2,
+   "db": -1.0
+  },
+  {
+   "nome": "presenca_contida",
+   "hz": 3200,
+   "q": 1.0,
+   "db": -1.0
+  },
+  {
+   "nome": "contencao_agudos",
+   "tipo": "prateleira_aguda",
+   "hz": 5000,
+   "db": -3.0
+  }
+ ],
+ "de_esser": {
+  "usar_se_sibilancia_acima_db": -16,
+  "intensidade": 0.35,
+  "frequencia": 0.55
+ },
+ "compressao": {
+  "nivel_entrada_lufs": -20,
+  "limiar_db": -24,
+  "razao": 1.8,
+  "ataque_ms": 12,
+  "liberacao_ms": 140,
+  "joelho": 4
+ },
+ "loudness": {
+  "alvo_lufs": -16.0,
+  "pico_verdadeiro_dbtp": -1.5,
+  "faixa_lu": 11
+ },
+ "mp3_kbps": 320,
+ "observacao": "Sem mudança de tom ou de velocidade. Cada etapa condicional só entra se a medição indicar. Calibração final na F2, com a escuta do diretor."
+}

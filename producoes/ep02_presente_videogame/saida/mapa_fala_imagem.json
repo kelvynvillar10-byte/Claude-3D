@@ -1,0 +1,338 @@
+[
+ {
+  "palavra": "namorada",
+  "t": 0.55,
+  "plano": "P01",
+  "plano_no_instante": "P01",
+  "acao": "a Jandira entra pela porta com a caixa enorme; a câmera avança"
+ },
+ {
+  "palavra": "surpresa",
+  "t": 2.21,
+  "plano": "P02",
+  "plano_no_instante": "P02",
+  "acao": "zoom brusco na caixa, brilhos em volta"
+ },
+ {
+  "palavra": "sempre",
+  "t": 3.69,
+  "plano": "P03",
+  "plano_no_instante": "P03",
+  "acao": "o Juca vira a cabeça no sofá, curioso"
+ },
+ {
+  "palavra": "tranquilamente",
+  "t": 4.91,
+  "plano": "P04",
+  "plano_no_instante": "P04",
+  "acao": "ele relaxa no sofá com as mãos atrás da cabeça e cochila"
+ },
+ {
+  "palavra": "apareceu",
+  "t": 6.67,
+  "plano": "P05",
+  "plano_no_instante": "P05",
+  "acao": "ela atravessa a sala com a caixa; ele se vira"
+ },
+ {
+  "palavra": "enorme",
+  "t": 7.89,
+  "plano": "P06",
+  "plano_no_instante": "P06",
+  "acao": "ela entra no quadro com a caixa; zoom brusco"
+ },
+ {
+  "palavra": "abrir",
+  "t": 8.76,
+  "plano": "P07",
+  "plano_no_instante": "P07",
+  "acao": "a tampa abre e a luz dourada ilumina o rosto dele"
+ },
+ {
+  "palavra": "PlayStation",
+  "t": 9.94,
+  "plano": "P08",
+  "plano_no_instante": "P08",
+  "acao": "o videogame genérico sobe da caixa (sem logotipo); rótulo 0 h de uso"
+ },
+ {
+  "palavra": "espera",
+  "t": 12.37,
+  "plano": "P09",
+  "plano_no_instante": "P09",
+  "acao": "ela levanta o dedo com sorriso de segredo"
+ },
+ {
+  "palavra": "surpresa",
+  "t": 14.06,
+  "plano": "P10",
+  "plano_no_instante": "P10",
+  "acao": "a TV liga"
+ },
+ {
+  "palavra": "instalado",
+  "t": 15.93,
+  "plano": "P11",
+  "plano_no_instante": "P11",
+  "acao": "a barra da tela chega a 100 %; zoom na TV"
+ },
+ {
+  "palavra": "instante",
+  "t": 17.39,
+  "plano": "P12",
+  "plano_no_instante": "P12",
+  "acao": "close: os olhos dele se arregalam com a luz da TV"
+ },
+ {
+  "palavra": "descobriu",
+  "t": 18.38,
+  "plano": "P13",
+  "plano_no_instante": "P13",
+  "acao": "ele se levanta devagar, maravilhado"
+ },
+ {
+  "palavra": "felicidade",
+  "t": 20.95,
+  "plano": "P14",
+  "plano_no_instante": "P14",
+  "acao": "pulo de comemoração com os punhos para cima"
+ },
+ {
+  "palavra": "olhos",
+  "t": 22.31,
+  "plano": "P15",
+  "plano_no_instante": "P15",
+  "acao": "close: estrelas nos olhos"
+ },
+ {
+  "palavra": "coração",
+  "t": 23.49,
+  "plano": "P16",
+  "plano_no_instante": "P16",
+  "acao": "coração batendo, 72 → 140 BPM"
+ },
+ {
+  "palavra": "abraçou",
+  "t": 24.7,
+  "plano": "P17",
+  "plano_no_instante": "P17",
+  "acao": "ele abraça o videogame e balança"
+ },
+ {
+  "palavra": "tesouro",
+  "t": 27.08,
+  "plano": "P18",
+  "plano_no_instante": "P18",
+  "acao": "o videogame brilha como um tesouro, moedas caindo"
+ },
+ {
+  "palavra": "simplesmente",
+  "t": 28.53,
+  "plano": "P19",
+  "plano_no_instante": "P19",
+  "acao": "ele ergue o videogame e balança a cabeça"
+ },
+ {
+  "palavra": "acreditar",
+  "t": 29.77,
+  "plano": "P20",
+  "plano_no_instante": "P20",
+  "acao": "a Jandira ri e bate palmas"
+ },
+ {
+  "palavra": "ligou",
+  "t": 31.27,
+  "plano": "P21",
+  "plano_no_instante": "P21",
+  "acao": "ele aperta o botão: a luz azul acende e a TV liga"
+ },
+ {
+  "palavra": "controle",
+  "t": 32.83,
+  "plano": "P22",
+  "plano_no_instante": "P22",
+  "acao": "ele pega o controle e pula no sofá"
+ },
+ {
+  "palavra": "aventura",
+  "t": 33.93,
+  "plano": "P23",
+  "plano_no_instante": "P23",
+  "acao": "por cima do ombro, a câmera mergulha na TV"
+ },
+ {
+  "palavra": "carro",
+  "t": 35.53,
+  "plano": "P24",
+  "plano_no_instante": "P24",
+  "acao": "dentro do jogo: o carro acelera, 120 km/h"
+ },
+ {
+  "palavra": "rua",
+  "t": 36.46,
+  "plano": "P25",
+  "plano_no_instante": "P25",
+  "acao": "a rua vista do alto"
+ },
+ {
+  "palavra": "detalhe",
+  "t": 37.32,
+  "plano": "P26",
+  "plano_no_instante": "P26",
+  "acao": "as fachadas de perto"
+ },
+ {
+  "palavra": "incríveis",
+  "t": 38.84,
+  "plano": "P27",
+  "plano_no_instante": "P27",
+  "acao": "o Juca vidrado, iluminado pela TV"
+ },
+ {
+  "palavra": "impressionado",
+  "t": 40.75,
+  "plano": "P28",
+  "plano_no_instante": "P28",
+  "acao": "de perfil, inclinado, apertando os botões"
+ },
+ {
+  "palavra": "tempo",
+  "t": 42.59,
+  "plano": "P29",
+  "plano_no_instante": "P29",
+  "acao": "time-lapse: a luz muda e a Jandira passa rápido; relógio 16:00 → 18:00"
+ },
+ {
+  "palavra": "Duas",
+  "t": 43.88,
+  "plano": "P30",
+  "plano_no_instante": "P30",
+  "acao": "cartela 2 HORAS DEPOIS"
+ },
+ {
+  "palavra": "percebeu",
+  "t": 45.62,
+  "plano": "P31",
+  "plano_no_instante": "P31",
+  "acao": "a Jandira na porta, de braços cruzados"
+ },
+ {
+  "palavra": "Cinco",
+  "t": 47.9,
+  "plano": "P32",
+  "plano_no_instante": "P32",
+  "acao": "cartela 5 HORAS DEPOIS; o prato fumegando; noite"
+ },
+ {
+  "palavra": "fria",
+  "t": 50.12,
+  "plano": "P33",
+  "plano_no_instante": "P33",
+  "acao": "o vapor some; termômetro 65 → 22 °C"
+ },
+ {
+  "palavra": "Dez",
+  "t": 50.71,
+  "plano": "P34",
+  "plano_no_instante": "P34",
+  "acao": "cartela 10 HORAS DEPOIS; madrugada"
+ },
+ {
+  "palavra": "exatamente",
+  "t": 52.93,
+  "plano": "P35",
+  "plano_no_instante": "P35",
+  "acao": "rótulo 0 m: ele não saiu do lugar"
+ },
+ {
+  "palavra": "residência",
+  "t": 57.23,
+  "plano": "P36",
+  "plano_no_instante": "P36",
+  "acao": "rótulo NOVA RESIDÊNCIA OFICIAL sobre o sofá"
+ },
+ {
+  "palavra": "amanheceu",
+  "t": 58.75,
+  "plano": "P37",
+  "plano_no_instante": "P37",
+  "acao": "o dia nasce na janela; relógio 06:12"
+ },
+ {
+  "palavra": "jogando",
+  "t": 60.31,
+  "plano": "P38",
+  "plano_no_instante": "P38",
+  "acao": "close: barba, olheiras, olho tremendo"
+ },
+ {
+  "palavra": "perceber",
+  "t": 62.4,
+  "plano": "P39",
+  "plano_no_instante": "P39",
+  "acao": "ela se espreguiça na porta e para, assustada"
+ },
+ {
+  "palavra": "erros",
+  "t": 65.68,
+  "plano": "P40",
+  "plano_no_instante": "P40",
+  "acao": "mão na testa; zoom brusco"
+ },
+ {
+  "palavra": "agradar",
+  "t": 68.14,
+  "plano": "P41",
+  "plano_no_instante": "P41",
+  "acao": "lembrança em sépia da chegada com a caixa"
+ },
+ {
+  "palavra": "morador",
+  "t": 71.18,
+  "plano": "P42",
+  "plano_no_instante": "P42",
+  "acao": "o Juca andando dentro do jogo"
+ },
+ {
+  "palavra": "impressionante",
+  "t": 72.84,
+  "plano": "P43",
+  "plano_no_instante": "P43",
+  "acao": "aproximação lenta por cima do ombro"
+ },
+ {
+  "palavra": "primeira",
+  "t": 75.1,
+  "plano": "P44",
+  "plano_no_instante": "P44",
+  "acao": "MISSÃO 1 · 3 %; zoom brusco"
+ },
+ {
+  "palavra": "imagine",
+  "t": 76.5,
+  "plano": "P45",
+  "plano_no_instante": "P45",
+  "acao": "a sala inteira; ela de braços cruzados"
+ },
+ {
+  "palavra": "desligar",
+  "t": 79.58,
+  "plano": "P46",
+  "plano_no_instante": "P46",
+  "acao": "o dedo vai e volta do botão"
+ },
+ {
+  "palavra": "atenção",
+  "t": 81.02,
+  "plano": "P47",
+  "plano_no_instante": "P47",
+  "acao": "ela olha para nós, batendo o pé"
+ },
+ {
+  "palavra": "desapareceria",
+  "t": 83.04,
+  "plano": "P48",
+  "plano_no_instante": "P48",
+  "acao": "o Juca é sugado para dentro da TV"
+ }
+]

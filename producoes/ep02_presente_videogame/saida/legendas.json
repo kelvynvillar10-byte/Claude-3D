@@ -1,0 +1,589 @@
+[
+ {
+  "ini": 0.15,
+  "fim": 0.55,
+  "txt": "E SE SUA",
+  "dest": []
+ },
+ {
+  "ini": 0.55,
+  "fim": 1.29,
+  "txt": "NAMORADA CHEGASSE",
+  "dest": []
+ },
+ {
+  "ini": 1.29,
+  "fim": 1.89,
+  "txt": "EM CASA COM",
+  "dest": []
+ },
+ {
+  "ini": 1.89,
+  "fim": 2.65,
+  "txt": "UMA SURPRESA QUE",
+  "dest": [
+   "SURPRESA"
+  ]
+ },
+ {
+  "ini": 2.65,
+  "fim": 3.37,
+  "txt": "MUDARIA SUA VIDA",
+  "dest": []
+ },
+ {
+  "ini": 3.37,
+  "fim": 4.49,
+  "txt": "PARA SEMPRE?",
+  "dest": []
+ },
+ {
+  "ini": 4.49,
+  "fim": 5.55,
+  "txt": "JUCA ESTAVA TRANQUILAMENTE",
+  "dest": []
+ },
+ {
+  "ini": 5.55,
+  "fim": 6.43,
+  "txt": "NO SOFÁ QUANDO",
+  "dest": []
+ },
+ {
+  "ini": 6.43,
+  "fim": 7.41,
+  "txt": "ELA APARECEU SEGURANDO",
+  "dest": []
+ },
+ {
+  "ini": 7.41,
+  "fim": 8.54,
+  "txt": "UMA CAIXA ENORME",
+  "dest": [
+   "ENORME"
+  ]
+ },
+ {
+  "ini": 8.54,
+  "fim": 9.26,
+  "txt": "AO ABRIR",
+  "dest": []
+ },
+ {
+  "ini": 9.26,
+  "fim": 9.94,
+  "txt": "ELE ENCONTROU UM",
+  "dest": []
+ },
+ {
+  "ini": 9.94,
+  "fim": 11.24,
+  "txt": "PLAYSTATION 5 NOVINHO",
+  "dest": [
+   "PLAYSTATION",
+   "5"
+  ]
+ },
+ {
+  "ini": 11.24,
+  "fim": 12.1,
+  "txt": "EM FOLHA!",
+  "dest": []
+ },
+ {
+  "ini": 12.1,
+  "fim": 13.35,
+  "txt": "MAS ESPERA",
+  "dest": []
+ },
+ {
+  "ini": 13.35,
+  "fim": 14.06,
+  "txt": "TINHA MAIS UMA",
+  "dest": []
+ },
+ {
+  "ini": 14.06,
+  "fim": 14.83,
+  "txt": "SURPRESA!",
+  "dest": [
+   "SURPRESA"
+  ]
+ },
+ {
+  "ini": 14.83,
+  "fim": 15.73,
+  "txt": "GTA 6 JÁ",
+  "dest": [
+   "GTA",
+   "6"
+  ]
+ },
+ {
+  "ini": 15.73,
+  "fim": 16.97,
+  "txt": "ESTAVA INSTALADO!",
+  "dest": [
+   "INSTALADO"
+  ]
+ },
+ {
+  "ini": 16.97,
+  "fim": 18.05,
+  "txt": "NAQUELE INSTANTE",
+  "dest": []
+ },
+ {
+  "ini": 18.05,
+  "fim": 19.42,
+  "txt": "JUCA DESCOBRIU O",
+  "dest": []
+ },
+ {
+  "ini": 19.42,
+  "fim": 20.74,
+  "txt": "VERDADEIRO SIGNIFICADO",
+  "dest": []
+ },
+ {
+  "ini": 20.74,
+  "fim": 22.03,
+  "txt": "DA FELICIDADE",
+  "dest": [
+   "FELICIDADE"
+  ]
+ },
+ {
+  "ini": 22.03,
+  "fim": 23.27,
+  "txt": "SEUS OLHOS BRILHARAM",
+  "dest": []
+ },
+ {
+  "ini": 23.27,
+  "fim": 24.4,
+  "txt": "SEU CORAÇÃO ACELEROU",
+  "dest": [
+   "CORAÇÃO"
+  ]
+ },
+ {
+  "ini": 24.4,
+  "fim": 25.04,
+  "txt": "E ELE ABRAÇOU",
+  "dest": []
+ },
+ {
+  "ini": 25.04,
+  "fim": 25.96,
+  "txt": "O VIDEOGAME COMO",
+  "dest": [
+   "VIDEOGAME"
+  ]
+ },
+ {
+  "ini": 25.96,
+  "fim": 26.86,
+  "txt": "SE TIVESSE ENCONTRADO",
+  "dest": []
+ },
+ {
+  "ini": 26.86,
+  "fim": 28.33,
+  "txt": "UM TESOURO PERDIDO",
+  "dest": [
+   "TESOURO"
+  ]
+ },
+ {
+  "ini": 28.33,
+  "fim": 29.43,
+  "txt": "ELE SIMPLESMENTE NÃO",
+  "dest": []
+ },
+ {
+  "ini": 29.43,
+  "fim": 30.25,
+  "txt": "CONSEGUIA ACREDITAR",
+  "dest": []
+ },
+ {
+  "ini": 30.25,
+  "fim": 30.96,
+  "txt": "NAQUILO!",
+  "dest": []
+ },
+ {
+  "ini": 30.96,
+  "fim": 31.81,
+  "txt": "JUCA LIGOU O",
+  "dest": []
+ },
+ {
+  "ini": 31.81,
+  "fim": 32.43,
+  "txt": "CONSOLE",
+  "dest": []
+ },
+ {
+  "ini": 32.43,
+  "fim": 33.24,
+  "txt": "PEGOU O CONTROLE",
+  "dest": []
+ },
+ {
+  "ini": 33.24,
+  "fim": 33.93,
+  "txt": "E COMEÇOU SUA",
+  "dest": []
+ },
+ {
+  "ini": 33.93,
+  "fim": 34.69,
+  "txt": "AVENTURA EM VICE",
+  "dest": [
+   "VICE"
+  ]
+ },
+ {
+  "ini": 34.69,
+  "fim": 35.3,
+  "txt": "CITY",
+  "dest": [
+   "CITY"
+  ]
+ },
+ {
+  "ini": 35.3,
+  "fim": 36.13,
+  "txt": "CADA CARRO",
+  "dest": []
+ },
+ {
+  "ini": 36.13,
+  "fim": 37.06,
+  "txt": "CADA RUA E",
+  "dest": []
+ },
+ {
+  "ini": 37.06,
+  "fim": 37.8,
+  "txt": "CADA DETALHE DO",
+  "dest": []
+ },
+ {
+  "ini": 37.8,
+  "fim": 39.99,
+  "txt": "JOGO PARECIAM INCRÍVEIS",
+  "dest": []
+ },
+ {
+  "ini": 39.99,
+  "fim": 40.75,
+  "txt": "ELE ESTAVA TÃO",
+  "dest": []
+ },
+ {
+  "ini": 40.75,
+  "fim": 41.79,
+  "txt": "IMPRESSIONADO QUE",
+  "dest": []
+ },
+ {
+  "ini": 41.79,
+  "fim": 42.59,
+  "txt": "NEM PERCEBEU O",
+  "dest": []
+ },
+ {
+  "ini": 42.59,
+  "fim": 43.88,
+  "txt": "TEMPO PASSANDO",
+  "dest": []
+ },
+ {
+  "ini": 43.88,
+  "fim": 45.1,
+  "txt": "DUAS HORAS DEPOIS",
+  "dest": [
+   "DUAS"
+  ]
+ },
+ {
+  "ini": 45.1,
+  "fim": 46.31,
+  "txt": "A NAMORADA PERCEBEU",
+  "dest": []
+ },
+ {
+  "ini": 46.31,
+  "fim": 46.88,
+  "txt": "QUE ELE AINDA",
+  "dest": []
+ },
+ {
+  "ini": 46.88,
+  "fim": 47.9,
+  "txt": "ESTAVA JOGANDO",
+  "dest": []
+ },
+ {
+  "ini": 47.9,
+  "fim": 49.22,
+  "txt": "CINCO HORAS DEPOIS",
+  "dest": [
+   "CINCO"
+  ]
+ },
+ {
+  "ini": 49.22,
+  "fim": 49.9,
+  "txt": "A COMIDA JÁ",
+  "dest": []
+ },
+ {
+  "ini": 49.9,
+  "fim": 50.71,
+  "txt": "ESTAVA FRIA",
+  "dest": [
+   "FRIA"
+  ]
+ },
+ {
+  "ini": 50.71,
+  "fim": 51.9,
+  "txt": "DEZ HORAS DEPOIS",
+  "dest": [
+   "DEZ"
+  ]
+ },
+ {
+  "ini": 51.9,
+  "fim": 53.64,
+  "txt": "JUCA CONTINUAVA EXATAMENTE",
+  "dest": []
+ },
+ {
+  "ini": 53.64,
+  "fim": 54.71,
+  "txt": "NO MESMO LUGAR",
+  "dest": []
+ },
+ {
+  "ini": 54.71,
+  "fim": 55.65,
+  "txt": "O SOFÁ JÁ",
+  "dest": []
+ },
+ {
+  "ini": 55.65,
+  "fim": 56.41,
+  "txt": "PARECIA TER SE",
+  "dest": []
+ },
+ {
+  "ini": 56.41,
+  "fim": 57.23,
+  "txt": "TORNADO SUA NOVA",
+  "dest": []
+ },
+ {
+  "ini": 57.23,
+  "fim": 58.53,
+  "txt": "RESIDÊNCIA OFICIAL",
+  "dest": [
+   "RESIDÊNCIA"
+  ]
+ },
+ {
+  "ini": 58.53,
+  "fim": 59.77,
+  "txt": "QUANDO AMANHECEU",
+  "dest": [
+   "AMANHECEU"
+  ]
+ },
+ {
+  "ini": 59.77,
+  "fim": 60.31,
+  "txt": "JUCA AINDA ESTAVA",
+  "dest": []
+ },
+ {
+  "ini": 60.31,
+  "fim": 61.36,
+  "txt": "JOGANDO",
+  "dest": []
+ },
+ {
+  "ini": 61.36,
+  "fim": 62.2,
+  "txt": "A NAMORADA COMEÇOU",
+  "dest": []
+ },
+ {
+  "ini": 62.2,
+  "fim": 62.98,
+  "txt": "A PERCEBER QUE",
+  "dest": []
+ },
+ {
+  "ini": 62.98,
+  "fim": 64.24,
+  "txt": "AQUELE PRESENTE TALVEZ",
+  "dest": []
+ },
+ {
+  "ini": 64.24,
+  "fim": 65.02,
+  "txt": "TIVESSE SIDO UM",
+  "dest": []
+ },
+ {
+  "ini": 65.02,
+  "fim": 65.86,
+  "txt": "DOS MAIORES ERROS",
+  "dest": [
+   "ERROS"
+  ]
+ },
+ {
+  "ini": 65.86,
+  "fim": 66.9,
+  "txt": "DA SUA VIDA",
+  "dest": []
+ },
+ {
+  "ini": 66.9,
+  "fim": 67.59,
+  "txt": "AFINAL",
+  "dest": []
+ },
+ {
+  "ini": 67.59,
+  "fim": 68.56,
+  "txt": "ELA QUERIA AGRADAR",
+  "dest": []
+ },
+ {
+  "ini": 68.56,
+  "fim": 69.7,
+  "txt": "O NAMORADO",
+  "dest": []
+ },
+ {
+  "ini": 69.7,
+  "fim": 70.6,
+  "txt": "MAS ACABOU CRIANDO",
+  "dest": []
+ },
+ {
+  "ini": 70.6,
+  "fim": 71.52,
+  "txt": "UM VERDADEIRO MORADOR",
+  "dest": []
+ },
+ {
+  "ini": 71.52,
+  "fim": 72.41,
+  "txt": "DE VICE CITY!",
+  "dest": [
+   "VICE",
+   "CITY"
+  ]
+ },
+ {
+  "ini": 72.41,
+  "fim": 72.84,
+  "txt": "E O MAIS",
+  "dest": []
+ },
+ {
+  "ini": 72.84,
+  "fim": 74.02,
+  "txt": "IMPRESSIONANTE?",
+  "dest": []
+ },
+ {
+  "ini": 74.02,
+  "fim": 74.9,
+  "txt": "JUCA AINDA ESTAVA",
+  "dest": []
+ },
+ {
+  "ini": 74.9,
+  "fim": 76.21,
+  "txt": "NA PRIMEIRA MISSÃO!",
+  "dest": [
+   "PRIMEIRA",
+   "MISSÃO"
+  ]
+ },
+ {
+  "ini": 76.21,
+  "fim": 77.2,
+  "txt": "AGORA IMAGINE RECEBER",
+  "dest": []
+ },
+ {
+  "ini": 77.2,
+  "fim": 78.79,
+  "txt": "UM PRESENTE DESSES",
+  "dest": []
+ },
+ {
+  "ini": 78.79,
+  "fim": 79.98,
+  "txt": "VOCÊ CONSEGUIRIA DESLIGAR",
+  "dest": []
+ },
+ {
+  "ini": 79.98,
+  "fim": 80.82,
+  "txt": "O VIDEOGAME PARA",
+  "dest": [
+   "VIDEOGAME"
+  ]
+ },
+ {
+  "ini": 80.82,
+  "fim": 81.6,
+  "txt": "DAR ATENÇÃO À",
+  "dest": []
+ },
+ {
+  "ini": 81.6,
+  "fim": 82.53,
+  "txt": "SUA NAMORADA?",
+  "dest": []
+ },
+ {
+  "ini": 82.53,
+  "fim": 83.72,
+  "txt": "OU TAMBÉM DESAPARECERIA",
+  "dest": [
+   "DESAPARECERIA"
+  ]
+ },
+ {
+  "ini": 83.72,
+  "fim": 84.3,
+  "txt": "DA VIDA REAL",
+  "dest": []
+ },
+ {
+  "ini": 84.3,
+  "fim": 84.92,
+  "txt": "PARA MORAR EM",
+  "dest": []
+ },
+ {
+  "ini": 84.92,
+  "fim": 85.71,
+  "txt": "VICE CITY?",
+  "dest": [
+   "VICE",
+   "CITY"
+  ]
+ }
+]

@@ -15,7 +15,7 @@ Pasta de cada narração: narracao/edicoes/<nome>/
   voz_final.wav (48 kHz, 24 bits) · voz_final.mp3 (320 kbps) · voz_palavras.json · marcacoes.json · qa.json · relatorio.md · imagens/
   conferencia_sincronia.mp4 (narração + legendas por palavra, para conferir a sincronia)
 """
-import json, shutil, sys
+import json, os, shutil, sys
 from pathlib import Path
 import numpy as np
 
@@ -118,7 +118,7 @@ def finalizar(nome, sem_revisao=False, base=EDICOES):
     editado, pf, ops, g = ED.editar(y, SR, texto, pal, d, an["respiracoes"], an["segmentacao"]["limiar_db"], an["silencios"])
     com_ganho = (y * (10 ** (g / 20))).astype(np.float32)
     medidas = {"cliques": an["cliques"], "piso_ruido_db": an["piso_ruido_db"], "bandas": an["bandas"]}
-    pr = TR.carregar_preset()
+    pr = TR.carregar_preset(os.environ.get("NARRACAO_PRESET") or TR.PRESET)   # preset por voz (opcional)
     final, trat = TR.tratar(editado, SR, medidas, pr)
     AU.gravar_wav(final, pasta / "voz_final.wav"); AU.gravar_mp3(final, pasta / "voz_final.mp3", kbps=pr["mp3_kbps"])
     _json(pasta / "voz_palavras.json", [{"w": p["w"], "ini": p["ini"], "fim": p["fim"]} for p in pf])

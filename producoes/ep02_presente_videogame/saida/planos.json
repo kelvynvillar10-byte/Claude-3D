@@ -1,0 +1,296 @@
+[
+ {
+  "id": "P01",
+  "ini": 0.0,
+  "fim": 1.85,
+  "entrada": null
+ },
+ {
+  "id": "P02",
+  "ini": 1.85,
+  "fim": 3.55,
+  "entrada": "corte"
+ },
+ {
+  "id": "P03",
+  "ini": 3.55,
+  "fim": 4.4,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P04",
+  "ini": 4.4,
+  "fim": 6.15,
+  "entrada": "corte"
+ },
+ {
+  "id": "P05",
+  "ini": 6.15,
+  "fim": 7.5,
+  "entrada": "corte"
+ },
+ {
+  "id": "P06",
+  "ini": 7.5,
+  "fim": 8.45,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P07",
+  "ini": 8.45,
+  "fim": 9.85,
+  "entrada": "corte"
+ },
+ {
+  "id": "P08",
+  "ini": 9.85,
+  "fim": 12.0,
+  "entrada": "flash"
+ },
+ {
+  "id": "P09",
+  "ini": 12.0,
+  "fim": 13.25,
+  "entrada": "corte"
+ },
+ {
+  "id": "P10",
+  "ini": 13.25,
+  "fim": 14.75,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P11",
+  "ini": 14.75,
+  "fim": 16.9,
+  "entrada": "corte"
+ },
+ {
+  "id": "P12",
+  "ini": 16.9,
+  "fim": 18.3,
+  "entrada": "corte"
+ },
+ {
+  "id": "P13",
+  "ini": 18.3,
+  "fim": 20.85,
+  "entrada": "corte"
+ },
+ {
+  "id": "P14",
+  "ini": 20.85,
+  "fim": 21.95,
+  "entrada": "corte"
+ },
+ {
+  "id": "P15",
+  "ini": 21.95,
+  "fim": 23.2,
+  "entrada": "corte"
+ },
+ {
+  "id": "P16",
+  "ini": 23.2,
+  "fim": 24.35,
+  "entrada": "flash"
+ },
+ {
+  "id": "P17",
+  "ini": 24.35,
+  "fim": 25.75,
+  "entrada": "corte"
+ },
+ {
+  "id": "P18",
+  "ini": 25.75,
+  "fim": 28.2,
+  "entrada": "corte"
+ },
+ {
+  "id": "P19",
+  "ini": 28.2,
+  "fim": 29.4,
+  "entrada": "corte"
+ },
+ {
+  "id": "P20",
+  "ini": 29.4,
+  "fim": 30.9,
+  "entrada": "corte"
+ },
+ {
+  "id": "P21",
+  "ini": 30.9,
+  "fim": 32.35,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P22",
+  "ini": 32.35,
+  "fim": 33.3,
+  "entrada": "corte"
+ },
+ {
+  "id": "P23",
+  "ini": 33.3,
+  "fim": 35.25,
+  "entrada": "corte"
+ },
+ {
+  "id": "P24",
+  "ini": 35.25,
+  "fim": 36.05,
+  "entrada": "flash"
+ },
+ {
+  "id": "P25",
+  "ini": 36.05,
+  "fim": 36.95,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P26",
+  "ini": 36.95,
+  "fim": 38.25,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P27",
+  "ini": 38.25,
+  "fim": 39.9,
+  "entrada": "corte"
+ },
+ {
+  "id": "P28",
+  "ini": 39.9,
+  "fim": 41.65,
+  "entrada": "corte"
+ },
+ {
+  "id": "P29",
+  "ini": 41.65,
+  "fim": 43.8,
+  "entrada": "corte"
+ },
+ {
+  "id": "P30",
+  "ini": 43.8,
+  "fim": 45.05,
+  "entrada": "corte"
+ },
+ {
+  "id": "P31",
+  "ini": 45.05,
+  "fim": 47.75,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P32",
+  "ini": 47.75,
+  "fim": 49.15,
+  "entrada": "corte"
+ },
+ {
+  "id": "P33",
+  "ini": 49.15,
+  "fim": 50.65,
+  "entrada": "corte"
+ },
+ {
+  "id": "P34",
+  "ini": 50.65,
+  "fim": 51.85,
+  "entrada": "corte"
+ },
+ {
+  "id": "P35",
+  "ini": 51.85,
+  "fim": 54.65,
+  "entrada": "corte"
+ },
+ {
+  "id": "P36",
+  "ini": 54.65,
+  "fim": 58.45,
+  "entrada": "corte"
+ },
+ {
+  "id": "P37",
+  "ini": 58.45,
+  "fim": 59.7,
+  "entrada": "corte"
+ },
+ {
+  "id": "P38",
+  "ini": 59.7,
+  "fim": 61.3,
+  "entrada": "corte"
+ },
+ {
+  "id": "P39",
+  "ini": 61.3,
+  "fim": 63.9,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P40",
+  "ini": 63.9,
+  "fim": 66.8,
+  "entrada": "corte"
+ },
+ {
+  "id": "P41",
+  "ini": 66.8,
+  "fim": 69.6,
+  "entrada": "fusao"
+ },
+ {
+  "id": "P42",
+  "ini": 69.6,
+  "fim": 72.3,
+  "entrada": "flash"
+ },
+ {
+  "id": "P43",
+  "ini": 72.3,
+  "fim": 73.95,
+  "entrada": "corte"
+ },
+ {
+  "id": "P44",
+  "ini": 73.95,
+  "fim": 76.15,
+  "entrada": "corte"
+ },
+ {
+  "id": "P45",
+  "ini": 76.15,
+  "fim": 78.7,
+  "entrada": "corte"
+ },
+ {
+  "id": "P46",
+  "ini": 78.7,
+  "fim": 80.6,
+  "entrada": "corte"
+ },
+ {
+  "id": "P47",
+  "ini": 80.6,
+  "fim": 82.45,
+  "entrada": "chicote"
+ },
+ {
+  "id": "P48",
+  "ini": 82.45,
+  "fim": 85.4,
+  "entrada": "corte"
+ },
+ {
+  "id": "P49",
+  "ini": 85.4,
+  "fim": 88.4,
+  "entrada": "flash"
+ }
+]

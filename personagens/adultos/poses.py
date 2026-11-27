@@ -28,8 +28,14 @@ def sentado(P, vista, dy=None):
         for s in ("d", "e"):
             p[f"coxa_{s}"] = -88; p[f"canela_{s}"] = 88; p[f"pe_{s}"] = 0
     else:
-        for s in ("d", "e"):
-            p[f"esc_coxa_{s}"] = 0.04; p[f"_prof_{s}"] = 0.0   # coxa apontando para a câmera: quase some (escorço)
+        # coxa apontando para a câmera (escorço) com os joelhos um pouco abertos; canelas de volta para dentro:
+        # o joelho aparece logo abaixo do quadril e a pelve fica na altura do assento (lê como sentado, não de pé)
+        for s, sg in (("d", 1), ("e", -1)):
+            p[f"esc_coxa_{s}"] = 0.30; p[f"_prof_{s}"] = 0.0
+            p[f"coxa_{s}"] = -sg * 14 if vista != "costas" else sg * 14
+            p[f"canela_{s}"] = sg * 12 if vista != "costas" else -sg * 12
+        pr = P.H.PROP
+        p["raiz"] = [0.0, pr["barra_camisa"] - (pr["tornozelo"] + P.H.OSS["canela"] * 0.98 + P.H.OSS["coxa"] * 0.30 * 0.97 + 0.02)]
     return p
 
 
@@ -131,14 +137,14 @@ def caixa_presente(c, x, y, u, larg=0.9, alt=0.75, tampa=0.0, brilho=0.0):
     c.save(); c.translate(x, y); c.scale(u, u)
     w, h = larg / 2, alt / 2
     if brilho > 0:
-        g = skia.GradientShader.MakeRadial((0, -h), 1.2, [0xCCFFE9A8, 0x00FFE9A8])
+        g = skia.GradientShader.MakeRadial((0, -h), 0.7, [0xAAFFE9A8, 0x00FFE9A8])
         p = skia.Paint(AntiAlias=True, Shader=g); p.setAlphaf(brilho)
-        c.drawCircle(0, -h, 1.2, p)
+        c.drawCircle(0, -h, 0.7, p)
         for k in range(7):
             a = math.radians(-150 + k * 20)
-            raio = skia.Path(); raio.moveTo(0, -h); raio.lineTo(math.cos(a) * 1.4 - 0.05, -h + math.sin(a) * 1.4)
-            raio.lineTo(math.cos(a) * 1.4 + 0.05, -h + math.sin(a) * 1.4); raio.close()
-            c.drawPath(raio, _pt(0xFFFFF1C2, 0.35 * brilho))
+            raio = skia.Path(); raio.moveTo(-w * 0.6, -h); raio.lineTo(math.cos(a) * 0.9 - 0.04, -h + math.sin(a) * 0.9)
+            raio.lineTo(math.cos(a) * 0.9 + 0.04, -h + math.sin(a) * 0.9); raio.lineTo(w * 0.6, -h); raio.close()
+            c.drawPath(raio, _pt(0xFFFFF1C2, 0.22 * brilho))
     corpo = skia.Path(); corpo.addRRect(skia.RRect.MakeRectXY(skia.Rect.MakeLTRB(-w, -h + 0.08, w, h), 0.03, 0.03))
     c.drawPath(corpo, _pt(0xFF33407A))
     c.drawRect(skia.Rect.MakeLTRB(w * 0.35, -h + 0.08, w, h), _pt(0xFF27325F))

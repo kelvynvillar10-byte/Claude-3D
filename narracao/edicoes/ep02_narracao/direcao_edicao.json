@@ -1,0 +1,593 @@
+{
+ "versao": 1,
+ "revisado": true,
+ "frases": [
+  {
+   "n": 1,
+   "texto": "E se sua namorada chegasse em casa com uma surpresa que mudaria sua vida para sempre?",
+   "c0": 0,
+   "c1": 85,
+   "palavras": [
+    0,
+    15
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (^\\s*e se\\b)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.38,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 15,
+     "w": "sempre",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 2,
+   "texto": "Juca estava tranquilamente no sofá quando ela apareceu segurando uma caixa enorme.",
+   "c0": 86,
+   "c1": 168,
+   "palavras": [
+    16,
+    27
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 27,
+     "w": "enorme",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 3,
+   "texto": "Ao abrir, ele encontrou um PlayStation 5 novinho em folha!",
+   "c0": 169,
+   "c1": 227,
+   "palavras": [
+    28,
+    37
+   ],
+   "intencao": "entusiasmo",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (!\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.25,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [
+    {
+     "i": 34,
+     "w": "5",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 4,
+   "texto": "Mas espera...",
+   "c0": 228,
+   "c1": 241,
+   "palavras": [
+    38,
+    39
+   ],
+   "intencao": "suspense",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\.\\.\\.|…)",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 5,
+   "texto": "tinha mais uma surpresa!",
+   "c0": 242,
+   "c1": 266,
+   "palavras": [
+    40,
+    43
+   ],
+   "intencao": "entusiasmo",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (!\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.25,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 6,
+   "texto": "GTA 6 já estava instalado!",
+   "c0": 267,
+   "c1": 293,
+   "palavras": [
+    44,
+    48
+   ],
+   "intencao": "entusiasmo",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (!\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.25,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [
+    {
+     "i": 45,
+     "w": "6",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 7,
+   "texto": "Naquele instante, Juca descobriu o verdadeiro significado da felicidade.",
+   "c0": 294,
+   "c1": 366,
+   "palavras": [
+    49,
+    57
+   ],
+   "intencao": "descoberta",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\bdescobri)",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [
+    {
+     "i": 57,
+     "w": "felicidade",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 8,
+   "texto": "Seus olhos brilharam, seu coração acelerou e ele abraçou o videogame como se tivesse encontrado um tesouro perdido.",
+   "c0": 367,
+   "c1": 482,
+   "palavras": [
+    58,
+    75
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 9,
+   "texto": "Ele simplesmente não conseguia acreditar naquilo!",
+   "c0": 483,
+   "c1": 532,
+   "palavras": [
+    76,
+    81
+   ],
+   "intencao": "surpresa",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\bsimplesmente\\b)",
+   "pausa_antes_s": 0.5,
+   "pausa_depois_s": 0.35,
+   "virgula_s": [
+    0.1,
+    0.2
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 10,
+   "texto": "Juca ligou o console, pegou o controle e começou sua aventura em Vice City.",
+   "c0": 533,
+   "c1": 608,
+   "palavras": [
+    82,
+    95
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 11,
+   "texto": "Cada carro, cada rua e cada detalhe do jogo pareciam incríveis.",
+   "c0": 609,
+   "c1": 672,
+   "palavras": [
+    96,
+    106
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 12,
+   "texto": "Ele estava tão impressionado que nem percebeu o tempo passando.",
+   "c0": 673,
+   "c1": 736,
+   "palavras": [
+    107,
+    116
+   ],
+   "intencao": "suspense",
+   "justificativa": "Claude: virada do tempo — pausa antes da sequência de horas",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 13,
+   "texto": "Duas horas depois, a namorada percebeu que ele ainda estava jogando.",
+   "c0": 737,
+   "c1": 805,
+   "palavras": [
+    117,
+    127
+   ],
+   "intencao": "descoberta",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\bpercebe[ur])",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 14,
+   "texto": "Cinco horas depois, a comida já estava fria.",
+   "c0": 806,
+   "c1": 850,
+   "palavras": [
+    128,
+    135
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 135,
+     "w": "fria",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 15,
+   "texto": "Dez horas depois, Juca continuava exatamente no mesmo lugar.",
+   "c0": 851,
+   "c1": 911,
+   "palavras": [
+    136,
+    144
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [
+    {
+     "i": 136,
+     "w": "dez",
+     "db": 1.0
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 16,
+   "texto": "O sofá já parecia ter se tornado sua nova residência oficial.",
+   "c0": 912,
+   "c1": 973,
+   "palavras": [
+    145,
+    155
+   ],
+   "intencao": "explicacao",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho: sem pista → explicação",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.3,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 17,
+   "texto": "Quando amanheceu, Juca ainda estava jogando.",
+   "c0": 974,
+   "c1": 1018,
+   "palavras": [
+    156,
+    161
+   ],
+   "intencao": "surpresa",
+   "justificativa": "Claude: revelação do amanhecer",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 18,
+   "texto": "A namorada começou a perceber que aquele presente talvez tivesse sido um dos maiores erros da sua vida.",
+   "c0": 1019,
+   "c1": 1122,
+   "palavras": [
+    162,
+    179
+   ],
+   "intencao": "descoberta",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\bpercebe[ur])",
+   "pausa_antes_s": 0.6,
+   "pausa_depois_s": 0.45,
+   "virgula_s": [
+    0.12,
+    0.25
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 19,
+   "texto": "Afinal, ela queria agradar o namorado...",
+   "c0": 1123,
+   "c1": 1163,
+   "palavras": [
+    180,
+    185
+   ],
+   "intencao": "suspense",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\.\\.\\.|…)",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 20,
+   "texto": "Mas acabou criando um verdadeiro morador de Vice City!",
+   "c0": 1164,
+   "c1": 1218,
+   "palavras": [
+    186,
+    194
+   ],
+   "intencao": "entusiasmo",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (!\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.25,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 21,
+   "texto": "E o mais impressionante?",
+   "c0": 1219,
+   "c1": 1243,
+   "palavras": [
+    195,
+    198
+   ],
+   "intencao": "suspense",
+   "justificativa": "Claude: pergunta de suspense antes da revelação final",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 22,
+   "texto": "Juca ainda estava na primeira missão!",
+   "c0": 1244,
+   "c1": 1281,
+   "palavras": [
+    199,
+    204
+   ],
+   "intencao": "surpresa",
+   "justificativa": "Claude: revelação (piada principal)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.5,
+   "virgula_s": [
+    0.08,
+    0.18
+   ],
+   "destaques": [
+    {
+     "i": 203,
+     "w": "primeira",
+     "db": 1.5
+    }
+   ],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 23,
+   "texto": "Agora imagine receber um presente desses...",
+   "c0": 1282,
+   "c1": 1325,
+   "palavras": [
+    205,
+    210
+   ],
+   "intencao": "suspense",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\.\\.\\.|…)",
+   "pausa_antes_s": 0.45,
+   "pausa_depois_s": 0.6,
+   "virgula_s": [
+    0.16,
+    0.32
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 24,
+   "texto": "Você conseguiria desligar o videogame para dar atenção à sua namorada?",
+   "c0": 1326,
+   "c1": 1396,
+   "palavras": [
+    211,
+    221
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\?\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.38,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  },
+  {
+   "n": 25,
+   "texto": "Ou também desapareceria da vida real para morar em Vice City?",
+   "c0": 1397,
+   "c1": 1458,
+   "palavras": [
+    222,
+    232
+   ],
+   "intencao": "curiosidade",
+   "justificativa": "Claude: revisado (rascunho mantido) — rascunho por regra (\\?\\s*$)",
+   "pausa_antes_s": 0.0,
+   "pausa_depois_s": 0.38,
+   "virgula_s": [
+    0.1,
+    0.22
+   ],
+   "destaques": [],
+   "ganho_db": 0.0,
+   "nota": ""
+  }
+ ],
+ "ajustes_pausa": {},
+ "regras": {
+  "teto_geral_s": 0.7,
+  "tetos_por_intencao_s": {
+   "suspense": 0.7,
+   "descoberta": 0.7,
+   "surpresa": 0.5,
+   "acao": 0.15
+  },
+  "pausa_inicio_s": 0.15,
+  "pausa_final_s": 0.5,
+  "pausa_sem_pontuacao_inadequada_s": 0.25,
+  "pausa_sem_pontuacao_alvo_s": 0.1
+ }
+}

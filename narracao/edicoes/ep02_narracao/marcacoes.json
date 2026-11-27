@@ -1,0 +1,1005 @@
+{
+ "duracao_s": 85.86,
+ "frases": [
+  {
+   "n": 1,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "E se sua namorada chegasse em casa com uma surpresa que mudaria sua vida para sempre?",
+   "ini": 0.15,
+   "fim": 3.95
+  },
+  {
+   "n": 2,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Juca estava tranquilamente no sofá quando ela apareceu segurando uma caixa enorme.",
+   "ini": 4.49,
+   "fim": 8.24
+  },
+  {
+   "n": 3,
+   "intencao": "entusiasmo",
+   "nome": "Entusiasmo",
+   "texto": "Ao abrir, ele encontrou um PlayStation 5 novinho em folha!",
+   "ini": 8.54,
+   "fim": 11.65
+  },
+  {
+   "n": 4,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Mas espera...",
+   "ini": 12.1,
+   "fim": 12.75
+  },
+  {
+   "n": 5,
+   "intencao": "entusiasmo",
+   "nome": "Entusiasmo",
+   "texto": "tinha mais uma surpresa!",
+   "ini": 13.35,
+   "fim": 14.58
+  },
+  {
+   "n": 6,
+   "intencao": "entusiasmo",
+   "nome": "Entusiasmo",
+   "texto": "GTA 6 já estava instalado!",
+   "ini": 14.83,
+   "fim": 16.37
+  },
+  {
+   "n": 7,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "Naquele instante, Juca descobriu o verdadeiro significado da felicidade.",
+   "ini": 16.97,
+   "fim": 21.58
+  },
+  {
+   "n": 8,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Seus olhos brilharam, seu coração acelerou e ele abraçou o videogame como se tivesse encontrado um tesouro perdido.",
+   "ini": 22.03,
+   "fim": 27.83
+  },
+  {
+   "n": 9,
+   "intencao": "surpresa",
+   "nome": "Surpresa",
+   "texto": "Ele simplesmente não conseguia acreditar naquilo!",
+   "ini": 28.33,
+   "fim": 30.61
+  },
+  {
+   "n": 10,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Juca ligou o console, pegou o controle e começou sua aventura em Vice City.",
+   "ini": 30.96,
+   "fim": 35.0
+  },
+  {
+   "n": 11,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Cada carro, cada rua e cada detalhe do jogo pareciam incríveis.",
+   "ini": 35.3,
+   "fim": 39.39
+  },
+  {
+   "n": 12,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Ele estava tão impressionado que nem percebeu o tempo passando.",
+   "ini": 39.99,
+   "fim": 43.28
+  },
+  {
+   "n": 13,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "Duas horas depois, a namorada percebeu que ele ainda estava jogando.",
+   "ini": 43.88,
+   "fim": 47.45
+  },
+  {
+   "n": 14,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Cinco horas depois, a comida já estava fria.",
+   "ini": 47.9,
+   "fim": 50.41
+  },
+  {
+   "n": 15,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "Dez horas depois, Juca continuava exatamente no mesmo lugar.",
+   "ini": 50.71,
+   "fim": 54.41
+  },
+  {
+   "n": 16,
+   "intencao": "explicacao",
+   "nome": "Explicação",
+   "texto": "O sofá já parecia ter se tornado sua nova residência oficial.",
+   "ini": 54.71,
+   "fim": 58.23
+  },
+  {
+   "n": 17,
+   "intencao": "surpresa",
+   "nome": "Surpresa",
+   "texto": "Quando amanheceu, Juca ainda estava jogando.",
+   "ini": 58.53,
+   "fim": 60.76
+  },
+  {
+   "n": 18,
+   "intencao": "descoberta",
+   "nome": "Descoberta/revelação",
+   "texto": "A namorada começou a perceber que aquele presente talvez tivesse sido um dos maiores erros da sua vida.",
+   "ini": 61.36,
+   "fim": 66.45
+  },
+  {
+   "n": 19,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Afinal, ela queria agradar o namorado...",
+   "ini": 66.9,
+   "fim": 69.1
+  },
+  {
+   "n": 20,
+   "intencao": "entusiasmo",
+   "nome": "Entusiasmo",
+   "texto": "Mas acabou criando um verdadeiro morador de Vice City!",
+   "ini": 69.7,
+   "fim": 72.16
+  },
+  {
+   "n": 21,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "E o mais impressionante?",
+   "ini": 72.41,
+   "fim": 73.42
+  },
+  {
+   "n": 22,
+   "intencao": "surpresa",
+   "nome": "Surpresa",
+   "texto": "Juca ainda estava na primeira missão!",
+   "ini": 74.02,
+   "fim": 75.71
+  },
+  {
+   "n": 23,
+   "intencao": "suspense",
+   "nome": "Suspense",
+   "texto": "Agora imagine receber um presente desses...",
+   "ini": 76.21,
+   "fim": 78.19
+  },
+  {
+   "n": 24,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Você conseguiria desligar o videogame para dar atenção à sua namorada?",
+   "ini": 78.79,
+   "fim": 82.15
+  },
+  {
+   "n": 25,
+   "intencao": "curiosidade",
+   "nome": "Curiosidade",
+   "texto": "Ou também desapareceria da vida real para morar em Vice City?",
+   "ini": 82.53,
+   "fim": 85.36
+  }
+ ],
+ "destaques": [
+  {
+   "frase": 1,
+   "palavra": "sempre",
+   "i": 15,
+   "ini": 3.69,
+   "fim": 3.95,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 2,
+   "palavra": "enorme",
+   "i": 27,
+   "ini": 7.89,
+   "fim": 8.24,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 3,
+   "palavra": "5",
+   "i": 34,
+   "ini": 10.38,
+   "fim": 10.92,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 6,
+   "palavra": "6",
+   "i": 45,
+   "ini": 15.25,
+   "fim": 15.45,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 7,
+   "palavra": "felicidade",
+   "i": 57,
+   "ini": 20.95,
+   "fim": 21.58,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 14,
+   "palavra": "fria",
+   "i": 135,
+   "ini": 50.12,
+   "fim": 50.41,
+   "ganho_db": 1.5
+  },
+  {
+   "frase": 15,
+   "palavra": "Dez",
+   "i": 136,
+   "ini": 50.71,
+   "fim": 51.01,
+   "ganho_db": 1.0
+  },
+  {
+   "frase": 22,
+   "palavra": "primeira",
+   "i": 203,
+   "ini": 75.1,
+   "fim": 75.36,
+   "ganho_db": 1.5
+  }
+ ],
+ "pausas": [
+  {
+   "ini": 3.95,
+   "fim": 4.49,
+   "dur": 0.54,
+   "depois_de": "sempre",
+   "antes_de": "Juca",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 6.02,
+   "fim": 6.23,
+   "dur": 0.21,
+   "depois_de": "sofá",
+   "antes_de": "quando",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 8.24,
+   "fim": 8.54,
+   "dur": 0.3,
+   "depois_de": "enorme",
+   "antes_de": "Ao",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 9.08,
+   "fim": 9.26,
+   "dur": 0.18,
+   "depois_de": "abrir",
+   "antes_de": "ele",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 11.65,
+   "fim": 12.1,
+   "dur": 0.45,
+   "depois_de": "folha",
+   "antes_de": "Mas",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 12.75,
+   "fim": 13.35,
+   "dur": 0.6,
+   "depois_de": "espera",
+   "antes_de": "tinha",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 14.58,
+   "fim": 14.83,
+   "dur": 0.25,
+   "depois_de": "surpresa",
+   "antes_de": "GTA",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 16.37,
+   "fim": 16.97,
+   "dur": 0.6,
+   "depois_de": "instalado",
+   "antes_de": "Naquele",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 17.8,
+   "fim": 18.05,
+   "dur": 0.25,
+   "depois_de": "instante",
+   "antes_de": "Juca",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 19.01,
+   "fim": 19.18,
+   "dur": 0.17,
+   "depois_de": "descobriu",
+   "antes_de": "o",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 21.58,
+   "fim": 22.03,
+   "dur": 0.45,
+   "depois_de": "felicidade",
+   "antes_de": "Seus",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 23.05,
+   "fim": 23.27,
+   "dur": 0.22,
+   "depois_de": "brilharam",
+   "antes_de": "seu",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 25.61,
+   "fim": 25.81,
+   "dur": 0.2,
+   "depois_de": "videogame",
+   "antes_de": "como",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 27.83,
+   "fim": 28.33,
+   "dur": 0.5,
+   "depois_de": "perdido",
+   "antes_de": "Ele",
+   "funcao": "pausa antes de surpresa"
+  },
+  {
+   "ini": 30.61,
+   "fim": 30.96,
+   "dur": 0.35,
+   "depois_de": "naquilo",
+   "antes_de": "Juca",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 32.03,
+   "fim": 32.43,
+   "dur": 0.4,
+   "depois_de": "console",
+   "antes_de": "pegou",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 33.07,
+   "fim": 33.24,
+   "dur": 0.17,
+   "depois_de": "controle",
+   "antes_de": "e",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 35.0,
+   "fim": 35.3,
+   "dur": 0.3,
+   "depois_de": "City",
+   "antes_de": "Cada",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 35.91,
+   "fim": 36.13,
+   "dur": 0.22,
+   "depois_de": "carro",
+   "antes_de": "cada",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 36.69,
+   "fim": 36.91,
+   "dur": 0.22,
+   "depois_de": "rua",
+   "antes_de": "e",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 38.12,
+   "fim": 38.33,
+   "dur": 0.21,
+   "depois_de": "jogo",
+   "antes_de": "pareciam",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 39.39,
+   "fim": 39.99,
+   "dur": 0.6,
+   "depois_de": "incríveis",
+   "antes_de": "Ele",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 41.44,
+   "fim": 41.66,
+   "dur": 0.22,
+   "depois_de": "impressionado",
+   "antes_de": "que",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 43.28,
+   "fim": 43.88,
+   "dur": 0.6,
+   "depois_de": "passando",
+   "antes_de": "Duas",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 44.85,
+   "fim": 45.1,
+   "dur": 0.25,
+   "depois_de": "depois",
+   "antes_de": "a",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 46.07,
+   "fim": 46.31,
+   "dur": 0.24,
+   "depois_de": "percebeu",
+   "antes_de": "que",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 47.45,
+   "fim": 47.9,
+   "dur": 0.45,
+   "depois_de": "jogando",
+   "antes_de": "Cinco",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 49.0,
+   "fim": 49.22,
+   "dur": 0.22,
+   "depois_de": "depois",
+   "antes_de": "a",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 50.41,
+   "fim": 50.71,
+   "dur": 0.3,
+   "depois_de": "fria",
+   "antes_de": "Dez",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 51.68,
+   "fim": 51.9,
+   "dur": 0.22,
+   "depois_de": "depois",
+   "antes_de": "Juca",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 54.41,
+   "fim": 54.71,
+   "dur": 0.3,
+   "depois_de": "lugar",
+   "antes_de": "O",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 58.23,
+   "fim": 58.53,
+   "dur": 0.3,
+   "depois_de": "oficial",
+   "antes_de": "Quando",
+   "funcao": "pausa antes de surpresa"
+  },
+  {
+   "ini": 59.31,
+   "fim": 59.77,
+   "dur": 0.46,
+   "depois_de": "amanheceu",
+   "antes_de": "Juca",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 60.76,
+   "fim": 61.36,
+   "dur": 0.6,
+   "depois_de": "jogando",
+   "antes_de": "A",
+   "funcao": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 63.69,
+   "fim": 63.93,
+   "dur": 0.24,
+   "depois_de": "presente",
+   "antes_de": "talvez",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 66.45,
+   "fim": 66.9,
+   "dur": 0.45,
+   "depois_de": "vida",
+   "antes_de": "Afinal",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 67.41,
+   "fim": 67.59,
+   "dur": 0.18,
+   "depois_de": "Afinal",
+   "antes_de": "ela",
+   "funcao": "pausa interna"
+  },
+  {
+   "ini": 69.1,
+   "fim": 69.7,
+   "dur": 0.6,
+   "depois_de": "namorado",
+   "antes_de": "Mas",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 72.16,
+   "fim": 72.41,
+   "dur": 0.25,
+   "depois_de": "City",
+   "antes_de": "E",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 73.42,
+   "fim": 74.02,
+   "dur": 0.6,
+   "depois_de": "impressionante",
+   "antes_de": "Juca",
+   "funcao": "pausa antes de surpresa"
+  },
+  {
+   "ini": 75.71,
+   "fim": 76.21,
+   "dur": 0.5,
+   "depois_de": "missão",
+   "antes_de": "Agora",
+   "funcao": "respiro entre frases"
+  },
+  {
+   "ini": 78.19,
+   "fim": 78.79,
+   "dur": 0.6,
+   "depois_de": "desses",
+   "antes_de": "Você",
+   "funcao": "pausa de suspense"
+  },
+  {
+   "ini": 82.15,
+   "fim": 82.53,
+   "dur": 0.38,
+   "depois_de": "namorada",
+   "antes_de": "Ou",
+   "funcao": "respiro entre frases"
+  }
+ ],
+ "cortes_visuais": [
+  {
+   "t": 4.22,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Explicação"
+  },
+  {
+   "t": 6.125,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 2"
+  },
+  {
+   "t": 8.39,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Entusiasmo"
+  },
+  {
+   "t": 11.875,
+   "tipo": "corte entre frases",
+   "motivo": "Entusiasmo → Suspense"
+  },
+  {
+   "t": 13.05,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Entusiasmo"
+  },
+  {
+   "t": 14.705,
+   "tipo": "corte entre frases",
+   "motivo": "Entusiasmo → Entusiasmo"
+  },
+  {
+   "t": 16.67,
+   "tipo": "corte entre frases",
+   "motivo": "Entusiasmo → Descoberta/revelação"
+  },
+  {
+   "t": 19.095,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 7"
+  },
+  {
+   "t": 21.805,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Explicação"
+  },
+  {
+   "t": 25.71,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 8"
+  },
+  {
+   "t": 28.08,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Surpresa"
+  },
+  {
+   "t": 30.785,
+   "tipo": "corte entre frases",
+   "motivo": "Surpresa → Explicação"
+  },
+  {
+   "t": 33.155,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 10"
+  },
+  {
+   "t": 35.15,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Explicação"
+  },
+  {
+   "t": 36.8,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 11"
+  },
+  {
+   "t": 39.69,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Suspense"
+  },
+  {
+   "t": 43.58,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Descoberta/revelação"
+  },
+  {
+   "t": 46.19,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 13"
+  },
+  {
+   "t": 47.675,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Explicação"
+  },
+  {
+   "t": 50.56,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Explicação"
+  },
+  {
+   "t": 51.79,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 15"
+  },
+  {
+   "t": 54.56,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Explicação"
+  },
+  {
+   "t": 58.38,
+   "tipo": "corte entre frases",
+   "motivo": "Explicação → Surpresa"
+  },
+  {
+   "t": 61.06,
+   "tipo": "corte entre frases",
+   "motivo": "Surpresa → Descoberta/revelação"
+  },
+  {
+   "t": 63.81,
+   "tipo": "corte interno (frase longa)",
+   "motivo": "frase 18"
+  },
+  {
+   "t": 66.675,
+   "tipo": "corte entre frases",
+   "motivo": "Descoberta/revelação → Suspense"
+  },
+  {
+   "t": 69.4,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Entusiasmo"
+  },
+  {
+   "t": 72.285,
+   "tipo": "corte entre frases",
+   "motivo": "Entusiasmo → Suspense"
+  },
+  {
+   "t": 73.72,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Surpresa"
+  },
+  {
+   "t": 75.96,
+   "tipo": "corte entre frases",
+   "motivo": "Surpresa → Suspense"
+  },
+  {
+   "t": 78.49,
+   "tipo": "corte entre frases",
+   "motivo": "Suspense → Curiosidade"
+  },
+  {
+   "t": 82.34,
+   "tipo": "corte entre frases",
+   "motivo": "Curiosidade → Curiosidade"
+  }
+ ],
+ "impactos": [
+  {
+   "t": 3.69,
+   "frase": 1,
+   "motivo": "palavra de destaque: sempre"
+  },
+  {
+   "t": 7.89,
+   "frase": 2,
+   "motivo": "palavra de destaque: enorme"
+  },
+  {
+   "t": 10.38,
+   "frase": 3,
+   "motivo": "palavra de destaque: 5"
+  },
+  {
+   "t": 15.25,
+   "frase": 6,
+   "motivo": "palavra de destaque: 6"
+  },
+  {
+   "t": 16.97,
+   "frase": 7,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 20.95,
+   "frase": 7,
+   "motivo": "palavra de destaque: felicidade"
+  },
+  {
+   "t": 28.33,
+   "frase": 9,
+   "motivo": "início de surpresa"
+  },
+  {
+   "t": 43.88,
+   "frase": 13,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 50.12,
+   "frase": 14,
+   "motivo": "palavra de destaque: fria"
+  },
+  {
+   "t": 50.71,
+   "frase": 15,
+   "motivo": "palavra de destaque: Dez"
+  },
+  {
+   "t": 58.53,
+   "frase": 17,
+   "motivo": "início de surpresa"
+  },
+  {
+   "t": 61.36,
+   "frase": 18,
+   "motivo": "início de descoberta/revelação"
+  },
+  {
+   "t": 74.02,
+   "frase": 22,
+   "motivo": "início de surpresa"
+  },
+  {
+   "t": 75.1,
+   "frase": 22,
+   "motivo": "palavra de destaque: primeira"
+  }
+ ],
+ "espacos_para_sfx": [
+  {
+   "ini": 12.75,
+   "fim": 13.35,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 16.37,
+   "fim": 16.97,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 27.83,
+   "fim": 28.33,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de surpresa"
+  },
+  {
+   "ini": 43.28,
+   "fim": 43.88,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 58.23,
+   "fim": 58.53,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de surpresa"
+  },
+  {
+   "ini": 60.76,
+   "fim": 61.36,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de descoberta/revelação"
+  },
+  {
+   "ini": 69.1,
+   "fim": 69.7,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  },
+  {
+   "ini": 73.42,
+   "fim": 74.02,
+   "sugestao": "subida curta (riser) ou respiro de ambiente terminando na próxima palavra",
+   "motivo": "pausa antes de surpresa"
+  },
+  {
+   "ini": 78.19,
+   "fim": 78.79,
+   "sugestao": "ambiente grave/tensão baixa",
+   "motivo": "pausa de suspense"
+  }
+ ],
+ "transicoes": [
+  {
+   "t": 4.22,
+   "de": "Curiosidade",
+   "para": "Explicação"
+  },
+  {
+   "t": 8.39,
+   "de": "Explicação",
+   "para": "Entusiasmo"
+  },
+  {
+   "t": 11.875,
+   "de": "Entusiasmo",
+   "para": "Suspense"
+  },
+  {
+   "t": 13.05,
+   "de": "Suspense",
+   "para": "Entusiasmo"
+  },
+  {
+   "t": 16.67,
+   "de": "Entusiasmo",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 21.805,
+   "de": "Descoberta/revelação",
+   "para": "Explicação"
+  },
+  {
+   "t": 28.08,
+   "de": "Explicação",
+   "para": "Surpresa"
+  },
+  {
+   "t": 30.785,
+   "de": "Surpresa",
+   "para": "Explicação"
+  },
+  {
+   "t": 39.69,
+   "de": "Explicação",
+   "para": "Suspense"
+  },
+  {
+   "t": 43.58,
+   "de": "Suspense",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 47.675,
+   "de": "Descoberta/revelação",
+   "para": "Explicação"
+  },
+  {
+   "t": 58.38,
+   "de": "Explicação",
+   "para": "Surpresa"
+  },
+  {
+   "t": 61.06,
+   "de": "Surpresa",
+   "para": "Descoberta/revelação"
+  },
+  {
+   "t": 66.675,
+   "de": "Descoberta/revelação",
+   "para": "Suspense"
+  },
+  {
+   "t": 69.4,
+   "de": "Suspense",
+   "para": "Entusiasmo"
+  },
+  {
+   "t": 72.285,
+   "de": "Entusiasmo",
+   "para": "Suspense"
+  },
+  {
+   "t": 73.72,
+   "de": "Suspense",
+   "para": "Surpresa"
+  },
+  {
+   "t": 75.96,
+   "de": "Surpresa",
+   "para": "Suspense"
+  },
+  {
+   "t": 78.49,
+   "de": "Suspense",
+   "para": "Curiosidade"
+  }
+ ],
+ "observacao": "Tempos do áudio final. Sugestões para a edição audiovisual; nenhum efeito sonoro foi adicionado."
+}

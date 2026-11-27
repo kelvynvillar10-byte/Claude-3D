@@ -1,0 +1,29 @@
+{
+ "nome": "ep02_sala",
+ "descricao": "EP02: sala de apartamento em escala humana (Juca 1,75 m): sofá de costas para a janela, TV de 55\" na parede oposta, mesa de centro com o prato de comida, porta aberta para o corredor, luminária de pé, estante e quadro. A imagem da tela da TV entra no compositor (sem marca).",
+ "semente": 52,
+ "saida": {"largura": 1080, "altura": 1920, "overscan": 0.25, "amostras": 64,
+           "amostras_por_camada": {"ceu": 2, "longe": 32, "meio": 40, "perto": 32}},
+ "camera": {"pos": [0.35, 0.9, 1.05], "alvo": [0.0, -1.5, 0.75], "lente_mm": 24},
+ "luz": {"preset": "tarde_sala", "efeito": [{"pos": [0.0, 1.55, 1.05], "watts": 80, "cor": "#ffffff", "raio": 0.3}]},
+ "camadas": ["ceu", "longe", "meio", "perto"],
+ "ancoras": {"tv_se": [-0.613, 2.128, 1.393], "tv_sd": [0.613, 2.128, 1.393], "tv_id": [0.613, 2.128, 0.707], "tv_ie": [-0.613, 2.128, 0.707],
+             "relogio": [1.55, -2.19, 1.95]},
+ "textos_permitidos": [],
+ "componentes": [
+  {"tipo": "camera_macro", "camada": "meio", "params": {"clip_inicio_m": 0.02}},
+  {"tipo": "quarto", "camada": "longe", "params": {"x0": -2.6, "x1": 2.6, "y0": -2.2, "y1": 2.2, "pe_direito": 2.7, "janela_x": [-1.0, 1.0], "janela_z": [0.95, 2.3],
+            "cor_parede": "#e9d9bd", "tons_piso": ["#8d5f3c", "#7d5233", "#9b6a44"], "cor_cortina": "#d8c7a6", "janela_w": 220}},
+  {"tipo": "sofa_janela", "camada": "meio", "params": {"x": 0.0, "y": -1.7, "cor": "#c25a3f"}},
+  {"tipo": "rack_tv", "camada": "meio", "params": {"x": 0.0, "y_parede": 2.2, "z_centro_tela": 1.05}},
+  {"tipo": "mesa_centro", "camada": "perto", "params": {"x": 0.0, "y": -0.5, "largura": 1.0, "profundidade": 0.55, "altura": 0.4}},
+  {"tipo": "prato_comida", "camada": "perto", "params": {"x": 0.12, "y": -0.52, "z": 0.4}},
+  {"tipo": "tapete", "camada": "perto", "params": {"x0": -1.5, "y0": -1.35, "x1": 1.5, "y1": 0.7, "cor": "#d8c6a0", "cor_listra": "#9a6a44"}},
+  {"tipo": "porta_corredor", "camada": "longe", "params": {"x_parede": -2.6, "y": 0.75}},
+  {"tipo": "luminaria_pe", "camada": "meio", "params": {"x": -1.45, "y": -1.85}},
+  {"tipo": "mobiliario", "camada": "meio", "params": {"tipo": "vaso", "x": 1.55, "y": -1.85, "z": 0.0}},
+  {"tipo": "estante", "camada": "longe", "params": {"x0": 1.15, "x1": 2.35, "y": 2.2, "z0": 1.1, "prateleiras": 3}},
+  {"tipo": "quadro", "camada": "longe", "params": {"x": -1.55, "y": 2.2, "z": 1.55, "largura": 0.7, "altura": 0.9}},
+  {"tipo": "luminaria_teto", "camada": "longe", "params": {"x": 0.0, "y": 0.0, "z": 2.7, "watts": 40}}
+ ]
+}
