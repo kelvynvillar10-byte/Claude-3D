@@ -1,5 +1,7 @@
 # Cena de prova — animação dinâmica (27/11/2026)
 
+**APROVADA pelo diretor em 27/11/2026 como padrão de animação a partir do EP02.**
+
 **Vídeo:** `export/MC_teste_animacao_dinamica_v1.mp4` (1080×1920, 30 qps, **19,7 s**, H.264 + AAC, −14 LUFS).
 **Folha de contato:** `saida/folha_contato_2qps.jpg`. **QA:** 11/11 (`saida/qa_relatorio.json`).
 

@@ -78,6 +78,13 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 - **Cenário vivo** quando fizer sentido: tecido ao vento, poeira e partículas, água ondulando, vegetação balançando, objetos reagindo a impacto, luz e sombra acompanhando os acontecimentos. Nada de movimento aleatório só para preencher.
 - **Ação e narração conectadas:** cada trecho falado tem representação visual. Perigo = ver o perigo se aproximando; descoberta = reação visual; ação = acompanhar o desenvolvimento.
 - **Ritmo e montagem:** dinâmico, sem cortes aleatórios. Alternar planos rápidos (ação/impacto), médios (desenvolvimento), closes (emoção/descoberta) e abertos (ambiente/escala). Referência de **1,5 a 2 s por plano** nas sequências dinâmicas.
+**Aprovado pelo diretor em 27/11/2026: a cena de prova `producoes/teste_animacao_dinamica/` é o PADRÃO de animação a partir do EP02** ("Ficou muito melhor… quero isso mesmo… essa ficou boa, aproveite"). O que vale:
+- As imagens acompanham a narração conforme ela passa. Pode trocar de cena rápido e voltar a uma cena anterior.
+- Em todo plano há **aproximação de câmera, expressões e movimentos** dos personagens.
+- Efeitos ligados à ação: zoom brusco, tremida no impacto, borrão de movimento, poeira, sombra que passa.
+- Ferramentas: `producoes/teste_animacao_dinamica/codigo/atuacao.py` (trajeto sem pé deslizando, virar, pulo, tropeço, câmera que acompanha sem revelar a borda, poeira) e o QA `qa_teste.py` (movimento por quadro, câmera, mapa fala → imagem, cotovelos, pés).
+- Linha de base aprovada (mesmo trecho do EP01): 13 planos em 19,7 s, mediana de 1,35 s, câmera em movimento em 100 % dos quadros, 91 % dos quadros com ação visível.
+
 **Reforço do diretor (27/11/2026), vale para o próximo vídeo:**
 - **Movimento o tempo todo.** Nenhum personagem estático: em todo plano o personagem está fazendo alguma coisa (andando, correndo, reagindo, olhando, gesticulando, interagindo); respiração e piscada não contam como ação. A câmera também está em movimento em todos os planos.
 - **O vídeo acompanha a narração, palavra a palavra.** Tudo o que a narração diz aparece na tela no momento em que é dito:
