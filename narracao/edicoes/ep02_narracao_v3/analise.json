@@ -1,0 +1,2569 @@
+{
+ "arquivo": "3e86c073-MiniMax_2026-11-27_09_54_28_Kelvyn_Villar_Rodrigues_6.wav",
+ "sha256": "f99d9ee66a6c6bfcf049c34b55b71552f6725e5a6c3ab905182155ac84a34adc",
+ "formato": {
+  "formato": "wav",
+  "codec": "pcm_s16le",
+  "taxa_hz": 32000,
+  "canais": 1,
+  "duracao_s": 81.143,
+  "bitrate": 512207
+ },
+ "duracao_s": 81.143,
+ "segmentacao": {
+  "limiar_db": -54.6,
+  "nivel_fala_p95_db": -16.6
+ },
+ "falas": [
+  [
+   0.12,
+   3.41
+  ],
+  [
+   3.78,
+   5.58
+  ],
+  [
+   5.81,
+   7.84
+  ],
+  [
+   8.19,
+   8.6
+  ],
+  [
+   8.88,
+   10.07
+  ],
+  [
+   10.25,
+   11.35
+  ],
+  [
+   11.74,
+   12.1
+  ],
+  [
+   12.35,
+   12.75
+  ],
+  [
+   13.49,
+   14.62
+  ],
+  [
+   15.01,
+   15.71
+  ],
+  [
+   15.8,
+   16.7
+  ],
+  [
+   17.08,
+   17.87
+  ],
+  [
+   18.12,
+   20.59
+  ],
+  [
+   21.0,
+   21.9
+  ],
+  [
+   22.1,
+   23.11
+  ],
+  [
+   23.29,
+   26.22
+  ],
+  [
+   26.62,
+   28.78
+  ],
+  [
+   29.18,
+   30.13
+  ],
+  [
+   30.41,
+   31.11
+  ],
+  [
+   31.27,
+   32.9
+  ],
+  [
+   33.29,
+   33.87
+  ],
+  [
+   34.09,
+   34.61
+  ],
+  [
+   34.84,
+   35.88
+  ],
+  [
+   36.15,
+   37.06
+  ],
+  [
+   37.49,
+   37.96
+  ],
+  [
+   38.03,
+   38.8
+  ],
+  [
+   39.07,
+   40.53
+  ],
+  [
+   40.92,
+   41.47
+  ],
+  [
+   41.53,
+   41.8
+  ],
+  [
+   42.06,
+   43.06
+  ],
+  [
+   43.28,
+   44.37
+  ],
+  [
+   44.75,
+   45.76
+  ],
+  [
+   45.94,
+   47.03
+  ],
+  [
+   47.41,
+   47.99
+  ],
+  [
+   48.05,
+   48.34
+  ],
+  [
+   48.62,
+   49.45
+  ],
+  [
+   49.65,
+   50.43
+  ],
+  [
+   50.6,
+   51.32
+  ],
+  [
+   51.72,
+   52.19
+  ],
+  [
+   52.42,
+   55.11
+  ],
+  [
+   55.49,
+   56.18
+  ],
+  [
+   56.45,
+   57.74
+  ],
+  [
+   58.15,
+   62.4
+  ],
+  [
+   62.79,
+   63.24
+  ],
+  [
+   63.35,
+   64.63
+  ],
+  [
+   65.04,
+   67.76
+  ],
+  [
+   68.15,
+   69.14
+  ],
+  [
+   69.54,
+   69.95
+  ],
+  [
+   70.03,
+   71.31
+  ],
+  [
+   71.71,
+   73.78
+  ],
+  [
+   74.19,
+   77.07
+  ],
+  [
+   77.47,
+   77.97
+  ],
+  [
+   78.21,
+   79.59
+  ],
+  [
+   79.82,
+   80.97
+  ]
+ ],
+ "silencios": [
+  [
+   0.0,
+   0.12
+  ],
+  [
+   3.41,
+   3.78
+  ],
+  [
+   5.58,
+   5.81
+  ],
+  [
+   7.84,
+   8.19
+  ],
+  [
+   8.6,
+   8.88
+  ],
+  [
+   10.07,
+   10.25
+  ],
+  [
+   11.35,
+   11.74
+  ],
+  [
+   12.1,
+   12.35
+  ],
+  [
+   12.75,
+   13.49
+  ],
+  [
+   14.62,
+   15.01
+  ],
+  [
+   15.71,
+   15.8
+  ],
+  [
+   16.7,
+   17.08
+  ],
+  [
+   17.87,
+   18.12
+  ],
+  [
+   20.59,
+   21.0
+  ],
+  [
+   21.9,
+   22.1
+  ],
+  [
+   23.11,
+   23.29
+  ],
+  [
+   26.22,
+   26.62
+  ],
+  [
+   28.78,
+   29.18
+  ],
+  [
+   30.13,
+   30.41
+  ],
+  [
+   31.11,
+   31.27
+  ],
+  [
+   32.9,
+   33.29
+  ],
+  [
+   33.87,
+   34.09
+  ],
+  [
+   34.61,
+   34.84
+  ],
+  [
+   35.88,
+   36.15
+  ],
+  [
+   37.06,
+   37.49
+  ],
+  [
+   37.96,
+   38.03
+  ],
+  [
+   38.8,
+   39.07
+  ],
+  [
+   40.53,
+   40.92
+  ],
+  [
+   41.47,
+   41.53
+  ],
+  [
+   41.8,
+   42.06
+  ],
+  [
+   43.06,
+   43.28
+  ],
+  [
+   44.37,
+   44.75
+  ],
+  [
+   45.76,
+   45.94
+  ],
+  [
+   47.03,
+   47.41
+  ],
+  [
+   47.99,
+   48.05
+  ],
+  [
+   48.34,
+   48.62
+  ],
+  [
+   49.45,
+   49.65
+  ],
+  [
+   50.43,
+   50.6
+  ],
+  [
+   51.32,
+   51.72
+  ],
+  [
+   52.19,
+   52.42
+  ],
+  [
+   55.11,
+   55.49
+  ],
+  [
+   56.18,
+   56.45
+  ],
+  [
+   57.74,
+   58.15
+  ],
+  [
+   62.4,
+   62.79
+  ],
+  [
+   63.24,
+   63.35
+  ],
+  [
+   64.63,
+   65.04
+  ],
+  [
+   67.76,
+   68.15
+  ],
+  [
+   69.14,
+   69.54
+  ],
+  [
+   69.95,
+   70.03
+  ],
+  [
+   71.31,
+   71.71
+  ],
+  [
+   73.78,
+   74.19
+  ],
+  [
+   77.07,
+   77.47
+  ],
+  [
+   77.97,
+   78.21
+  ],
+  [
+   79.59,
+   79.82
+  ],
+  [
+   80.97,
+   81.143
+  ]
+ ],
+ "respiracoes": [],
+ "piso_ruido_db": -63.1,
+ "cliques": [
+  77.247
+ ],
+ "bandas": {
+  "graves_20_80": -29.63,
+  "corpo_80_250": -3.94,
+  "lama_250_500": -3.54,
+  "medios_500_2k": -9.18,
+  "presenca_2k_5k": -21.04,
+  "sibilancia_5k_10k": -16.22,
+  "ar_10k_mais": -48.73
+ },
+ "loudness": {
+  "integrado_lufs": -22.7,
+  "faixa_lu": 2.0,
+  "pico_verdadeiro_dbtp": -2.9
+ },
+ "tom": {
+  "mediana_hz": 98.6,
+  "p10_hz": 86.3,
+  "p90_hz": 117.3,
+  "faixa_semitons": 5.3,
+  "quadros_com_voz": 5759
+ },
+ "por_frase": [
+  {
+   "n": 1,
+   "ini": 0.12,
+   "fim": 3.41,
+   "duracao_s": 3.29,
+   "palavras": 16,
+   "palavras_por_s": 4.86,
+   "tom_mediano_hz": 100.9,
+   "variacao_tom_semitons": 3.6,
+   "nivel_db": -23.8,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.6
+  },
+  {
+   "n": 2,
+   "ini": 3.98,
+   "fim": 7.84,
+   "duracao_s": 3.86,
+   "palavras": 12,
+   "palavras_por_s": 3.11,
+   "tom_mediano_hz": 95.2,
+   "variacao_tom_semitons": 5.58,
+   "nivel_db": -23.9,
+   "maior_pausa_interna_s": 0.23,
+   "monotona": false,
+   "desvio_nivel_db": -0.7
+  },
+  {
+   "n": 3,
+   "ini": 8.19,
+   "fim": 11.35,
+   "duracao_s": 3.16,
+   "palavras": 10,
+   "palavras_por_s": 3.16,
+   "tom_mediano_hz": 107.5,
+   "variacao_tom_semitons": 6.9,
+   "nivel_db": -22.3,
+   "maior_pausa_interna_s": 0.28,
+   "monotona": false,
+   "desvio_nivel_db": 0.9
+  },
+  {
+   "n": 4,
+   "ini": 11.74,
+   "fim": 12.75,
+   "duracao_s": 1.01,
+   "palavras": 2,
+   "palavras_por_s": 1.98,
+   "tom_mediano_hz": 83.9,
+   "variacao_tom_semitons": 2.01,
+   "nivel_db": -24.6,
+   "maior_pausa_interna_s": 0.25,
+   "monotona": false,
+   "desvio_nivel_db": -1.4
+  },
+  {
+   "n": 5,
+   "ini": 13.49,
+   "fim": 14.62,
+   "duracao_s": 1.13,
+   "palavras": 4,
+   "palavras_por_s": 3.54,
+   "tom_mediano_hz": 107.5,
+   "variacao_tom_semitons": 5.87,
+   "nivel_db": -20.4,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 2.8
+  },
+  {
+   "n": 6,
+   "ini": 15.01,
+   "fim": 16.7,
+   "duracao_s": 1.69,
+   "palavras": 5,
+   "palavras_por_s": 2.96,
+   "tom_mediano_hz": 98.0,
+   "variacao_tom_semitons": 5.01,
+   "nivel_db": -24.3,
+   "maior_pausa_interna_s": 0.09,
+   "monotona": false,
+   "desvio_nivel_db": -1.1
+  },
+  {
+   "n": 7,
+   "ini": 17.08,
+   "fim": 20.59,
+   "duracao_s": 3.51,
+   "palavras": 9,
+   "palavras_por_s": 2.56,
+   "tom_mediano_hz": 109.4,
+   "variacao_tom_semitons": 5.6,
+   "nivel_db": -24.4,
+   "maior_pausa_interna_s": 0.25,
+   "monotona": false,
+   "desvio_nivel_db": -1.2
+  },
+  {
+   "n": 8,
+   "ini": 21.0,
+   "fim": 26.22,
+   "duracao_s": 5.22,
+   "palavras": 18,
+   "palavras_por_s": 3.45,
+   "tom_mediano_hz": 98.6,
+   "variacao_tom_semitons": 4.12,
+   "nivel_db": -23.9,
+   "maior_pausa_interna_s": 0.2,
+   "monotona": false,
+   "desvio_nivel_db": -0.7
+  },
+  {
+   "n": 9,
+   "ini": 26.62,
+   "fim": 28.78,
+   "duracao_s": 2.16,
+   "palavras": 6,
+   "palavras_por_s": 2.78,
+   "tom_mediano_hz": 113.9,
+   "variacao_tom_semitons": 7.71,
+   "nivel_db": -22.3,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 0.9
+  },
+  {
+   "n": 10,
+   "ini": 29.18,
+   "fim": 32.9,
+   "duracao_s": 3.72,
+   "palavras": 14,
+   "palavras_por_s": 3.76,
+   "tom_mediano_hz": 100.9,
+   "variacao_tom_semitons": 4.98,
+   "nivel_db": -23.5,
+   "maior_pausa_interna_s": 0.28,
+   "monotona": false,
+   "desvio_nivel_db": -0.3
+  },
+  {
+   "n": 11,
+   "ini": 33.29,
+   "fim": 37.06,
+   "duracao_s": 3.77,
+   "palavras": 11,
+   "palavras_por_s": 2.92,
+   "tom_mediano_hz": 99.2,
+   "variacao_tom_semitons": 3.8,
+   "nivel_db": -22.8,
+   "maior_pausa_interna_s": 0.5,
+   "monotona": false,
+   "desvio_nivel_db": 0.4
+  },
+  {
+   "n": 12,
+   "ini": 37.49,
+   "fim": 40.53,
+   "duracao_s": 3.04,
+   "palavras": 10,
+   "palavras_por_s": 3.29,
+   "tom_mediano_hz": 99.2,
+   "variacao_tom_semitons": 5.9,
+   "nivel_db": -24.5,
+   "maior_pausa_interna_s": 0.27,
+   "monotona": false,
+   "desvio_nivel_db": -1.3
+  },
+  {
+   "n": 13,
+   "ini": 40.92,
+   "fim": 44.37,
+   "duracao_s": 3.45,
+   "palavras": 11,
+   "palavras_por_s": 3.19,
+   "tom_mediano_hz": 96.4,
+   "variacao_tom_semitons": 3.74,
+   "nivel_db": -22.6,
+   "maior_pausa_interna_s": 0.26,
+   "monotona": false,
+   "desvio_nivel_db": 0.6
+  },
+  {
+   "n": 14,
+   "ini": 44.75,
+   "fim": 47.03,
+   "duracao_s": 2.28,
+   "palavras": 8,
+   "palavras_por_s": 3.51,
+   "tom_mediano_hz": 95.2,
+   "variacao_tom_semitons": 3.39,
+   "nivel_db": -22.6,
+   "maior_pausa_interna_s": 0.18,
+   "monotona": false,
+   "desvio_nivel_db": 0.6
+  },
+  {
+   "n": 15,
+   "ini": 47.41,
+   "fim": 51.32,
+   "duracao_s": 3.91,
+   "palavras": 9,
+   "palavras_por_s": 2.3,
+   "tom_mediano_hz": 101.5,
+   "variacao_tom_semitons": 4.6,
+   "nivel_db": -22.8,
+   "maior_pausa_interna_s": 0.45,
+   "monotona": false,
+   "desvio_nivel_db": 0.4
+  },
+  {
+   "n": 16,
+   "ini": 51.72,
+   "fim": 55.11,
+   "duracao_s": 3.39,
+   "palavras": 11,
+   "palavras_por_s": 3.24,
+   "tom_mediano_hz": 103.9,
+   "variacao_tom_semitons": 4.57,
+   "nivel_db": -23.3,
+   "maior_pausa_interna_s": 0.23,
+   "monotona": false,
+   "desvio_nivel_db": -0.1
+  },
+  {
+   "n": 17,
+   "ini": 55.49,
+   "fim": 57.74,
+   "duracao_s": 2.25,
+   "palavras": 6,
+   "palavras_por_s": 2.67,
+   "tom_mediano_hz": 99.2,
+   "variacao_tom_semitons": 5.36,
+   "nivel_db": -23.2,
+   "maior_pausa_interna_s": 0.27,
+   "monotona": false,
+   "desvio_nivel_db": 0.0
+  },
+  {
+   "n": 18,
+   "ini": 58.15,
+   "fim": 62.4,
+   "duracao_s": 4.25,
+   "palavras": 18,
+   "palavras_por_s": 4.24,
+   "tom_mediano_hz": 98.0,
+   "variacao_tom_semitons": 3.64,
+   "nivel_db": -23.7,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -0.5
+  },
+  {
+   "n": 19,
+   "ini": 62.79,
+   "fim": 64.63,
+   "duracao_s": 1.84,
+   "palavras": 6,
+   "palavras_por_s": 3.26,
+   "tom_mediano_hz": 92.0,
+   "variacao_tom_semitons": 4.86,
+   "nivel_db": -24.1,
+   "maior_pausa_interna_s": 0.11,
+   "monotona": false,
+   "desvio_nivel_db": -0.9
+  },
+  {
+   "n": 20,
+   "ini": 65.04,
+   "fim": 67.76,
+   "duracao_s": 2.72,
+   "palavras": 9,
+   "palavras_por_s": 3.31,
+   "tom_mediano_hz": 99.2,
+   "variacao_tom_semitons": 6.2,
+   "nivel_db": -23.2,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 0.0
+  },
+  {
+   "n": 21,
+   "ini": 68.15,
+   "fim": 69.14,
+   "duracao_s": 0.99,
+   "palavras": 4,
+   "palavras_por_s": 4.04,
+   "tom_mediano_hz": 110.4,
+   "variacao_tom_semitons": 6.37,
+   "nivel_db": -23.1,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 0.1
+  },
+  {
+   "n": 22,
+   "ini": 69.72,
+   "fim": 71.31,
+   "duracao_s": 1.59,
+   "palavras": 6,
+   "palavras_por_s": 3.77,
+   "tom_mediano_hz": 98.3,
+   "variacao_tom_semitons": 4.74,
+   "nivel_db": -22.9,
+   "maior_pausa_interna_s": 0.08,
+   "monotona": false,
+   "desvio_nivel_db": 0.3
+  },
+  {
+   "n": 23,
+   "ini": 71.9,
+   "fim": 73.78,
+   "duracao_s": 1.88,
+   "palavras": 6,
+   "palavras_por_s": 3.19,
+   "tom_mediano_hz": 102.7,
+   "variacao_tom_semitons": 4.3,
+   "nivel_db": -22.2,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": 1.0
+  },
+  {
+   "n": 24,
+   "ini": 74.19,
+   "fim": 77.07,
+   "duracao_s": 2.88,
+   "palavras": 11,
+   "palavras_por_s": 3.82,
+   "tom_mediano_hz": 93.1,
+   "variacao_tom_semitons": 3.24,
+   "nivel_db": -24.5,
+   "maior_pausa_interna_s": 0.0,
+   "monotona": false,
+   "desvio_nivel_db": -1.3
+  },
+  {
+   "n": 25,
+   "ini": 77.47,
+   "fim": 80.97,
+   "duracao_s": 3.5,
+   "palavras": 11,
+   "palavras_por_s": 3.14,
+   "tom_mediano_hz": 95.2,
+   "variacao_tom_semitons": 5.99,
+   "nivel_db": -22.8,
+   "maior_pausa_interna_s": 0.59,
+   "monotona": false,
+   "desvio_nivel_db": 0.4
+  }
+ ],
+ "pausas_entre_palavras": [
+  {
+   "depois_de": "E",
+   "antes_de": "se",
+   "ini": 0.18,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "se",
+   "antes_de": "sua",
+   "ini": 0.32,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "namorada",
+   "ini": 0.48,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "namorada",
+   "antes_de": "chegasse",
+   "ini": 0.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "chegasse",
+   "antes_de": "em",
+   "ini": 1.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "casa",
+   "ini": 1.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "casa",
+   "antes_de": "com",
+   "ini": 1.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "com",
+   "antes_de": "uma",
+   "ini": 1.6,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "uma",
+   "antes_de": "surpresa",
+   "ini": 1.76,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "surpresa",
+   "antes_de": "que",
+   "ini": 2.1,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "que",
+   "antes_de": "mudaria",
+   "ini": 2.24,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "mudaria",
+   "antes_de": "sua",
+   "ini": 2.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "vida",
+   "ini": 2.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "vida",
+   "antes_de": "para",
+   "ini": 2.88,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "para",
+   "antes_de": "sempre",
+   "ini": 3.16,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sempre",
+   "antes_de": "Juca",
+   "ini": 3.41,
+   "dur": 0.57,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "estava",
+   "ini": 4.12,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "tranquilamente",
+   "ini": 4.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tranquilamente",
+   "antes_de": "no",
+   "ini": 5.1,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "no",
+   "antes_de": "sofá",
+   "ini": 5.24,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sofá",
+   "antes_de": "quando",
+   "ini": 5.58,
+   "dur": 0.23,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "quando",
+   "antes_de": "ela",
+   "ini": 6.0,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ela",
+   "antes_de": "apareceu",
+   "ini": 6.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "apareceu",
+   "antes_de": "segurando",
+   "ini": 6.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "segurando",
+   "antes_de": "uma",
+   "ini": 7.0,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "uma",
+   "antes_de": "caixa",
+   "ini": 7.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "caixa",
+   "antes_de": "enorme",
+   "ini": 7.46,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "enorme",
+   "antes_de": "Ao",
+   "ini": 7.84,
+   "dur": 0.35,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Ao",
+   "antes_de": "abrir",
+   "ini": 8.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "abrir",
+   "antes_de": "ele",
+   "ini": 8.6,
+   "dur": 0.28,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "ele",
+   "antes_de": "encontrou",
+   "ini": 9.16,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "encontrou",
+   "antes_de": "um",
+   "ini": 9.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "PlayStation",
+   "ini": 9.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "PlayStation",
+   "antes_de": "5",
+   "ini": 10.07,
+   "dur": 0.18,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "5",
+   "antes_de": "novinho",
+   "ini": 10.66,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "novinho",
+   "antes_de": "em",
+   "ini": 11.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "folha",
+   "ini": 11.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "folha",
+   "antes_de": "Mas",
+   "ini": 11.35,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Mas",
+   "antes_de": "espera",
+   "ini": 12.1,
+   "dur": 0.25,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "espera",
+   "antes_de": "tinha",
+   "ini": 12.75,
+   "dur": 0.74,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "tinha",
+   "antes_de": "mais",
+   "ini": 13.78,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "mais",
+   "antes_de": "uma",
+   "ini": 13.98,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "uma",
+   "antes_de": "surpresa",
+   "ini": 14.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "surpresa",
+   "antes_de": "GTA",
+   "ini": 14.62,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "GTA",
+   "antes_de": "6",
+   "ini": 15.38,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "6",
+   "antes_de": "já",
+   "ini": 15.71,
+   "dur": 0.09,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "já",
+   "antes_de": "estava",
+   "ini": 16.06,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "instalado",
+   "ini": 16.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "instalado",
+   "antes_de": "Naquele",
+   "ini": 16.7,
+   "dur": 0.38,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Naquele",
+   "antes_de": "instante",
+   "ini": 17.54,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "instante",
+   "antes_de": "Juca",
+   "ini": 17.87,
+   "dur": 0.25,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "descobriu",
+   "ini": 18.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "descobriu",
+   "antes_de": "o",
+   "ini": 18.88,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "verdadeiro",
+   "ini": 18.98,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "verdadeiro",
+   "antes_de": "significado",
+   "ini": 19.38,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "significado",
+   "antes_de": "da",
+   "ini": 19.94,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "da",
+   "antes_de": "felicidade",
+   "ini": 20.1,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "felicidade",
+   "antes_de": "Seus",
+   "ini": 20.59,
+   "dur": 0.41,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Seus",
+   "antes_de": "olhos",
+   "ini": 21.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "olhos",
+   "antes_de": "brilharam",
+   "ini": 21.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "brilharam",
+   "antes_de": "seu",
+   "ini": 21.9,
+   "dur": 0.2,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "seu",
+   "antes_de": "coração",
+   "ini": 22.3,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "coração",
+   "antes_de": "acelerou",
+   "ini": 22.62,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "acelerou",
+   "antes_de": "e",
+   "ini": 23.11,
+   "dur": 0.18,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "e",
+   "antes_de": "ele",
+   "ini": 23.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ele",
+   "antes_de": "abraçou",
+   "ini": 23.6,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "abraçou",
+   "antes_de": "o",
+   "ini": 23.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "videogame",
+   "ini": 24.04,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "videogame",
+   "antes_de": "como",
+   "ini": 24.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "como",
+   "antes_de": "se",
+   "ini": 24.54,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "se",
+   "antes_de": "tivesse",
+   "ini": 24.8,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tivesse",
+   "antes_de": "encontrado",
+   "ini": 24.98,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "encontrado",
+   "antes_de": "um",
+   "ini": 25.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "tesouro",
+   "ini": 25.54,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tesouro",
+   "antes_de": "perdido",
+   "ini": 25.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "perdido",
+   "antes_de": "Ele",
+   "ini": 26.22,
+   "dur": 0.4,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Ele",
+   "antes_de": "simplesmente",
+   "ini": 26.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "simplesmente",
+   "antes_de": "não",
+   "ini": 27.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "não",
+   "antes_de": "conseguia",
+   "ini": 27.68,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "conseguia",
+   "antes_de": "acreditar",
+   "ini": 28.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "acreditar",
+   "antes_de": "naquilo",
+   "ini": 28.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "naquilo",
+   "antes_de": "Juca",
+   "ini": 28.78,
+   "dur": 0.4,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "ligou",
+   "ini": 29.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ligou",
+   "antes_de": "o",
+   "ini": 29.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "console",
+   "ini": 29.92,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "console",
+   "antes_de": "pegou",
+   "ini": 30.13,
+   "dur": 0.28,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "pegou",
+   "antes_de": "o",
+   "ini": 30.66,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "controle",
+   "ini": 30.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "controle",
+   "antes_de": "e",
+   "ini": 31.11,
+   "dur": 0.16,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "e",
+   "antes_de": "começou",
+   "ini": 31.5,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "começou",
+   "antes_de": "sua",
+   "ini": 31.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "aventura",
+   "ini": 31.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "aventura",
+   "antes_de": "em",
+   "ini": 32.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "Vice",
+   "ini": 32.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "Vice",
+   "antes_de": "City",
+   "ini": 32.68,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "City",
+   "antes_de": "Cada",
+   "ini": 32.9,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Cada",
+   "antes_de": "carro",
+   "ini": 33.52,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "carro",
+   "antes_de": "cada",
+   "ini": 33.87,
+   "dur": 0.22,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "cada",
+   "antes_de": "rua",
+   "ini": 34.38,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "rua",
+   "antes_de": "e",
+   "ini": 34.61,
+   "dur": 0.23,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "e",
+   "antes_de": "cada",
+   "ini": 35.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "cada",
+   "antes_de": "detalhe",
+   "ini": 35.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "detalhe",
+   "antes_de": "do",
+   "ini": 35.52,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "do",
+   "antes_de": "jogo",
+   "ini": 35.64,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "jogo",
+   "antes_de": "pareciam",
+   "ini": 35.88,
+   "dur": 0.5,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "pareciam",
+   "antes_de": "incríveis",
+   "ini": 36.62,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "incríveis",
+   "antes_de": "Ele",
+   "ini": 37.06,
+   "dur": 0.43,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Ele",
+   "antes_de": "estava",
+   "ini": 37.74,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "tão",
+   "ini": 37.96,
+   "dur": 0.07,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tão",
+   "antes_de": "impressionado",
+   "ini": 38.18,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "impressionado",
+   "antes_de": "que",
+   "ini": 38.8,
+   "dur": 0.27,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "que",
+   "antes_de": "nem",
+   "ini": 39.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "nem",
+   "antes_de": "percebeu",
+   "ini": 39.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "percebeu",
+   "antes_de": "o",
+   "ini": 39.84,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "tempo",
+   "ini": 39.92,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tempo",
+   "antes_de": "passando",
+   "ini": 40.08,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "passando",
+   "antes_de": "Duas",
+   "ini": 40.53,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Duas",
+   "antes_de": "horas",
+   "ini": 41.18,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "horas",
+   "antes_de": "depois",
+   "ini": 41.47,
+   "dur": 0.06,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "depois",
+   "antes_de": "a",
+   "ini": 41.8,
+   "dur": 0.26,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "namorada",
+   "ini": 42.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "namorada",
+   "antes_de": "percebeu",
+   "ini": 42.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "percebeu",
+   "antes_de": "que",
+   "ini": 43.06,
+   "dur": 0.22,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "que",
+   "antes_de": "ele",
+   "ini": 43.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ele",
+   "antes_de": "ainda",
+   "ini": 43.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ainda",
+   "antes_de": "estava",
+   "ini": 43.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "jogando",
+   "ini": 44.0,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "jogando",
+   "antes_de": "Cinco",
+   "ini": 44.37,
+   "dur": 0.38,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Cinco",
+   "antes_de": "horas",
+   "ini": 45.16,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "horas",
+   "antes_de": "depois",
+   "ini": 45.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "depois",
+   "antes_de": "a",
+   "ini": 45.76,
+   "dur": 0.18,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "comida",
+   "ini": 46.12,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "comida",
+   "antes_de": "já",
+   "ini": 46.3,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "já",
+   "antes_de": "estava",
+   "ini": 46.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "fria",
+   "ini": 46.74,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "fria",
+   "antes_de": "Dez",
+   "ini": 47.03,
+   "dur": 0.38,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Dez",
+   "antes_de": "horas",
+   "ini": 47.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "horas",
+   "antes_de": "depois",
+   "ini": 47.99,
+   "dur": 0.06,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "depois",
+   "antes_de": "Juca",
+   "ini": 48.34,
+   "dur": 0.28,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "continuava",
+   "ini": 48.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "continuava",
+   "antes_de": "exatamente",
+   "ini": 49.45,
+   "dur": 0.45,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "exatamente",
+   "antes_de": "no",
+   "ini": 50.43,
+   "dur": 0.17,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "no",
+   "antes_de": "mesmo",
+   "ini": 50.84,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "mesmo",
+   "antes_de": "lugar",
+   "ini": 51.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "lugar",
+   "antes_de": "O",
+   "ini": 51.32,
+   "dur": 0.4,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "O",
+   "antes_de": "sofá",
+   "ini": 51.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sofá",
+   "antes_de": "já",
+   "ini": 52.19,
+   "dur": 0.23,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "já",
+   "antes_de": "parecia",
+   "ini": 52.64,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "parecia",
+   "antes_de": "ter",
+   "ini": 52.98,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ter",
+   "antes_de": "se",
+   "ini": 53.16,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "se",
+   "antes_de": "tornado",
+   "ini": 53.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tornado",
+   "antes_de": "sua",
+   "ini": 53.64,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "nova",
+   "ini": 53.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "nova",
+   "antes_de": "residência",
+   "ini": 54.18,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "residência",
+   "antes_de": "oficial",
+   "ini": 54.62,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "oficial",
+   "antes_de": "Quando",
+   "ini": 55.11,
+   "dur": 0.38,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Quando",
+   "antes_de": "amanheceu",
+   "ini": 55.68,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "amanheceu",
+   "antes_de": "Juca",
+   "ini": 56.18,
+   "dur": 0.27,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "ainda",
+   "ini": 56.82,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ainda",
+   "antes_de": "estava",
+   "ini": 57.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "jogando",
+   "ini": 57.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "jogando",
+   "antes_de": "A",
+   "ini": 57.74,
+   "dur": 0.41,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "A",
+   "antes_de": "namorada",
+   "ini": 58.28,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "namorada",
+   "antes_de": "começou",
+   "ini": 58.64,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "começou",
+   "antes_de": "a",
+   "ini": 58.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "a",
+   "antes_de": "perceber",
+   "ini": 59.1,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "perceber",
+   "antes_de": "que",
+   "ini": 59.36,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "que",
+   "antes_de": "aquele",
+   "ini": 59.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "aquele",
+   "antes_de": "presente",
+   "ini": 59.8,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "presente",
+   "antes_de": "talvez",
+   "ini": 60.12,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "talvez",
+   "antes_de": "tivesse",
+   "ini": 60.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "tivesse",
+   "antes_de": "sido",
+   "ini": 60.8,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sido",
+   "antes_de": "um",
+   "ini": 60.98,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "dos",
+   "ini": 61.12,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "dos",
+   "antes_de": "maiores",
+   "ini": 61.24,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "maiores",
+   "antes_de": "erros",
+   "ini": 61.66,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "erros",
+   "antes_de": "da",
+   "ini": 61.84,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "da",
+   "antes_de": "sua",
+   "ini": 62.04,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "vida",
+   "ini": 62.2,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "vida",
+   "antes_de": "Afinal",
+   "ini": 62.4,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Afinal",
+   "antes_de": "ela",
+   "ini": 63.24,
+   "dur": 0.11,
+   "tipo": "virgula"
+  },
+  {
+   "depois_de": "ela",
+   "antes_de": "queria",
+   "ini": 63.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "queria",
+   "antes_de": "agradar",
+   "ini": 63.78,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "agradar",
+   "antes_de": "o",
+   "ini": 64.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "namorado",
+   "ini": 64.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "namorado",
+   "antes_de": "Mas",
+   "ini": 64.63,
+   "dur": 0.41,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Mas",
+   "antes_de": "acabou",
+   "ini": 65.32,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "acabou",
+   "antes_de": "criando",
+   "ini": 65.64,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "criando",
+   "antes_de": "um",
+   "ini": 66.04,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "verdadeiro",
+   "ini": 66.22,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "verdadeiro",
+   "antes_de": "morador",
+   "ini": 66.7,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "morador",
+   "antes_de": "de",
+   "ini": 67.08,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "de",
+   "antes_de": "Vice",
+   "ini": 67.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "Vice",
+   "antes_de": "City",
+   "ini": 67.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "City",
+   "antes_de": "E",
+   "ini": 67.76,
+   "dur": 0.39,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "E",
+   "antes_de": "o",
+   "ini": 68.28,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "mais",
+   "ini": 68.32,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "mais",
+   "antes_de": "impressionante",
+   "ini": 68.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "impressionante",
+   "antes_de": "Juca",
+   "ini": 69.14,
+   "dur": 0.58,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Juca",
+   "antes_de": "ainda",
+   "ini": 69.95,
+   "dur": 0.08,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "ainda",
+   "antes_de": "estava",
+   "ini": 70.38,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "estava",
+   "antes_de": "na",
+   "ini": 70.56,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "na",
+   "antes_de": "primeira",
+   "ini": 70.76,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "primeira",
+   "antes_de": "missão",
+   "ini": 71.02,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "missão",
+   "antes_de": "Agora",
+   "ini": 71.31,
+   "dur": 0.59,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Agora",
+   "antes_de": "imagine",
+   "ini": 72.08,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "imagine",
+   "antes_de": "receber",
+   "ini": 72.48,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "receber",
+   "antes_de": "um",
+   "ini": 72.94,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "um",
+   "antes_de": "presente",
+   "ini": 73.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "presente",
+   "antes_de": "desses",
+   "ini": 73.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "desses",
+   "antes_de": "Você",
+   "ini": 73.78,
+   "dur": 0.41,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Você",
+   "antes_de": "conseguiria",
+   "ini": 74.44,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "conseguiria",
+   "antes_de": "desligar",
+   "ini": 74.9,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "desligar",
+   "antes_de": "o",
+   "ini": 75.26,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "o",
+   "antes_de": "videogame",
+   "ini": 75.4,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "videogame",
+   "antes_de": "para",
+   "ini": 75.76,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "para",
+   "antes_de": "dar",
+   "ini": 75.94,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "dar",
+   "antes_de": "atenção",
+   "ini": 76.08,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "atenção",
+   "antes_de": "à",
+   "ini": 76.42,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "à",
+   "antes_de": "sua",
+   "ini": 76.58,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "sua",
+   "antes_de": "namorada",
+   "ini": 76.66,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "namorada",
+   "antes_de": "Ou",
+   "ini": 77.07,
+   "dur": 0.4,
+   "tipo": "frase"
+  },
+  {
+   "depois_de": "Ou",
+   "antes_de": "também",
+   "ini": 77.68,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "também",
+   "antes_de": "desapareceria",
+   "ini": 77.97,
+   "dur": 0.59,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "desapareceria",
+   "antes_de": "da",
+   "ini": 79.0,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "da",
+   "antes_de": "vida",
+   "ini": 79.14,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "vida",
+   "antes_de": "real",
+   "ini": 79.32,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "real",
+   "antes_de": "para",
+   "ini": 79.59,
+   "dur": 0.23,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "para",
+   "antes_de": "morar",
+   "ini": 80.0,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "morar",
+   "antes_de": "em",
+   "ini": 80.34,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "em",
+   "antes_de": "Vice",
+   "ini": 80.5,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "Vice",
+   "antes_de": "City",
+   "ini": 80.68,
+   "dur": 0.0,
+   "tipo": "nenhuma"
+  }
+ ],
+ "pausas_suspeitas": [
+  {
+   "depois_de": "jogo",
+   "antes_de": "pareciam",
+   "ini": 35.88,
+   "dur": 0.5,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "impressionado",
+   "antes_de": "que",
+   "ini": 38.8,
+   "dur": 0.27,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "continuava",
+   "antes_de": "exatamente",
+   "ini": 49.45,
+   "dur": 0.45,
+   "tipo": "nenhuma"
+  },
+  {
+   "depois_de": "também",
+   "antes_de": "desapareceria",
+   "ini": 77.97,
+   "dur": 0.59,
+   "tipo": "nenhuma"
+  }
+ ],
+ "alinhamento": {
+  "metodo": "whisper",
+  "diferencas_roteiro_x_fala": [
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 3.98
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 18.24
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 28.84
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 48.7
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 56.54
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "Juca",
+    "falado": "Juka",
+    "tempo_s": 69.72
+   },
+   {
+    "tipo": "trocado",
+    "roteiro": "à",
+    "falado": "a",
+    "tempo_s": 76.42
+   }
+  ],
+  "palavras_baixa_confianca": [
+   {
+    "w": "E",
+    "ini": 0.12,
+    "confianca": 0.452
+   },
+   {
+    "w": "PlayStation",
+    "ini": 9.56,
+    "confianca": 0.467
+   },
+   {
+    "w": "Juca",
+    "ini": 29.18,
+    "confianca": 0.569
+   },
+   {
+    "w": "que",
+    "ini": 43.28,
+    "confianca": 0.583
+   },
+   {
+    "w": "à",
+    "ini": 76.42,
+    "confianca": 0.5
+   }
+  ]
+ },
+ "picos": {
+  "amostra_max": 0.7163,
+  "clipadas": 0
+ }
+}
