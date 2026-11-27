@@ -106,6 +106,29 @@ Alvos para a lista inteira (detalhe no Padrão de Edição): plano mediano de 1,
 
 ## 7. Etapa 5: animação
 
+**Diretriz permanente — animação dinâmica (diretor, 27/11/2026; vale a partir do EP02; o EP01 é a referência do que melhorar):**
+- **Princípio:** aparência de animação 3D cinematográfica, com personagens vivos, câmera dinâmica e acontecimentos acompanhando a narração. Em cada cena, algo está acontecendo; piscada e respiração sozinhas não bastam.
+- **Personagens:**
+  - caminhada com ciclo completo, corrida, mudança de direção e fuga;
+  - braços, pernas, tronco e cabeça naturais;
+  - reações (surpresa, medo, curiosidade, susto, alívio) e olhar dirigido aos objetos;
+  - interação física com objetos e cenário; mudança de postura e deslocamento no ambiente.
+  - Ninguém congelado na mesma pose por vários segundos. Toda ação tem início, desenvolvimento e conclusão, sem repetição mecânica.
+- **Câmera:**
+  - nunca parada a cena inteira;
+  - travelling lateral e frontal, aproximação e afastamento, zoom controlado, câmera acompanhando o personagem;
+  - mudança de ângulo, câmera baixa, plano aberto, close expressivo, movimento ligado à ação.
+  - A câmera conta a história.
+- **Cenário vivo** quando fizer sentido: tecido ao vento, poeira e partículas, água ondulando, vegetação balançando, objetos reagindo a impacto, luz e sombra acompanhando os acontecimentos. Nada de movimento aleatório só para preencher.
+- **Ação e narração conectadas:** cada trecho falado tem representação visual. Perigo = ver o perigo se aproximando; descoberta = reação visual; ação = acompanhar o desenvolvimento.
+- **Ritmo e montagem:** dinâmico, sem cortes aleatórios. Alternar planos rápidos (ação/impacto), médios (desenvolvimento), closes (emoção/descoberta) e abertos (ambiente/escala). Referência de **1,5 a 2 s por plano** nas sequências dinâmicas.
+- **Medida do EP01 (linha de base, para comparar):**
+  - 41 planos; locomoção em 1; troca de expressão dentro do plano em 6;
+  - travelling/pan em 3 dos 34 planos com cenário; zoom mediano de 10 % no plano;
+  - só 3 planos entre 1,5 e 2 s, e 12 acima de 3 s;
+  - cenário parado (só vento, sombra e pata em 2D).
+
+
 Ver `MANUAL_ANIMACAO.md`. Resumo: animação pose a pose com poses seguradas no nível base. Nível "ação" (antecipação → golpe → overshoot) só nos momentos de poder. O movimento de câmera é aplicado depois, na composição, como transformação 2D da imagem do plano. Por isso o plano é renderizado com margem de segurança (pelo menos 15 % maior que 1080×1920) para permitir push-in, pan e tremida sem borda.
 
 ## 8. Etapa 6: render

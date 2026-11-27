@@ -62,6 +62,28 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
   - Estampa "Modo Curioso" nunca espelhada (inclusive nas vistas viradas para a esquerda).
   - No cenário 3D: fundo estático do Blender + Heitor 2D posicionado e escalado por âncoras 3D → 2D (altura 1,40 m), com sombra de contato no chão.
 
+## 3.1 Animação dinâmica (diretriz permanente do diretor, 27/11/2026)
+- **Princípio:** aparência de animação 3D cinematográfica, com personagens vivos, câmera dinâmica e acontecimentos acompanhando a narração. Em cada cena, algo está acontecendo; piscada e respiração sozinhas não bastam.
+- **Personagens:**
+  - caminhada com ciclo completo, corrida, mudança de direção e fuga;
+  - braços, pernas, tronco e cabeça naturais;
+  - reações (surpresa, medo, curiosidade, susto, alívio) e olhar dirigido aos objetos;
+  - interação física com objetos e cenário; mudança de postura e deslocamento no ambiente.
+  - Ninguém congelado na mesma pose por vários segundos. Toda ação tem início, desenvolvimento e conclusão, sem repetição mecânica.
+- **Câmera:**
+  - nunca parada a cena inteira;
+  - travelling lateral e frontal, aproximação e afastamento, zoom controlado, câmera acompanhando o personagem;
+  - mudança de ângulo, câmera baixa, plano aberto, close expressivo, movimento ligado à ação.
+  - A câmera conta a história.
+- **Cenário vivo** quando fizer sentido: tecido ao vento, poeira e partículas, água ondulando, vegetação balançando, objetos reagindo a impacto, luz e sombra acompanhando os acontecimentos. Nada de movimento aleatório só para preencher.
+- **Ação e narração conectadas:** cada trecho falado tem representação visual. Perigo = ver o perigo se aproximando; descoberta = reação visual; ação = acompanhar o desenvolvimento.
+- **Ritmo e montagem:** dinâmico, sem cortes aleatórios. Alternar planos rápidos (ação/impacto), médios (desenvolvimento), closes (emoção/descoberta) e abertos (ambiente/escala). Referência de **1,5 a 2 s por plano** nas sequências dinâmicas.
+- **Medida do EP01 (linha de base, para comparar):**
+  - 41 planos; locomoção em 1; troca de expressão dentro do plano em 6;
+  - travelling/pan em 3 dos 34 planos com cenário; zoom mediano de 10 % no plano;
+  - só 3 planos entre 1,5 e 2 s, e 12 acima de 3 s;
+  - cenário parado (só vento, sombra e pata em 2D).
+
 ## 4. Cenários
 - Ambientes com perspectiva real e materiais (madeira, tijolo, azulejo, grama, asfalto, pedra) e MUITOS objetos de contexto (prateleiras, letreiros, fios, plantas, carros, toldos). Profundidade com desfoque no fundo, névoa quente ao longe e primeiro plano desfocado às vezes.
 - Inserts científicos em fundo escuro (azul-marinho ou roxo) com bokeh e partículas: átomos como esferas ou blocos com a letra (H azul, O vermelho), moléculas, neurônios, raio-x holográfico azul, câmera térmica (roxo → laranja → amarelo, com escala e mira), visão noturna verde, corte de pele/estômago, Terra e Lua no espaço.

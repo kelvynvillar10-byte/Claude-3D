@@ -4,6 +4,9 @@
 
 O skill que o Claude usa vem da sua conta claude.ai (skills sincronizados). A edição feita na cópia local da sessão pode ser substituída na próxima sincronização. Para a mudança valer em todas as sessões, envie este `SKILL.md` como nova versão do skill `modo-curioso-padrao` nas configurações de skills da sua conta.
 
+Atualização de 27/11/2026:
+- **Animação dinâmica:** nova seção 3.1, diretriz permanente com personagens em movimento, câmera cinematográfica, cenário vivo, ação ligada à narração e planos de 1,5–2 s nas sequências dinâmicas.
+
 Atualização de 26/11/2026:
 - **Duração**: diretriz permanente de 1 a 2 min (60–120 s), com vídeo longo só como formato especial.
 - **Voz**: nova regra de pausas por intenção (pós-produção em `narracao/pos/`) e voz candidata MiniMax `Portuguese_CaptivatingStoryteller` (não aprovada).
