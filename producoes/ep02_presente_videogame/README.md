@@ -53,3 +53,34 @@ ffmpeg -i producoes/ep02_presente_videogame/_cache/video_sem_audio.mp4 -i produc
 .venv/bin/python producoes/ep02_presente_videogame/codigo/qa_ep02.py producoes/ep02_presente_videogame/export/MC_ep02_presente_videogame_v1.mp4
 ```
 Memória: com 4 trabalhadores e 3 placas em cache por processo o container ficou sem memória; use 3 e `MAX_PLACAS=2`.
+
+## QA (`saida/qa_relatorio.json`) — 16/16
+| Verificação | Resultado medido |
+|---|---|
+| Formato / duração | 1080×1920 · 30 qps · H.264 + AAC · 88,4 s (narração 85,4 s + cartela final) |
+| Ritmo | 49 planos · mediana 1,65 s · 33 cortes/min · 1 plano acima de 3 s |
+| Movimento dos personagens | 87 % dos quadros com ação visível; plano com menos ação: 64 % (1ª passada: 69 %; 30 planos refeitos com mais movimento) |
+| Câmera | em movimento em 100 % dos quadros, nenhum plano parado |
+| Mapa fala → imagem | 48 palavras-chave, cada uma com a ação no plano certo no instante em que é dita |
+| Cotovelos | 4.716 braços verificados (todas as poses de todos os quadros), 0 invertidos |
+| Rig do Heitor | intacto |
+| Pés | 0,00 mm de deslize no ciclo (o personagem avança à velocidade do ciclo) |
+| Loudness | −14,1 LUFS · pico −1,5 dBTP |
+| Números na tela | 13 rótulos grandes |
+| Legendas | 89 blocos · média 2,6 palavras · máx. 3 · amarelo em 27 % dos blocos |
+| Identidade | marca d'água "MODO CURIOSO"; estampas "Modo Curioso"; nenhum logotipo de terceiros na imagem |
+
+## Limitações (honestas)
+1. **Destaque amarelo nas legendas em 27 % dos blocos** (o padrão medido é ~42 %). Aumentar exige refazer todos os quadros.
+2. **Juca sentado de frente:** o rig é 2D, então a coxa vista de frente é só um encurtamento; em alguns planos (C1, C2) ele pode
+   parecer meio "de pé na frente do sofá". De perfil (C3) e de costas (C4) lê bem.
+3. **Zoom brusco nas telas:** em P11 ("instalado") e P44 ("primeira missão") o fim do zoom corta a borda do texto da TV
+   ("INSTALADO", "CONCLUÍDA").
+4. **Personagens desenhados por cima do cenário** com a profundidade do personagem mais próximo (mesmo compositor do EP01):
+   quando há dois personagens em profundidades diferentes, o mais distante não é coberto pelos móveis.
+5. **Close do botão (P21, P46):** é um insert 2D (mão do rig + videogame) porque o plano da TV é estreito demais para o
+   Juca caber em pé ao lado do rack.
+6. **A cidade do jogo** é a rua aprovada da E6 (bairro brasileiro) ao crepúsculo, com HUD próprio; não imita o jogo real.
+7. **Trilha e efeitos** continuam procedurais (biblioteca de música/SFX ainda é pendência do diretor).
+8. **Render:** com 3 processos, o trecho 29–59 s caiu por falta de memória na 1ª tentativa; foi refeito em partes e emendado
+   (`codigo/refazer_planos.py`). Contagem final de quadros conferida: 2.652.
