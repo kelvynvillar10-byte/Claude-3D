@@ -44,7 +44,7 @@ ffmpeg -i producoes/ep01_cinco_centimetros/_cache/video_sem_audio.mp4 -i produco
 | Duração | 113,40 s e 3.402 quadros, iguais aos da montagem |
 | Legendas | 93 blocos, 2,5 palavras/bloco, 39 % com destaque amarelo |
 | Marca d'água | exatamente "MODO CURIOSO" em todo quadro |
-| Loudness | −14,1 LUFS, pico −1,3 dBTP (medidos na exportação anterior, com o mesmo áudio) |
+| Loudness | −14,1 LUFS, pico −1,3 dBTP |
 | Personagem | 260 braços verificados nas poses do episódio e na caminhada: 0 cotovelos invertidos; rig v2 sem alteração |
 | Cenários | 15 placas: nada flutuando, nenhum texto 3D |
 | Números na tela | 11: 5 cm, 14 m, 4 m, 27 mm, 18 cm = 5 m, ≈ 7 m, ×28, ÷28, ÷21.952, ÷784, ×28 |

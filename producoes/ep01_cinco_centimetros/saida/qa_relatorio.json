@@ -1,0 +1,65 @@
+{
+ "video": "MC_ep01_cinco_centimetros_v1.mp4",
+ "verificacoes": [
+  {
+   "verificacao": "formato",
+   "ok": true,
+   "detalhe": "1080×1920 · 30.00 qps · h264 + aac"
+  },
+  {
+   "verificacao": "duracao_bate_montagem",
+   "ok": true,
+   "detalhe": "vídeo 113.40 s / 3402 quadros · montagem 113.40 s / 3402 quadros"
+  },
+  {
+   "verificacao": "duracao_diretriz",
+   "ok": true,
+   "detalhe": "113.40 s (diretriz do canal: 60–120 s; meta do EP01 era 75–90 s — ver relatório)"
+  },
+  {
+   "verificacao": "ritmo_de_cortes",
+   "ok": true,
+   "detalhe": "41 planos · plano mediano 2.80 s (padrão 1,7 s; faixa 1,15–2,33) · 21.2 cortes/min (padrão ~31)"
+  },
+  {
+   "verificacao": "legendas",
+   "ok": true,
+   "detalhe": "93 blocos · 2.53 palavras/bloco · 39 % com destaque amarelo"
+  },
+  {
+   "verificacao": "marca_dagua",
+   "ok": true,
+   "detalhe": "texto exato \"MODO CURIOSO\" em todos os quadros (desenhado pelo compositor, canto superior direito)"
+  },
+  {
+   "verificacao": "loudness",
+   "ok": true,
+   "detalhe": "-14.1 LUFS · pico -1.3 dBTP (alvo −14 LUFS, ≤ −1 dBTP)"
+  },
+  {
+   "verificacao": "cotovelos",
+   "ok": true,
+   "detalhe": "260 braços verificados (poses do episódio + caminhada), 0 cotovelo(s) invertido(s)"
+  },
+  {
+   "verificacao": "rig_v2_intacto",
+   "ok": true,
+   "detalhe": "nenhuma alteração em personagens/heitor/rig_v2"
+  },
+  {
+   "verificacao": "cenarios",
+   "ok": true,
+   "detalhe": "15 placas · flutuando: 0 · textos 3D: 0"
+  },
+  {
+   "verificacao": "numeros_na_tela",
+   "ok": true,
+   "detalhe": "11: 5 cm · 14 m · 4 m · 27 mm · 18 cm = 5 m · ≈ 7 m · × 28 · ÷ 28 · ÷ 21.952 · ÷ 784 · × 28"
+  },
+  {
+   "verificacao": "voz_sem_aceleracao",
+   "ok": true,
+   "detalhe": "narração = narracao/edicoes/ep01_narracao/voz_final.wav (QA da pós: palavras idênticas, 0 ms de diferença de duração)"
+  }
+ ]
+}
