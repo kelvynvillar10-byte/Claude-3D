@@ -78,6 +78,20 @@ Base: 21 vídeos de referência medidos quadro a quadro (≈36 min, ≈105 mil q
 - **Cenário vivo** quando fizer sentido: tecido ao vento, poeira e partículas, água ondulando, vegetação balançando, objetos reagindo a impacto, luz e sombra acompanhando os acontecimentos. Nada de movimento aleatório só para preencher.
 - **Ação e narração conectadas:** cada trecho falado tem representação visual. Perigo = ver o perigo se aproximando; descoberta = reação visual; ação = acompanhar o desenvolvimento.
 - **Ritmo e montagem:** dinâmico, sem cortes aleatórios. Alternar planos rápidos (ação/impacto), médios (desenvolvimento), closes (emoção/descoberta) e abertos (ambiente/escala). Referência de **1,5 a 2 s por plano** nas sequências dinâmicas.
+**Reforço do diretor (27/11/2026), vale para o próximo vídeo:**
+- **Movimento o tempo todo.** Nenhum personagem estático: em todo plano o personagem está fazendo alguma coisa (andando, correndo, reagindo, olhando, gesticulando, interagindo); respiração e piscada não contam como ação. A câmera também está em movimento em todos os planos.
+- **O vídeo acompanha a narração, palavra a palavra.** Tudo o que a narração diz aparece na tela no momento em que é dito:
+  - objeto citado: é mostrado;
+  - ação descrita: acontece;
+  - perigo: se aproxima;
+  - número: vira rótulo.
+- **Mapa fala → imagem:** a decupagem é feita a partir dos tempos das palavras (`voz_palavras.json`). Cada termo-chave do roteiro recebe um evento visual.
+- **Metas do QA para o próximo vídeo:**
+  - 100 % dos planos com câmera em movimento;
+  - personagem em ação em todos os planos em que aparece;
+  - nenhuma pose parada por mais de ~1 s;
+  - cada termo-chave da narração com evento visual em até ±0,3 s da palavra;
+  - planos de 1,5–2 s nas sequências dinâmicas.
 - **Medida do EP01 (linha de base, para comparar):**
   - 41 planos; locomoção em 1; troca de expressão dentro do plano em 6;
   - travelling/pan em 3 dos 34 planos com cenário; zoom mediano de 10 % no plano;
