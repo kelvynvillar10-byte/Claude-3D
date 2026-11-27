@@ -70,7 +70,8 @@ def _aplicar(H, esp):
     H.PROP = mod["proporcoes_H"]; H.OSS = mod["ossos_H"]
     P = H.PROP; L = esp["larguras_H"]
     H._ALT_PELVE = P["barra_camisa"]
-    H.OMBRO_Y = -(P["ombro"] - P["barra_camisa"])
+    H.OMBRO_TRONCO_Y = -(P["ombro"] - P["barra_camisa"])                     # linha do ombro da camiseta (desenho do tronco)
+    H.OMBRO_Y = -(P.get("ombro_braco", P["ombro"]) - P["barra_camisa"])       # v1.1: encaixe do braço um pouco mais baixo
     H.PESCOCO_Y = -(P["pescoco"] - P["barra_camisa"])
     bx, qx = L["braco_x"], L["coxa_x"]
     ab = L.get("braco_ang", 8.0)                      # v1.1: braços mais junto ao corpo em repouso
@@ -94,7 +95,9 @@ def _aplicar(H, esp):
     H.desenhar_mao = desenhar_mao
 
     lb, la, lc, lk = L["braco"], L["antebraco"], L["coxa"], L["canela"]
-    H.forma_braco = lambda: H.capsula(H.OSS["braco"], lb[0], lb[1])
+    def forma_braco():   # o topo arredondado do braço começa um pouco abaixo da junta: fica escondido dentro da manga
+        p = H.capsula(H.OSS["braco"] - 0.06, lb[0], lb[1]); p.offset(0, 0.06); return p
+    H.forma_braco = forma_braco
     H.forma_antebraco = lambda: H.capsula(H.OSS["antebraco"] + 0.02, la[0], la[1])
     H.forma_coxa = lambda: H.capsula(H.OSS["coxa"] + 0.04, lc[0], lc[1])
 
@@ -123,7 +126,7 @@ def _aplicar(H, esp):
 
 # ====================================================================== tronco e quadril
 def _forma_tronco(H, esp, vista):
-    L = esp["larguras_H"]; top, hem = H.OMBRO_Y - 0.1, 0.0
+    L = esp["larguras_H"]; top, hem = H.OMBRO_TRONCO_Y - 0.1, 0.0
     om, ci, ba = L["ombro"], L["cintura"], L["barra"]
     meio = top * 0.45
     p = skia.Path()
@@ -153,7 +156,7 @@ def _forma_tronco(H, esp, vista):
 
 def _desenhar_tronco(H, esp, c, vista, lado_luz, espelhado):
     C = H.C; L = esp["larguras_H"]
-    tr = _forma_tronco(H, esp, vista); top = H.OMBRO_Y - 0.1
+    tr = _forma_tronco(H, esp, vista); top = H.OMBRO_TRONCO_Y - 0.1
     c.drawPath(tr, H.tinta(C["camisa"]))
     if vista in ("frente", "tres_quartos"):
         larg = 0.56 * 0.86 * (2 * L["ombro"] / 0.97) * (H.MOD["estampa"]["tres_quartos"]["compressao"] if vista == "tres_quartos" else 1.0)
@@ -171,7 +174,7 @@ def _desenhar_tronco(H, esp, c, vista, lado_luz, espelhado):
     c.save(); c.clipPath(tr, doAntiAlias=True)
     c.drawLine(b.left(), -0.035, b.right(), -0.035, H.traco(C["gola"], 0.012)); c.restore()
     c.drawPath(tr, H.contorno())
-    OY = H.OMBRO_Y
+    OY = H.OMBRO_TRONCO_Y
     if vista == "frente":
         dec = skia.Path(); dec.moveTo(-0.18, OY - 0.1); dec.quadTo(0, OY + 0.11, 0.18, OY - 0.1); dec.close()
         c.drawPath(dec, H.tinta(C["pele_s"])); c.drawPath(dec, H.traco(C["gola"], 0.045))

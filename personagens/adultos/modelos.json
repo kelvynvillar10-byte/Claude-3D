@@ -1,7 +1,7 @@
 {
  "juca": {
   "nome": "Juca",
-  "versao": "rig adulto v1.1 — PROPOSTA (27/11/2026): ombros mais baixos e naturais (pedido do diretor após o EP02); v1 aprovada em 27/11/2026",
+  "versao": "rig adulto v1.1 — PROPOSTA (27/11/2026): corpo da v1 (aprovada) com o encaixe do braço 0,10 H mais baixo (pedido do diretor após o EP02)",
   "descricao": "adulto, ~28 anos, 5 H de altura, pele morena, cabelo crespo curto preto, camiseta verde 'Modo Curioso', calça de moletom cinza com punho, chinelo (em casa)",
   "cabelo": "crespo_curto",
   "cilios": false,
@@ -37,16 +37,17 @@
    "queixo": 3.96,
    "pescoco": 3.92,
    "largura_cabeca": 0.92,
-   "ombro": 3.58,
+   "ombro": 3.72,
    "largura_ombros": 1.2,
    "barra_camisa": 2.25,
    "quadril_junta": 2.23,
    "joelho": 1.23,
    "tornozelo": 0.22,
-   "chao": 0.0
+   "chao": 0.0,
+   "ombro_braco": 3.62
   },
   "ossos_H": {
-   "braco": 0.76,
+   "braco": 0.78,
    "antebraco": 0.7,
    "coxa": 1.0,
    "canela": 1.01,
@@ -56,7 +57,7 @@
    "ombro": 0.6,
    "cintura": 0.55,
    "barra": 0.5,
-   "braco_x": 0.55,
+   "braco_x": 0.57,
    "coxa_x": 0.22,
    "quadril": 0.47,
    "braco": [
@@ -86,20 +87,13 @@
     0.26
    ],
    "estampa_y": 0.5,
-   "escala_mao": 1.15,
-   "braco_ang": 4.0,
-   "pescoco_baixo": 0.3,
-   "trapezio": [
-    0.1,
-    0.25
-   ],
-   "gola": 0.15
+   "escala_mao": 1.15
   },
   "barba_base": 0.35
  },
  "jandira": {
   "nome": "Jandira",
-  "versao": "rig adulto v1.1 — PROPOSTA (27/11/2026): ombros mais baixos e naturais (pedido do diretor após o EP02); v1 aprovada em 27/11/2026",
+  "versao": "rig adulto v1.1 — PROPOSTA (27/11/2026): corpo da v1 (aprovada) com o encaixe do braço 0,10 H mais baixo (pedido do diretor após o EP02)",
   "descricao": "adulta, ~27 anos, 5 H de altura (em cena, 94 % da altura do Juca), pele clara-morena, cabelo longo ondulado castanho-escuro com risca lateral, cílios, camiseta roxa 'Modo Curioso', jeans, tênis branco com faixa roxa",
   "cabelo": "longo",
   "cilios": true,
@@ -134,16 +128,17 @@
    "queixo": 3.98,
    "pescoco": 3.92,
    "largura_cabeca": 0.92,
-   "ombro": 3.58,
+   "ombro": 3.72,
    "largura_ombros": 1.0,
    "barra_camisa": 2.25,
    "quadril_junta": 2.23,
    "joelho": 1.23,
    "tornozelo": 0.22,
-   "chao": 0.0
+   "chao": 0.0,
+   "ombro_braco": 3.62
   },
   "ossos_H": {
-   "braco": 0.73,
+   "braco": 0.75,
    "antebraco": 0.67,
    "coxa": 1.0,
    "canela": 1.01,
@@ -153,7 +148,7 @@
    "ombro": 0.48,
    "cintura": 0.35,
    "barra": 0.45,
-   "braco_x": 0.43,
+   "braco_x": 0.45,
    "coxa_x": 0.21,
    "quadril": 0.48,
    "braco": [
@@ -183,14 +178,7 @@
     0.3
    ],
    "estampa_y": 0.48,
-   "escala_mao": 1.05,
-   "braco_ang": 4.0,
-   "pescoco_baixo": 0.3,
-   "trapezio": [
-    0.1,
-    0.25
-   ],
-   "gola": 0.15
+   "escala_mao": 1.05
   }
  }
 }

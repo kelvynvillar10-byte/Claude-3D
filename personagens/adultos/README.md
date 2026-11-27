@@ -1,4 +1,4 @@
-# Juca e Jandira — rig adulto (v1 aprovado em 27/11/2026; v1.1 PROPOSTA: ombros mais baixos)
+# Juca e Jandira — rig adulto (v1 aprovado em 27/11/2026; v1.1 PROPOSTA: braço mais baixo)
 
 Personagens do EP02 ("E se a sua namorada te desse um videogame…"). Nomes definidos pelo diretor em 27/11/2026; aparência proposta pelo Claude.
 
@@ -12,9 +12,12 @@ Personagens do EP02 ("E se a sua namorada te desse um videogame…"). Nomes defi
 
 Limitações: o cabelo da Jandira não balança ainda (fica para a animação); as vistas espelhadas trocam o lado da risca do cabelo (mesma limitação do Heitor); o controle de perfil é um desenho frontal comprimido (trapaça 2D).
 
-## v1.1 — PROPOSTA (27/11/2026, pedido do diretor depois do EP02): ombros mais baixos
-"Abaixar um pouco os braços, os ombros estão muito pra cima." Mudanças só de parâmetro (`modelos.json`):
-- ombro 3,72 → 3,58 H; pescoço desce até a gola (`pescoco_baixo` 0,30); trapézio com caimento mais suave (`trapezio` [0,10; 0,25]);
-- braços em repouso mais junto ao corpo (8° → 4°, `braco_ang`) e o encaixe do ombro 0,02 H mais para dentro.
-Antes × depois: `folhas/proposta_v1_1_ombros_antes_depois.jpg`. Folhas regeneradas com a v1.1; 0 cotovelos invertidos nas poses do EP02.
+## v1.1 — PROPOSTA (27/11/2026, pedido do diretor depois do EP02): só o braço mais baixo
+1ª tentativa (ombro do corpo mais baixo, pescoço mais longo) **recusada pelo diretor: "o antes está melhor, seria somente
+abaixar um pouco mais o braço para o ombro não ficar muito em cima"**. Versão atual da proposta:
+- corpo, pescoço e tronco **iguais à v1 aprovada**;
+- só o **encaixe do braço** desce 0,10 H (`ombro_braco` 3,62 H; a linha do ombro da camiseta continua em 3,72 H): a manga
+  deixa de subir acima da linha do ombro;
+- o topo arredondado do braço começa 0,06 H abaixo da junta (fica escondido dentro da manga).
+Antes × depois: `folhas/proposta_v1_1_ombros_antes_depois.jpg`. Folhas regeneradas; 0 cotovelos invertidos nas poses do EP02.
 Obs.: o EP02 foi renderizado com a v1; renderizar o EP02 de novo agora usaria a v1.1.
