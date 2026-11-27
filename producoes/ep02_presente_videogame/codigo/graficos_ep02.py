@@ -340,10 +340,10 @@ def tela_instalacao(t, k, W=960, H=540):
             fl.quadTo(tx + math.cos(ang) * 50, ty + math.sin(ang) * 50 - 20, tx + math.cos(ang) * 95, ty + math.sin(ang) * 95 + 25)
             cv.drawPath(fl, borda(0xFF1A0A2E, 10))
     pct = min(100, 100 * ease(k * 1.25))
-    bx, by, bw = W * 0.18, H * 0.86, W * 0.64
+    bx, by, bw = W * 0.28, H * 0.86, W * 0.44          # dentro da faixa central (o quadro vertical corta as laterais da TV)
     cv.drawRRect(skia.RRect.MakeRectXY(skia.Rect.MakeXYWH(bx, by, bw, 22), 11, 11), pt(0xFF0B0F1C, 0.7))
     cv.drawRRect(skia.RRect.MakeRectXY(skia.Rect.MakeXYWH(bx, by, bw * pct / 100, 22), 11, 11), pt(0xFF5CFFB0))
-    f = skia.Font(ROBOTO, 40); txt = "INSTALADO" if pct >= 99.5 else "INSTALANDO…"
+    f = skia.Font(ROBOTO, 34); txt = "INSTALADO" if pct >= 99.5 else "INSTALANDO…"
     cv.drawString(txt, bx, by - 14, f, pt(BRANCO)); tt = f"{pct:.0f} %"; cv.drawString(tt, bx + bw - f.measureText(tt), by - 14, f, pt(AMARELO))
     return snap(s)
 
@@ -363,11 +363,11 @@ def tela_missao(t, pct=3, W=960, H=540, fundo=None):
     if fundo is not None:
         cv.drawImage(skimg(fundo), 0, 0)
     cv.drawRect(skia.Rect.MakeWH(W, H), pt(0xFF000000, 0.35))
-    f = skia.Font(ROBOTO, 110); txt = "MISSÃO 1"; w = f.measureText(txt); texto_contorno(cv, txt, W / 2 - w / 2, H * 0.42, f, AMARELO, w=10)
-    bw = W * 0.7; bx = (W - bw) / 2; by = H * 0.55
+    f = skia.Font(ROBOTO, 96); txt = "MISSÃO 1"; w = f.measureText(txt); texto_contorno(cv, txt, W / 2 - w / 2, H * 0.42, f, AMARELO, w=10)
+    bw = W * 0.46; bx = (W - bw) / 2; by = H * 0.55
     cv.drawRRect(skia.RRect.MakeRectXY(skia.Rect.MakeXYWH(bx, by, bw, 40), 20, 20), pt(0xFF0B0F1C, 0.85))
     cv.drawRRect(skia.RRect.MakeRectXY(skia.Rect.MakeXYWH(bx, by, max(40, bw * pct / 100), 40), 20, 20), pt(0xFF5CFFB0))
-    f2 = skia.Font(ROBOTO, 90); tt = f"{pct} % CONCLUÍDA"; w2 = f2.measureText(tt); texto_contorno(cv, tt, W / 2 - w2 / 2, H * 0.82, f2, BRANCO, w=9)
+    f2 = skia.Font(ROBOTO, 64); tt = f"{pct} % CONCLUÍDA"; w2 = f2.measureText(tt); texto_contorno(cv, tt, W / 2 - w2 / 2, H * 0.82, f2, BRANCO, w=9)
     return snap(s)
 
 

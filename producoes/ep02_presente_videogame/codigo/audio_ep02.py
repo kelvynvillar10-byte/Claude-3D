@@ -15,6 +15,16 @@ exec(compile(fonte[:fonte.index("voz, sr_v = sf.read")], "audio_ep01", "exec"), 
 ini_medir = fonte.index("def medir(arq):"); exec(compile(fonte[ini_medir:fonte.index("(P / \"saida\").mkdir")], "audio_ep01_medir", "exec"), ns)
 SR = ns["SR"]; db, env, bp, lp, ruido, sfx0 = ns["db"], ns["env"], ns["bp"], ns["lp"], ns["ruido"], ns["sfx"]
 PLANOS = json.loads((P / "saida" / "planos.json").read_text())
+import os
+NARR = os.environ.get("EP02_NARRACAO", "ep02_narracao_v3")
+_P1 = json.loads((RAIZ / "narracao/edicoes/ep02_narracao/voz_palavras.json").read_text())
+_PN = json.loads((RAIZ / f"narracao/edicoes/{NARR}/voz_palavras.json").read_text())
+_X = [0.0] + [v for p in _P1 for v in (p["ini"], p["fim"])]; _Y = [0.0] + [v for p in _PN for v in (p["ini"], p["fim"])]
+
+
+def remap(t):
+    """Instante da 1ª narração → narração em uso (pelas palavras; mesma conversão da decupagem)."""
+    return _Y[-1] + (t - _X[-1]) if t >= _X[-1] else float(np.interp(t, _X, _Y))
 DUR = PLANOS[-1]["fim"]; N = int(round(DUR * SR))
 rng = np.random.default_rng(23)
 
@@ -145,25 +155,25 @@ def trilha_ep02(dur):
             if m <= 0:
                 break
             tm = np.arange(m) / SR; f = ac[j % 3] * 4
-            jogo = 33.3 <= tt + j * bt / 2 <= 39.9 or 69.6 <= tt <= 72.3
+            jogo = remap(33.3) <= tt + j * bt / 2 <= remap(39.9) or remap(69.6) <= tt <= remap(72.3)
             onda = signal.square(2 * np.pi * f * tm, 0.3) * 0.25 if jogo else np.sin(2 * np.pi * f * tm)
             x[a0:a0 + m] += onda * np.exp(-tm / 0.09) * 0.32
         tt += 4 * bt; k += 1
     x = lp(x, 3000)
     # dinâmica: mais baixa e escura no amanhecer triste (61–69 s), sobe no final
-    g = np.ones(n); g[(t > 61.0) & (t < 69.5)] = 0.55
+    g = np.ones(n); g[(t > remap(61.0)) & (t < remap(69.5))] = 0.55
     g = signal.filtfilt(*signal.butter(1, 1.0 / (SR / 2)), g)
     fade = np.minimum(1, t / 0.6) * np.minimum(1, (dur - t) / 1.5)
     return x / (np.abs(x).max() + 1e-9) * fade * g * db(-21)
 
 
 if __name__ == "__main__":
-    voz, sr_v = sf.read(RAIZ / "narracao/edicoes/ep02_narracao/voz_final.wav", dtype="float64")
+    voz, sr_v = sf.read(RAIZ / f"narracao/edicoes/{NARR}/voz_final.wav", dtype="float64")
     assert sr_v == SR
     voz = voz.mean(1) if voz.ndim > 1 else voz
     pista_voz = np.zeros(N); pista_voz[:min(N, len(voz))] = voz[:N]
     efeitos = np.zeros((N, 2))
-    eventos = list(EVENTOS)
+    eventos = [(remap(t0), tipo, d) for t0, tipo, d in EVENTOS]   # os instantes foram escritos sobre a 1ª narração
     for p in PLANOS[1:]:                                   # um efeito em cada corte (baixo, por baixo da voz)
         eventos.append((max(0.0, p["ini"] - (0.12 if p["entrada"] == "chicote" else 0.0)),
                         {"chicote": "whoosh", "flash": "impacto_grave", "fusao": "riser"}.get(p["entrada"], "pop"), 0.25))

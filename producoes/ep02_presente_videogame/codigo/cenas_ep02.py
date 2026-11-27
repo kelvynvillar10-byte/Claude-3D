@@ -24,9 +24,21 @@ from cenografia.nucleo.compositor import Placa                                  
 AT, PO = AE.AT, AE.PO
 J, D = AE.JUCA, AE.JAND
 FPS = 30; OW, OH = 1080, 1920
-NARR = RAIZ / "narracao" / "edicoes" / "ep02_narracao"
+NARR = RAIZ / "narracao" / "edicoes" / os.environ.get("EP02_NARRACAO", "ep02_narracao_v3")    # v1 do vídeo: ep02_narracao
 PAL = json.loads((NARR / "voz_palavras.json").read_text())
-FIM_VOZ = PAL[-1]["fim"]; DUR = 88.4
+FIM_VOZ = PAL[-1]["fim"]; DUR = 88.4      # (linha do tempo da 1ª narração; convertida abaixo para a narração em uso)
+# Conversão da linha do tempo: a decupagem foi escrita sobre a 1ª narração; cada instante é levado para a narração em uso
+# pelas palavras (mesmo texto, 233 palavras): interpolação linear entre os inícios e fins de cada palavra.
+_PAL1 = json.loads((RAIZ / "narracao" / "edicoes" / "ep02_narracao" / "voz_palavras.json").read_text())
+_X = [0.0] + [v for p in _PAL1 for v in (p["ini"], p["fim"])]
+_Y = [0.0] + [v for p in PAL for v in (p["ini"], p["fim"])]
+assert len(_PAL1) == len(PAL) and all(a["w"].lower() == b["w"].lower() for a, b in zip(_PAL1, PAL)), "narração com texto diferente"
+
+
+def remap(t):
+    if t >= _X[-1]:
+        return _Y[-1] + (t - _X[-1])
+    return float(np.interp(t, _X, _Y))
 S = PL.specs()
 _PL = {}
 V = np.asarray
@@ -163,14 +175,14 @@ def P01(tl, d):   # "E se sua namorada chegasse em casa": a Jandira entra pela p
 
 
 def P02(tl, d):   # "com uma surpresa que mudaria sua vida": zoom brusco na caixa, brilhos
-    Pc = placa("C5_porta"); t = tl + 1.85
+    Pc = placa("C5_porta"); t = tl + INI["P02"]
     tr = AE.Trajeto(D, Pc, V([-2.55, 0.75, 0.0]), "frente", 1, rosto="alegria", base=AE.maos_caixa(D))
     tr.faz(tipo="andar", t0=0.0, dur=2.6, vista="frente", eixo_vet=V([1.0, 0.0, 0.0]), sentido=1, bracos=AE.maos_caixa(D))
     tr.faz(tipo="parar", t0=2.6, dur=0.25)
     tr.faz(tipo="funcao", t0=2.75, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=AE.maos_caixa(D)(v, t)), cabeca=6 * math.sin(tl_ * 7), tronco=3 * math.sin(tl_ * 5),
                                      raiz=[0.0, -0.07 * abs(math.sin(tl_ * 6.5))]), ease=0.15)
     st = ator(tr, t, caixa=True, brilho_caixa=suave((tl - 0.3) / 0.6))
-    k = saida(min(1, max(0, tl - (w("surpresa") - 1.85 - 0.05)) / 0.22))
+    k = saida(min(1, max(0, tl - (w("surpresa") - INI["P02"] - 0.05)) / 0.22))
     z = lerp(1.3, 1.75, k)
     cam = AT.seguir(Pc, lambda s: tr.estado(s)["pos"] + [0, 0, 1.0 * k + 1.15 * (1 - k)], t, 0.5, lerp(0.42, 0.45, k), z, atraso=0.0)
     return dict(placa="C5_porta", cam=cam, atores=[st], hora="tarde", tremida=(0.36, 0.6), brilhos_caixa=True)
@@ -223,7 +235,7 @@ def P06(tl, d):   # "uma caixa enorme": ela entra no quadro com a caixa; zoom br
     tr.faz(tipo="funcao", t0=0.62, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=AE.maos_caixa(D)(v, t)), cabeca=6 * math.sin(tl_ * 7), tronco=3 * math.sin(tl_ * 5),
                                      raiz=[0.0, -0.07 * abs(math.sin(tl_ * 6.5))]), ease=0.1)
     sj = juca_sentado(Pc, "frente", "surpresa", jogar=False); sj.rosto(0.3, "surpresa", (0.6, -0.3))
-    k = saida(min(1, max(0, tl - (w("enorme") - 7.5)) / 0.2))
+    k = saida(min(1, max(0, tl - (w("enorme") - INI["P06"])) / 0.2))
     cam = AT.seguir(Pc, lambda s: V([0.4, -1.45, 1.0]), tl, 0.5, 0.48, lerp(0.95, 1.25, k), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[ator(sj, tl), ator(tr, tl, caixa=True)], hora="tarde", tremida=(0.39, 0.62))
 
@@ -236,8 +248,8 @@ def P07(tl, d):   # "Ao abrir, ele encontrou": a tampa abre, luz dourada no rost
         PO._ik_par(J, p, v, {"d": (-0.35 - 0.1 * math.sin(tl_ * 7), yy), "e": (0.35 + 0.1 * math.sin(tl_ * 7), yy)}, "aberta")
         p["cabeca"] = 6 * math.sin(tl_ * 6); return p
     tr.faz(tipo="funcao", t0=0.0, fn=abre, ease=0.25)
-    tr.rosto(0.0, "pensativo", (0, 0.6)).rosto(w("abrir") - 8.45 + 0.1, "surpresa", (0, 0.7)).rosto(1.0, "vidrado", (0, 0.5))
-    ka = suave((tl - (w("abrir") - 8.45)) / 0.35)
+    tr.rosto(0.0, "pensativo", (0, 0.6)).rosto(w("abrir") - INI["P07"] + 0.1, "surpresa", (0, 0.7)).rosto(1.0, "vidrado", (0, 0.5))
+    ka = suave((tl - (w("abrir") - INI["P07"])) / 0.35)
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.0, 0.9]), tl, 0.5, 0.52, lerp(1.25, 1.6, suave(tl / d)), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[ator(tr, tl)], hora="tarde", caixa_mesa=dict(tampa=ka, brilho=ka), luz_caixa=ka)
 
@@ -266,11 +278,11 @@ def P10(tl, d):   # "tinha mais uma surpresa!": a TV liga
 
 
 def P11(tl, d):   # "GTA 6 já estava instalado!": barra até 100 %, zoom na tela
-    Pc = placa("C7_tv"); k = (tl) / (w("instalado") - 14.75 + 0.35)
-    z = lerp(0.95, 1.22, saida(min(1, max(0, tl - (w("instalado") - 14.75 - 0.05)) / 0.25))) * (1 + 0.05 * tl)
+    Pc = placa("C7_tv"); k = (tl) / (w("instalado") - INI["P11"] + 0.35)
+    z = lerp(0.88, 1.04, saida(min(1, max(0, tl - (w("instalado") - INI["P11"] - 0.05)) / 0.25))) * (1 + 0.03 * tl)
     cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.05]), tl, 0.5, 0.42, z, atraso=0.0)
     return dict(placa="C7_tv", cam=cam, atores=[], hora="tarde", tv=("instalando", tl, k), tvluz=0.8, console_luz=1.0,
-                tremida=(w("instalado") - 14.75, w("instalado") - 14.75 + 0.3))
+                tremida=(w("instalado") - INI["P11"], w("instalado") - INI["P11"] + 0.3))
 
 
 def P12(tl, d):   # "Naquele instante,": close no rosto; os olhos se arregalam com a luz da TV
@@ -399,7 +411,7 @@ def insert_botao(t, tl, t_aperto=None, hesita=False, luz0=0.0):
 
 
 def P21(tl, d):   # "Juca ligou o console": close — o dedo aperta o botão, a luz azul acende
-    ta = w("ligou") - 30.9 + 0.12
+    ta = w("ligou") - INI["P21"] + 0.12
     return dict(insert=lambda t: insert_botao(t, tl, t_aperto=ta), tremida=(ta, ta + 0.2))
 
 
@@ -506,7 +518,7 @@ def P34(tl, d):   # "Dez horas depois,": madrugada, só a TV e o abajur
 def P35(tl, d):   # "Juca continuava exatamente no mesmo lugar.": rótulo 0 m
     Pc = placa("C3_lado"); tr = juca_sentado(Pc, "perfil", "vidrado", intensidade=1.1)
     tr.rosto(0.0, "vidrado", None, {"olheira": 0.75, "barba": 0.6})
-    k = (tl - (w("exatamente") - 51.85)) / 0.35
+    k = (tl - (w("exatamente") - INI["P35"])) / 0.35
     cam = AT.seguir(Pc, lambda s: V([0.1, -1.5, 1.0]), tl, 0.5, 0.48, lerp(1.25, 1.55, suave(tl / d)), atraso=0.0)
     return dict(placa="C3_lado", cam=cam, atores=[ator(tr, tl, controle=True)], hora="madrugada", tvluz=1.4,
                 rotulo_juca=("0 m", "SAIU DO LUGAR", k))
@@ -517,7 +529,7 @@ def P36(tl, d):   # "O sofá já parecia ter se tornado sua nova residência ofi
     tr.rosto(0.0, "vidrado", None, {"olheira": 0.8, "barba": 0.75})
     z = lerp(2.0, 1.0, saida(tl / 1.6))
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.35, 1.05]), tl, 0.5, 0.45, z, atraso=0.0)
-    k = (tl - (w("residência") - 54.65)) / 0.35
+    k = (tl - (w("residência") - INI["P36"])) / 0.35
     return dict(placa="C2_sofa", cam=cam, atores=[ator(tr, tl, controle=True)], hora="madrugada", tvluz=1.4, lixo=min(1, tl / 1.5),
                 residencia=k)
 
@@ -548,7 +560,7 @@ def P39(tl, d):   # "A namorada começou a perceber que aquele presente": ela ac
     tr.faz(tipo="funcao", t0=0.0, fn=espreguica, ease=0.1)
     tr.faz(tipo="funcao", t0=1.05, fn=lambda v, t, tl_: dict(AE.parado(D, v, t), braco_d=20 + 25 * suave((tl_ - 0.9) / 0.3), braco_e=-20 - 25 * suave((tl_ - 0.9) / 0.3),
                                                               tronco=-8 * suave((tl_ - 0.9) / 0.3) + 2 * math.sin(tl_ * 20) * (tl_ > 0.9), cabeca=5 * math.sin(tl_ * 4)), ease=0.2)
-    tp = w("perceber") - 61.3
+    tp = w("perceber") - INI["P39"]
     tr.rosto(0.0, "sonolento", None, {"boca": "o", "abertura": 0.8}).rosto(tp, "surpresa", (0.7, 0.1)).rosto(tp + 0.6, "preocupacao", (0.7, 0.1))
     cam = AT.seguir(Pc, lambda s: V([-2.45, 0.75, 1.25]), tl, 0.5, 0.42, lerp(1.4, 1.9, suave((tl - tp) / 0.3)), atraso=0.0)
     return dict(placa="C5_porta", cam=cam, atores=[ator(tr, tl)], hora="amanhecer")
@@ -559,7 +571,7 @@ def P40(tl, d):   # "talvez tivesse sido um dos maiores erros da sua vida.": mã
     tr = AE.Trajeto(D, Pc, V([0.95, -0.55, 0.0]), "tres_quartos", 1, rosto="preocupacao")
     def testa(v, t, tl_):
         p = AE.parado(D, v, t); PO._ik_par(D, p, v, {"d": (-0.05, -(D.H.PROP["topo_cabeca"] - 0.35))}, "aberta"); p["cabeca"] = -6; return p
-    te = w("erros") - 63.9
+    te = w("erros") - INI["P40"]
     tr.faz(tipo="funcao", t0=te - 0.25, fn=testa, ease=0.2)
     tr.rosto(0.0, "preocupacao", (-0.6, 0.1)).rosto(te, "triste", None, {"palp_sup": 1.0})
     sj = juca_sentado(Pc, "tres_quartos", "vidrado", direcao=-1); sj.rosto(0, "vidrado", None, {"olheira": 1.0, "barba": 1.0})
@@ -570,7 +582,7 @@ def P40(tl, d):   # "talvez tivesse sido um dos maiores erros da sua vida.": mã
 
 
 def P41(tl, d):   # "Afinal, ela queria agradar o namorado...": lembrança (sépia) da chegada com a caixa
-    st = P01(tl * 0.8, 1.85 * 1.2); st["sepia"] = True; return st
+    st = P01(tl * 0.8, INI["P02"] * 1.2); st["sepia"] = True; return st
 
 
 def P42(tl, d):   # "Mas acabou criando um verdadeiro morador de Vice City!": o Juca andando dentro do jogo
@@ -589,11 +601,11 @@ def P43(tl, d):   # "E o mais impressionante?": aproximação lenta por cima do 
 
 
 def P44(tl, d):   # "Juca ainda estava na primeira missão!": MISSÃO 1 · 3 %
-    Pc = placa("C7_tv"); tp = w("primeira") - 73.95
-    z = lerp(0.95, 1.25, saida(min(1, max(0, tl - tp) / 0.22)))
+    Pc = placa("C7_tv"); tp = w("primeira") - INI["P44"]
+    z = lerp(0.88, 1.06, saida(min(1, max(0, tl - tp) / 0.22)))
     cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.05]), tl, 0.5, 0.42, z, atraso=0.0)
     return dict(placa="C7_tv", cam=cam, atores=[], hora="amanhecer", tv=("missao", tl, 0), tvluz=1.0, console_luz=1.0,
-                tremida=(tp, tp + 0.3), rotulo_tv=("3 %", "DA MISSÃO 1", (tl - tp - 0.2) / 0.35))
+                tremida=(tp, tp + 0.3))
 
 
 def P45(tl, d):   # "Agora imagine receber um presente desses...": a sala inteira, recuo lento
@@ -658,6 +670,9 @@ PLANOS = [  # (id, início, fim, função, entrada)
     ("P46", 78.70, 80.60, P46, "corte"), ("P47", 80.60, 82.45, P47, "chicote"), ("P48", 82.45, 85.40, P48, "corte"),
     ("P49", 85.40, DUR, P49, "flash"),
 ]
+PLANOS = [(i, round(remap(a), 3), round(remap(b), 3), f, e) for i, a, b, f, e in PLANOS]   # → narração em uso
+INI = {p[0]: p[1] for p in PLANOS}
+DUR = PLANOS[-1][2]
 
 MAPA = [  # palavra (como falada), plano e a ação que está na tela naquele instante
     ("namorada", "P01", "a Jandira entra pela porta com a caixa enorme; a câmera avança"),
@@ -1056,12 +1071,20 @@ def main():
         return
     if "--seg" in a:
         segmento(int(a[a.index("--de") + 1]), int(a[a.index("--ate") + 1]), Path(a[a.index("--seg") + 1])); return
-    trab = int(os.environ.get("TRABALHADORES", "4")); tmp = P_ / "_cache" / "segmentos"; tmp.mkdir(parents=True, exist_ok=True)
+    simult = int(os.environ.get("TRABALHADORES", "3")); trab = int(os.environ.get("SEGMENTOS", str(simult * 3)))
+    tmp = P_ / "_cache" / "segmentos"; tmp.mkdir(parents=True, exist_ok=True)
+    for f in tmp.glob("seg_*.mp4"):
+        f.unlink()
     cortes = [round(N * i / trab) for i in range(trab + 1)]
-    procs = [subprocess.Popen([sys.executable, __file__, "--seg", str(tmp / f"seg_{i}.mp4"), "--de", str(cortes[i]), "--ate", str(cortes[i + 1])],
-                              env=dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1")) for i in range(trab)]
-    for p in procs:
-        p.wait()
+    import time
+    fila = list(range(trab)); rodando = []
+    while fila or rodando:          # no máximo 'simult' processos ao mesmo tempo (memória); segmentos curtos
+        rodando = [p for p in rodando if p.poll() is None]
+        while fila and len(rodando) < simult:
+            i = fila.pop(0)
+            rodando.append(subprocess.Popen([sys.executable, __file__, "--seg", str(tmp / f"seg_{i}.mp4"), "--de", str(cortes[i]), "--ate", str(cortes[i + 1])],
+                                            env=dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1", MAX_PLACAS=os.environ.get("MAX_PLACAS", "2"))))
+        time.sleep(2)
     for i in range(trab):
         nq = int(subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v", "-show_entries", "stream=nb_read_frames",
                                  "-of", "csv=p=0", str(tmp / f"seg_{i}.mp4")], capture_output=True, text=True).stdout.strip() or 0)
