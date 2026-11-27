@@ -62,8 +62,9 @@ def jogando(P, vista, t=0.0, dy=None, intensidade=1.0):
     _ik_par(P, p, vista, alvos, "segurar")
     for s in ("d", "e"):   # polegares apertando botões
         p[f"dedos_{s}"]["polegar"] = [30 + 25 * max(0, math.sin(t * 11 + (0 if s == "d" else 1.7))), 25]
-    p["cabeca"] = 2.0 * math.sin(t * 3.1) * intensidade
-    p["tronco"] = -4.0 if vista == "perfil" else 1.5 * math.sin(t * 2.3) * intensidade
+    # corpo acompanhando o jogo: cabeça e tronco se inclinam nas curvas, pequenos trancos nas jogadas
+    p["cabeca"] = (4.5 * math.sin(t * 4.1) + 1.5 * math.sin(t * 11.0)) * intensidade
+    p["tronco"] = (-4.0 if vista == "perfil" else 0.0) + (3.5 * math.sin(t * 3.3) + 1.2 * math.sin(t * 8.7)) * intensidade
     return p, (cx + balanco, cy), balanco * 60
 
 

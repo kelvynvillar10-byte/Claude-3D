@@ -167,6 +167,8 @@ def P02(tl, d):   # "com uma surpresa que mudaria sua vida": zoom brusco na caix
     tr = AE.Trajeto(D, Pc, V([-2.55, 0.75, 0.0]), "frente", 1, rosto="alegria", base=AE.maos_caixa(D))
     tr.faz(tipo="andar", t0=0.0, dur=2.6, vista="frente", eixo_vet=V([1.0, 0.0, 0.0]), sentido=1, bracos=AE.maos_caixa(D))
     tr.faz(tipo="parar", t0=2.6, dur=0.25)
+    tr.faz(tipo="funcao", t0=2.75, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=AE.maos_caixa(D)(v, t)), cabeca=6 * math.sin(tl_ * 7), tronco=3 * math.sin(tl_ * 5),
+                                     raiz=[0.0, -0.07 * abs(math.sin(tl_ * 6.5))]), ease=0.15)
     st = ator(tr, t, caixa=True, brilho_caixa=suave((tl - 0.3) / 0.6))
     k = saida(min(1, max(0, tl - (w("surpresa") - 1.85 - 0.05)) / 0.22))
     z = lerp(1.3, 1.75, k)
@@ -178,6 +180,8 @@ def P03(tl, d):   # "para sempre?": o Juca no sofá vira a cabeça, curioso
     Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "neutro", jogar=False)
     tr.faz(tipo="virar", t0=0.12, vistas=["tres_quartos"], direcao=-1, base=AE.base_sentado(J))
     tr.rosto(0.12, "surpresa", (-0.8, -0.1)).rosto(0.45, "pensativo", (-0.9, 0.0))
+    tr.faz(tipo="funcao", t0=0.2, fn=lambda v, t, tl_: dict(AE.parado(J, v, t, base=PO.sentado(J, v)), tronco=8 * suave(tl_ / 0.3),
+                                                          cabeca=-8 * suave(tl_ / 0.2) + 7 * math.sin(tl_ * 11)), ease=0.05)
     st = ator(tr, tl)
     cam = AT.seguir(Pc, lambda s: V([0, -1.45, 1.15]), tl, 0.5, 0.40, lerp(1.25, 1.75, saida(tl / 0.3)), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[st], hora="tarde")
@@ -185,7 +189,8 @@ def P03(tl, d):   # "para sempre?": o Juca no sofá vira a cabeça, curioso
 
 def _relax(vista, t, tl=0):
     p = PO.sentado(J, vista)
-    p.update({"braco_d": 55, "antebraco_d": -35, "braco_e": 40, "antebraco_e": -30, "tronco": 12, "cabeca": 8})
+    p.update({"braco_d": 55 + 10 * math.sin(t * 2.2), "antebraco_d": -35, "braco_e": 40, "antebraco_e": -30,
+              "tronco": 12 + 3 * math.sin(t * 1.7), "cabeca": 8 + 11 * math.sin(t * 3.4)})
     return p
 
 
@@ -215,6 +220,8 @@ def P06(tl, d):   # "uma caixa enorme": ela entra no quadro com a caixa; zoom br
     tr = AE.Trajeto(D, Pc, V([0.85, -1.55, 0.0]), "perfil", -1, rosto="alegria", base=AE.maos_caixa(D))
     tr.faz(tipo="andar", t0=0.0, dur=0.45, vista="perfil", eixo_vet=-dx * -1, sentido=1, direcao=1, bracos=AE.maos_caixa(D))
     tr.faz(tipo="virar", t0=0.45, vistas=["tres_quartos", "frente"], passo=0.08, direcao=1, base=AE.maos_caixa(D))
+    tr.faz(tipo="funcao", t0=0.62, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=AE.maos_caixa(D)(v, t)), cabeca=6 * math.sin(tl_ * 7), tronco=3 * math.sin(tl_ * 5),
+                                     raiz=[0.0, -0.07 * abs(math.sin(tl_ * 6.5))]), ease=0.1)
     sj = juca_sentado(Pc, "frente", "surpresa", jogar=False); sj.rosto(0.3, "surpresa", (0.6, -0.3))
     k = saida(min(1, max(0, tl - (w("enorme") - 7.5)) / 0.2))
     cam = AT.seguir(Pc, lambda s: V([0.4, -1.45, 1.0]), tl, 0.5, 0.48, lerp(0.95, 1.25, k), atraso=0.0)
@@ -224,8 +231,10 @@ def P06(tl, d):   # "uma caixa enorme": ela entra no quadro com a caixa; zoom br
 def P07(tl, d):   # "Ao abrir, ele encontrou": a tampa abre, luz dourada no rosto dele
     Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "surpresa", jogar=False)
     def abre(v, t, tl_):
-        p = PO.sentado(J, v); p["tronco"] = 10 * suave(tl_ / 0.3)
-        PO._ik_par(J, p, v, {"d": (-0.35, -1.6), "e": (0.35, -1.6)}, "aberta"); return p
+        p = PO.sentado(J, v); p["tronco"] = 10 * suave(tl_ / 0.3) - 14 * suave((tl_ - 0.4) / 0.5) + 2 * math.sin(tl_ * 9)
+        yy = -1.6 - 0.45 * suave((tl_ - 0.3) / 0.5)
+        PO._ik_par(J, p, v, {"d": (-0.35 - 0.1 * math.sin(tl_ * 7), yy), "e": (0.35 + 0.1 * math.sin(tl_ * 7), yy)}, "aberta")
+        p["cabeca"] = 6 * math.sin(tl_ * 6); return p
     tr.faz(tipo="funcao", t0=0.0, fn=abre, ease=0.25)
     tr.rosto(0.0, "pensativo", (0, 0.6)).rosto(w("abrir") - 8.45 + 0.1, "surpresa", (0, 0.7)).rosto(1.0, "vidrado", (0, 0.5))
     ka = suave((tl - (w("abrir") - 8.45)) / 0.35)
@@ -241,7 +250,8 @@ def P09(tl, d):   # "Mas espera...": ela levanta o dedo, sorriso de quem guarda 
     Pc = placa("C1_geral")
     tr = AE.Trajeto(D, Pc, V([0.9, -0.6, 0.0]), "tres_quartos", 1, rosto="desconfiada")
     def dedo(v, t, tl_):
-        p = AE.parado(D, v, t); p.update({"braco_d": 150, "antebraco_d": 35, "dedos_d": D.G.mao("apontar"), "mao_vista_d": "palma"}); return p
+        p = AE.parado(D, v, t); p.update({"braco_d": 150 + 9 * math.sin(tl_ * 12), "antebraco_d": 35 + 12 * math.sin(tl_ * 12),
+                                          "dedos_d": D.G.mao("apontar"), "mao_vista_d": "palma", "cabeca": 7 * math.sin(tl_ * 6), "tronco": 4 * math.sin(tl_ * 3)}); return p
     tr.faz(tipo="funcao", t0=0.15, fn=dedo, ease=0.2)
     tr.rosto(0.0, "convencido", (-0.4, 0)).rosto(0.3, "desconfiada", (-0.6, 0))
     cam = AT.seguir(Pc, lambda s: V([0.9, -0.6, 1.4]), tl, 0.5, 0.42, lerp(1.6, 2.1, saida(tl / d)), atraso=0.0)
@@ -266,7 +276,8 @@ def P11(tl, d):   # "GTA 6 já estava instalado!": barra até 100 %, zoom na tel
 def P12(tl, d):   # "Naquele instante,": close no rosto; os olhos se arregalam com a luz da TV
     Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "surpresa", jogar=False)
     tr.rosto(0.0, "surpresa", (0, -0.1)).rosto(0.55, "vidrado", (0, -0.1))
-    tr.faz(tipo="pose", t0=0.0, extra={"tronco": -6, "cabeca": -4}, ease=0.4)
+    tr.faz(tipo="funcao", t0=0.0, fn=lambda v, t, tl_: dict(AE.parado(J, v, t, base=PO.sentado(J, v)), tronco=-14 * suave(tl_ / 0.5) + 2.5 * math.sin(tl_ * 22),
+                                                          cabeca=-6 * suave(tl_ / 0.5) + 5 * math.sin(tl_ * 7)), ease=0.05)
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.35, 1.35]), tl, 0.5, 0.42, lerp(1.9, 2.6, suave(tl / d)), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[ator(tr, tl)], hora="tarde", tvluz=0.8)
 
@@ -279,7 +290,8 @@ def _levanta(v, t, tl_):
 def P13(tl, d):   # "Juca descobriu o verdadeiro significado": ele se levanta devagar, maravilhado
     Pc = placa("C3_lado"); tr = juca_sentado(Pc, "perfil", "vidrado", jogar=False)
     tr.faz(tipo="funcao", t0=0.2, fn=_levanta, ease=0.05)
-    tr.faz(tipo="pose", t0=1.3, extra={"braco_d": -60, "antebraco_d": -80, "braco_e": -50, "antebraco_e": -70, "cabeca": -8}, ease=0.5)
+    tr.faz(tipo="funcao", t0=1.3, fn=lambda v, t, tl_: dict(AE.parado(J, v, t), braco_d=-60 + 15 * math.sin(tl_ * 6), antebraco_d=-80, braco_e=-50 + 15 * math.sin(tl_ * 6 + 1),
+                                                         antebraco_e=-70, cabeca=-8 + 6 * math.sin(tl_ * 5), tronco=4 * math.sin(tl_ * 3)), ease=0.5)
     tr.rosto(0.0, "vidrado").rosto(1.2, "alegria", (0.5, -0.4))
     cam = AT.seguir(Pc, lambda s: tr.estado(s)["pos"] + [0, 0, lerp(0.95, 1.35, suave((s - 0.2) / 1.0))], tl, 0.5, 0.42, lerp(1.25, 1.45, suave(tl / d)), atraso=0.25)
     return dict(placa="C3_lado", cam=cam, atores=[ator(tr, tl)], hora="tarde", tvluz=0.8)
@@ -299,6 +311,10 @@ def P15(tl, d):   # "Seus olhos brilharam": close nos olhos com estrelas
     Pc = placa("C2_sofa")
     tr = AE.Trajeto(J, Pc, V([0.0, -1.0, 0.0]), "frente", 1, rosto="vidrado")
     tr.rosto(0.0, "vidrado", (0, -0.2), {"pupila": 0.25})
+    def vibra(v, t, tl_):
+        p = AE.parado(J, v, t); p["cabeca"] = 7 * math.sin(tl_ * 9); p["tronco"] = 4 * math.sin(tl_ * 7)
+        r = list(p["raiz"]); r[1] -= 0.06 * abs(math.sin(tl_ * 9)); p["raiz"] = r; return p
+    tr.faz(tipo="funcao", t0=0.0, fn=vibra, ease=0.05)
     st = ator(tr, tl)
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.0, 1.6]), tl, 0.5, 0.42, lerp(2.4, 3.0, saida(tl / d)), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[st], hora="tarde", tvluz=0.8, estrelas_olhos=tl)
@@ -311,7 +327,7 @@ def P16(tl, d):   # "seu coração acelerou": coração e 72 → 140 BPM
 def _abraco(P, v, t, tl_):
     p = AE.parado(P, v, t); yc = -(P.H.PROP["ombro"] - 0.45)
     alvos = {"d": (0.42, yc + 0.05), "e": (0.62, yc - 0.05)} if v == "perfil" else {"d": (-0.30, yc), "e": (0.30, yc)}
-    PO._ik_par(P, p, v, alvos, "segurar"); p["cabeca"] = 8 + 4 * math.sin(t * 5); p["tronco"] = 4 * math.sin(t * 2.5)
+    PO._ik_par(P, p, v, alvos, "segurar"); p["cabeca"] = 8 + 8 * math.sin(t * 6); p["tronco"] = 7 * math.sin(t * 4)
     return p
 
 
@@ -457,7 +473,8 @@ def P31(tl, d):   # "a namorada percebeu que ele ainda estava jogando": ela na p
     tr = AE.Trajeto(D, Pc, V([-2.5, 0.75, 0.0]), "frente", 1, rosto="desconfiada", base=lambda v, t: PO.bracos_cruzados(D, v) if v == "frente" else None)
     tr.faz(tipo="andar", t0=0.9, dur=0.9, vista="frente", eixo_vet=V([1.0, 0.0, 0.0]), sentido=1)
     tr.faz(tipo="parar", t0=1.8, dur=0.3)
-    tr.faz(tipo="funcao", t0=1.85, fn=lambda v, t, tl_: AE.parado(D, v, t, base=PO.bracos_cruzados(D, v)), ease=0.25)
+    tr.faz(tipo="funcao", t0=1.85, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=PO.bracos_cruzados(D, v)), cabeca=7 * math.sin(tl_ * 6),
+                                                              canela_d=-14 * max(0, math.sin(tl_ * 12)), pe_d=10 * max(0, math.sin(tl_ * 12))), ease=0.25)
     tr.rosto(0.0, "desconfiada", (0.6, 0.1)).rosto(1.9, "irritada", (0.7, 0.2))
     cam = AT.seguir(Pc, lambda s: tr.estado(s)["pos"] + [0, 0, 1.3], tl, 0.5, 0.42, lerp(1.3, 1.7, suave(tl / d)), atraso=0.3)
     return dict(placa="C5_porta", cam=cam, atores=[ator(tr, tl)], hora="fim_tarde")
@@ -487,7 +504,7 @@ def P34(tl, d):   # "Dez horas depois,": madrugada, só a TV e o abajur
 
 
 def P35(tl, d):   # "Juca continuava exatamente no mesmo lugar.": rótulo 0 m
-    Pc = placa("C3_lado"); tr = juca_sentado(Pc, "perfil", "vidrado", intensidade=0.8)
+    Pc = placa("C3_lado"); tr = juca_sentado(Pc, "perfil", "vidrado", intensidade=1.1)
     tr.rosto(0.0, "vidrado", None, {"olheira": 0.75, "barba": 0.6})
     k = (tl - (w("exatamente") - 51.85)) / 0.35
     cam = AT.seguir(Pc, lambda s: V([0.1, -1.5, 1.0]), tl, 0.5, 0.48, lerp(1.25, 1.55, suave(tl / d)), atraso=0.0)
@@ -496,7 +513,7 @@ def P35(tl, d):   # "Juca continuava exatamente no mesmo lugar.": rótulo 0 m
 
 
 def P36(tl, d):   # "O sofá já parecia ter se tornado sua nova residência oficial": recuo, placa de residência
-    Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "vidrado", intensidade=0.8)
+    Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "vidrado", intensidade=1.1)
     tr.rosto(0.0, "vidrado", None, {"olheira": 0.8, "barba": 0.75})
     z = lerp(2.0, 1.0, saida(tl / 1.6))
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.35, 1.05]), tl, 0.5, 0.45, z, atraso=0.0)
@@ -515,7 +532,7 @@ def P37(tl, d):   # "Quando amanheceu,": o dia nasce na janela
 
 
 def P38(tl, d):   # "Juca ainda estava jogando.": barba e olheiras, olho tremendo
-    Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "vidrado", intensidade=0.7)
+    Pc = placa("C2_sofa"); tr = juca_sentado(Pc, "frente", "vidrado", intensidade=1.1)
     e = {"olheira": 1.0, "barba": 1.0, "palp_sup": 0.32 + 0.1 * (math.sin(tl * 23) > 0.6)}
     tr.rosto(0.0, "vidrado", (0, -0.1), e)
     cam = AT.seguir(Pc, lambda s: V([0.0, -1.3, 1.3]), tl, 0.5, 0.42, lerp(1.9, 2.5, suave(tl / d)), atraso=0.0)
@@ -529,7 +546,8 @@ def P39(tl, d):   # "A namorada começou a perceber que aquele presente": ela ac
         p = AE.parado(D, v, t); k = math.sin(math.pi * min(1, tl_ / 1.0))
         p.update({"braco_d": 165 * k, "antebraco_d": 30 * k, "braco_e": -165 * k, "antebraco_e": -30 * k, "tronco": 6 * k}); return p
     tr.faz(tipo="funcao", t0=0.0, fn=espreguica, ease=0.1)
-    tr.faz(tipo="pose", t0=1.05, extra={"braco_d": 20, "braco_e": -20}, ease=0.2)
+    tr.faz(tipo="funcao", t0=1.05, fn=lambda v, t, tl_: dict(AE.parado(D, v, t), braco_d=20 + 25 * suave((tl_ - 0.9) / 0.3), braco_e=-20 - 25 * suave((tl_ - 0.9) / 0.3),
+                                                              tronco=-8 * suave((tl_ - 0.9) / 0.3) + 2 * math.sin(tl_ * 20) * (tl_ > 0.9), cabeca=5 * math.sin(tl_ * 4)), ease=0.2)
     tp = w("perceber") - 61.3
     tr.rosto(0.0, "sonolento", None, {"boca": "o", "abertura": 0.8}).rosto(tp, "surpresa", (0.7, 0.1)).rosto(tp + 0.6, "preocupacao", (0.7, 0.1))
     cam = AT.seguir(Pc, lambda s: V([-2.45, 0.75, 1.25]), tl, 0.5, 0.42, lerp(1.4, 1.9, suave((tl - tp) / 0.3)), atraso=0.0)
@@ -599,6 +617,8 @@ def P47(tl, d):   # "para dar atenção à sua namorada?": ela olha para nós, s
     tr.faz(tipo="funcao", t0=0.0, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=PO.bracos_cruzados(D, "frente")),
                                                             canela_d=-14 * max(0, math.sin(tl_ * 12)), pe_d=10 * max(0, math.sin(tl_ * 12))), ease=0.1)
     tr.rosto(0.0, "desconfiada", (0.0, 0.0))
+    tr.faz(tipo="funcao", t0=0.05, fn=lambda v, t, tl_: dict(AE.parado(D, v, t, base=PO.bracos_cruzados(D, "frente")), cabeca=8 * math.sin(tl_ * 4.5),
+                                                          tronco=3 * math.sin(tl_ * 3), canela_d=-14 * max(0, math.sin(tl_ * 12)), pe_d=10 * max(0, math.sin(tl_ * 12))), ease=0.1)
     cam = AT.seguir(Pc, lambda s: V([-1.6, 0.35, 1.35]), tl, 0.5, 0.42, lerp(1.6, 2.0, suave(tl / d)), atraso=0.0)
     return dict(placa="C5_porta", cam=cam, atores=[ator(tr, tl)], hora="amanhecer")
 

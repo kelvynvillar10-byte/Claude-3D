@@ -1,0 +1,187 @@
+{
+ "video": "MC_ep02_presente_videogame_v1.mp4",
+ "verificacoes": [
+  {
+   "verificacao": "formato",
+   "ok": true,
+   "detalhe": "1080×1920 · 30 qps · h264 + aac"
+  },
+  {
+   "verificacao": "duracao",
+   "ok": true,
+   "detalhe": "88.40 s (narração 85.36 s + cartela final); diretriz 60–120 s"
+  },
+  {
+   "verificacao": "ritmo",
+   "ok": true,
+   "detalhe": "49 planos · mediana 1.65 s · 33 cortes/min · 13 planos entre 1,5 e 2 s · 1 acima de 3 s (referências: mediana 1,7 s, 31 cortes/min)"
+  },
+  {
+   "verificacao": "movimento_personagens",
+   "ok": false,
+   "detalhe": "quadros com AÇÃO visível (deslocamento, gesto, troca de pose/vista, tela animando): 69 % · plano com menos ação: 3 %"
+  },
+  {
+   "verificacao": "camera_em_movimento",
+   "ok": true,
+   "detalhe": "câmera se move em 100 % dos quadros; planos com câmera parada: nenhum"
+  },
+  {
+   "verificacao": "mapa_fala_imagem",
+   "ok": true,
+   "detalhe": "48 palavras-chave, cada uma com a ação no plano certo no instante em que é dita"
+  },
+  {
+   "verificacao": "cotovelos",
+   "ok": true,
+   "detalhe": "4716 braços verificados (todas as poses de todos os quadros, Juca e Jandira), 0 invertido(s)"
+  },
+  {
+   "verificacao": "rig_heitor_intacto",
+   "ok": true,
+   "detalhe": "nenhuma alteração em personagens/heitor/rig_v2 (Juca e Jandira carregam cópias próprias)"
+  },
+  {
+   "verificacao": "pes_sem_deslizar",
+   "ok": true,
+   "detalhe": "pé de apoio no ciclo: variação máxima 0.00 mm (personagem avança à velocidade do ciclo: Juca 0.63 m/s andando)"
+  },
+  {
+   "verificacao": "loudness",
+   "ok": true,
+   "detalhe": "-14.1 LUFS · pico -1.5 dBTP"
+  },
+  {
+   "verificacao": "numeros_na_tela",
+   "ok": true,
+   "detalhe": "13 números com rótulo grande: 0 h de uso; 100 % instalado; 72 → 140 BPM; 96–126 km/h; 16:00 → 18:00; 2 HORAS; 5 HORAS; 65 → 22 °C; 10 HORAS; 02:00; 0 m; 06:12; MISSÃO 1 · 3 %"
+  },
+  {
+   "verificacao": "legendas",
+   "ok": true,
+   "detalhe": "89 blocos · média 2.6 palavras · máx 3 · destaque amarelo em 27 % dos blocos"
+  },
+  {
+   "verificacao": "marca_dagua",
+   "ok": true,
+   "detalhe": "\"MODO CURIOSO\" (MODO branco 60 %, CURIOSO #ffc21f) no canto superior direito, em todos os quadros"
+  },
+  {
+   "verificacao": "estampas",
+   "ok": true,
+   "detalhe": "Juca e Jandira com a estampa exatamente \"Modo Curioso\""
+  },
+  {
+   "verificacao": "gancho",
+   "ok": true,
+   "detalhe": "pergunta 'E se…' no 1º segundo, quebrada em legendas; 1º corte em 1.85 s"
+  },
+  {
+   "verificacao": "final",
+   "ok": true,
+   "detalhe": "pergunta final na narração + cartela COMENTA AÍ / SEGUE AÍ! (últimos 3 s)"
+  }
+ ],
+ "acao_por_plano": {
+  "P01": 1.0,
+  "P02": 0.451,
+  "P03": 0.08,
+  "P04": 0.038,
+  "P05": 1.0,
+  "P06": 0.552,
+  "P07": 0.214,
+  "P08": 1.0,
+  "P09": 0.211,
+  "P10": 1.0,
+  "P11": 1.0,
+  "P12": 0.119,
+  "P13": 0.494,
+  "P14": 0.697,
+  "P15": 0.027,
+  "P16": 1.0,
+  "P17": 0.405,
+  "P18": 1.0,
+  "P19": 0.944,
+  "P20": 0.911,
+  "P21": 1.0,
+  "P22": 0.786,
+  "P23": 0.847,
+  "P24": 1.0,
+  "P25": 1.0,
+  "P26": 1.0,
+  "P27": 0.673,
+  "P28": 0.83,
+  "P29": 0.969,
+  "P30": 0.658,
+  "P31": 0.457,
+  "P32": 0.667,
+  "P33": 0.622,
+  "P34": 0.528,
+  "P35": 0.417,
+  "P36": 0.447,
+  "P37": 0.541,
+  "P38": 0.396,
+  "P39": 0.462,
+  "P40": 0.54,
+  "P41": 1.0,
+  "P42": 1.0,
+  "P43": 0.62,
+  "P44": 1.0,
+  "P45": 0.513,
+  "P46": 1.0,
+  "P47": 0.589,
+  "P48": 0.693,
+  "P49": 1.0
+ },
+ "camera_por_plano": {
+  "P01": 1.0,
+  "P02": 1.0,
+  "P03": 1.0,
+  "P04": 1.0,
+  "P05": 1.0,
+  "P06": 1.0,
+  "P07": 1.0,
+  "P08": 1.0,
+  "P09": 1.0,
+  "P10": 1.0,
+  "P11": 1.0,
+  "P12": 1.0,
+  "P13": 1.0,
+  "P14": 1.0,
+  "P15": 1.0,
+  "P16": 1.0,
+  "P17": 1.0,
+  "P18": 1.0,
+  "P19": 1.0,
+  "P20": 1.0,
+  "P21": 1.0,
+  "P22": 1.0,
+  "P23": 1.0,
+  "P24": 1.0,
+  "P25": 1.0,
+  "P26": 1.0,
+  "P27": 1.0,
+  "P28": 1.0,
+  "P29": 0.938,
+  "P30": 1.0,
+  "P31": 1.0,
+  "P32": 1.0,
+  "P33": 1.0,
+  "P34": 1.0,
+  "P35": 1.0,
+  "P36": 0.991,
+  "P37": 1.0,
+  "P38": 1.0,
+  "P39": 1.0,
+  "P40": 1.0,
+  "P41": 1.0,
+  "P42": 1.0,
+  "P43": 1.0,
+  "P44": 1.0,
+  "P45": 1.0,
+  "P46": 1.0,
+  "P47": 1.0,
+  "P48": 1.0,
+  "P49": 1.0
+ }
+}
