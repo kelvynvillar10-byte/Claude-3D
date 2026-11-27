@@ -122,8 +122,13 @@ def cartela_tempo(cv, numero, linha, k, y=0.30, sub=None):
     """'2 HORAS DEPOIS': número enorme em amarelo com relógio girando, entrada com pop."""
     if k <= 0:
         return
-    s = pop(k); cx = OW / 2; cy = OH * y
-    r = 120 * s; rx = cx - 250 * s
+    s = pop(k); cy = OH * y
+    f = skia.Font(ROBOTO, 330 * s); f2 = skia.Font(ROBOTO, 110 * s); wn = f.measureText(numero)
+    larg = 2 * 120 * s + 40 * s + wn + 24 * s + max(f2.measureText(linha), skia.Font(ROBOTO, 84 * s).measureText(sub or ""))
+    if larg > OW * 0.94:   # números de 2 dígitos: encolhe para caber
+        s *= OW * 0.94 / larg; f = skia.Font(ROBOTO, 330 * s); f2 = skia.Font(ROBOTO, 110 * s); wn = f.measureText(numero); larg = OW * 0.94
+    x0 = OW / 2 - larg / 2; cx = x0 + 240 * s + 40 * s + 90 * s
+    r = 120 * s; rx = x0 + 120 * s
     cv.drawCircle(rx, cy, r, pt(0xFFF6F1E7)); cv.drawCircle(rx, cy, r, borda(ESCURO, 12 * s))
     for i in range(12):
         a = i * math.pi / 6; cv.drawLine(rx + math.cos(a) * r * 0.78, cy + math.sin(a) * r * 0.78, rx + math.cos(a) * r * 0.9, cy + math.sin(a) * r * 0.9, borda(ESCURO, 6 * s))
@@ -131,8 +136,7 @@ def cartela_tempo(cv, numero, linha, k, y=0.30, sub=None):
     cv.drawLine(rx, cy, rx + math.cos(am) * r * 0.75, cy + math.sin(am) * r * 0.75, borda(0xFFD9452B, 9 * s))
     cv.drawLine(rx, cy, rx + math.cos(ah) * r * 0.5, cy + math.sin(ah) * r * 0.5, borda(ESCURO, 12 * s))
     cv.drawCircle(rx, cy, 12 * s, pt(ESCURO))
-    f = skia.Font(ROBOTO, 330 * s); texto_contorno(cv, numero, cx - 90 * s, cy + 118 * s, f, AMARELO, w=26 * s)
-    f2 = skia.Font(ROBOTO, 110 * s); wn = f.measureText(numero)
+    texto_contorno(cv, numero, cx - 90 * s, cy + 118 * s, f, AMARELO, w=26 * s)
     texto_contorno(cv, linha, cx - 90 * s + wn + 24 * s, cy + 20 * s, f2, BRANCO, w=14 * s)
     if sub:
         texto_contorno(cv, sub, cx - 90 * s + wn + 24 * s, cy + 118 * s, skia.Font(ROBOTO, 84 * s), BRANCO, w=11 * s)

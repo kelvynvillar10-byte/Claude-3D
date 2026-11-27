@@ -56,8 +56,8 @@ def w(palavra, n=1):
 HORAS = {   # pesos dos grupos de luz da placa (o sol não muda de lugar: muda força e cor) + exposição
     "tarde":     dict(pesos={"ceu": (0.55, "#ffe9c9"), "sol": 1.0, "artificial": 0.12}, exp=0.0),
     "fim_tarde": dict(pesos={"ceu": (0.45, "#ffb27a"), "sol": (0.55, "#ff9a5a"), "artificial": 0.55}, exp=-0.05),
-    "noite":     dict(pesos={"ceu": (0.10, "#3a4f9a"), "sol": 0.0, "artificial": 0.95}, exp=-0.15),
-    "madrugada": dict(pesos={"ceu": (0.05, "#2a3a7a"), "sol": 0.0, "artificial": (0.45, "#ffcf9a")}, exp=-0.35),
+    "noite":     dict(pesos={"ceu": (0.08, "#3a4f9a"), "sol": 0.0, "artificial": (0.55, "#ffd9a8")}, exp=-0.55),
+    "madrugada": dict(pesos={"ceu": (0.04, "#2a3a7a"), "sol": 0.0, "artificial": (0.18, "#ffcf9a")}, exp=-0.95),
     "amanhecer": dict(pesos={"ceu": (0.55, "#ffb6c8"), "sol": (0.30, "#ff9ab0"), "artificial": 0.35}, exp=-0.05),
 }
 COR_TV = ["#5fb8ff", "#ff5fa8", "#ffb35f", "#7d5fff", "#5fffc0"]
@@ -74,11 +74,15 @@ def _mistura_hora(h0, h1, k):
     return out, lerp(HORAS[h0]["exp"], HORAS[h1]["exp"], k)
 
 
+COR_TV_NOITE = ["#4f7dff", "#7d5fff", "#3fb8ff", "#5f5fff", "#9f6bff"]
+
+
 def luz(hora, t=0.0, tv=0.0, para=None, k=0.0):
     pesos, exp = _mistura_hora(hora, para or hora, k)
-    if tv > 0:   # a TV ilumina a sala com as cores do jogo (troca suave)
-        i = int(t * 1.3) % len(COR_TV); f = (t * 1.3) % 1.0
-        c0 = np.array([int(COR_TV[i][j:j + 2], 16) for j in (1, 3, 5)]); c1 = np.array([int(COR_TV[(i + 1) % 5][j:j + 2], 16) for j in (1, 3, 5)])
+    if tv > 0:   # a TV ilumina a sala com as cores do jogo (troca suave); de noite, tons frios
+        cores = COR_TV_NOITE if hora in ("noite", "madrugada") else COR_TV
+        i = int(t * 1.3) % len(cores); f = (t * 1.3) % 1.0
+        c0 = np.array([int(cores[i][j:j + 2], 16) for j in (1, 3, 5)]); c1 = np.array([int(cores[(i + 1) % 5][j:j + 2], 16) for j in (1, 3, 5)])
         cc = (c0 * (1 - suave(f)) + c1 * suave(f)).astype(int)
         pesos["efeito"] = (tv * (0.85 + 0.15 * math.sin(t * 9.0) * math.sin(t * 3.1)), "#%02x%02x%02x" % tuple(cc))
     else:
@@ -131,7 +135,7 @@ def tv_conteudo(modo, t, k=0.0):
 
 
 TV_CANTOS = [(-0.613, 2.128, 1.393), (0.613, 2.128, 1.393), (0.613, 2.128, 0.707), (-0.613, 2.128, 0.707)]
-CONSOLE_RACK = (-0.42, 1.92, 0.5)                 # o console em pé sobre o rack (desenho 2D, sem marca)
+CONSOLE_RACK = (-0.25, 1.95, 0.5)                 # o console em pé sobre o rack (desenho 2D, sem marca)
 PRATO = (0.12, -0.52, 0.42)
 
 
@@ -142,7 +146,7 @@ def ator(tr, t, **props):
 
 def juca_sentado(Pc, vista, rosto="neutro", jogar=True, intensidade=1.0, pos=None, direcao=1):
     base = AE.base_jogando(J, intensidade) if jogar else AE.base_sentado(J)
-    p0 = pos if pos is not None else {"frente": (0.0, -1.12, 0.0), "perfil": (0.0, -1.55, 0.0), "costas": (0.0, -1.62, 0.0),
+    p0 = pos if pos is not None else {"frente": (0.0, -1.12, 0.0), "perfil": (0.0, -1.55, 0.0), "costas": (-0.12, -1.2, 0.0),
                                       "tres_quartos": (0.0, -1.2, 0.0)}[vista]
     return AE.Trajeto(J, Pc, p0, vista, direcao, rosto=rosto, base=base)
 
@@ -165,8 +169,8 @@ def P02(tl, d):   # "com uma surpresa que mudaria sua vida": zoom brusco na caix
     tr.faz(tipo="parar", t0=2.6, dur=0.25)
     st = ator(tr, t, caixa=True, brilho_caixa=suave((tl - 0.3) / 0.6))
     k = saida(min(1, max(0, tl - (w("surpresa") - 1.85 - 0.05)) / 0.22))
-    z = lerp(1.35, 2.3, k)
-    cam = AT.seguir(Pc, lambda s: tr.estado(s)["pos"] + [0, 0, 0.75 * k + 1.15 * (1 - k)], t, 0.5, lerp(0.42, 0.5, k), z, atraso=0.0)
+    z = lerp(1.3, 1.75, k)
+    cam = AT.seguir(Pc, lambda s: tr.estado(s)["pos"] + [0, 0, 1.0 * k + 1.15 * (1 - k)], t, 0.5, lerp(0.42, 0.45, k), z, atraso=0.0)
     return dict(placa="C5_porta", cam=cam, atores=[st], hora="tarde", tremida=(0.36, 0.6), brilhos_caixa=True)
 
 
@@ -181,7 +185,7 @@ def P03(tl, d):   # "para sempre?": o Juca no sofá vira a cabeça, curioso
 
 def _relax(vista, t, tl=0):
     p = PO.sentado(J, vista)
-    p.update({"braco_d": -150, "antebraco_d": -120, "braco_e": -150, "antebraco_e": -120, "tronco": -8, "cabeca": -6})
+    p.update({"braco_d": 55, "antebraco_d": -35, "braco_e": 40, "antebraco_e": -30, "tronco": 12, "cabeca": 8})
     return p
 
 
@@ -208,12 +212,12 @@ def P05(tl, d):   # "quando ela apareceu segurando": ela atravessa a sala; a câ
 
 def P06(tl, d):   # "uma caixa enorme": ela entra no quadro com a caixa; zoom brusco
     Pc = placa("C2_sofa"); dx, _ = AT.eixo_tela(Pc)
-    tr = AE.Trajeto(D, Pc, V([0.95, -1.3, 0.0]), "perfil", -1, rosto="alegria", base=AE.maos_caixa(D))
+    tr = AE.Trajeto(D, Pc, V([0.85, -1.55, 0.0]), "perfil", -1, rosto="alegria", base=AE.maos_caixa(D))
     tr.faz(tipo="andar", t0=0.0, dur=0.45, vista="perfil", eixo_vet=-dx * -1, sentido=1, direcao=1, bracos=AE.maos_caixa(D))
     tr.faz(tipo="virar", t0=0.45, vistas=["tres_quartos", "frente"], passo=0.08, direcao=1, base=AE.maos_caixa(D))
     sj = juca_sentado(Pc, "frente", "surpresa", jogar=False); sj.rosto(0.3, "surpresa", (0.6, -0.3))
     k = saida(min(1, max(0, tl - (w("enorme") - 7.5)) / 0.2))
-    cam = AT.seguir(Pc, lambda s: V([0.45, -1.25, 1.0]), tl, 0.5, 0.48, lerp(1.0, 1.35, k), atraso=0.0)
+    cam = AT.seguir(Pc, lambda s: V([0.4, -1.45, 1.0]), tl, 0.5, 0.48, lerp(0.95, 1.25, k), atraso=0.0)
     return dict(placa="C2_sofa", cam=cam, atores=[ator(sj, tl), ator(tr, tl, caixa=True)], hora="tarde", tremida=(0.39, 0.62))
 
 
@@ -247,13 +251,13 @@ def P09(tl, d):   # "Mas espera...": ela levanta o dedo, sorriso de quem guarda 
 
 def P10(tl, d):   # "tinha mais uma surpresa!": a TV liga
     Pc = placa("C7_tv")
-    cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.0]), tl, 0.5, 0.42, lerp(1.0, 1.2, saida(tl / d)), atraso=0.0)
+    cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.0]), tl, 0.5, 0.42, lerp(0.95, 1.12, saida(tl / d)), atraso=0.0)
     return dict(placa="C7_tv", cam=cam, atores=[], hora="tarde", tv=("ligando", tl, 0), tvluz=0.6 * suave(tl / 0.3), console_luz=1.0)
 
 
 def P11(tl, d):   # "GTA 6 já estava instalado!": barra até 100 %, zoom na tela
     Pc = placa("C7_tv"); k = (tl) / (w("instalado") - 14.75 + 0.35)
-    z = lerp(1.2, 1.75, saida(min(1, max(0, tl - (w("instalado") - 14.75 - 0.05)) / 0.25)))
+    z = lerp(0.95, 1.22, saida(min(1, max(0, tl - (w("instalado") - 14.75 - 0.05)) / 0.25))) * (1 + 0.05 * tl)
     cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.05]), tl, 0.5, 0.42, z, atraso=0.0)
     return dict(placa="C7_tv", cam=cam, atores=[], hora="tarde", tv=("instalando", tl, k), tvluz=0.8, console_luz=1.0,
                 tremida=(w("instalado") - 14.75, w("instalado") - 14.75 + 0.3))
@@ -348,18 +352,39 @@ def P20(tl, d):   # "conseguia acreditar naquilo!": a Jandira ri e bate palmas
     return dict(placa="C5_porta", cam=cam, atores=[ator(tr, tl)], hora="tarde")
 
 
-def P21(tl, d):   # "Juca ligou o console": ele entra, aperta o botão; a luz azul acende e a TV acorda
-    Pc = placa("C7_tv"); dx, _ = AT.eixo_tela(Pc)
-    tr = AE.Trajeto(J, Pc, V([0.6, 1.55, 0.0]), "perfil", -1, rosto="alegria")
-    tr.faz(tipo="andar", t0=0.0, dur=0.45, vista="perfil", eixo_vet=-dx, sentido=1, direcao=-1)
-    def aperta(v, t, tl_):
-        p = AE.parado(J, v, t); p["tronco"] = 22; ik = (0.55, -0.85 + 0.03 * math.sin(tl_ * 20) * (tl_ < 0.3))
-        PO._ik_par(J, p, v, {"d": ik}, "apontar"); return p
-    tr.faz(tipo="funcao", t0=0.45, fn=aperta, ease=0.15)
-    on = tl > (w("ligou") - 30.9 + 0.12)
-    cam = AT.seguir(Pc, lambda s: V([-0.2, 1.9, 0.75]), tl, 0.5, 0.5, lerp(1.25, 1.45, suave(tl / d)), atraso=0.0)
-    return dict(placa="C7_tv", cam=cam, atores=[ator(tr, tl)], hora="tarde", tv=("ligando", tl, 0) if on else None,
-                tvluz=0.6 if on else 0.0, console_luz=1.0 if on else 0.0)
+def insert_botao(t, tl, t_aperto=None, hesita=False, luz0=0.0):
+    """Close do botão do videogame: a mão do Juca (rig, 5 dedos) vem de fora do quadro e aperta (ou hesita)."""
+    sf = skia.Surface(OW, OH); cv = sf.getCanvas()
+    GF.fundo_insert(cv, t, 0xFF1A1420, 0xFF3A2A3A)
+    ligado = luz0 if t_aperto is None else (1.0 if tl >= t_aperto else luz0)
+    cx, cy, u = OW * 0.64, OH * 0.36, 1500
+    cv.drawCircle(cx, cy, 500, GF.pt(0xFF4FC3F7, 0.18 * ligado, MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 160)))
+    PO.console(cv, cx, cy, u, luz=ligado)
+    bx, by = cx - 0.07 * u, cy + 0.28 * u                    # botão de ligar (círculo na frente, sem símbolo de marca)
+    cv.drawCircle(bx, by, 34, GF.pt(0xFF1B1E25)); cv.drawCircle(bx, by, 26, GF.pt(0xFF4FC3F7 if ligado > 0.5 else 0xFF555B68))
+    if ligado > 0.5:
+        cv.drawCircle(bx, by, 60, GF.pt(0xFF4FC3F7, 0.5, MaskFilter=skia.MaskFilter.MakeBlur(skia.kNormal_BlurStyle, 24)))
+    # aproximação da mão: ponta do indicador no botão
+    if hesita:
+        k = 0.5 + 0.5 * math.sin(tl * 6.5); dx = 40 + 260 * k
+    else:
+        k = suave(min(1, tl / max(0.05, (t_aperto or 0.5)))); dx = lerp(700, 0, k) - (14 if t_aperto and tl >= t_aperto and tl < t_aperto + 0.15 else 0)
+    mao = 760.0; ang = -90                                   # mão deitada, dedos apontando para a direita
+    px, py = bx - dx, by
+    cv.save(); cv.translate(px, py); cv.rotate(ang)
+    cv.translate(0, -0.40 * mao); cv.scale(mao, mao)          # a ponta do indicador fica ~0,40 H à frente do punho
+    braco = J.H.capsula(1.2, 0.17, 0.15); braco.offset(0, -1.2)
+    cv.drawPath(braco, J.H.tinta(J.H.C["pele"])); J.H.sombra(cv, braco, J.H.C["pele_s"], 1, 0.3); cv.drawPath(braco, J.H.contorno())
+    manga = skia.Path(); manga.addRRect(skia.RRect.MakeRectXY(skia.Rect.MakeLTRB(-0.15, -1.25, 0.15, -0.75), 0.06, 0.06))
+    cv.drawPath(manga, J.H.tinta(J.H.C["camisa"])); cv.drawPath(manga, J.H.contorno())
+    J.H.desenhar_mao(cv, J.G.mao("apontar"), "lado", False, 1)
+    cv.restore()
+    return GF.snap(sf)
+
+
+def P21(tl, d):   # "Juca ligou o console": close — o dedo aperta o botão, a luz azul acende
+    ta = w("ligou") - 30.9 + 0.12
+    return dict(insert=lambda t: insert_botao(t, tl, t_aperto=ta), tremida=(ta, ta + 0.2))
 
 
 def P22(tl, d):   # "pegou o controle": pega o controle na mesa e pula no sofá
@@ -547,7 +572,7 @@ def P43(tl, d):   # "E o mais impressionante?": aproximação lenta por cima do 
 
 def P44(tl, d):   # "Juca ainda estava na primeira missão!": MISSÃO 1 · 3 %
     Pc = placa("C7_tv"); tp = w("primeira") - 73.95
-    z = lerp(1.15, 1.9, saida(min(1, max(0, tl - tp) / 0.22)))
+    z = lerp(0.95, 1.25, saida(min(1, max(0, tl - tp) / 0.22)))
     cam = AT.seguir(Pc, lambda s: V([0.0, 2.1, 1.05]), tl, 0.5, 0.42, z, atraso=0.0)
     return dict(placa="C7_tv", cam=cam, atores=[], hora="amanhecer", tv=("missao", tl, 0), tvluz=1.0, console_luz=1.0,
                 tremida=(tp, tp + 0.3), rotulo_tv=("3 %", "DA MISSÃO 1", (tl - tp - 0.2) / 0.35))
@@ -563,16 +588,8 @@ def P45(tl, d):   # "Agora imagine receber um presente desses...": a sala inteir
     return dict(placa="C1_geral", cam=cam, atores=[ator(sj, tl, controle=True), ator(tr, tl)], hora="amanhecer", tvluz=1.0)
 
 
-def P46(tl, d):   # "Você conseguiria desligar o videogame": o dedo vai e volta do botão
-    Pc = placa("C7_tv")
-    tr = AE.Trajeto(J, Pc, V([0.05, 1.55, 0.0]), "perfil", -1, rosto="preocupacao")
-    def hesita(v, t, tl_):
-        p = AE.parado(J, v, t); p["tronco"] = 18; dd = 0.12 * (0.5 + 0.5 * math.sin(tl_ * 6.5))
-        PO._ik_par(J, p, v, {"d": (0.42 + dd, -0.88)}, "apontar"); return p
-    tr.faz(tipo="funcao", t0=0.0, fn=hesita, ease=0.2)
-    tr.rosto(0.0, "preocupacao", None, {"olheira": 1.0, "barba": 1.0})
-    cam = AT.seguir(Pc, lambda s: V([-0.25, 1.85, 0.7]), tl, 0.5, 0.5, lerp(1.4, 1.75, suave(tl / d)), atraso=0.0)
-    return dict(placa="C7_tv", cam=cam, atores=[ator(tr, tl)], hora="amanhecer", tv=("jogo", tl + 5, 0), tvluz=1.0, console_luz=1.0)
+def P46(tl, d):   # "Você conseguiria desligar o videogame": o dedo vai e volta do botão, sem coragem
+    return dict(insert=lambda t: insert_botao(t, tl, hesita=True, luz0=1.0))
 
 
 def P47(tl, d):   # "para dar atenção à sua namorada?": ela olha para nós, sobrancelha erguida, pé batendo
@@ -853,7 +870,7 @@ def extras(cv, Pc, cam, est, tl, t):
     if est.get("rotulo_tv"):
         txt, sub, k = est["rotulo_tv"]; x, y = tela(Pc, cam, ET.projetar(Pc, (0.3, 2.12, 0.85))); GF.rotulo(cv, txt, sub, x, y, 1, k=k)
     if est.get("cartela"):
-        n, l1, l2, k = est["cartela"]; GF.cartela_tempo(cv, n, l1, k, y=0.27, sub=l2)
+        n, l1, l2, k = est["cartela"]; GF.cartela_tempo(cv, n, l1, k, y=0.56, sub=l2)
     if est.get("relogio"):
         h, k = est["relogio"]; GF.relogio_digital(cv, h, OW * 0.5, OH * 0.12 + 40, k)
     if est.get("hud"):
