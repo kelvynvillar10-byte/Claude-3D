@@ -4,7 +4,7 @@ Registro das decisões de identidade do canal. Cada decisão tem número, data, 
 
 | ID | Decisão | Data | Status |
 |---|---|---|---|
-| ID-001 | Narração com voz sintética licenciada, de características semelhantes às referências, **sem clonar** a voz de terceiros | 25/11/2026 | **Aprovada a direção.** Fornecedor e voz final dependem do teste de amostra (seção 1.5) |
+| ID-001 | Narração com voz sintética licenciada, de características semelhantes às referências, **sem clonar** a voz de terceiros | 25/11/2026 | **Atualizada em 27/11/2026: a voz padrão do canal é a do próprio diretor** (voz dele gerada por ele no MiniMax Audio; autorização do dono da voz). Continua proibido clonar a voz de terceiros |
 | ID-002 | Marca **"Modo Curioso"** estampada na camiseta de todos os personagens oficiais, no lugar da identificação de outro produtor | 25/11/2026 | **Aprovada e permanente** |
 | ID-003 | Grafia oficial da marca: **"Modo Curioso"** na camiseta (M e C maiúsculos) e **"MODO CURIOSO"** na marca d'água (tudo maiúsculo) | 25/11/2026 | **Confirmada e permanente** |
 | ID-004 | Marca dentro dos cenários (telas, envelopes, fichas, placas e elementos visuais de identificação): sempre **"MODO CURIOSO"**, tudo em maiúsculas | 25/11/2026 | **Aprovada e permanente** |
@@ -16,6 +16,12 @@ Regra fixa relacionada: nada de personagem, marca ou obra de terceiros (ver `MAN
 ---
 
 ## ID-001 — Narração
+
+> **Decisão do diretor, 27/11/2026 (depois do EP02):** "Eu quero manter a minha como padrão." A narração oficial do canal passa
+> a ser a **voz do próprio diretor**, gerada por ele no MiniMax Audio (voz "Kelvyn villar Rodrigues", usada no EP02) e enviada
+> com o texto. Pós-produção em `narracao/pos/` com o preset `preset_ep02_voz_diretor.json`. A voz é dele, então a regra
+> "nunca clonar voz sem autorização por escrito" está cumprida por ele mesmo; a proibição de clonar terceiros continua.
+> As seções abaixo (análise das referências, voz sintética licenciada) ficam como histórico.
 
 ### 1.1 O que a análise da narração das referências mostra
 
