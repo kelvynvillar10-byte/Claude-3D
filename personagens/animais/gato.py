@@ -69,14 +69,19 @@ def _olho_amendoa(cv, cx, cy, w, h, pupila, olhar, piscar, contorno):
     cv.drawPath(olho, _p(COR["contorno"], 255, contorno))
 
 
-def desenhar(cv, x_pe, y_pe, altura_px, pose="sentado", direcao=1, olhar=0.0, pupila=0.25, piscar=0.0):
+def desenhar(cv, x_pe, y_pe, altura_px, pose="sentado", direcao=1, olhar=0.0, pupila=0.25, piscar=0.0, fase=0.0, cauda=0.0,
+             inclinar=0.0):
+    """pose "andando": ciclo de passo de 4 patas (sequência lateral: traseira, dianteira do mesmo lado, depois o outro),
+    fase 0–1 por passada; cauda −1..1 balança a ponta; inclinar (graus) inclina a cabeça (curiosidade)."""
     A = altura_px; c = max(1.0, A * 0.006)                              # espessura do contorno
     cv.save(); cv.translate(x_pe, y_pe); cv.scale(direcao * A, A)
     k = 1.0 / A                                                          # contorno em px, escala unitária
     if pose == "agachado":
-        _agachado(cv, olhar, pupila, piscar, c * k)
+        _agachado(cv, olhar, pupila, piscar, c * k, cauda)
+    elif pose == "andando":
+        _andando(cv, olhar, pupila, piscar, c * k, fase, cauda, inclinar)
     else:
-        _sentado(cv, olhar, pupila, piscar, c * k)
+        _sentado(cv, olhar, pupila, piscar, c * k, cauda, inclinar)
     cv.restore()
 
 
@@ -88,7 +93,10 @@ def _cauda(cv, pts, larg, s):
     cv.drawCircle(pts[3][0], pts[3][1], larg * 0.55, _p(COR["listra"]))
 
 
-def _cabeca(cv, cx, cy, r, olhar, pupila, piscar, s, orelhas="em_pe"):
+def _cabeca(cv, cx, cy, r, olhar, pupila, piscar, s, orelhas="em_pe", inclinar=0.0):
+    if inclinar:
+        cv.save(); cv.rotate(inclinar, cx, cy + r * 0.6)
+        _cabeca(cv, cx, cy, r, olhar, pupila, piscar, s, orelhas, 0.0); cv.restore(); return
     # orelhas
     for lado in (-1, 1):
         if orelhas == "em_pe":
@@ -132,9 +140,9 @@ def _cabeca(cv, cx, cy, r, olhar, pupila, piscar, s, orelhas="em_pe"):
             cv.drawPath(b, _p(COR["bigode"], 235, s * 0.55))
 
 
-def _sentado(cv, olhar, pupila, piscar, s):
-    # cauda enrolada pela frente das patas
-    _cauda(cv, [(-0.30, -0.12), (-0.55, 0.0), (-0.1, 0.03), (0.33, -0.03)], 0.075, s)
+def _sentado(cv, olhar, pupila, piscar, s, cauda=0.0, inclinar=0.0):
+    # cauda enrolada pela frente das patas (a ponta balança com 'cauda')
+    _cauda(cv, [(-0.30, -0.12), (-0.55, 0.0), (-0.1, 0.03), (0.33, -0.03 - 0.07 * cauda)], 0.075, s)
     # quadril/coxa traseira e corpo
     corpo = _bolha([(-0.42, -0.05), (-0.48, -0.3), (-0.33, -0.52), (-0.05, -0.62), (0.18, -0.6), (0.24, -0.38), (0.2, -0.05), (-0.1, 0.0)])
     _preencher(cv, corpo, COR["pelo"], _elipse(-0.3, -0.05, 0.32, 0.2), s)
@@ -153,12 +161,12 @@ def _sentado(cv, olhar, pupila, piscar, s):
         for j in (-1, 0, 1):
             cv.drawLine(dx + j * 0.017, -0.004, dx + j * 0.017, -0.03, _p(COR["contorno"], 200, s * 0.6))
     # cabeça
-    _cabeca(cv, 0.14, -0.78, 0.2, olhar, pupila, piscar, s)
+    _cabeca(cv, 0.14, -0.78, 0.2, olhar, pupila, piscar, s, inclinar=inclinar)
 
 
-def _agachado(cv, olhar, pupila, piscar, s):
-    # cauda reta para trás, ponta levantada
-    _cauda(cv, [(-0.4, -0.3), (-0.6, -0.33), (-0.78, -0.32), (-0.92, -0.42)], 0.065, s)
+def _agachado(cv, olhar, pupila, piscar, s, cauda=0.0):
+    # cauda reta para trás, ponta levantada (a ponta tremula com 'cauda': caçando)
+    _cauda(cv, [(-0.4, -0.3), (-0.6, -0.33), (-0.78, -0.32), (-0.92, -0.42 - 0.06 * cauda)], 0.065, s)
     corpo = _bolha([(-0.5, -0.06), (-0.55, -0.32), (-0.4, -0.45), (-0.05, -0.42), (0.18, -0.5), (0.32, -0.35), (0.3, -0.05), (-0.1, -0.02)])
     _preencher(cv, corpo, COR["pelo"], _elipse(-0.15, 0.0, 0.5, 0.17), s)
     cv.save(); cv.clipPath(corpo, doAntiAlias=True)
@@ -171,6 +179,55 @@ def _agachado(cv, olhar, pupila, piscar, s):
         pt = skia.Path(); pt.addRRect(skia.RRect.MakeRectXY(skia.Rect.MakeLTRB(dx - 0.05, -0.1, dx + 0.07, 0.0), 0.05, 0.05))
         _preencher(cv, pt, COR["peito"] if dx > 0 else COR["pelo"], None, s)
     _cabeca(cv, 0.4, -0.3, 0.19, olhar, pupila, piscar, s, orelhas="de_lado")
+
+
+PASSADA = 0.16                      # meio passo (unidades da altura do gato)
+APOIO = 0.6                         # fração do ciclo com a pata no chão
+AVANCO_POR_CICLO = 2 * PASSADA / APOIO   # quanto o gato anda por ciclo, para os pés não deslizarem (× altura_px)
+
+
+def _perna(cv, quadril, pe, a, b, frente, larg, cor, s):
+    """Perna de 2 segmentos por IK: do quadril/ombro até o pé. A junta dobra para a frente (pata da frente) ou para trás."""
+    dx = pe[0] - quadril[0]; dy = pe[1] - quadril[1]; d = max(1e-6, min(a + b - 1e-4, math.hypot(dx, dy)))
+    ca = (a * a + d * d - b * b) / (2 * a * d); ang = math.atan2(dy, dx); off = math.acos(max(-1.0, min(1.0, ca)))
+    ang1 = ang - off if frente else ang + off                   # y para baixo: −off põe a junta à frente (+x) numa perna que desce
+    j = (quadril[0] + a * math.cos(ang1), quadril[1] + a * math.sin(ang1))
+    for p0, p1, w in ((quadril, j, larg), (j, pe, larg * 0.82)):
+        cv.drawLine(*p0, *p1, _p(COR["contorno"], 255, w + 2 * s)); cv.drawLine(*p0, *p1, _p(cor, 255, w))
+    pt = _elipse(pe[0] + 0.02, pe[1] - 0.015, 0.045, 0.025); cv.drawPath(pt, _p(cor)); cv.drawPath(pt, _p(COR["contorno"], 255, s))
+
+
+def _andando(cv, olhar, pupila, piscar, s, fase, cauda, inclinar):
+    """Gato andando de lado (cabeça à direita). Patas do lado de lá desenhadas antes, num tom mais escuro."""
+    bob = 0.012 * math.sin(4 * math.pi * fase)
+    cv.save(); cv.translate(0, bob)
+    offs = {"tras_longe": 0.5, "frente_longe": 0.75, "tras_perto": 0.0, "frente_perto": 0.25}
+    pos = {"tras_longe": (-0.30, -0.40), "frente_longe": (0.18, -0.40), "tras_perto": (-0.38, -0.38), "frente_perto": (0.26, -0.38)}
+
+    def pe(nome):
+        f = (fase + offs[nome]) % 1.0; q = pos[nome]
+        if f < APOIO:                                                   # apoio: o pé fica parado no chão e o corpo passa por cima
+            x = PASSADA - 2 * PASSADA * f / APOIO; y = 0.0
+        else:                                                           # balanço: levanta em arco e volta para a frente
+            u = (f - APOIO) / (1 - APOIO); e = 0.5 - 0.5 * math.cos(math.pi * u)
+            x = -PASSADA + 2 * PASSADA * e; y = -0.08 * math.sin(math.pi * u)
+        return (q[0] + x, y - bob)
+
+    for nome in ("tras_longe", "frente_longe"):
+        _perna(cv, pos[nome], pe(nome), 0.205, 0.205, "frente" in nome, 0.095, COR["pelo_sombra"], s)
+    _cauda(cv, [(-0.42, -0.55), (-0.6, -0.68), (-0.62, -0.95), (-0.5 + 0.12 * cauda, -1.05)], 0.065, s)
+    corpo = _bolha([(-0.52, -0.40), (-0.56, -0.60), (-0.36, -0.72), (0.05, -0.70), (0.28, -0.74), (0.40, -0.58), (0.32, -0.38), (-0.1, -0.33)])
+    _preencher(cv, corpo, COR["pelo"], _elipse(-0.1, -0.36, 0.5, 0.12), s)
+    cv.save(); cv.clipPath(corpo, doAntiAlias=True)
+    for i in range(5):
+        lp = skia.Path(); x = -0.45 + i * 0.13
+        lp.moveTo(x, -0.76); lp.quadTo(x - 0.05, -0.6, x + 0.02, -0.46); cv.drawPath(lp, _p(COR["listra"], 255, 0.035))
+    cv.drawPath(_elipse(0.28, -0.52, 0.12, 0.12), _p(COR["peito"]))
+    cv.restore()
+    for nome in ("tras_perto", "frente_perto"):
+        _perna(cv, pos[nome], pe(nome), 0.205, 0.205, "frente" in nome, 0.10, COR["pelo"] if "tras" in nome else COR["peito"], s)
+    cv.restore()
+    _cabeca(cv, 0.46, -0.86 + bob, 0.19, olhar, pupila, piscar, s, inclinar=inclinar)
 
 
 def pata(cv, cx, cy, tamanho_px, garras=1.0, angulo=0.0):
