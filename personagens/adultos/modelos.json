@@ -1,0 +1,182 @@
+{
+ "juca": {
+  "nome": "Juca",
+  "versao": "rig adulto v1 — PROPOSTA (27/11/2026), derivado do rig oficial do Heitor v2.1, aguardando aprovação do diretor",
+  "descricao": "adulto, ~28 anos, 5 H de altura, pele morena, cabelo crespo curto preto, camiseta verde 'Modo Curioso', calça de moletom cinza com punho, chinelo (em casa)",
+  "cabelo": "crespo_curto",
+  "cilios": false,
+  "queixo": 0.1,
+  "calca": "moletom",
+  "calcado": "chinelo",
+  "multiplicar_sombra": "#b8c7c7",
+  "paleta": {
+   "pele": "#c68a62",
+   "pele_s": "#a46c48",
+   "cabelo": "#1e1613",
+   "cabelo_s": "#0f0907",
+   "cabelo_b": "#3b2c25",
+   "olho": "#3b2214",
+   "pupila": "#1a0e07",
+   "camisa": "#2f8f5f",
+   "camisa_s": "#22704a",
+   "gola": "#1d5e3e",
+   "jeans": "#7c818c",
+   "jeans_s": "#5d626d",
+   "barra": "#6c717c",
+   "tenis": "#f2efe8",
+   "tenis_s": "#d4cfc6",
+   "tenis_faixa": "#2f6fd0",
+   "sola": "#2f6fd0",
+   "boca": "#5e2a20",
+   "boca_interna": "#3e1610"
+  },
+  "proporcoes_H": {
+   "topo_cabeca": 5.0,
+   "centro_cabeca": 4.5,
+   "linha_olhos": 4.44,
+   "queixo": 3.96,
+   "pescoco": 3.92,
+   "largura_cabeca": 0.92,
+   "ombro": 3.72,
+   "largura_ombros": 1.2,
+   "barra_camisa": 2.25,
+   "quadril_junta": 2.23,
+   "joelho": 1.23,
+   "tornozelo": 0.22,
+   "chao": 0.0
+  },
+  "ossos_H": {
+   "braco": 0.78,
+   "antebraco": 0.7,
+   "coxa": 1.0,
+   "canela": 1.01,
+   "pe": 0.3
+  },
+  "larguras_H": {
+   "ombro": 0.6,
+   "cintura": 0.55,
+   "barra": 0.5,
+   "braco_x": 0.57,
+   "coxa_x": 0.22,
+   "quadril": 0.47,
+   "braco": [
+    0.22,
+    0.19
+   ],
+   "antebraco": [
+    0.19,
+    0.15
+   ],
+   "coxa": [
+    0.4,
+    0.33
+   ],
+   "canela": [
+    0.33,
+    0.28
+   ],
+   "perfil_frente": [
+    0.27,
+    0.31,
+    0.28
+   ],
+   "perfil_costas": [
+    0.25,
+    0.24,
+    0.26
+   ],
+   "estampa_y": 0.5,
+   "escala_mao": 1.15
+  },
+  "barba_base": 0.35
+ },
+ "jandira": {
+  "nome": "Jandira",
+  "versao": "rig adulto v1 — PROPOSTA (27/11/2026), derivado do rig oficial do Heitor v2.1, aguardando aprovação do diretor",
+  "descricao": "adulta, ~27 anos, 5 H de altura (em cena, 94 % da altura do Juca), pele clara-morena, cabelo longo ondulado castanho-escuro com risca lateral, cílios, camiseta roxa 'Modo Curioso', jeans, tênis branco com faixa roxa",
+  "cabelo": "longo",
+  "cilios": true,
+  "queixo": 0.06,
+  "calca": "jeans",
+  "calcado": "tenis",
+  "multiplicar_sombra": "#c2bdd1",
+  "paleta": {
+   "pele": "#f1c6a3",
+   "pele_s": "#d9a17e",
+   "cabelo": "#2a1913",
+   "cabelo_s": "#180e0a",
+   "cabelo_b": "#4a2f22",
+   "olho": "#4a2a18",
+   "pupila": "#1f1008",
+   "camisa": "#7a55c7",
+   "camisa_s": "#5d3fa3",
+   "gola": "#4f3590",
+   "jeans": "#3f5f96",
+   "jeans_s": "#2c4775",
+   "barra": "#5878b0",
+   "tenis": "#f6f4f0",
+   "tenis_s": "#d9d4cc",
+   "tenis_faixa": "#7a55c7",
+   "sola": "#c9c3b8",
+   "boca": "#8a3d34"
+  },
+  "proporcoes_H": {
+   "topo_cabeca": 5.0,
+   "centro_cabeca": 4.5,
+   "linha_olhos": 4.44,
+   "queixo": 3.98,
+   "pescoco": 3.92,
+   "largura_cabeca": 0.92,
+   "ombro": 3.72,
+   "largura_ombros": 1.0,
+   "barra_camisa": 2.25,
+   "quadril_junta": 2.23,
+   "joelho": 1.23,
+   "tornozelo": 0.22,
+   "chao": 0.0
+  },
+  "ossos_H": {
+   "braco": 0.75,
+   "antebraco": 0.67,
+   "coxa": 1.0,
+   "canela": 1.01,
+   "pe": 0.3
+  },
+  "larguras_H": {
+   "ombro": 0.48,
+   "cintura": 0.35,
+   "barra": 0.45,
+   "braco_x": 0.45,
+   "coxa_x": 0.21,
+   "quadril": 0.48,
+   "braco": [
+    0.19,
+    0.16
+   ],
+   "antebraco": [
+    0.16,
+    0.125
+   ],
+   "coxa": [
+    0.38,
+    0.3
+   ],
+   "canela": [
+    0.27,
+    0.21
+   ],
+   "perfil_frente": [
+    0.29,
+    0.22,
+    0.26
+   ],
+   "perfil_costas": [
+    0.22,
+    0.18,
+    0.3
+   ],
+   "estampa_y": 0.48,
+   "escala_mao": 1.05
+  }
+ }
+}
