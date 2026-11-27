@@ -1,0 +1,80 @@
+[
+ {
+  "palavra": "perigo",
+  "t": 40.17,
+  "plano": "D01",
+  "acao": "o Heitor caminha pelo tapete; a câmera acompanha"
+ },
+ {
+  "palavra": "maior",
+  "t": 40.73,
+  "plano": "D02",
+  "acao": "ele para, vira para a câmera assustado; aproximação rápida"
+ },
+ {
+  "palavra": "animais",
+  "t": 41.79,
+  "plano": "D03",
+  "acao": "a sombra do gato varre o chão enquanto ele olha em volta"
+ },
+ {
+  "palavra": "casa",
+  "t": 43.11,
+  "plano": "D04",
+  "acao": "câmera recua e revela a sala; ele chega ao canto da parede"
+ },
+ {
+  "palavra": "aranha",
+  "t": 44.34,
+  "plano": "D05",
+  "acao": "a aranha entra correndo; zoom brusco nela; ele pula de susto"
+ },
+ {
+  "palavra": "assustadora",
+  "t": 45.64,
+  "plano": "D06",
+  "acao": "ela ergue as patas da frente; ele recua tremendo"
+ },
+ {
+  "palavra": "gato",
+  "t": 47.35,
+  "plano": "D07",
+  "acao": "o gato entra andando no quadro"
+ },
+ {
+  "palavra": "curioso",
+  "t": 47.63,
+  "plano": "D07",
+  "acao": "o gato inclina a cabeça; o Heitor olha para cima"
+ },
+ {
+  "palavra": "inofensivo",
+  "t": 49.39,
+  "plano": "D08",
+  "acao": "o gato sentado inclina a cabeça e pisca devagar; câmera sobe até o rosto dele"
+ },
+ {
+  "palavra": "predador",
+  "t": 52.92,
+  "plano": "D10",
+  "acao": "close do olho: a pupila dilata"
+ },
+ {
+  "palavra": "movimento",
+  "t": 54.99,
+  "plano": "D11",
+  "acao": "o Heitor recua passo a passo"
+ },
+ {
+  "palavra": "errado",
+  "t": 55.55,
+  "plano": "D11",
+  "acao": "ele tropeça e quase cai"
+ },
+ {
+  "palavra": "perigo",
+  "t": 58.06,
+  "plano": "D13",
+  "acao": "ele corre; o gato dá o bote onde ele estava (impacto)"
+ }
+]

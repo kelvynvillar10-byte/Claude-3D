@@ -1,0 +1,83 @@
+{
+ "video": "MC_teste_animacao_dinamica_v1.mp4",
+ "verificacoes": [
+  {
+   "verificacao": "formato",
+   "ok": true,
+   "detalhe": "1080×1920 · 30 qps · h264 + aac"
+  },
+  {
+   "verificacao": "duracao",
+   "ok": true,
+   "detalhe": "19.70 s (trecho 39.20–58.90 s da narração do EP01)"
+  },
+  {
+   "verificacao": "ritmo",
+   "ok": true,
+   "detalhe": "13 planos · mediana 1.35 s · 37 cortes/min (EP01 no mesmo trecho: 10 planos · mediana 2.28 s · 27 cortes/min; diretriz: planos de 1,5–2 s)"
+  },
+  {
+   "verificacao": "movimento_personagens",
+   "ok": true,
+   "detalhe": "quadros com algo vivo (respiração, cauda etc.): 100 % · com AÇÃO visível (deslocamento, troca de pose/vista, gesto): 91 % · plano com menos ação: 47 %"
+  },
+  {
+   "verificacao": "camera_em_movimento",
+   "ok": true,
+   "detalhe": "câmera se move em 100 % dos quadros (zoom, acompanhamento ou panorâmica)"
+  },
+  {
+   "verificacao": "mapa_fala_imagem",
+   "ok": true,
+   "detalhe": "13 palavras-chave, cada uma com a ação no plano certo no instante em que é dita"
+  },
+  {
+   "verificacao": "cotovelos",
+   "ok": true,
+   "detalhe": "1104 braços verificados (todas as poses de todos os quadros), 0 invertido(s)"
+  },
+  {
+   "verificacao": "rig_intacto",
+   "ok": true,
+   "detalhe": "nenhuma alteração em personagens/heitor/rig_v2 (as ferramentas de atuação ficam fora do rig)"
+  },
+  {
+   "verificacao": "pes_sem_deslizar",
+   "ok": true,
+   "detalhe": "pé de apoio: variação máxima 0.00 mm no mundo (velocidade do personagem = velocidade do ciclo: caminhada 9.0 cm/s, corrida 20.0 cm/s); gato: avanço = 0.533 × altura por ciclo"
+  },
+  {
+   "verificacao": "loudness",
+   "ok": true,
+   "detalhe": "-14.1 LUFS · pico -1.5 dBTP"
+  },
+  {
+   "verificacao": "marca_dagua",
+   "ok": true,
+   "detalhe": "\"MODO CURIOSO\" em todos os quadros (mesmo desenho do EP01)"
+  }
+ ],
+ "ep01_mesmo_trecho": {
+  "planos": 10,
+  "mediana_s": 2.275000000000002,
+  "cortes_min": 27.411167512690362,
+  "planos_com_locomocao": 0,
+  "animais_que_se_deslocam": 0,
+  "planos_com_pan": 0
+ },
+ "acao_por_plano": {
+  "D01": 1.0,
+  "D02": 0.467,
+  "D03": 0.891,
+  "D04": 1.0,
+  "D05": 1.0,
+  "D06": 1.0,
+  "D07": 1.0,
+  "D08": 0.738,
+  "D09": 0.884,
+  "D10": 1.0,
+  "D11": 0.871,
+  "D12": 1.0,
+  "D13": 1.0
+ }
+}
