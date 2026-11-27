@@ -17,7 +17,7 @@ import heitor_v2 as H   # noqa: E402
 OUT = AQUI.parent / "folhas"; OUT.mkdir(exist_ok=True)
 FUNDO = 0xFFEDEBE6; TXT = 0xFF1F2A44
 F_T = skia.Font(H.NUNITO, 52); F_S = skia.Font(H.NUNITO, 30); F_P = skia.Font(H.NUNITO, 24)
-CAB = "HEITOR — rig v2.1 (OFICIAL: v2 aprovado em 25/11/2026; ombros arredondados aprovados em 27/11/2026)"
+CAB = "HEITOR — rig v2.2 (OFICIAL: v2 aprovado em 25/11/2026; ombros arredondados e braço mais baixo aprovados em 27/11/2026)"
 
 
 def titulo(c, sub):

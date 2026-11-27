@@ -189,7 +189,7 @@ def _camiseta(c, vista, vento, t, semente, so_barra=False):
         return
     f = 2.0 + 4.0 * I; fase = 2 * math.pi * f * t
     lados = {"frente": (-0.42, 0.42, 0.47), "costas": (-0.42, 0.42, 0.47), "tres_quartos": (-0.36, 0.35, 0.41), "perfil": (-0.21, 0.23, 0.27)}[vista]
-    xa, xb, xm = lados; topo = HV.OMBRO_Y - 0.1
+    xa, xb, xm = lados; topo = getattr(HV, "OMBRO_TRONCO_Y", HV.OMBRO_Y) - 0.1
     # barra abrindo: aba que sai da barra na direção do vento (só quando o ar corre do ombro para a barra)
     ao_longo = max(0.0, float(w[1]))
     abre = (0.06 + 0.10 * I) * ao_longo     # ≤ 0,16 H: termina dentro do cós do jeans

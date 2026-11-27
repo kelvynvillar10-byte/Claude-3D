@@ -1,6 +1,6 @@
 # Heitor — rig v2 (OFICIAL)
 
-**Status: aprovado pelo diretor em 25/11/2026 como o rig oficial do Heitor** (fases F1–F4; relatório final em [`RELATORIO_FINAL.md`](RELATORIO_FINAL.md)). Substitui o rig v1 do piloto 01 na produção. O piloto 01 continua como registro histórico, feito com o v1. As decisões ID-001 a ID-004 não mudaram. Os vídeos de teste em `testes/` foram renderizados durante a fase de proposta, por isso trazem o rótulo "PROPOSTA".
+**Status: aprovado pelo diretor em 25/11/2026 como o rig oficial do Heitor** · **v2.2 (27/11/2026, aprovada): o braço se encaixa 0,08 H abaixo da linha do ombro (`ombro_braco` 2,68 H em `modelo.json`; a camiseta continua em 2,76 H) e o topo do braço fica dentro da manga (`braco_topo`), para o ombro não subir; F1 6/6, 0 cotovelos invertidos** (fases F1–F4; relatório final em [`RELATORIO_FINAL.md`](RELATORIO_FINAL.md)). Substitui o rig v1 do piloto 01 na produção. O piloto 01 continua como registro histórico, feito com o v1. As decisões ID-001 a ID-004 não mudaram. Os vídeos de teste em `testes/` foram renderizados durante a fase de proposta, por isso trazem o rótulo "PROPOSTA".
 
 ## Como usar na produção
 - **Rig:** `codigo/heitor_v2.py`, função `desenhar(canvas, x_pe, y_pe, altura_px, vista, direcao, pose, rosto)`. Vistas: frente, tres_quartos, perfil, costas (direção −1 espelha; a estampa nunca espelha).

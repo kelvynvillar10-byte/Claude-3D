@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Heitor — rig 2D com esqueleto, v2 (OFICIAL, aprovado pelo diretor em 25/11/2026).
+"""Heitor — rig 2D com esqueleto, v2 (OFICIAL, aprovado pelo diretor em 25/11/2026; v2.1 ombros redondos; v2.2 braço mais baixo, 27/11/2026).
 
 Fonte da verdade: ../modelo.json (paleta e proporções da especificação oficial).
 - Esqueleto hierárquico com FK: raiz(pelve) → tronco → cabeça; tronco → braço → antebraço → mão → 5 dedos;
@@ -81,7 +81,8 @@ def preenche(c, forma, cor, cor_s, lado, frac=0.3, linha=True):
 # ------------------------------------------------------------------ esqueleto (FK)
 # Posição de cada osso no sistema do pai, por vista (x em H; y para baixo). Ângulo de repouso em graus.
 _ALT_PELVE = PROP["barra_camisa"]
-OMBRO_Y = -(PROP["ombro"] - _ALT_PELVE)
+OMBRO_TRONCO_Y = -(PROP["ombro"] - _ALT_PELVE)                       # linha do ombro da camiseta (desenho do tronco)
+OMBRO_Y = -(PROP.get("ombro_braco", PROP["ombro"]) - _ALT_PELVE)     # v2.2: encaixe do braço um pouco abaixo da linha do ombro
 PESCOCO_Y = -(2.92 - _ALT_PELVE)
 LAYOUT = {
     "frente":       {"braco_d": (-0.47, 8), "braco_e": (0.47, -8), "coxa_d": (-0.19, 0), "coxa_e": (0.19, 0)},
@@ -508,7 +509,7 @@ def _estampa(c, cx, y_base, larg, curva=0.6, perspectiva=0.0, espelhado=False):
 
 def _forma_tronco(vista):
     """v2.1 (27/11/2026, aprovado pelo diretor): do pescoço ao ombro a linha DESCE em curva (trapézio), sem patamar reto; a quina do ombro é redonda."""
-    p = skia.Path(); top, hem = OMBRO_Y - 0.1, 0.0
+    p = skia.Path(); top, hem = OMBRO_TRONCO_Y - 0.1, 0.0
     if vista in ("frente", "costas"):
         p.moveTo(-0.13, top - 0.025); p.lineTo(0.13, top - 0.025)
         p.cubicTo(0.22, top - 0.02, 0.31, top + 0.035, 0.40, top + 0.075)          # trapézio descendo
@@ -553,15 +554,15 @@ def desenhar_tronco(c, vista, lado_luz, espelhado):
     c.drawPath(tr, contorno())
     # gola
     if vista == "frente":
-        dec = skia.Path(); dec.moveTo(-0.17, OMBRO_Y - 0.1); dec.quadTo(0, OMBRO_Y + 0.1, 0.17, OMBRO_Y - 0.1); dec.close()
+        dec = skia.Path(); dec.moveTo(-0.17, OMBRO_TRONCO_Y - 0.1); dec.quadTo(0, OMBRO_TRONCO_Y + 0.1, 0.17, OMBRO_TRONCO_Y - 0.1); dec.close()
         c.drawPath(dec, tinta(C["pele_s"])); c.drawPath(dec, traco(C["gola"], 0.045))
     elif vista == "tres_quartos":
-        dec = skia.Path(); dec.moveTo(-0.08, OMBRO_Y - 0.1); dec.quadTo(0.06, OMBRO_Y + 0.08, 0.2, OMBRO_Y - 0.1); dec.close()
+        dec = skia.Path(); dec.moveTo(-0.08, OMBRO_TRONCO_Y - 0.1); dec.quadTo(0.06, OMBRO_TRONCO_Y + 0.08, 0.2, OMBRO_TRONCO_Y - 0.1); dec.close()
         c.drawPath(dec, tinta(C["pele_s"])); c.drawPath(dec, traco(C["gola"], 0.045))
     elif vista == "perfil":
-        c.drawLine(-0.02, OMBRO_Y - 0.1, 0.16, OMBRO_Y - 0.06, traco(C["gola"], 0.045))
+        c.drawLine(-0.02, OMBRO_TRONCO_Y - 0.1, 0.16, OMBRO_TRONCO_Y - 0.06, traco(C["gola"], 0.045))
     else:
-        c.drawLine(-0.17, OMBRO_Y - 0.1, 0.17, OMBRO_Y - 0.1, traco(C["gola"], 0.045))
+        c.drawLine(-0.17, OMBRO_TRONCO_Y - 0.1, 0.17, OMBRO_TRONCO_Y - 0.1, traco(C["gola"], 0.045))
 
 
 def desenhar_quadril(c, vista, lado_luz):
@@ -579,7 +580,9 @@ def desenhar_quadril(c, vista, lado_luz):
 
 
 def forma_braco():
-    return capsula(OSS["braco"], 0.19, 0.165)
+    """v2.2: o topo arredondado do braço começa um pouco abaixo da junta (fica escondido dentro da manga)."""
+    q = OSS.get("braco_topo", 0.0)
+    p = capsula(OSS["braco"] - q, 0.19, 0.165); p.offset(0, q); return p
 
 
 def forma_antebraco():

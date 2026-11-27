@@ -4,7 +4,13 @@
 
 O skill que o Claude usa vem da sua conta claude.ai (skills sincronizados). A edição feita na cópia local da sessão pode ser substituída na próxima sincronização. Para a mudança valer em todas as sessões, envie este `SKILL.md` como nova versão do skill `modo-curioso-padrao` nas configurações de skills da sua conta.
 
-**Versão na conta claude.ai: v5** (enviada pelo diretor em 27/11/2026). É igual a este `SKILL.md` e a `modo-curioso-padrao.zip`, incluindo a animação dinâmica aprovada como padrão do EP02.
+**Versão na conta claude.ai: v5** (enviada pelo diretor em 27/11/2026). **v6 pronta para envio** (`modo-curioso-padrao.zip`, igual a este `SKILL.md`).
+
+Atualização de 27/11/2026 (v6, depois do EP02):
+- Heitor rig **v2.2**: braço encaixado um pouco abaixo da linha do ombro (pedido do diretor; corpo igual ao v2.1).
+- Elenco: **Juca e Jandira** (rig adulto v1.1, mesmo ajuste do braço).
+- Marcas: a narração pode citar um produto como fã (decisão do diretor no EP02); na imagem, nunca marca de terceiros.
+- Voz: EP02 com a voz do próprio diretor e preset próprio na pós.
 
 Atualização de 27/11/2026:
 - **Padrão aprovado:** a cena de prova `producoes/teste_animacao_dinamica/` é o padrão de animação a partir do EP02. As imagens acompanham a narração, a troca rápida de cena e a volta são permitidas, e todo plano tem aproximação de câmera, expressões e movimentos.

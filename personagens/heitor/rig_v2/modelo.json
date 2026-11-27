@@ -1,6 +1,6 @@
 {
  "nome": "Heitor",
- "versao": "rig v2 — OFICIAL (aprovado pelo diretor em 25/11/2026; substitui o rig v1 do piloto 01 na produção)",
+ "versao": "rig v2.2 — OFICIAL (v2 aprovado em 25/11/2026; v2.1 ombros arredondados, 27/11/2026; v2.2 encaixe do braço 0,08 H abaixo da linha do ombro, aprovado pelo diretor em 27/11/2026)",
  "fonte_da_verdade": "docs/IDENTIDADE_OFICIAL.md + skills/modo-curioso-padrao/SKILL.md (Heitor: 10–12 anos, ~4 cabeças, cabeça redonda, SEM bochecha rosada, cabelo liso castanho-escuro com franja lateral, olhos castanhos, camiseta azul com 'Modo Curioso', jeans com barra dobrada, tênis branco com faixa azul)",
  "unidade": "H = altura da cabeça; altura total = 4 H; y medido do chão para cima",
  "paleta": {
@@ -42,7 +42,8 @@
   "quadril_junta": 1.7,
   "joelho": 0.96,
   "tornozelo": 0.22,
-  "chao": 0.0
+  "chao": 0.0,
+  "ombro_braco": 2.68
  },
  "ossos_H": {
   "braco": 0.56,
@@ -76,7 +77,8 @@
   },
   "coxa": 0.74,
   "canela": 0.74,
-  "pe": 0.3
+  "pe": 0.3,
+  "braco_topo": 0.05
  },
  "limites_graus": {
   "ombro": [

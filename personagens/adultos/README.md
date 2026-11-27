@@ -1,4 +1,4 @@
-# Juca e Jandira — rig adulto (v1 aprovado em 27/11/2026; v1.1 PROPOSTA: braço mais baixo)
+# Juca e Jandira — rig adulto (v1 aprovado em 27/11/2026; v1.1 APROVADO em 27/11/2026: braço mais baixo)
 
 Personagens do EP02 ("E se a sua namorada te desse um videogame…"). Nomes definidos pelo diretor em 27/11/2026; aparência proposta pelo Claude.
 
@@ -12,7 +12,7 @@ Personagens do EP02 ("E se a sua namorada te desse um videogame…"). Nomes defi
 
 Limitações: o cabelo da Jandira não balança ainda (fica para a animação); as vistas espelhadas trocam o lado da risca do cabelo (mesma limitação do Heitor); o controle de perfil é um desenho frontal comprimido (trapaça 2D).
 
-## v1.1 — PROPOSTA (27/11/2026, pedido do diretor depois do EP02): só o braço mais baixo
+## v1.1 — APROVADA pelo diretor em 27/11/2026 (pedido depois do EP02): só o braço mais baixo
 1ª tentativa (ombro do corpo mais baixo, pescoço mais longo) **recusada pelo diretor: "o antes está melhor, seria somente
 abaixar um pouco mais o braço para o ombro não ficar muito em cima"**. Versão atual da proposta:
 - corpo, pescoço e tronco **iguais à v1 aprovada**;
