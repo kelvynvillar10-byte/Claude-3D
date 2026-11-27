@@ -4,7 +4,7 @@
 
 O skill que o Claude usa vem da sua conta claude.ai (skills sincronizados). A edição feita na cópia local da sessão pode ser substituída na próxima sincronização. Para a mudança valer em todas as sessões, envie este `SKILL.md` como nova versão do skill `modo-curioso-padrao` nas configurações de skills da sua conta.
 
-**Versão na conta claude.ai: v5** (enviada pelo diretor em 27/11/2026). **v6 pronta para envio** (`modo-curioso-padrao.zip`, igual a este `SKILL.md`).
+**Versão na conta claude.ai: v6** (enviada pelo diretor em 27/11/2026, depois do EP02). É igual a este `SKILL.md` e a `modo-curioso-padrao.zip`.
 
 Atualização de 27/11/2026 (v6, depois do EP02):
 - Heitor rig **v2.2**: braço encaixado um pouco abaixo da linha do ombro (pedido do diretor; corpo igual ao v2.1).
